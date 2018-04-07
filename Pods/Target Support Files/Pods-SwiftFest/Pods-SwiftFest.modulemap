@@ -1,0 +1,6 @@
+framework module Pods_SwiftFest {
+  umbrella header "Pods-SwiftFest-umbrella.h"
+
+  export *
+  module * { export * }
+}
