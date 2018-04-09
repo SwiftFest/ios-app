@@ -611,7 +611,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftFestTests/Info.plist;
@@ -628,7 +627,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8C6F2441DCD3A2E536AACA6 /* Pods-SwiftFestTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftFestTests/Info.plist;
@@ -645,7 +643,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 052B74156E1C703FE28462F5 /* Pods-SwiftFestUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftFestUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -661,7 +658,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD1728BDBF3878D9BDE1CF0A /* Pods-SwiftFestUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftFestUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
