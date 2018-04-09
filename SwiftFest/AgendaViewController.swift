@@ -12,7 +12,7 @@ struct Session {
 }
 
 class AgendaViewController: UIViewController {
-    
+
     let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(with: [
             Session(titled: "Session Name 1",
                     presentedBy: "Speaker 1",
@@ -32,7 +32,7 @@ class AgendaViewController: UIViewController {
         ])
 
     @IBOutlet weak var agendaTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         agendaTableView.dataSource = agendaTableViewManager
@@ -45,23 +45,23 @@ extension AgendaViewController {
     class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
 
         let sessions: [Session]
-        
+
         private var sessionsBySection: [[Session]] {
             var sessionsBySection = [[Session]](repeating: [],
                                                 count: timeBlocks.count)
-            
+
             let sortedSessions = sessions.sorted {
                 $0.time.hour! < $1.time.hour!
             }
-            
+
             for session in sortedSessions {
                 let section = timeBlocks.index { $0 == session.time.hour }!
                 sessionsBySection[section].append(session)
             }
-            
+
             return sessionsBySection
         }
-        
+
         private var timeBlocks: [Int] {
             var timeBlocks = Set<Int>()
             for session in sessions {
@@ -69,35 +69,34 @@ extension AgendaViewController {
             }
             return timeBlocks.sorted()
         }
-        
+
         init(with sessions: [Session] = []) {
             self.sessions = sessions
         }
-        
+
         func numberOfSections(in tableView: UITableView) -> Int {
             return timeBlocks.count
         }
-        
+
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             let hour = timeBlocks[section] > 12 ? timeBlocks[section] - 12 : timeBlocks[section]
             let period = timeBlocks[section] >= 12 ? "PM" : "AM"
             return "\(hour):00 \(period)"
         }
-        
+
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return sessionsBySection[section].count
         }
-        
+
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
+
             let session = sessionsBySection[indexPath.section][indexPath.row]
-            
+
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SessionCell")
             cell.textLabel?.text = session.title
             cell.detailTextLabel?.text = session.presenter
-            
+
             return cell
         }
     }
 }
-
