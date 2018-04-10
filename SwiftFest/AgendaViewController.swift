@@ -35,6 +35,7 @@ class AgendaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = L10n.Screen.Agenda.title
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
     }

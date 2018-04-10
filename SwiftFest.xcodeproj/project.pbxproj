@@ -17,6 +17,10 @@
 		9D9B0E14207950B500FA7340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B0E12207950B500FA7340 /* LaunchScreen.storyboard */; };
 		9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B0E1E207950B500FA7340 /* AgendaTableViewManagerSpec.swift */; };
 		9D9B0E2A207950B600FA7340 /* JourneySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B0E29207950B600FA7340 /* JourneySpec.swift */; };
+		CDA35888207D094900F8B68C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDA35887207D094900F8B68C /* Localizable.strings */; };
+		CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3588B207D0B2400F8B68C /* Localized.swift */; };
+		CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3588C207D0B2400F8B68C /* Asset.swift */; };
+		CDA35890207D0CEF00F8B68C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3588F207D0CEF00F8B68C /* Color.swift */; };
 		E66B20D2F58E37F4BCDB49B1 /* Pods_SwiftFestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD58B43E3EB5ED4A13052AC2 /* Pods_SwiftFestTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,10 @@
 		AB038556180AAAD5FB577D1E /* Pods-SwiftFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.debug.xcconfig"; sourceTree = "<group>"; };
 		AD1728BDBF3878D9BDE1CF0A /* Pods-SwiftFestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C0EC3B5382CAE039CBC11039 /* Pods_SwiftFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDA35887207D094900F8B68C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CDA3588B207D0B2400F8B68C /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		CDA3588C207D0B2400F8B68C /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		CDA3588F207D0CEF00F8B68C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		DD58B43E3EB5ED4A13052AC2 /* Pods_SwiftFestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C6F2441DCD3A2E536AACA6 /* Pods-SwiftFestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,12 +178,24 @@
 		CDA35886207D08BC00F8B68C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDA3588A207D0A0D00F8B68C /* Generated */,
 				9D9B0E10207950B500FA7340 /* Assets.xcassets */,
 				9D9B0E15207950B500FA7340 /* Info.plist */,
 				9D9B0E12207950B500FA7340 /* LaunchScreen.storyboard */,
 				9D9B0E0D207950B500FA7340 /* Main.storyboard */,
+				CDA35887207D094900F8B68C /* Localizable.strings */,
+				CDA3588F207D0CEF00F8B68C /* Color.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CDA3588A207D0A0D00F8B68C /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				CDA3588C207D0B2400F8B68C /* Asset.swift */,
+				CDA3588B207D0B2400F8B68C /* Localized.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +206,7 @@
 			buildConfigurationList = 9D9B0E2E207950B600FA7340 /* Build configuration list for PBXNativeTarget "SwiftFest" */;
 			buildPhases = (
 				B1443108E55E59D8E8AE3ABD /* [CP] Check Pods Manifest.lock */,
+				CDA35889207D09E500F8B68C /* SwiftGen */,
 				CD1C37AD207AF91B0084FAA9 /* SwiftLint */,
 				9D9B0E02207950B500FA7340 /* Sources */,
 				9D9B0E03207950B500FA7340 /* Frameworks */,
@@ -292,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9B0E14207950B500FA7340 /* LaunchScreen.storyboard in Resources */,
+				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
 				9D9B0E11207950B500FA7340 /* Assets.xcassets in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
 			);
@@ -402,6 +424,20 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
+		CDA35889207D09E500F8B68C /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen xcassets --template swift4 --output SwiftFest/Resources/Generated/Asset.swift SwiftFest/Resources/Assets.xcassets\n$PODS_ROOT/SwiftGen/bin/swiftgen strings --template structured-swift4 --output SwiftFest/Resources/Generated/Localized.swift SwiftFest/Resources/Localizable.strings\n";
+		};
 		DF7F1C7785DF08563E813AF3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,6 +466,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
+				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
+				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
+				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
