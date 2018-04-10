@@ -14,3 +14,13 @@ opt_in_rules:
 
 excluded:
   - Pods
+
+custom_rules:
+  straight_quotes:
+    included: "Localized.swift"
+    name: "Straight Quotes"
+    regex: "'|\""
+    match_kinds:
+      - docComment
+    message: "Quotes and apostrophes in localized strings should be curly: “” ‘’"
+    severity: warning
