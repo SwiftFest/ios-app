@@ -143,10 +143,7 @@
 			children = (
 				9D9B0E09207950B500FA7340 /* AppDelegate.swift */,
 				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
-				9D9B0E0D207950B500FA7340 /* Main.storyboard */,
-				9D9B0E10207950B500FA7340 /* Assets.xcassets */,
-				9D9B0E12207950B500FA7340 /* LaunchScreen.storyboard */,
-				9D9B0E15207950B500FA7340 /* Info.plist */,
+				CDA35886207D08BC00F8B68C /* Resources */,
 			);
 			path = SwiftFest;
 			sourceTree = "<group>";
@@ -168,6 +165,17 @@
 				9D9B0E2B207950B600FA7340 /* Info.plist */,
 			);
 			path = SwiftFestUITests;
+			sourceTree = "<group>";
+		};
+		CDA35886207D08BC00F8B68C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D9B0E10207950B500FA7340 /* Assets.xcassets */,
+				9D9B0E15207950B500FA7340 /* Info.plist */,
+				9D9B0E12207950B500FA7340 /* LaunchScreen.storyboard */,
+				9D9B0E0D207950B500FA7340 /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,7 +601,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H2983HKDVJ;
-				INFOPLIST_FILE = SwiftFest/Info.plist;
+				INFOPLIST_FILE = SwiftFest/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chefsky.SwiftFest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,7 +620,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H2983HKDVJ;
-				INFOPLIST_FILE = SwiftFest/Info.plist;
+				INFOPLIST_FILE = SwiftFest/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chefsky.SwiftFest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
