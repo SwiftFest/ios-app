@@ -13,6 +13,8 @@ struct Session {
 
 class AgendaViewController: UIViewController {
 
+    @IBOutlet weak var codeOfConductButton: UIBarButtonItem!
+    
     let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(with: [
             Session(titled: "Session Name 1",
                     presentedBy: "Speaker 1",
@@ -38,7 +40,13 @@ class AgendaViewController: UIViewController {
         title = L10n.Screen.Agenda.title
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
+        uiSetup()
     }
+    
+    func uiSetup() {
+        codeOfConductButton.accessibilityIdentifier = "codeOfConductButton"
+    }
+    
 }
 
 extension AgendaViewController {
