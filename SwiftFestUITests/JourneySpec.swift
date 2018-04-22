@@ -33,6 +33,14 @@ class JourneySpec: QuickSpec {
                 expect(app.staticTexts["1:00 PM"].exists).to(beTrue())
 
             }
+            
+            they("a user can tap a bar button item to view the code of conduct") {
+                
+                app.buttons["codeOfConductButton"].tap()
+                sleep(3)
+                expect(app.links["Conduct"].exists).to(beTrue())
+                
+            }
         }
     }
 }
