@@ -1,6 +1,14 @@
 import Foundation
 
-struct Speaker : Codable {
+struct SpeakerResults : Codable {
+    let speakers : [Speaker]
+    
+    enum CodingKeys : String, CodingKey {
+        case speakers = "results"
+    }
+}
+
+struct Speaker: Codable {
     
     let id : Int
     let firstName : String
@@ -8,16 +16,16 @@ struct Speaker : Codable {
     let title : String?
     let company : String?
     let bio : String?
-    let featuredSpeaker : Bool
-    let thumbnailUrl : String
+    let featuredSpeaker : Bool?
+    let thumbnailUrl : String?
     let social : [Social]?
     
     enum CodingKeys : String, CodingKey {
         case id
         case firstName = "name"
         case lastName = "surname"
-        case title
         case company
+        case title
         case bio
         case featuredSpeaker = "rockstar"
         case thumbnailUrl
@@ -25,18 +33,23 @@ struct Speaker : Codable {
     }
 }
 
-struct Social : Codable {
+struct Social: Codable {
     
-    enum SocialType : String {
+    let name: String
+    let link: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case link
+    }
+    
+    enum SocialType: String {
         case twitter = "twitter"
         case website = "site"
         case github = "github"
         case linkedin = "linkedin"
         case facebook = "facebook"
     }
-    
-    let name : String
-    let link : URL
     
     var socialType : SocialType? {
         switch name {
