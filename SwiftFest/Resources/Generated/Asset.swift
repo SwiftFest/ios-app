@@ -50,6 +50,39 @@ internal enum Asset {
     internal static let lightGray = ColorAsset(name: "LightGray")
     internal static let lightOrange = ColorAsset(name: "LightOrange")
   }
+  internal enum Speakers {
+    internal static let agnesVasarhelyi = ImageAsset(name: "AgnesVasarhelyi")
+    internal static let alexBush = ImageAsset(name: "AlexBush")
+    internal static let andresPineda = ImageAsset(name: "AndresPineda")
+    internal static let andyyHope = ImageAsset(name: "AndyyHope")
+    internal static let ayalSpitz = ImageAsset(name: "AyalSpitz")
+    internal static let basBroek = ImageAsset(name: "BasBroek")
+    internal static let craigClayton = ImageAsset(name: "CraigClayton")
+    internal static let davidOhayon = ImageAsset(name: "DavidOhayon")
+    internal static let ericaSadun = ImageAsset(name: "EricaSadun")
+    internal static let garricNahapetian = ImageAsset(name: "GarricNahapetian")
+    internal static let giorgioNatili = ImageAsset(name: "GiorgioNatili")
+    internal static let harlanHaskins = ImageAsset(name: "HarlanHaskins")
+    internal static let hungTruong = ImageAsset(name: "HungTruong")
+    internal static let ishShabazz = ImageAsset(name: "IshShabazz")
+    internal static let jeffKelley = ImageAsset(name: "JeffKelley")
+    internal static let jeffOLeary = ImageAsset(name: "JeffOLeary")
+    internal static let jonTaitBeason = ImageAsset(name: "Jon-TaitBeason")
+    internal static let louFranco = ImageAsset(name: "LouFranco")
+    internal static let lucyMonahan = ImageAsset(name: "LucyMonahan")
+    internal static let marcyRegalado = ImageAsset(name: "MarcyRegalado")
+    internal static let mattDias = ImageAsset(name: "MattDias")
+    internal static let michaelHelmbrecht = ImageAsset(name: "MichaelHelmbrecht")
+    internal static let neemSerra = ImageAsset(name: "NeemSerra")
+    internal static let patButkiewicz = ImageAsset(name: "PatButkiewicz")
+    internal static let robNapier = ImageAsset(name: "RobNapier")
+    internal static let sarpErdag = ImageAsset(name: "SarpErdag")
+    internal static let seanOlszewski = ImageAsset(name: "SeanOlszewski")
+    internal static let susanBennett = ImageAsset(name: "SusanBennett")
+    internal static let toddBurner = ImageAsset(name: "ToddBurner")
+    internal static let zevEisenberg = ImageAsset(name: "ZevEisenberg")
+    internal static let jamesheadshot = ImageAsset(name: "jamesheadshot")
+  }
   internal enum Sponsors {
     internal static let linkedInLearning = ImageAsset(name: "Sponsors/LinkedInLearning")
     internal static let rueLaLa = ImageAsset(name: "Sponsors/RueLaLa")
@@ -65,6 +98,37 @@ internal enum Asset {
     Colors.lightOrange,
   ]
   internal static let allImages: [ImageAsset] = [
+    Speakers.agnesVasarhelyi,
+    Speakers.alexBush,
+    Speakers.andresPineda,
+    Speakers.andyyHope,
+    Speakers.ayalSpitz,
+    Speakers.basBroek,
+    Speakers.craigClayton,
+    Speakers.davidOhayon,
+    Speakers.ericaSadun,
+    Speakers.garricNahapetian,
+    Speakers.giorgioNatili,
+    Speakers.harlanHaskins,
+    Speakers.hungTruong,
+    Speakers.ishShabazz,
+    Speakers.jeffKelley,
+    Speakers.jeffOLeary,
+    Speakers.jonTaitBeason,
+    Speakers.louFranco,
+    Speakers.lucyMonahan,
+    Speakers.marcyRegalado,
+    Speakers.mattDias,
+    Speakers.michaelHelmbrecht,
+    Speakers.neemSerra,
+    Speakers.patButkiewicz,
+    Speakers.robNapier,
+    Speakers.sarpErdag,
+    Speakers.seanOlszewski,
+    Speakers.susanBennett,
+    Speakers.toddBurner,
+    Speakers.zevEisenberg,
+    Speakers.jamesheadshot,
     Sponsors.linkedInLearning,
     Sponsors.rueLaLa,
     Sponsors.square,
