@@ -38,3 +38,18 @@ class SpeakerListViewController: UIViewController {
     }
 
 }
+
+extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return speakers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+    
+    
+    
+    
+}
