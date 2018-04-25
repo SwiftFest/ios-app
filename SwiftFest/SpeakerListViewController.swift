@@ -15,6 +15,8 @@ class SpeakerListViewController: UIViewController {
         loadSpeakersFromStaticJSON()
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
+        
+        print("hi")
         // Do any additional setup after loading the view.
     }
     
@@ -51,6 +53,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
         cell.speaker = speakers[indexPath.row]
+        //print("count: \(cell.speaker?.presentations.count) presentation: \(cell.speaker?.presentations)")
         cell.updateUI()
         return cell
     }

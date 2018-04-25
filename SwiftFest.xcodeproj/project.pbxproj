@@ -11,6 +11,9 @@
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
 		9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* SpeakerData.json */; };
 		9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */; };
+		9321F725209123A600FA4B8C /* PresentationData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* PresentationData.json */; };
+		9321F727209123EB00FA4B8C /* PresentationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* PresentationData.swift */; };
+		9321F728209123EB00FA4B8C /* PresentationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* PresentationData.swift */; };
 		93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */; };
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
@@ -52,6 +55,8 @@
 		88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.release.xcconfig"; sourceTree = "<group>"; };
 		9321F71F208FA3E100FA4B8C /* SpeakerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpeakerData.json; sourceTree = "<group>"; };
 		9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListTableViewCell.swift; sourceTree = "<group>"; };
+		9321F724209123A600FA4B8C /* PresentationData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PresentationData.json; sourceTree = "<group>"; };
+		9321F726209123EB00FA4B8C /* PresentationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationData.swift; sourceTree = "<group>"; };
 		93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListViewController.swift; sourceTree = "<group>"; };
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				9321F71F208FA3E100FA4B8C /* SpeakerData.json */,
+				9321F724209123A600FA4B8C /* PresentationData.json */,
 			);
 			path = StaticData;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
 				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
 				93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */,
+				9321F726209123EB00FA4B8C /* PresentationData.swift */,
 				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 			);
@@ -336,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9B0E14207950B500FA7340 /* LaunchScreen.storyboard in Resources */,
+				9321F725209123A600FA4B8C /* PresentationData.json in Resources */,
 				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
 				9D9B0E11207950B500FA7340 /* Assets.xcassets in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
@@ -492,6 +500,7 @@
 				93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */,
 				93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */,
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
+				9321F727209123EB00FA4B8C /* PresentationData.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */,
@@ -506,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
+				9321F728209123EB00FA4B8C /* PresentationData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

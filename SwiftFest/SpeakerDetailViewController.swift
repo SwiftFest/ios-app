@@ -10,6 +10,8 @@ import UIKit
 
 class SpeakerDetailViewController: UIViewController {
 
+    @IBOutlet weak var speakerImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,6 @@ class SpeakerDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

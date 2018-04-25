@@ -1,26 +1,27 @@
 import Foundation
 
 struct SpeakerResults : Codable {
-    let speakers : [Speaker]
+    let speakers: [Speaker]
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case speakers = "results"
     }
 }
 
 struct Speaker: Codable {
     
-    let id : Int
-    let firstName : String
-    let lastName : String
-    let title : String?
-    let company : String?
-    let bio : String?
-    let featuredSpeaker : Bool?
-    let thumbnailUrl : String?
-    let social : [Social]?
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let title: String?
+    let company: String?
+    let bio: String?
+    let featuredSpeaker: Bool?
+    let thumbnailUrl: String?
+    let social: [Social]?
+    let isEmcee: Bool?
     
-    enum CodingKeys : String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
         case firstName = "name"
         case lastName = "surname"
@@ -30,6 +31,17 @@ struct Speaker: Codable {
         case featuredSpeaker = "rockstar"
         case thumbnailUrl
         case social
+        case isEmcee = "mc"
+    }
+    
+    var presentations: [Presentation] {
+        if isEmcee != nil {
+            return []
+        }
+        let swiftFestPresentations = SwiftFestPresentations()
+        swiftFestPresentations.loadPresentationsFromStaticJSON()
+        let presentations = swiftFestPresentations.presentationsForSpeakerId(id)
+        return presentations
     }
 }
 
@@ -51,21 +63,20 @@ struct Social: Codable {
         case facebook = "facebook"
     }
     
-    var socialType : SocialType? {
+    var socialType: SocialType? {
         switch name {
-            case "twitter":
-                return .twitter
-            case "site":
-                return .website
-            case "github":
-                return .github
-            case "linkedin":
-                return .linkedin
-            case "facebook":
-                return .facebook
-            default:
-                return nil
+        case "twitter":
+            return .twitter
+        case "site":
+            return .website
+        case "github":
+            return .github
+        case "linkedin":
+            return .linkedin
+        case "facebook":
+            return .facebook
+        default:
+            return nil
         }
     }
 }
-

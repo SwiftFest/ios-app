@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,9 +86,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-aE-SLG">
-                                                    <rect key="frame" x="15" y="243" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-aE-SLG">
+                                                    <rect key="frame" x="15" y="343" width="345" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -97,9 +97,12 @@
                                                 <constraint firstItem="10c-hN-u4J" firstAttribute="leading" secondItem="Hlj-Wt-hhc" secondAttribute="leading" id="2E8-13-C34"/>
                                                 <constraint firstItem="ubG-03-AI9" firstAttribute="leading" secondItem="3Tq-k2-m4Y" secondAttribute="leading" id="CI5-tl-B6Q"/>
                                                 <constraint firstItem="ubG-03-AI9" firstAttribute="top" secondItem="3Tq-k2-m4Y" secondAttribute="top" id="GGU-0P-ycb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vcs-aE-SLG" secondAttribute="bottom" constant="25" id="HUF-BD-kpq"/>
                                                 <constraint firstAttribute="trailing" secondItem="ubG-03-AI9" secondAttribute="trailing" id="f1F-V2-tYD"/>
                                                 <constraint firstItem="10c-hN-u4J" firstAttribute="top" secondItem="Hlj-Wt-hhc" secondAttribute="bottom" constant="4" id="hq6-8S-sAQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vcs-aE-SLG" secondAttribute="trailing" id="iky-ym-fzc"/>
                                                 <constraint firstAttribute="bottom" secondItem="ubG-03-AI9" secondAttribute="bottom" constant="100" id="lCw-4T-Uxr"/>
+                                                <constraint firstItem="vcs-aE-SLG" firstAttribute="leading" secondItem="3Tq-k2-m4Y" secondAttribute="leadingMargin" id="sYJ-gH-2O9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -137,9 +140,22 @@
                     <view key="view" contentMode="scaleToFill" id="uG2-3c-UeR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-mo-Ig3">
+                                <rect key="frame" x="0.0" y="40" width="375" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kDE-n3-Jqd" firstAttribute="trailing" secondItem="uoq-mo-Ig3" secondAttribute="trailing" id="9bx-Er-ir1"/>
+                            <constraint firstItem="uoq-mo-Ig3" firstAttribute="top" secondItem="kDE-n3-Jqd" secondAttribute="top" id="ct1-dk-N4C"/>
+                            <constraint firstItem="uoq-mo-Ig3" firstAttribute="leading" secondItem="kDE-n3-Jqd" secondAttribute="leading" id="hGV-s3-d39"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kDE-n3-Jqd"/>
                     </view>
+                    <connections>
+                        <outlet property="speakerImageView" destination="uoq-mo-Ig3" id="POl-o4-Txh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-c5-hT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
