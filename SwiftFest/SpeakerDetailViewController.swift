@@ -10,11 +10,15 @@ import UIKit
 
 class SpeakerDetailViewController: UIViewController {
 
-    @IBOutlet weak var speakerImageView: UIImageView!
+    @IBOutlet weak var presentationTitleLabel: UILabel!
+    
+    var speaker : Speaker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let speaker = speaker {
+            presentationTitleLabel.text = speaker.presentationsForSpeakerId(speaker.id)[0].title
+        }
         // Do any additional setup after loading the view.
     }
 

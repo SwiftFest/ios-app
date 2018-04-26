@@ -1,6 +1,6 @@
 import UIKit
 
-class SpeakerListViewController: UIViewController {
+class SpeakerListViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var speakerListTableView: UITableView!
     
@@ -15,9 +15,6 @@ class SpeakerListViewController: UIViewController {
         loadSpeakersFromStaticJSON()
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
-        
-        print("hi")
-        // Do any additional setup after loading the view.
     }
     
     func loadSpeakersFromStaticJSON() {
@@ -38,7 +35,18 @@ class SpeakerListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("there will be segues")
+
+        if let cell = sender as? SpeakerListTableViewCell, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
+            guard let speaker = cell.speaker else { return }
+            speakerDetailViewController.speaker = speaker
+            speakerDetailViewController.transitioningDelegate = self
+            
+//            activityViewController.unsplashImage = cell.unsplashImage
+//            if let image = cell.activityImageView.image {
+//                let colors = AverageColorFromImage(image)
+//                activityViewController.gradientColor = colors
+//            }
+        }
     }
 
 }

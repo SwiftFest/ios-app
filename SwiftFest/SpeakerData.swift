@@ -34,15 +34,16 @@ struct Speaker: Codable {
         case isEmcee = "mc"
     }
     
-    var presentations: [Presentation] {
+    func presentationsForSpeakerId(_ id: Int) -> [Session] {
         if isEmcee != nil {
             return []
         }
-        let swiftFestPresentations = SwiftFestPresentations()
-        swiftFestPresentations.loadPresentationsFromStaticJSON()
-        let presentations = swiftFestPresentations.presentationsForSpeakerId(id)
+        let swiftFestSessions = SwiftFestSessions()
+        swiftFestSessions.loadSessionsFromStaticJSON()
+        let presentations = swiftFestSessions.sessionsForSpeakerId(id)
         return presentations
     }
+    
 }
 
 struct Social: Codable {
