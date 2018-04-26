@@ -10,15 +10,33 @@ import UIKit
 
 class SpeakerDetailViewController: UIViewController {
 
-    @IBOutlet weak var presentationTitleLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var sessionTitleLabel: UILabel!
+    @IBOutlet weak var sessionDescriptionLabel: UILabel!
+    @IBOutlet weak var sessionLanguageLabel: UILabel!
+    @IBOutlet weak var complexityTitleLabel: UILabel!
+    @IBOutlet weak var sessionComplexityLabel: UILabel!
+    @IBOutlet weak var complexityContainerView: UIView!
     
-    var speaker : Speaker?
+    var speakerSession: SpeakerSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let speaker = speaker {
-            presentationTitleLabel.text = speaker.presentationsForSpeakerId(speaker.id)[0].title
+        if let speakerSession = speakerSession, let sessions = speakerSession.sessions {
+            guard sessions.count == 1 else { return }
+            sessionTitleLabel.text = sessions[0].title
+            sessionDescriptionLabel.text = sessions[0].description
+            sessionLanguageLabel.text = sessions[0].language
+            if sessions[0].complexity != nil {
+                sessionComplexityLabel.text = sessions[0].complexity
+            } else {
+                sessionComplexityLabel.isHidden = true
+                complexityTitleLabel.isHidden = true
+                complexityContainerView.isHidden = true
+            }
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -26,15 +44,4 @@ class SpeakerDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

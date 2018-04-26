@@ -10,7 +10,7 @@ import UIKit
 
 class SpeakerListTableViewCell: UITableViewCell {
 
-    var speaker: Speaker?
+    var speakerSession: SpeakerSession?
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -20,17 +20,17 @@ class SpeakerListTableViewCell: UITableViewCell {
     @IBOutlet weak var presentationTitleLabel: UILabel!
     
     func updateUI() {
-        guard let speaker = speaker else { return }
-        speakerFirstNameLabel.text = speaker.firstName
-        speakerLastNameLabel.text = speaker.lastName
-        if let isEmcee = speaker.isEmcee {
+        guard let speakerSession = speakerSession else { return }
+        speakerFirstNameLabel.text = speakerSession.speaker.firstName
+        speakerLastNameLabel.text = speakerSession.speaker.lastName
+        if let _ = speakerSession.speaker.isEmcee {
             presentationTitleLabel.text = "Emcee"
-        } else if speaker.presentationsForSpeakerId(speaker.id).count >= 1 {
-            presentationTitleLabel.text = speaker.presentationsForSpeakerId(speaker.id)[0].title
+        } else if let sessions = speakerSession.sessions {
+            presentationTitleLabel.text = sessions[0].title
         } else {
             presentationTitleLabel.text = ""
         }
-        if let imageName = speaker.thumbnailUrl {
+        if let imageName = speakerSession.speaker.thumbnailUrl {
             speakerImageView.image = UIImage(named: imageName)
         }
         let scrollViewFrame = scrollView.frame

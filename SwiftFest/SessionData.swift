@@ -30,13 +30,19 @@ struct Session: Codable {
         case title
     }
     
+    var parsedOutcomes: [String]? {
+        guard let outcome = outcome else { return nil }
+        return outcome.components(separatedBy: "\n")
+    }
 }
 
 class SwiftFestSessions {
     
-    public var sessions: [Session] = []
+    //public var sessions: [Session] = []
     
-    func loadSessionsFromStaticJSON() {
+    func loadSessionsFromStaticJSON() -> [Session] {
+        
+        var sessions: [Session] = []
         
         var sessionData: Data?
         
@@ -52,12 +58,20 @@ class SwiftFestSessions {
                 sessions.append(session)
             }
         }
+        
+        return sessions
     }
     
-    func sessionsForSpeakerId(_ id: Int) -> [Session] {
-        return sessions.filter({ (session) -> Bool in
+    func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession {
+        let sessions = loadSessionsFromStaticJSON()
+        let sessionsResult = sessions.filter({ (session) -> Bool in
             guard let speakers = session.speakers else { return false }
-            return speakers.contains(id)
+            return speakers.contains(speaker.id)
         })
+        if sessionsResult.count >= 1 {
+            return SpeakerSession(speaker: speaker, sessions: sessionsResult)
+        } else {
+            return SpeakerSession(speaker: speaker, sessions: nil)
+        }
     }
 }

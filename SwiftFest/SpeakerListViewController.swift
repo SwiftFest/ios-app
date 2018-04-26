@@ -37,8 +37,8 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let cell = sender as? SpeakerListTableViewCell, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
-            guard let speaker = cell.speaker else { return }
-            speakerDetailViewController.speaker = speaker
+            guard let speakerSession = cell.speakerSession else { return }
+            speakerDetailViewController.speakerSession = speakerSession
             speakerDetailViewController.transitioningDelegate = self
             
 //            activityViewController.unsplashImage = cell.unsplashImage
@@ -60,8 +60,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
-        cell.speaker = speakers[indexPath.row]
-        //print("count: \(cell.speaker?.presentations.count) presentation: \(cell.speaker?.presentations)")
+        cell.speakerSession = SwiftFestSessions().speakerSessionForSpeaker(speakers[indexPath.row])
         cell.updateUI()
         return cell
     }

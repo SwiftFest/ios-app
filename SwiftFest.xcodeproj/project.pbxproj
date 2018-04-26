@@ -14,6 +14,7 @@
 		9321F725209123A600FA4B8C /* SessionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* SessionData.json */; };
 		9321F727209123EB00FA4B8C /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* SessionData.swift */; };
 		9321F728209123EB00FA4B8C /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* SessionData.swift */; };
+		9358A83C209257F300442047 /* SpeakerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83B209257F300442047 /* SpeakerSession.swift */; };
 		93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */; };
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
@@ -57,6 +58,7 @@
 		9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListTableViewCell.swift; sourceTree = "<group>"; };
 		9321F724209123A600FA4B8C /* SessionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SessionData.json; sourceTree = "<group>"; };
 		9321F726209123EB00FA4B8C /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
+		9358A83B209257F300442047 /* SpeakerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerSession.swift; sourceTree = "<group>"; };
 		93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListViewController.swift; sourceTree = "<group>"; };
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
 				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
 				93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */,
+				9358A83B209257F300442047 /* SpeakerSession.swift */,
 				9321F726209123EB00FA4B8C /* SessionData.swift */,
 				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				CDA35886207D08BC00F8B68C /* Resources */,
@@ -502,6 +505,7 @@
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
 				9321F727209123EB00FA4B8C /* SessionData.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
+				9358A83C209257F300442047 /* SpeakerSession.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */,
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
