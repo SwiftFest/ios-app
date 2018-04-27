@@ -144,14 +144,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9A-mo-mWb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9A-mo-mWb">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k97-M6-kcc">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k97-M6-kcc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-Yw-dSU">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-Yw-dSU">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1007"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgE-SL-f5v">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -253,8 +253,23 @@
                                                             <constraint firstAttribute="trailing" secondItem="pvK-xX-4Em" secondAttribute="trailing" constant="16" id="hqc-g1-8Af"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMJ-os-6I8">
-                                                        <rect key="frame" x="0.0" y="430" width="375" height="449"/>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2DQ-2y-bBx">
+                                                        <rect key="frame" x="0.0" y="430" width="375" height="128"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAJ-fQ-WBt">
+                                                                <rect key="frame" x="0.0" y="-36" width="375" height="200"/>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="SAJ-fQ-WBt" firstAttribute="top" secondItem="2DQ-2y-bBx" secondAttribute="top" id="AAh-cg-HPy"/>
+                                                            <constraint firstAttribute="trailing" secondItem="SAJ-fQ-WBt" secondAttribute="trailing" id="fjm-BU-7em"/>
+                                                            <constraint firstItem="SAJ-fQ-WBt" firstAttribute="leading" secondItem="2DQ-2y-bBx" secondAttribute="leading" id="iR5-Fp-8z8"/>
+                                                            <constraint firstAttribute="bottom" secondItem="SAJ-fQ-WBt" secondAttribute="bottom" id="t9F-tB-Gf9"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMJ-os-6I8">
+                                                        <rect key="frame" x="0.0" y="558" width="375" height="449"/>
                                                         <color key="backgroundColor" name="LightOrange"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="449" id="cpD-HC-88i"/>
@@ -300,6 +315,7 @@
                         <outlet property="complexityContainerView" destination="HVd-PC-xjX" id="h0s-UH-Nfp"/>
                         <outlet property="complexityTitleLabel" destination="JFe-Oa-c7F" id="wRP-Bw-ddx"/>
                         <outlet property="contentView" destination="k97-M6-kcc" id="Wlv-cp-Dir"/>
+                        <outlet property="outcomesStackView" destination="SAJ-fQ-WBt" id="HIR-9u-5Uc"/>
                         <outlet property="scrollView" destination="S9A-mo-mWb" id="tSR-q6-RuG"/>
                         <outlet property="sessionComplexityLabel" destination="x9o-9K-RIx" id="WUQ-TY-dbR"/>
                         <outlet property="sessionDescriptionLabel" destination="ycD-2b-aXx" id="k4k-yU-mGp"/>

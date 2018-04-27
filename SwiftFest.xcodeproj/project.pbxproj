@@ -15,6 +15,8 @@
 		9321F727209123EB00FA4B8C /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* SessionData.swift */; };
 		9321F728209123EB00FA4B8C /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* SessionData.swift */; };
 		9358A83C209257F300442047 /* SpeakerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83B209257F300442047 /* SpeakerSession.swift */; };
+		9358A83E2092DEF600442047 /* OutcomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83D2092DEF600442047 /* OutcomeContainerView.swift */; };
+		9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9358A83F2092DF0800442047 /* OutcomeContainerView.xib */; };
 		93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */; };
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
@@ -59,6 +61,8 @@
 		9321F724209123A600FA4B8C /* SessionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SessionData.json; sourceTree = "<group>"; };
 		9321F726209123EB00FA4B8C /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
 		9358A83B209257F300442047 /* SpeakerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerSession.swift; sourceTree = "<group>"; };
+		9358A83D2092DEF600442047 /* OutcomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeContainerView.swift; sourceTree = "<group>"; };
+		9358A83F2092DF0800442047 /* OutcomeContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcomeContainerView.xib; sourceTree = "<group>"; };
 		93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListViewController.swift; sourceTree = "<group>"; };
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */,
 				9358A83B209257F300442047 /* SpeakerSession.swift */,
 				9321F726209123EB00FA4B8C /* SessionData.swift */,
+				9358A83D2092DEF600442047 /* OutcomeContainerView.swift */,
+				9358A83F2092DF0800442047 /* OutcomeContainerView.xib */,
 				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 			);
@@ -349,6 +355,7 @@
 				9321F725209123A600FA4B8C /* SessionData.json in Resources */,
 				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
 				9D9B0E11207950B500FA7340 /* Assets.xcassets in Resources */,
+				9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
 				9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */,
 			);
@@ -503,6 +510,7 @@
 				93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */,
 				93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */,
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
+				9358A83E2092DEF600442047 /* OutcomeContainerView.swift in Sources */,
 				9321F727209123EB00FA4B8C /* SessionData.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
 				9358A83C209257F300442047 /* SpeakerSession.swift in Sources */,

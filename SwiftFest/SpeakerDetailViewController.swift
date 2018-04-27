@@ -18,6 +18,7 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var complexityTitleLabel: UILabel!
     @IBOutlet weak var sessionComplexityLabel: UILabel!
     @IBOutlet weak var complexityContainerView: UIView!
+    @IBOutlet weak var outcomesStackView: UIStackView!
     
     var speakerSession: SpeakerSession?
     
@@ -35,6 +36,16 @@ class SpeakerDetailViewController: UIViewController {
                 complexityTitleLabel.isHidden = true
                 complexityContainerView.isHidden = true
             }
+            if let outcomes = sessions[0].parsedOutcomes {
+                for outcome in outcomes {
+                    let outcomeView: OutcomeContainerView = .fromNib()
+                    //let stringParagraphStyle = NSMutableParagraphStyle()
+                    //let attributedString = NSMutableAttributedString(string: outcome, attributes: nil)
+                    //attributedString.addAttributes(<#T##attrs: [NSAttributedStringKey : Any]##[NSAttributedStringKey : Any]#>, range: <#T##NSRange#>)
+                    outcomeView.outcomeLabel.text = outcome
+                    outcomesStackView.addArrangedSubview(outcomeView)
+                }
+            }
         }
         
         // Do any additional setup after loading the view.
@@ -43,5 +54,13 @@ class SpeakerDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+// to load nib
+extension UIView {
+    class func fromNib<T: UIView>() -> T {
+        // swiftlint:disable:next force_cast
+        return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
     }
 }
