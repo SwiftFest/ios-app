@@ -14,13 +14,21 @@ class SpeakerDetailView: UIView {
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var speakerTitleLabel: UILabel!
     @IBOutlet weak var speakerBioLabel: UILabel!
-    @IBOutlet weak var socialStackVIew: UIStackView!
+    @IBOutlet weak var socialStackView: UIStackView!
+    
+    func uiSetup() {
+        speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
+        self.autoresizesSubviews = false
+        self.clipsToBounds = true
+    }
     
     func generateSocialButtonsForSpeaker(_ speaker: Speaker) {
         guard let socialResults = speaker.social else { return }
         for social in socialResults {
             let socialButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40.0, height: 40.0))
-            socialButton.addTarget(self, action: <#T##Selector#>, for: <#T##UIControlEvents#>)
+            let socialImage = UIImage(named: (social.socialType?.rawValue)!)
+            socialButton.setImage(socialImage, for: .normal)
+            socialStackView.addArrangedSubview(socialButton)
         }
     }
     

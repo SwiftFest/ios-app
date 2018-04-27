@@ -2,6 +2,7 @@ PODS:
   - BonMot (5.2)
   - Nimble (7.0.2)
   - Quick (1.2.0)
+  - SnapKit (4.0.0)
   - SwiftGen (5.3.0)
   - SwiftLint (0.25.0)
 
@@ -9,6 +10,7 @@ DEPENDENCIES:
   - BonMot
   - Nimble
   - Quick
+  - SnapKit
   - SwiftGen
   - SwiftLint
 
@@ -17,6 +19,7 @@ SPEC REPOS:
     - BonMot
     - Nimble
     - Quick
+    - SnapKit
     - SwiftGen
     - SwiftLint
 
@@ -24,9 +27,10 @@ SPEC CHECKSUMS:
   BonMot: 68da0bd7c2f602aca85511bedabd211eb0fae666
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: 3099e262880f5f8215273b37f884e1d5c0765b82
+PODFILE CHECKSUM: 55292fcb3dfe432071d64e1d9eee1b8ef89ee6aa
 
 COCOAPODS: 1.5.0

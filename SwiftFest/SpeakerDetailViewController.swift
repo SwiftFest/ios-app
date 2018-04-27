@@ -1,4 +1,5 @@
 import BonMot
+import SnapKit
 import UIKit
 
 class SpeakerDetailViewController: UIViewController {
@@ -51,10 +52,19 @@ class SpeakerDetailViewController: UIViewController {
             speakerDetailView.speakerTitleLabel.text = speakerSession.speaker.title
             speakerDetailView.generateSocialButtonsForSpeaker(speakerSession.speaker)
             speakerDetailContainerView.addSubview(speakerDetailView)
-            
+            speakerDetailView.snp.makeConstraints { (make) -> Void in
+                make.top.equalTo(speakerDetailContainerView).offset(8)
+                make.left.equalTo(speakerDetailContainerView).offset(0)
+                make.right.equalTo(speakerDetailContainerView).offset(0)
+                make.bottom.equalTo(speakerDetailContainerView).offset(-12)
+            }
+            speakerDetailView.uiSetup()
         }
     }
 
+    @IBAction func dismissButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // to load nib
