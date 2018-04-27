@@ -14,6 +14,8 @@
 		9321F725209123A600FA4B8C /* SessionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* SessionData.json */; };
 		9321F727209123EB00FA4B8C /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* SessionData.swift */; };
 		9321F728209123EB00FA4B8C /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* SessionData.swift */; };
+		9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */; };
+		9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */; };
 		9358A83C209257F300442047 /* SpeakerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83B209257F300442047 /* SpeakerSession.swift */; };
 		9358A83E2092DEF600442047 /* OutcomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83D2092DEF600442047 /* OutcomeContainerView.swift */; };
 		9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9358A83F2092DF0800442047 /* OutcomeContainerView.xib */; };
@@ -60,6 +62,8 @@
 		9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListTableViewCell.swift; sourceTree = "<group>"; };
 		9321F724209123A600FA4B8C /* SessionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SessionData.json; sourceTree = "<group>"; };
 		9321F726209123EB00FA4B8C /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
+		9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
+		9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerDetailView.xib; sourceTree = "<group>"; };
 		9358A83B209257F300442047 /* SpeakerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerSession.swift; sourceTree = "<group>"; };
 		9358A83D2092DEF600442047 /* OutcomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeContainerView.swift; sourceTree = "<group>"; };
 		9358A83F2092DF0800442047 /* OutcomeContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcomeContainerView.xib; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				9358A83D2092DEF600442047 /* OutcomeContainerView.swift */,
 				9358A83F2092DF0800442047 /* OutcomeContainerView.xib */,
 				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
+				9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */,
+				9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 			);
 			path = SwiftFest;
@@ -359,6 +365,7 @@
 				9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
 				9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */,
+				9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +543,7 @@
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */,
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
+				9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
 				93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */,
 			);

@@ -6,7 +6,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -151,7 +150,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-Yw-dSU">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1007"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgE-SL-f5v">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -254,7 +253,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2DQ-2y-bBx">
-                                                        <rect key="frame" x="0.0" y="430" width="375" height="128"/>
+                                                        <rect key="frame" x="0.0" y="430" width="375" height="50"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAJ-fQ-WBt">
                                                                 <rect key="frame" x="0.0" y="-36" width="375" height="200"/>
@@ -269,11 +268,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMJ-os-6I8">
-                                                        <rect key="frame" x="0.0" y="558" width="375" height="449"/>
-                                                        <color key="backgroundColor" name="LightOrange"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="449" id="cpD-HC-88i"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="480" width="375" height="137"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -321,6 +316,7 @@
                         <outlet property="sessionDescriptionLabel" destination="ycD-2b-aXx" id="k4k-yU-mGp"/>
                         <outlet property="sessionLanguageLabel" destination="rvR-pC-QVX" id="mnm-zu-nl3"/>
                         <outlet property="sessionTitleLabel" destination="WFn-Fg-Cca" id="qXq-Sb-SBS"/>
+                        <outlet property="speakerDetailContainerView" destination="ZMJ-os-6I8" id="M5O-Hm-QXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-c5-hT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -328,9 +324,4 @@
             <point key="canvasLocation" x="2280.8000000000002" y="116.49175412293854"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="LightOrange">
-            <color red="0.98431372549019602" green="0.67450980392156867" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

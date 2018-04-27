@@ -12,6 +12,7 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var sessionComplexityLabel: UILabel!
     @IBOutlet weak var complexityContainerView: UIView!
     @IBOutlet weak var outcomesStackView: UIStackView!
+    @IBOutlet weak var speakerDetailContainerView: UIView!
     
     var speakerSession: SpeakerSession?
     
@@ -43,15 +44,17 @@ class SpeakerDetailViewController: UIViewController {
                     outcomesStackView.addArrangedSubview(outcomeView)
                 }
             }
+            let speakerDetailView: SpeakerDetailView = .fromNib()
+            speakerDetailView.speakerBioLabel.text = speakerSession.speaker.bio
+            speakerDetailView.speakerImageView.image = UIImage(named: speakerSession.speaker.thumbnailUrl!)
+            speakerDetailView.speakerNameLabel.text = speakerSession.speaker.firstName + " " + speakerSession.speaker.lastName
+            speakerDetailView.speakerTitleLabel.text = speakerSession.speaker.title
+            speakerDetailView.generateSocialButtonsForSpeaker(speakerSession.speaker)
+            speakerDetailContainerView.addSubview(speakerDetailView)
+            
         }
-        
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 // to load nib
