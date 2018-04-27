@@ -404,23 +404,6 @@
              ]
   },
   {
-  "id": 23,
-  "name": "Harlan",
-  "surname": "Haskins",
-  "thumbnailUrl": "HarlanHaskins.jpg",
-  "rockstar": false,
-  "social": [
-             {
-             "name": "twitter",
-             "link": "https://twitter.com/harlanhaskins"
-             },
-             {
-             "name": "github",
-             "link": "https://github.com/harlanhaskins"
-             }
-             ]
-  },
-  {
   "id": 24,
   "name": "Neem",
   "surname": "Serra",
