@@ -250,6 +250,7 @@
 				9D9B0E02207950B500FA7340 /* Sources */,
 				9D9B0E03207950B500FA7340 /* Frameworks */,
 				9D9B0E04207950B500FA7340 /* Resources */,
+				7ABAD0C50B4605D283365375 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -378,6 +379,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7ABAD0C50B4605D283365375 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		875E0A1E9C452772FDB93890 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

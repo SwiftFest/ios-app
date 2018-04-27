@@ -1,11 +1,4 @@
-//
-//  SpeakerDetailViewController.swift
-//  SwiftFest
-//
-//  Created by Bryan Ryczek on 4/23/18.
-//  Copyright © 2018 Sean Olszewski. All rights reserved.
-//
-
+import BonMot
 import UIKit
 
 class SpeakerDetailViewController: UIViewController {
@@ -39,10 +32,14 @@ class SpeakerDetailViewController: UIViewController {
             if let outcomes = sessions[0].parsedOutcomes {
                 for outcome in outcomes {
                     let outcomeView: OutcomeContainerView = .fromNib()
-                    //let stringParagraphStyle = NSMutableParagraphStyle()
-                    //let attributedString = NSMutableAttributedString(string: outcome, attributes: nil)
-                    //attributedString.addAttributes(<#T##attrs: [NSAttributedStringKey : Any]##[NSAttributedStringKey : Any]#>, range: <#T##NSRange#>)
-                    outcomeView.outcomeLabel.text = outcome
+                    let paragraphStyle = StringStyle(
+                        .firstLineHeadIndent(0.0),
+                        .headIndent(10.0)
+                    )
+                    let attributedString = NSAttributedString.composed(of: [
+                        outcome
+                    ])
+                    outcomeView.outcomeLabel.attributedText = attributedString.styled(with: paragraphStyle)
                     outcomesStackView.addArrangedSubview(outcomeView)
                 }
             }

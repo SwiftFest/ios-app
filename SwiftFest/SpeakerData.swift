@@ -1,6 +1,6 @@
 import Foundation
 
-struct SpeakerResults : Codable {
+struct SpeakerResults: Codable {
     let speakers: [Speaker]
     
     enum CodingKeys: String, CodingKey {

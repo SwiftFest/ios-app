@@ -5,6 +5,7 @@ target 'SwiftFest' do
   
   pod 'SwiftGen'
   pod 'SwiftLint'
+  pod 'BonMot'
 
   target 'SwiftFestTests' do
     inherit! :search_paths
