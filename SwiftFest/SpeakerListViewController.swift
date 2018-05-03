@@ -4,9 +4,17 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
 
     @IBOutlet weak var speakerListTableView: UITableView!
     
+    lazy var swiftFestClient = SwiftFestClient()
+    
     var speakers: [Speaker] = [] {
         didSet {
             speakerListTableView.reloadData()
+        }
+    }
+    
+    var sessions: [Session] = [] {
+        didSet {
+            print(sessions)
         }
     }
     
@@ -15,6 +23,7 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
         loadSpeakersFromStaticJSON()
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
+        //fetchSessionData()
     }
     
     func loadSpeakersFromStaticJSON() {
@@ -72,3 +81,16 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.scrollView.zoom(to: CGRect(x: scrollViewFrame.midX, y: 0, width: scrollViewFrame.width, height: scrollViewFrame.height), animated: true)
     }
 }
+
+extension SpeakerListViewController {
+    func fetchSessionData() {
+        swiftFestClient.getSessionData(for: swiftFestClient.sessionDataUrl!) { (response) in
+            
+        for session in response {
+            self.sessions.append(session)
+            }
+        }
+            
+    }
+}
+

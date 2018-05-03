@@ -13,6 +13,7 @@ class SpeakerDetailViewController: UIViewController {
     @IBOutlet weak var sessionComplexityLabel: UILabel!
     @IBOutlet weak var complexityContainerView: UIView!
     @IBOutlet weak var outcomesStackView: UIStackView!
+    @IBOutlet weak var sessionDetailContainerView: UIView!
     @IBOutlet weak var speakerDetailContainerView: UIView!
     
     var speakerSession: SpeakerSession?
@@ -20,37 +21,21 @@ class SpeakerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let speakerSession = speakerSession, let sessions = speakerSession.sessions {
-            guard sessions.count == 1 else { return }
-            sessionTitleLabel.text = sessions[0].title
-            sessionDescriptionLabel.text = sessions[0].description
-            sessionLanguageLabel.text = sessions[0].language
-            if sessions[0].complexity != nil {
-                sessionComplexityLabel.text = sessions[0].complexity
-            } else {
-                sessionComplexityLabel.isHidden = true
-                complexityTitleLabel.isHidden = true
-                complexityContainerView.isHidden = true
+            
+            let sessionDetailView: SessionDetailView = .fromNib()
+            sessionDetailView.sessions = sessions
+            sessionDetailContainerView.addSubview(sessionDetailView)
+            sessionDetailView.snp.makeConstraints { (make) -> Void in
+                make.top.equalTo(sessionDetailContainerView).offset(8)
+                make.left.equalTo(sessionDetailContainerView).offset(0)
+                make.right.equalTo(sessionDetailContainerView).offset(0)
+                make.bottom.equalTo(sessionDetailContainerView).offset(-12)
             }
-            if let outcomes = sessions[0].parsedOutcomes {
-                for outcome in outcomes {
-                    let outcomeView: OutcomeContainerView = .fromNib()
-                    let paragraphStyle = StringStyle(
-                        .firstLineHeadIndent(0.0),
-                        .headIndent(10.0)
-                    )
-                    let attributedString = NSAttributedString.composed(of: [
-                        outcome
-                    ])
-                    outcomeView.outcomeLabel.attributedText = attributedString.styled(with: paragraphStyle)
-                    outcomesStackView.addArrangedSubview(outcomeView)
-                }
-            }
+            sessionDetailView.uiSetup()
+            
+
             let speakerDetailView: SpeakerDetailView = .fromNib()
-            speakerDetailView.speakerBioLabel.text = speakerSession.speaker.bio
-            speakerDetailView.speakerImageView.image = UIImage(named: speakerSession.speaker.thumbnailUrl!)
-            speakerDetailView.speakerNameLabel.text = speakerSession.speaker.firstName + " " + speakerSession.speaker.lastName
-            speakerDetailView.speakerTitleLabel.text = speakerSession.speaker.title
-            speakerDetailView.generateSocialButtonsForSpeaker(speakerSession.speaker)
+            speakerDetailView.speaker = speakerSession.speaker
             speakerDetailContainerView.addSubview(speakerDetailView)
             speakerDetailView.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(speakerDetailContainerView).offset(8)

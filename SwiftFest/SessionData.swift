@@ -51,9 +51,9 @@ class SwiftFestSessions {
         }
         
         let decoder = JSONDecoder()
-        let decodedSessions = try? decoder.decode(SessionResults.self, from: sessionData!)
+        let decodedSessions = try? decoder.decode([Session].self, from: sessionData!)
         
-        if let sessionResults = decodedSessions?.sessions {
+        if let sessionResults = decodedSessions {
             for session in sessionResults {
                 sessions.append(session)
             }

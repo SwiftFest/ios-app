@@ -10,6 +10,8 @@ import UIKit
 
 class SpeakerDetailView: UIView {
 
+    var speaker : Speaker?
+    
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var speakerTitleLabel: UILabel!
@@ -20,6 +22,14 @@ class SpeakerDetailView: UIView {
         speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
         self.autoresizesSubviews = false
         self.clipsToBounds = true
+        if let speaker = speaker {
+            speakerBioLabel.text = speaker.bio
+            speakerImageView.image = UIImage(named: speaker.thumbnailUrl!)
+            speakerNameLabel.text = speaker.firstName + " " + speaker.lastName
+            speakerTitleLabel.text = speaker.title
+            generateSocialButtonsForSpeaker(speaker)
+        }
+        
     }
     
     func generateSocialButtonsForSpeaker(_ speaker: Speaker) {
