@@ -9,8 +9,10 @@ class AppDataController {
             speakersData = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
         }
         
-        let decoder = JSONDecoder()
-        return try! decoder.decode(SpeakerResults.self, from: speakersData!)
+        // swiftlint:disable:next force_try
+        let results = try! JSONDecoder().decode(SpeakerResults.self, from: speakersData!)
+        
+        return results.speakers
     }
         
     func loadSessionsFromStaticJSON() -> [Session] {
@@ -33,6 +35,11 @@ class AppDataController {
         }
         
         return sessions
+    }
+    
+    var allSpeakerSessions: [SpeakerSession] {
+        let speakers = loadSpeakersFromStaticJSON()
+        return speakers.map { speakerSessionForSpeaker($0) }
     }
     
     func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession {
