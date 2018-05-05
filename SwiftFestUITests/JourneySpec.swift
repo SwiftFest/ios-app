@@ -41,6 +41,26 @@ class JourneySpec: QuickSpec {
                 expect(app.links["Conduct"].exists).to(beTrue())
                 
             }
+            
+            they("can navigate around the app using a tab bar") {
+
+                let tabBar = app.tabBars.element(boundBy: 0)
+                let agendaButton = tabBar.buttons.element(boundBy: 0)
+                let speakersListButton = tabBar.buttons.element(boundBy: 1)
+
+                expect(app.staticTexts["Session Name 1"].exists).to(beTrue())
+
+                speakersListButton.tap()
+                
+                expect(app.staticTexts["Session Name 1"].exists).to(beFalse())
+                expect(app.staticTexts["Accidentally Famous"].exists).to(beTrue())
+                
+                agendaButton.tap()
+                
+                expect(app.staticTexts["Session Name 1"].exists).to(beTrue())
+                expect(app.staticTexts["Accidentally Famous"].exists).to(beFalse())
+
+            }
         }
     }
 }
