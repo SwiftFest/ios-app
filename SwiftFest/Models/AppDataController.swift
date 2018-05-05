@@ -1,45 +1,18 @@
 import Foundation
 
-struct SessionResults: Codable {
-    let sessions: [Session]
+class AppDataController {
     
-    enum CodingKeys: String, CodingKey {
-        case sessions = "results"
+    func loadSpeakersFromStaticJSON() -> [Speaker] {
+        var speakersData: Data?
+        
+        if let path = Bundle.main.path(forResource: "SpeakerData", ofType: "json") {
+            speakersData = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        }
+        
+        let decoder = JSONDecoder()
+        return try! decoder.decode(SpeakerResults.self, from: speakersData!)
     }
-}
-
-struct Session: Codable {
-    
-    let complexity: String?
-    let description: String?
-    let id: Int?
-    let language: String?
-    let outcome: String?
-    let speakers: [Int]?
-    let subtype: String?
-    let title: String?
-    
-    enum CodingKeys: CodingKey {
-        case complexity
-        case description
-        case id
-        case language
-        case outcome
-        case speakers
-        case subtype
-        case title
-    }
-    
-    var parsedOutcomes: [String]? {
-        guard let outcome = outcome else { return nil }
-        return outcome.components(separatedBy: "\n")
-    }
-}
-
-class SwiftFestSessions {
-    
-    //public var sessions: [Session] = []
-    
+        
     func loadSessionsFromStaticJSON() -> [Session] {
         
         var sessions: [Session] = []
