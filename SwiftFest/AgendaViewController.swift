@@ -1,6 +1,6 @@
 import UIKit
 
-struct Session {
+struct LocalSession {
     let title: String
     let presenter: String
     let time: DateComponents
@@ -16,19 +16,19 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var codeOfConductButton: UIBarButtonItem!
     
     let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(with: [
-            Session(titled: "Session Name 1",
+            LocalSession(titled: "Session Name 1",
                     presentedBy: "Speaker 1",
                     at: DateComponents(hour: 9)),
-            Session(titled: "Session Name 2",
+            LocalSession(titled: "Session Name 2",
                     presentedBy: "Speaker 2",
                     at: DateComponents(hour: 10)),
-            Session(titled: "Session Name 3",
+            LocalSession(titled: "Session Name 3",
                     presentedBy: "Speaker 3",
                     at: DateComponents(hour: 11)),
-            Session(titled: "Session Name 4",
+            LocalSession(titled: "Session Name 4",
                     presentedBy: "Speaker 4",
                     at: DateComponents(hour: 11)),
-            Session(titled: "Session Name 5",
+            LocalSession(titled: "Session Name 5",
                     presentedBy: "Speaker 5",
                     at: DateComponents(hour: 13))
         ])
@@ -53,10 +53,10 @@ extension AgendaViewController {
 
     class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-        let sessions: [Session]
+        let sessions: [LocalSession]
 
-        private var sessionsBySection: [[Session]] {
-            var sessionsBySection = [[Session]](repeating: [],
+        private var sessionsBySection: [[LocalSession]] {
+            var sessionsBySection = [[LocalSession]](repeating: [],
                                                 count: timeBlocks.count)
 
             let sortedSessions = sessions.sorted {
@@ -79,7 +79,7 @@ extension AgendaViewController {
             return timeBlocks.sorted()
         }
 
-        init(with sessions: [Session] = []) {
+        init(with sessions: [LocalSession] = []) {
             self.sessions = sessions
         }
 
