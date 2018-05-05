@@ -20,10 +20,10 @@ class SpeakerDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let speakerSession = speakerSession, let sessions = speakerSession.sessions {
+        if let speakerSession = speakerSession, let session = speakerSession.session {
             
             let sessionDetailView: SessionDetailView = .fromNib()
-            sessionDetailView.sessions = sessions
+            sessionDetailView.session = session
             sessionDetailContainerView.addSubview(sessionDetailView)
             sessionDetailView.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(sessionDetailContainerView).offset(8)

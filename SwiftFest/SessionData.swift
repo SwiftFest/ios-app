@@ -63,15 +63,14 @@ class SwiftFestSessions {
     }
     
     func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession {
+        
         let sessions = loadSessionsFromStaticJSON()
-        let sessionsResult = sessions.filter({ (session) -> Bool in
+        
+        let filteredSessions = sessions.filter { session in
             guard let speakers = session.speakers else { return false }
             return speakers.contains(speaker.id)
-        })
-        if sessionsResult.count >= 1 {
-            return SpeakerSession(speaker: speaker, sessions: sessionsResult)
-        } else {
-            return SpeakerSession(speaker: speaker, sessions: nil)
         }
+        
+        return SpeakerSession(speaker: speaker, session: filteredSessions.first)
     }
 }

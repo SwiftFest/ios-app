@@ -25,8 +25,8 @@ class SpeakerListTableViewCell: UITableViewCell {
         speakerLastNameLabel.text = speakerSession.speaker.lastName
         if speakerSession.speaker.isEmcee != nil {
             presentationTitleLabel.text = "Emcee"
-        } else if let sessions = speakerSession.sessions {
-            presentationTitleLabel.text = sessions[0].title
+        } else if let session = speakerSession.session {
+            presentationTitleLabel.text = session.title
         } else {
             presentationTitleLabel.text = ""
         }
