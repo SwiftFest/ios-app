@@ -2,6 +2,35 @@ import Nimble
 import Quick
 @testable import SwiftFest
 
+extension Session {
+    static func forTesting(withTitle title: String, description: String, time: DateComponents) -> Session {
+        return Session(complexity: nil,
+                       description: description,
+                       id: nil,
+                       language: nil,
+                       outcome: nil,
+                       speakers: ["0"],
+                       subtype: nil,
+                       title: title,
+                       date: time)
+    }
+}
+
+extension Speaker {
+    static func forTesting(withFirstName firstName: String, lastName: String) -> Speaker {
+        return Speaker(id: "0",
+                       firstName: firstName,
+                       lastName: lastName,
+                       title: nil,
+                       company: nil,
+                       bio: nil,
+                       featuredSpeaker: nil,
+                       thumbnailUrl: nil,
+                       social: nil,
+                       isEmcee: nil)
+    }
+}
+
 class AgendaTableViewManagerSpec: QuickSpec {
     override func spec() {
         
@@ -21,26 +50,21 @@ class AgendaTableViewManagerSpec: QuickSpec {
                                        timeZone: TimeZone(identifier: "UTC"),
                                        hour: 13)
             
-            let sessions = [
-                LocalSession(titled: "a title",
-                             presentedBy: "a presenter",
-                             at: nineAM),
+            let sessions: [SpeakerSession] = [
+                SpeakerSession(speaker: .forTesting(withFirstName: "a", lastName: "presenter"),
+                               session: .forTesting(withTitle: "a title", description: "a description", time: nineAM)),
                 
-                LocalSession(titled: "another title",
-                             presentedBy: "another presenter",
-                             at: twelvePM),
+                SpeakerSession(speaker: .forTesting(withFirstName: "another", lastName: "presenter"),
+                               session: .forTesting(withTitle: "another title", description: "another description", time: twelvePM)),
                 
-                LocalSession(titled: "just a title",
-                             presentedBy: "just a presenter",
-                             at: twelvePM),
+                SpeakerSession(speaker: .forTesting(withFirstName: "just a", lastName: "presenter"),
+                               session: .forTesting(withTitle: "just a title", description: "just a description", time: twelvePM)),
                 
-                LocalSession(titled: "yet another title",
-                             presentedBy: "yet another presenter",
-                             at: onePM),
+                SpeakerSession(speaker: .forTesting(withFirstName: "yet another", lastName: "presenter"),
+                               session: .forTesting(withTitle: "yet another title", description: "yet another description", time: onePM)),
                 
-                LocalSession(titled: "and another title",
-                             presentedBy: "and another presenter",
-                             at: onePM)
+                SpeakerSession(speaker: .forTesting(withFirstName: "and another", lastName: "presenter"),
+                               session: .forTesting(withTitle: "and another title", description: "and another description", time: onePM)),
             ]
             
             subject = AgendaViewController.TableViewManager(with: sessions)

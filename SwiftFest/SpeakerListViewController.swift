@@ -4,57 +4,27 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
 
     @IBOutlet weak var speakerListTableView: UITableView!
     
-    lazy var swiftFestClient = SwiftFestClient()
-    
     var speakers: [Speaker] = [] {
         didSet {
             speakerListTableView.reloadData()
         }
     }
     
-    var sessions: [Session] = [] {
-        didSet {
-            print(sessions)
-        }
-    }
+    var sessions: [Session] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSpeakersFromStaticJSON()
+        speakers = AppDataController().loadSpeakersFromStaticJSON()
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
-        //fetchSessionData()
     }
-    
-    func loadSpeakersFromStaticJSON() {
-        var speakersData: Data?
         
-        if let path = Bundle.main.path(forResource: "SpeakerData", ofType: "json") {
-            speakersData = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        }
-        
-        let decoder = JSONDecoder()
-        let decodedSpeakers = try? decoder.decode(SpeakerResults.self, from: speakersData!)
-        
-        if let speakerResults = decodedSpeakers?.speakers {
-            for speaker in speakerResults {
-                speakers.append(speaker)
-            }
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if let cell = sender as? SpeakerListTableViewCell, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
             guard let speakerSession = cell.speakerSession else { return }
             speakerDetailViewController.speakerSession = speakerSession
             speakerDetailViewController.transitioningDelegate = self
-            
-//            activityViewController.unsplashImage = cell.unsplashImage
-//            if let image = cell.activityImageView.image {
-//                let colors = AverageColorFromImage(image)
-//                activityViewController.gradientColor = colors
-//            }
         }
     }
 
@@ -69,7 +39,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
-        cell.speakerSession = SwiftFestSessions().speakerSessionForSpeaker(speakers[indexPath.row])
+        cell.speakerSession = AppDataController().speakerSessionForSpeaker(speakers[indexPath.row])
         cell.updateUI()
         return cell
     }
@@ -81,16 +51,3 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.scrollView.zoom(to: CGRect(x: scrollViewFrame.midX, y: 0, width: scrollViewFrame.width, height: scrollViewFrame.height), animated: true)
     }
 }
-
-extension SpeakerListViewController {
-    func fetchSessionData() {
-        swiftFestClient.getSessionData(for: swiftFestClient.sessionDataUrl!) { (response) in
-            
-        for session in response {
-            self.sessions.append(session)
-            }
-        }
-            
-    }
-}
-

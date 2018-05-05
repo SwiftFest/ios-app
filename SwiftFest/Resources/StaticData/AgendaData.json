@@ -1,0 +1,196 @@
+ [
+  {
+  "date": "2018-06-18",
+  "dateReadable": "Monday, June 18",
+  "tracks": [
+             {
+             "title": "Track 1",
+             "color": "#fbac3f"
+             },
+             {
+             "title": "Track 2",
+             "color": "#03a9f4"
+             },
+             {
+             "title": "Workshops",
+             "color": "#90be4e"
+             }
+             ],
+  "timeslots": [
+                {
+                "startTime": "10:00",
+                "endTime": "11:00",
+                "sessionIds": [
+                               "001"
+                               ]
+                },
+                {
+                "startTime": "11:00",
+                "endTime": "12:00",
+                "sessionIds": [
+                               "004",
+                               "022",
+                               "666"
+                               ]
+                },
+                {
+                "startTime": "12:00",
+                "endTime": "1:00",
+                "sessionIds": [
+                               "503"
+                               ]
+                },
+                {
+                "startTime": "1:00",
+                "endTime": "2:00",
+                "sessionIds": [
+                               "019",
+                               "006",
+                               "003"
+                               ]
+                },
+                {
+                "startTime": "2:00",
+                "endTime": "3:00",
+                "sessionIds": [
+                               "009",
+                               "008",
+                               "1511"
+                               ]
+                },
+                {
+                "startTime": "3:00",
+                "endTime": "4:00",
+                "sessionIds": [
+                               "020",
+                               "024",
+                               "666"
+                               ]
+                },
+                {
+                "startTime": "4:00",
+                "endTime": "5:00",
+                "sessionIds": [
+                               "026",
+                               "023",
+                               "028"
+                               ]
+                },
+                {
+                "startTime": "5:00",
+                "endTime": "6:00",
+                "sessionIds": [
+                               "005",
+                               "007",
+                               "1511"
+                               ]
+                },
+                {
+                "startTime": "6:00",
+                "endTime": "7:00",
+                "sessionIds": [
+                               "999",
+                               "999",
+                               "666"
+                               ]
+                }
+                ]
+  },
+  {
+  "date": "2018-06-19",
+  "dateReadable": "Tuesday, June 19",
+  "tracks": [
+             {
+             "title": "Track 1",
+             "color": "#fbac3f"
+             },
+             {
+             "title": "Track 2",
+             "color": "#03a9f4"
+             },
+             {
+             "title": "Workshops",
+             "color": "#90be4e"
+             }
+             ],
+  "timeslots": [
+                {
+                "startTime": "9:00",
+                "endTime": "10:00",
+                "sessionIds": [
+                               "027",
+                               "999",
+                               "666"
+                               ]
+                },
+                {
+                "startTime": "10:00",
+                "endTime": "11:00",
+                "sessionIds": [
+                               "015",
+                               "014",
+                               "029"
+                               ]
+                },
+                {
+                "startTime": "11:00",
+                "endTime": "12:00",
+                "sessionIds": [
+                               "012",
+                               "017",
+                               "1511"
+                               ]
+                },
+                {
+                "startTime": "12:00",
+                "endTime": "1:00",
+                "sessionIds": [
+                               "503"
+                               ]
+                },
+                {
+                "startTime": "1:00",
+                "endTime": "2:00",
+                "sessionIds": [
+                               "011",
+                               "013",
+                               "021"
+                               ]
+                },
+                {
+                "startTime": "2:00",
+                "endTime": "3:00",
+                "sessionIds": [
+                               "025",
+                               "016",
+                               "1511"
+                               ]
+                },
+                {
+                "startTime": "3:00",
+                "endTime": "4:00",
+                "sessionIds": [
+                               "999",
+                               "010",
+                               "666"
+                               ]
+                },
+                {
+                "startTime": "4:00",
+                "endTime": "5:00",
+                "sessionIds": [
+                               "999",
+                               "999",
+                               "666"
+                               ]
+                },
+                {
+                "startTime": "5:00",
+                "endTime": "6:00",
+                "sessionIds": [
+                               "000"
+                               ]
+                }
+                ]
+  }
+  ]
