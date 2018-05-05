@@ -10,7 +10,7 @@ struct SpeakerResults: Codable {
 
 struct Speaker: Codable {
     
-    let id: Int
+    let id: String
     let firstName: String
     let lastName: String
     let title: String?

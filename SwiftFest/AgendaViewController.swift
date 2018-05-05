@@ -5,7 +5,7 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var codeOfConductButton: UIBarButtonItem!
     @IBOutlet weak var agendaTableView: UITableView!
     
-    let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(with: AppDataController().allSpeakerSessions)
+    let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(with: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()

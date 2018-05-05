@@ -4,10 +4,10 @@ struct Session: Codable {
     
     let complexity: String?
     let description: String?
-    let id: Int?
+    let id: String?
     let language: String?
     let outcome: String?
-    let speakers: [Int]?
+    let speakers: [String]?
     let subtype: String?
     let title: String?
     let date: DateComponents?

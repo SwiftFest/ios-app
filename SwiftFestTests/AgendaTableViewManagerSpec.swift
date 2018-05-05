@@ -9,7 +9,7 @@ extension Session {
                        id: nil,
                        language: nil,
                        outcome: nil,
-                       speakers: [0],
+                       speakers: ["0"],
                        subtype: nil,
                        title: title,
                        date: time)
@@ -18,7 +18,7 @@ extension Session {
 
 extension Speaker {
     static func forTesting(withFirstName firstName: String, lastName: String) -> Speaker {
-        return Speaker(id: 0,
+        return Speaker(id: "0",
                        firstName: firstName,
                        lastName: lastName,
                        title: nil,
