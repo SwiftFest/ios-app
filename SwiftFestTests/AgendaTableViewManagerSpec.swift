@@ -3,31 +3,15 @@ import Quick
 @testable import SwiftFest
 
 extension Session {
-    static func forTesting(withTitle title: String, description: String, time: DateComponents) -> Session {
+    static func forTesting(withId id: String, title: String) -> Session {
         return Session(complexity: nil,
-                       description: description,
-                       id: nil,
+                       description: "description",
+                       id: id,
                        language: nil,
                        outcome: nil,
                        speakers: ["0"],
                        subtype: nil,
-                       title: title,
-                       date: time)
-    }
-}
-
-extension Speaker {
-    static func forTesting(withFirstName firstName: String, lastName: String) -> Speaker {
-        return Speaker(id: "0",
-                       firstName: firstName,
-                       lastName: lastName,
-                       title: nil,
-                       company: nil,
-                       bio: nil,
-                       featuredSpeaker: nil,
-                       thumbnailUrl: nil,
-                       social: nil,
-                       isEmcee: nil)
+                       title: title)
     }
 }
 
@@ -39,35 +23,43 @@ class AgendaTableViewManagerSpec: QuickSpec {
         beforeEach {
             
             let nineAM = DateComponents(calendar: .current,
-                                        timeZone: TimeZone(identifier: "UTC"),
+                                        timeZone: .current,
                                         hour: 9)
             
+            let tenAM = DateComponents(calendar: .current,
+                                       timeZone: .current,
+                                       hour: 10)
+            
             let twelvePM = DateComponents(calendar: .current,
-                                          timeZone: TimeZone(identifier: "UTC"),
+                                          timeZone: .current,
                                           hour: 12)
             
             let onePM = DateComponents(calendar: .current,
-                                       timeZone: TimeZone(identifier: "UTC"),
+                                       timeZone: .current,
                                        hour: 13)
             
-            let sessions: [SpeakerSession] = [
-                SpeakerSession(speaker: .forTesting(withFirstName: "a", lastName: "presenter"),
-                               session: .forTesting(withTitle: "a title", description: "a description", time: nineAM)),
-                
-                SpeakerSession(speaker: .forTesting(withFirstName: "another", lastName: "presenter"),
-                               session: .forTesting(withTitle: "another title", description: "another description", time: twelvePM)),
-                
-                SpeakerSession(speaker: .forTesting(withFirstName: "just a", lastName: "presenter"),
-                               session: .forTesting(withTitle: "just a title", description: "just a description", time: twelvePM)),
-                
-                SpeakerSession(speaker: .forTesting(withFirstName: "yet another", lastName: "presenter"),
-                               session: .forTesting(withTitle: "yet another title", description: "yet another description", time: onePM)),
-                
-                SpeakerSession(speaker: .forTesting(withFirstName: "and another", lastName: "presenter"),
-                               session: .forTesting(withTitle: "and another title", description: "and another description", time: onePM)),
+            let twoPM = DateComponents(calendar: .current,
+                                       timeZone: .current,
+                                       hour: 14)
+            
+            let dayOne = DateComponents(year: 2018, month: 06, day: 18)
+            let agenda = Agenda(days: [
+                Agenda.Day(date: dayOne, timeslots: [
+                    Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
+                    Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
+                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004"])
+                    ])
+                ])
+            
+            let sessions: [Session] = [
+                Session.forTesting(withId: "000", title: "a title"),
+                Session.forTesting(withId: "001", title: "another title"),
+                Session.forTesting(withId: "002", title: "just a title"),
+                Session.forTesting(withId: "003", title: "yet another title"),
+                Session.forTesting(withId: "004", title: "and another title")
             ]
             
-            subject = AgendaViewController.TableViewManager(with: sessions)
+            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions)
         }
         
         describe("the agenda table view's manager") {
@@ -101,25 +93,19 @@ class AgendaTableViewManagerSpec: QuickSpec {
             it("renders each session as a cell") {
                 var cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 0))
                 expect(cell.textLabel?.text).to(equal("a title"))
-                expect(cell.detailTextLabel?.text).to(equal("a presenter"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 1))
                 expect(cell.textLabel?.text).to(equal("another title"))
-                expect(cell.detailTextLabel?.text).to(equal("another presenter"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 1, section: 1))
                 expect(cell.textLabel?.text).to(equal("just a title"))
-                expect(cell.detailTextLabel?.text).to(equal("just a presenter"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 2))
                 expect(cell.textLabel?.text).to(equal("yet another title"))
-                expect(cell.detailTextLabel?.text).to(equal("yet another presenter"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 1, section: 2))
                 expect(cell.textLabel?.text).to(equal("and another title"))
-                expect(cell.detailTextLabel?.text).to(equal("and another presenter"))
             }
-            
         }
     }
 }

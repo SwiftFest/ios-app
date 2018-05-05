@@ -10,7 +10,6 @@ struct Session: Codable {
     let speakers: [String]?
     let subtype: String?
     let title: String?
-    let date: DateComponents?
     
     enum CodingKeys: CodingKey {
         case complexity
@@ -21,7 +20,6 @@ struct Session: Codable {
         case speakers
         case subtype
         case title
-        case date
     }
     
     var parsedOutcomes: [String]? {

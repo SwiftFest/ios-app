@@ -14,7 +14,7 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        speakers = AppDataController().loadSpeakersFromStaticJSON()
+        speakers = AppDataController().fetchSpeakers()
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
     }

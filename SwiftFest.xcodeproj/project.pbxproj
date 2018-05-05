@@ -26,7 +26,8 @@
 		93F9F25B208D0C4E000C087B /* CodeOfConductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */; };
 		9D2E513A20797D5A002F9E42 /* DSLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E513920797D5A002F9E42 /* DSLExtensions.swift */; };
 		9D477689209E427F001801BE /* AgendaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D477688209E427F001801BE /* AgendaData.json */; };
-		9D47768B209E43A2001801BE /* JSONDeserializationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768A209E43A2001801BE /* JSONDeserializationSpec.swift */; };
+		9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */; };
+		9D47768D209E73F2001801BE /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768C209E73F2001801BE /* Agenda.swift */; };
 		9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B0E09207950B500FA7340 /* AppDelegate.swift */; };
 		9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */; };
 		9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B0E0D207950B500FA7340 /* Main.storyboard */; };
@@ -81,7 +82,8 @@
 		93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOfConductViewController.swift; sourceTree = "<group>"; };
 		9D2E513920797D5A002F9E42 /* DSLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLExtensions.swift; path = "Testing Extensions/DSLExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
-		9D47768A209E43A2001801BE /* JSONDeserializationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDeserializationSpec.swift; sourceTree = "<group>"; };
+		9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataControllerSpec.swift; sourceTree = "<group>"; };
+		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Agenda.swift; path = SwiftFest/Models/Agenda.swift; sourceTree = "<group>"; };
 		9D9B0E06207950B500FA7340 /* SwiftFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9B0E09207950B500FA7340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		9D9B0DFD207950B500FA7340 = {
 			isa = PBXGroup;
 			children = (
+				9D47768C209E73F2001801BE /* Agenda.swift */,
 				9D9B0E372079525F00FA7340 /* .gitignore */,
 				9D9B0E08207950B500FA7340 /* SwiftFest */,
 				9D9B0E1D207950B500FA7340 /* SwiftFestTests */,
@@ -220,7 +223,7 @@
 			children = (
 				9D9B0E1E207950B500FA7340 /* AgendaTableViewManagerSpec.swift */,
 				9D9B0E20207950B500FA7340 /* Info.plist */,
-				9D47768A209E43A2001801BE /* JSONDeserializationSpec.swift */,
+				9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */,
 			);
 			path = SwiftFestTests;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */,
+				9D47768D209E73F2001801BE /* Agenda.swift in Sources */,
 				9DD2786A209D4C9A00804A03 /* Session.swift in Sources */,
 				9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */,
 				9DD2786C209D4CE600804A03 /* SessionResults.swift in Sources */,
@@ -589,7 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D47768B209E43A2001801BE /* JSONDeserializationSpec.swift in Sources */,
+				9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
