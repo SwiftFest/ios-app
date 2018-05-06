@@ -2,7 +2,7 @@ import Foundation
 
 class AppDataController {
     
-    func loadScheduleFromStaticJSON() -> Agenda {
+    func fetchAgenda() -> Agenda {
         let agendaData = loadJSONDataFromFile(named: "AgendaData")
         
         do {
@@ -14,7 +14,7 @@ class AppDataController {
         }
     }
     
-    func loadSpeakersFromStaticJSON() -> [Speaker] {
+    func fetchSpeakers() -> [Speaker] {
         let speakersData = loadJSONDataFromFile(named: "SpeakerData")
         
         do {
@@ -25,7 +25,7 @@ class AppDataController {
         }
     }
         
-    func loadSessionsFromStaticJSON() -> [Session] {
+    func fetchSessions() -> [Session] {
         
         let sessionData = loadJSONDataFromFile(named: "SessionData")
         
@@ -37,15 +37,16 @@ class AppDataController {
         }
     }
     
-    func session(for id: String) -> Session? {
-        let sessions = loadSessionsFromStaticJSON()
+    func session(for id: String) -> Session {
+        let sessions = fetchSessions()
         return sessions.first {
             $0.id == id
-        }
+        }!
     }
+    
     func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession {
         
-        let sessions = loadSessionsFromStaticJSON()
+        let sessions = fetchSessions()
         
         let filteredSessions = sessions.filter { session in
             guard let speakers = session.speakers else { return false }

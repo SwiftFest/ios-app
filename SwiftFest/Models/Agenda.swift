@@ -13,6 +13,11 @@ struct Agenda {
         let date: DateComponents
         let timeslots: [Timeslot]
         
+        init(date: DateComponents, timeslots: [Timeslot]) {
+            self.date = date
+            self.timeslots = timeslots
+        }
+        
         init(from decoder: Decoder) throws {
             // swiftlint:disable:next force_try
             let container = try! decoder.container(keyedBy: CodingKeys.self)
@@ -24,9 +29,10 @@ struct Agenda {
             
             let date = formatter.date(from: dateString)!
             let desiredComponents = Set<Calendar.Component>(arrayLiteral: .day, .month, .year)
-            self.date = Calendar.current.dateComponents(desiredComponents, from: date)
-            // swiftlint:disable:next force_try
-            self.timeslots = try! container.decode([Timeslot].self, forKey: .timeslots)
+            
+            self.init(date: Calendar.current.dateComponents(desiredComponents, from: date),
+                      // swiftlint:disable:next force_try
+                      timeslots: try! container.decode([Timeslot].self, forKey: .timeslots))
         }
     }
     
