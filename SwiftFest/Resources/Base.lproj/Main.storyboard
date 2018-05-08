@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Agenda View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AgendaViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6nc-nC-4BO"/>
                     <navigationItem key="navigationItem" id="7md-aS-HT1">
                         <barButtonItem key="leftBarButtonItem" title="Code of Conduct" id="3EQ-Pa-J0u">
                             <connections>
@@ -47,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356" y="103"/>
+            <point key="canvasLocation" x="190" y="750"/>
         </scene>
         <!--Code Of Conduct View Controller-->
         <scene sceneID="rXD-Vx-bWg">
@@ -81,13 +80,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSn-vX-Mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356" y="897"/>
+            <point key="canvasLocation" x="1001" y="750"/>
         </scene>
-        <!--Item-->
+        <!--Speakers-->
         <scene sceneID="fIR-wR-Pex">
             <objects>
                 <navigationController id="8Lf-X9-ISu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5gA-eA-7f5"/>
+                    <tabBarItem key="tabBarItem" title="Speakers" image="profileIcon" id="5gA-eA-7f5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ARf-jD-rnK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -98,13 +97,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Pu-Mb-Li8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="2275"/>
+            <point key="canvasLocation" x="-559" y="1497"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
+        <scene sceneID="6XV-aP-Tyr">
+            <objects>
+                <viewController id="ykm-7d-vuC" customClass="ViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ih-TR-tXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFd-NB-G5N">
+                                <rect key="frame" x="0.0" y="20" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="rvC-JH-Xtf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VFd-NB-G5N" firstAttribute="top" secondItem="qnS-zE-69q" secondAttribute="top" id="3QK-zp-530"/>
+                            <constraint firstItem="VFd-NB-G5N" firstAttribute="leading" secondItem="qnS-zE-69q" secondAttribute="leading" id="U7R-pf-s1I"/>
+                            <constraint firstItem="qnS-zE-69q" firstAttribute="trailing" secondItem="VFd-NB-G5N" secondAttribute="trailing" id="rcK-Ri-Z32"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qnS-zE-69q"/>
+                    </view>
+                    <connections>
+                        <outlet property="pView" destination="VFd-NB-G5N" id="iYH-Nm-k2F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Vp-ts-YR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594.39999999999998" y="-75.112443778110944"/>
+        </scene>
+        <!--Agenda-->
         <scene sceneID="H1N-wn-J71">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TuX-Ag-pDi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BFI-Bf-zSH"/>
+                    <tabBarItem key="tabBarItem" title="Agenda" image="agenda" id="BFI-Bf-zSH"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bCX-Fi-CaE">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -117,7 +148,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEg-Cy-WDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2308" y="116"/>
+            <point key="canvasLocation" x="-559" y="750"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ztl-hl-1Xk">
@@ -127,6 +158,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="TuX-Ag-pDi" kind="relationship" relationship="viewControllers" id="Pj1-eJ-ahg"/>
@@ -135,7 +167,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-63-yP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2634" y="1019"/>
+            <point key="canvasLocation" x="-1591" y="997"/>
         </scene>
         <!--Speaker List View Controller-->
         <scene sceneID="Tql-O1-z6a">
@@ -231,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5P2-IA-MZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530" y="116"/>
+            <point key="canvasLocation" x="255" y="1496"/>
         </scene>
         <!--Speaker Detail View Controller-->
         <scene sceneID="2yv-Rg-Luw">
@@ -314,7 +346,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-c5-hT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280.8000000000002" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1002" y="1496"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="agenda" width="30" height="30"/>
+        <image name="profileIcon" width="30" height="30"/>
+    </resources>
 </document>

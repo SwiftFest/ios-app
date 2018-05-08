@@ -7,6 +7,7 @@ target 'SwiftFest' do
   pod 'SwiftLint'
   pod 'BonMot'
   pod 'SnapKit'
+  pod 'UIGradient', '~> 1.1.2'
 
   target 'SwiftFestTests' do
     inherit! :search_paths

@@ -1,6 +1,6 @@
 import UIKit
 
-class SpeakerListViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class SpeakerListViewController: BaseViewController, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var speakerListTableView: UITableView!
     
