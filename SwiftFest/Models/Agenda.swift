@@ -26,11 +26,13 @@ struct Agenda {
             
             let formatter = DateFormatter()
             formatter.dateFormat = "YYYY-MM-dd"
-            
+            formatter.timeZone = TimeZone(abbreviation: "EST")!
+            formatter.calendar = .current
             let date = formatter.date(from: dateString)!
-            let desiredComponents = Set<Calendar.Component>(arrayLiteral: .day, .month, .year)
             
-            self.init(date: Calendar.current.dateComponents(desiredComponents, from: date),
+            let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour, .minute, .day, .month, .year)
+            let dateComponents = Calendar.current.dateComponents(desiredComponents, from: date)
+            self.init(date: dateComponents,
                       // swiftlint:disable:next force_try
                       timeslots: try! container.decode([Timeslot].self, forKey: .timeslots))
         }
@@ -60,6 +62,7 @@ struct Agenda {
             
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
+            formatter.timeZone = TimeZone(identifier: "EST")
             
             // swiftlint:disable:next force_try
             let startTimeString = try! container.decode(String.self, forKey: .startTime)
@@ -69,7 +72,7 @@ struct Agenda {
             let startTimeDate = formatter.date(from: startTimeString)!
             let endTimeDate = formatter.date(from: endTimeString)!
             
-            let desiredComponents = Set<Calendar.Component>(arrayLiteral: .hour)
+            let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour)
             let startTime = Calendar.current.dateComponents(desiredComponents, from: startTimeDate)
             let endTime = Calendar.current.dateComponents(desiredComponents, from: endTimeDate)
             

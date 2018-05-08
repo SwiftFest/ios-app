@@ -15,21 +15,6 @@ extension Session {
     }
 }
 
-extension Speaker {
-    static func forTesting(withFirstName firstName: String, lastName: String) -> Speaker {
-        return Speaker(id: "0",
-                       firstName: firstName,
-                       lastName: lastName,
-                       title: nil,
-                       company: nil,
-                       bio: nil,
-                       featuredSpeaker: nil,
-                       thumbnailUrl: nil,
-                       social: nil,
-                       isEmcee: nil)
-    }
-}
-
 class AgendaTableViewManagerSpec: QuickSpec {
     override func spec() {
         
@@ -38,31 +23,31 @@ class AgendaTableViewManagerSpec: QuickSpec {
         beforeEach {
             
             let nineAM = DateComponents(calendar: .current,
-                                        timeZone: TimeZone(identifier: "UTC"),
+                                        timeZone: .current,
                                         hour: 9)
             
             let tenAM = DateComponents(calendar: .current,
-                                       timeZone: TimeZone(identifier: "UTC"),
+                                       timeZone: .current,
                                        hour: 10)
             
             let twelvePM = DateComponents(calendar: .current,
-                                          timeZone: TimeZone(identifier: "UTC"),
+                                          timeZone: .current,
                                           hour: 12)
             
             let onePM = DateComponents(calendar: .current,
-                                       timeZone: TimeZone(identifier: "UTC"),
+                                       timeZone: .current,
                                        hour: 13)
             
             let twoPM = DateComponents(calendar: .current,
-                                       timeZone: TimeZone(identifier: "UTC"),
+                                       timeZone: .current,
                                        hour: 14)
             
             let dayOne = DateComponents(year: 2018, month: 06, day: 18)
             let agenda = Agenda(days: [
                 Agenda.Day(date: dayOne, timeslots: [
                     Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
-                    Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001, 002, 003"]),
-                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["004, 005"])
+                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004"]),
+                    Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"])
                     ])
                 ])
             
@@ -72,7 +57,6 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Session.forTesting(withId: "002", title: "just a title"),
                 Session.forTesting(withId: "003", title: "yet another title"),
                 Session.forTesting(withId: "004", title: "and another title"),
-                Session.forTesting(withId: "005", title: "and another title")
             ]
             
             subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions)

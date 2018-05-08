@@ -5,8 +5,8 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var codeOfConductButton: UIBarButtonItem!
     @IBOutlet weak var agendaTableView: UITableView!
     
-    let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(agenda: Agenda(days: []),
-                                                                                               sessions: [])
+    let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(agenda: AppDataController().fetchAgenda(),
+                                                                                               sessions: AppDataController().fetchSessions())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,34 +25,22 @@ extension AgendaViewController {
         let sessions: [Session]
         
         private var sessionsBySection: [[Session]] {
+            
+            guard let dayOne = agenda.days.first else {
+                return [[]]
+            }
+            
             var sessionsBySection = [[Session]](repeating: [],
-                                                count: timeBlocks.count)
+                                                count: dayOne.timeslots.count)
 
-            guard let dayOne = agenda.days.first else { return sessionsBySection }
-            
-            let sortedTimeslots = dayOne.timeslots.sorted { lhs, rhs in
-                lhs.startTime.hour! < rhs.startTime.hour!
-            }
-            
-            assert(sortedTimeslots[1].sessionIds.count == dayOne.timeslots[1].sessionIds.count)
-            
+            let sortedTimeslots = dayOne.timeslots.sorted { $0.startTime.date! < $1.startTime.date! }
+
             for (index, timeslot) in sortedTimeslots.enumerated() {
-                let sessions = self.sessions.filter { timeslot.sessionIds.contains($0.id!) }
-                sessionsBySection[index].append(contentsOf: sessions)
+                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id!) }
+                sessionsBySection[index] = sessionsForSection
             }
-            
+        
             return sessionsBySection
-        }
-
-        private var timeBlocks: [Int] {
-            var timeBlocks = Set<Int>()
-
-            guard let dayOne = agenda.days.first else { return [] }
-
-            for timeslot in dayOne.timeslots {
-                timeBlocks.insert(timeslot.startTime.hour!)
-            }
-            return timeBlocks.sorted()
         }
         
         init(agenda: Agenda, sessions: [Session]) {
@@ -65,9 +53,10 @@ extension AgendaViewController {
         }
         
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            let hour = timeBlocks[section] > 12 ? timeBlocks[section] - 12 : timeBlocks[section]
-            let period = timeBlocks[section] >= 12 ? "PM" : "AM"
-            return "\(hour):00 \(period)"
+            let startTime = agenda.days.first!.timeslots[section].startTime
+            return DateFormatter.localizedString(from: startTime.date!,
+                                                 dateStyle: .none,
+                                                 timeStyle: .short)
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,9 +65,9 @@ extension AgendaViewController {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard !sessionsBySection.isEmpty,
-                sessionsBySection.count >= indexPath.section,
+                sessionsBySection.count > indexPath.section,
                 !sessionsBySection[indexPath.section].isEmpty,
-                sessionsBySection[indexPath.section].count >= indexPath.row else {
+                sessionsBySection[indexPath.section].count > indexPath.row else {
                     return UITableViewCell()
             }
 
@@ -88,7 +77,7 @@ extension AgendaViewController {
             cell.textLabel?.text = session.title
 //            cell.detailTextLabel?.text = "\(session.speaker.firstName) \(session.speaker.lastName)"
             
-            return UITableViewCell()
+            return cell
         }
     }
 }

@@ -29,11 +29,16 @@ class AppDataControllerSpec: QuickSpec {
                 it("deserializes the agenda") {
                     let agenda = subject.fetchAgenda()
                     expect(agenda.days).to(haveCount(2))
-                    expect(agenda.days.first?.date).to(equal(DateComponents(year: 2018, month: 06, day: 18)))
+                    expect(agenda.days.first?.date).to(equal(DateComponents(calendar: .current,
+                                                                            year: 2018,
+                                                                            month: 06,
+                                                                            day: 18,
+                                                                            hour: 0,
+                                                                            minute: 0)))
                     
                     let firstTimeslot = agenda.days.first?.timeslots.first
-                    let tenAM = DateComponents(hour: 10)
-                    let elevenAM = DateComponents(hour: 11)
+                    let tenAM = DateComponents(calendar: .current, hour: 10)
+                    let elevenAM = DateComponents(calendar: .current, hour: 11)
                     
                     expect(firstTimeslot?.startTime).to(equal(tenAM))
                     expect(firstTimeslot?.endTime).to(equal(elevenAM))
