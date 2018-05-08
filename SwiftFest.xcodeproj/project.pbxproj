@@ -21,6 +21,7 @@
 		9358A83E2092DEF600442047 /* OutcomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83D2092DEF600442047 /* OutcomeContainerView.swift */; };
 		9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9358A83F2092DF0800442047 /* OutcomeContainerView.xib */; };
 		938A4BD9209B5F0900FA5414 /* SwiftFestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A4BD8209B5F0900FA5414 /* SwiftFestClient.swift */; };
+		93BD217620A205BD00E66173 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD217520A205BD00E66173 /* BaseViewController.swift */; };
 		93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */; };
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
@@ -73,6 +74,7 @@
 		9358A83D2092DEF600442047 /* OutcomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeContainerView.swift; sourceTree = "<group>"; };
 		9358A83F2092DF0800442047 /* OutcomeContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcomeContainerView.xib; sourceTree = "<group>"; };
 		938A4BD8209B5F0900FA5414 /* SwiftFestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFestClient.swift; sourceTree = "<group>"; };
+		93BD217520A205BD00E66173 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListViewController.swift; sourceTree = "<group>"; };
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */,
 				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
 				9314D519209B73F500BE0DAF /* SessionDetailView.xib */,
+				93BD217520A205BD00E66173 /* BaseViewController.swift */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 			);
 			path = SwiftFest;
@@ -407,11 +410,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UIGradient/UIGradient.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIGradient.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -561,6 +566,7 @@
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
 				9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
+				93BD217620A205BD00E66173 /* BaseViewController.swift in Sources */,
 				93F9F25B208D0C4E000C087B /* CodeOfConductViewController.swift in Sources */,
 				93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */,
 			);

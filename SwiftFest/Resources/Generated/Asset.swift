@@ -50,6 +50,10 @@ internal enum Asset {
     internal static let lightGray = ColorAsset(name: "LightGray")
     internal static let lightOrange = ColorAsset(name: "LightOrange")
   }
+  internal enum Icons {
+    internal static let agenda = ImageAsset(name: "agenda")
+    internal static let profileIcon = ImageAsset(name: "profileIcon")
+  }
   internal enum SocialIcons {
     internal static let facebook = ImageAsset(name: "facebook")
     internal static let github = ImageAsset(name: "github")
@@ -105,6 +109,8 @@ internal enum Asset {
     Colors.lightOrange,
   ]
   internal static let allImages: [ImageAsset] = [
+    Icons.agenda,
+    Icons.profileIcon,
     SocialIcons.facebook,
     SocialIcons.github,
     SocialIcons.linkedin,

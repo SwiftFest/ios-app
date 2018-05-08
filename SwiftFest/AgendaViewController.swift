@@ -11,7 +11,7 @@ struct LocalSession {
     }
 }
 
-class AgendaViewController: UIViewController {
+class AgendaViewController: BaseViewController {
 
     @IBOutlet weak var codeOfConductButton: UIBarButtonItem!
     
