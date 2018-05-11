@@ -1,7 +1,11 @@
 import UIKit
 
-class SpeakerListViewController: BaseViewController, UIViewControllerTransitioningDelegate {
+protocol SpeakerListTableViewCellDelegate {
+    func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType)
+}
 
+class SpeakerListViewController: BaseViewController, UIViewControllerTransitioningDelegate, SpeakerListTableViewCellDelegate {
+    
     @IBOutlet weak var speakerListTableView: UITableView!
     
     lazy var swiftFestClient = SwiftFestClient()
@@ -43,8 +47,18 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
         }
     }
     
+    func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType) {
+        self.performSegue(withIdentifier: "SpeakerDetailSegue", sender: speakerSessionDetailType)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
+        if let sender = sender as? SpeakerSessionDetailType, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
+            speakerDetailViewController.speakerSession = sender.speakerSession
+            speakerDetailViewController.transitioningDelegate = self
+            speakerDetailViewController.detailType = sender.detailType
+        }
+        
         if let cell = sender as? SpeakerListTableViewCell, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
             guard let speakerSession = cell.speakerSession else { return }
             speakerDetailViewController.speakerSession = speakerSession
@@ -70,6 +84,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
         cell.speakerSession = SwiftFestSessions().speakerSessionForSpeaker(speakers[indexPath.row])
+        cell.delegate = self
         cell.updateUI()
         return cell
     }
@@ -77,8 +92,8 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // swiftlint:disable:next force_cast
         let cell = tableView.cellForRow(at: indexPath) as! SpeakerListTableViewCell
-        let scrollViewFrame = cell.scrollView.frame
-        cell.scrollView.zoom(to: CGRect(x: scrollViewFrame.midX, y: 0, width: scrollViewFrame.width, height: scrollViewFrame.height), animated: true)
+        //let scrollViewFrame = cell.scrollView.frame
+        //cell.scrollView.zoom(to: CGRect(x: scrollViewFrame.midX, y: 0, width: scrollViewFrame.width, height: scrollViewFrame.height), animated: true)
     }
 }
 
