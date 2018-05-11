@@ -58,18 +58,6 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
             speakerDetailViewController.transitioningDelegate = self
             speakerDetailViewController.detailType = sender.detailType
         }
-        
-        if let cell = sender as? SpeakerListTableViewCell, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
-            guard let speakerSession = cell.speakerSession else { return }
-            speakerDetailViewController.speakerSession = speakerSession
-            speakerDetailViewController.transitioningDelegate = self
-            
-//            activityViewController.unsplashImage = cell.unsplashImage
-//            if let image = cell.activityImageView.image {
-//                let colors = AverageColorFromImage(image)
-//                activityViewController.gradientColor = colors
-//            }
-        }
     }
 
 }
@@ -87,13 +75,6 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.delegate = self
         cell.updateUI()
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // swiftlint:disable:next force_cast
-        let cell = tableView.cellForRow(at: indexPath) as! SpeakerListTableViewCell
-        //let scrollViewFrame = cell.scrollView.frame
-        //cell.scrollView.zoom(to: CGRect(x: scrollViewFrame.midX, y: 0, width: scrollViewFrame.width, height: scrollViewFrame.height), animated: true)
     }
 }
 
