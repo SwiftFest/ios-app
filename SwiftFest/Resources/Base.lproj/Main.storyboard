@@ -283,7 +283,6 @@
                                             <outlet property="speakerFirstNameLabel" destination="Hlj-Wt-hhc" id="bPh-ZM-yQW"/>
                                             <outlet property="speakerImageView" destination="kIS-th-kcF" id="S64-gC-c1k"/>
                                             <outlet property="speakerLastNameLabel" destination="10c-hN-u4J" id="hh2-LG-3yH"/>
-                                            <segue destination="ZxR-eS-UwE" kind="presentation" identifier="SpeakerDetailSegue" modalPresentationStyle="overCurrentContext" id="hon-Im-7AO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -316,7 +315,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9A-mo-mWb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="879" translatesAutoresizingMaskIntoConstraints="NO" id="k97-M6-kcc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
