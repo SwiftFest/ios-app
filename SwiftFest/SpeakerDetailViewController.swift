@@ -2,48 +2,57 @@ import BonMot
 import SnapKit
 import UIKit
 
+enum DetailType {
+    case speakerInfo
+    case sessionInfo
+}
+
 class SpeakerDetailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var sessionTitleLabel: UILabel!
-    @IBOutlet weak var sessionDescriptionLabel: UILabel!
-    @IBOutlet weak var sessionLanguageLabel: UILabel!
-    @IBOutlet weak var complexityTitleLabel: UILabel!
-    @IBOutlet weak var sessionComplexityLabel: UILabel!
-    @IBOutlet weak var complexityContainerView: UIView!
-    @IBOutlet weak var outcomesStackView: UIStackView!
-    @IBOutlet weak var sessionDetailContainerView: UIView!
-    @IBOutlet weak var speakerDetailContainerView: UIView!
+    @IBOutlet weak var detailContainerView: UIView!
+    @IBOutlet weak var dismissButtonContainerView: UIView!
     
     var speakerSession: SpeakerSession?
+    var detailType: DetailType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let speakerSession = speakerSession, let session = speakerSession.session {
-            
-            let sessionDetailView: SessionDetailView = .fromNib()
-            sessionDetailView.session = session
-            sessionDetailContainerView.addSubview(sessionDetailView)
-            sessionDetailView.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(sessionDetailContainerView).offset(8)
-                make.left.equalTo(sessionDetailContainerView).offset(0)
-                make.right.equalTo(sessionDetailContainerView).offset(0)
-                make.bottom.equalTo(sessionDetailContainerView).offset(-12)
-            }
-            sessionDetailView.uiSetup()
-            
 
-            let speakerDetailView: SpeakerDetailView = .fromNib()
-            speakerDetailView.speaker = speakerSession.speaker
-            speakerDetailContainerView.addSubview(speakerDetailView)
-            speakerDetailView.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(speakerDetailContainerView).offset(8)
-                make.left.equalTo(speakerDetailContainerView).offset(0)
-                make.right.equalTo(speakerDetailContainerView).offset(0)
-                make.bottom.equalTo(speakerDetailContainerView).offset(-12)
+        guard let speakerSession = speakerSession else { return }
+        
+        self.view.layer.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 0.5).cgColor
+        scrollView.layer.cornerRadius = 8.0
+        scrollView.layer.borderWidth = 1.0
+        scrollView.layer.borderColor = UIColor.darkGray.cgColor
+        
+        if let detailType = detailType {
+            switch detailType {
+                case .speakerInfo:
+                    let speakerDetailView: SpeakerDetailView = .fromNib()
+                    speakerDetailView.speaker = speakerSession.speaker
+                    detailContainerView.addSubview(speakerDetailView)
+                    speakerDetailView.snp.makeConstraints { (make) -> Void in
+                        make.top.equalTo(detailContainerView).offset(8)
+                        make.left.equalTo(detailContainerView).offset(0)
+                        make.right.equalTo(detailContainerView).offset(0)
+                        make.bottom.equalTo(detailContainerView).offset(-12)
+                    }
+                    speakerDetailView.uiSetup()
+                case .sessionInfo:
+                    guard let session = speakerSession.session else { break }
+                    let sessionDetailView: SessionDetailView = .fromNib()
+                    sessionDetailView.session = session
+                    detailContainerView.addSubview(sessionDetailView)
+                    sessionDetailView.snp.makeConstraints { (make) -> Void in
+                        make.top.equalTo(detailContainerView).offset(8)
+                        make.left.equalTo(detailContainerView).offset(0)
+                        make.right.equalTo(detailContainerView).offset(0)
+                        make.bottom.equalTo(detailContainerView).offset(-12)
+                    }
+                    sessionDetailView.uiSetup()
             }
-            speakerDetailView.uiSetup()
         }
     }
 
