@@ -23,36 +23,36 @@ class SpeakerDetailViewController: UIViewController {
         guard let speakerSession = speakerSession else { return }
         
         self.view.layer.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 0.5).cgColor
-        scrollView.layer.cornerRadius = 8.0
-        scrollView.layer.borderWidth = 1.0
-        scrollView.layer.borderColor = UIColor.darkGray.cgColor
+//        scrollView.layer.cornerRadius = 8.0
+//        scrollView.layer.borderWidth = 1.0
+//        scrollView.layer.borderColor = UIColor.darkGray.cgColor
         
         if let detailType = detailType {
             switch detailType {
-                case .speakerInfo:
-                    let speakerDetailView: SpeakerDetailView = .fromNib()
-                    speakerDetailView.speaker = speakerSession.speaker
-                    detailContainerView.addSubview(speakerDetailView)
-                    speakerDetailView.snp.makeConstraints { (make) -> Void in
-                        make.top.equalTo(detailContainerView).offset(8)
-                        make.left.equalTo(detailContainerView).offset(0)
-                        make.right.equalTo(detailContainerView).offset(0)
-                        make.bottom.equalTo(detailContainerView).offset(-12)
-                    }
-                    speakerDetailView.uiSetup()
-                case .sessionInfo:
-                    guard let session = speakerSession.session else { break }
-                    let sessionDetailView: SessionDetailView = .fromNib()
-                    sessionDetailView.session = session
-                    detailContainerView.addSubview(sessionDetailView)
-                    sessionDetailView.snp.makeConstraints { (make) -> Void in
-                        make.top.equalTo(detailContainerView).offset(8)
-                        make.left.equalTo(detailContainerView).offset(0)
-                        make.right.equalTo(detailContainerView).offset(0)
-                        make.bottom.equalTo(detailContainerView).offset(-12)
-                    }
-                    sessionDetailView.uiSetup()
-            }
+            case .speakerInfo:
+                let speakerDetailView: SpeakerDetailView = .fromNib()
+                speakerDetailView.speaker = speakerSession.speaker
+                detailContainerView.addSubview(speakerDetailView)
+                speakerDetailView.snp.makeConstraints { (make) -> Void in
+                    make.top.equalTo(detailContainerView).offset(8)
+                    make.left.equalTo(detailContainerView).offset(0)
+                    make.right.equalTo(detailContainerView).offset(0)
+                    make.bottom.equalTo(detailContainerView).offset(-12)
+                }
+                speakerDetailView.uiSetup()
+            case .sessionInfo:
+                guard let session = speakerSession.session else { break }
+                let sessionDetailView: SessionDetailView = .fromNib()
+                sessionDetailView.session = session
+                detailContainerView.addSubview(sessionDetailView)
+                sessionDetailView.snp.makeConstraints { (make) -> Void in
+                    make.top.equalTo(detailContainerView).offset(8)
+                    make.left.equalTo(detailContainerView).offset(0)
+                    make.right.equalTo(detailContainerView).offset(0)
+                    make.bottom.equalTo(detailContainerView).offset(-12)
+                }
+                sessionDetailView.uiSetup()
+        }
         }
     }
 

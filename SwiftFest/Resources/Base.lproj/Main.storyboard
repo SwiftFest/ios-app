@@ -315,78 +315,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9A-mo-mWb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="879" translatesAutoresizingMaskIntoConstraints="NO" id="k97-M6-kcc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="879" translatesAutoresizingMaskIntoConstraints="NO" id="k97-M6-kcc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-Yw-dSU">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-Yw-dSU">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="879"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i3-ao-7ki">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i3-ao-7ki">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-iq-wgd">
-                                                                <rect key="frame" x="309" y="0.0" width="54" height="50"/>
-                                                                <state key="normal" title="Dismiss"/>
-                                                                <connections>
-                                                                    <action selector="dismissButtonPressed:" destination="ZxR-eS-UwE" eventType="touchUpInside" id="SK6-cT-z81"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="bs0-iq-wgd" secondAttribute="trailing" constant="12" id="2c8-lq-ZX6"/>
-                                                            <constraint firstItem="bs0-iq-wgd" firstAttribute="top" secondItem="1i3-ao-7ki" secondAttribute="top" id="35c-Y4-PuB"/>
-                                                            <constraint firstAttribute="bottom" secondItem="bs0-iq-wgd" secondAttribute="bottom" id="mtg-57-auf"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Xh-su2">
-                                                        <rect key="frame" x="0.0" y="50" width="375" height="829"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-iq-wgd">
+                                                        <rect key="frame" x="309" y="4" width="54" height="34"/>
+                                                        <state key="normal" title="Dismiss"/>
+                                                        <connections>
+                                                            <action selector="dismissButtonPressed:" destination="ZxR-eS-UwE" eventType="touchUpInside" id="SK6-cT-z81"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="bs0-iq-wgd" secondAttribute="trailing" constant="12" id="2c8-lq-ZX6"/>
+                                                    <constraint firstItem="bs0-iq-wgd" firstAttribute="top" secondItem="1i3-ao-7ki" secondAttribute="top" constant="4" id="35c-Y4-PuB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bs0-iq-wgd" secondAttribute="bottom" constant="4" id="mtg-57-auf"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Xh-su2">
+                                                <rect key="frame" x="0.0" y="42" width="375" height="625"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Uh2-Yw-dSU" secondAttribute="trailing" id="ZPr-p4-6Zy"/>
-                                            <constraint firstItem="Uh2-Yw-dSU" firstAttribute="leading" secondItem="k97-M6-kcc" secondAttribute="leading" id="aZb-Mm-408"/>
-                                            <constraint firstItem="Uh2-Yw-dSU" firstAttribute="top" secondItem="k97-M6-kcc" secondAttribute="top" id="fOS-Vm-5q5"/>
-                                            <constraint firstAttribute="bottom" secondItem="Uh2-Yw-dSU" secondAttribute="bottom" id="kRq-Ji-00M"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="k97-M6-kcc" secondAttribute="bottom" id="5y7-3B-RdX"/>
-                                    <constraint firstItem="k97-M6-kcc" firstAttribute="width" secondItem="S9A-mo-mWb" secondAttribute="width" id="BIq-IG-SnO"/>
-                                    <constraint firstItem="k97-M6-kcc" firstAttribute="leading" secondItem="S9A-mo-mWb" secondAttribute="leading" id="Dom-5h-Bic"/>
-                                    <constraint firstAttribute="trailing" secondItem="k97-M6-kcc" secondAttribute="trailing" id="HXS-gh-WGt"/>
-                                    <constraint firstItem="k97-M6-kcc" firstAttribute="top" secondItem="S9A-mo-mWb" secondAttribute="top" id="TDC-el-yl3"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uh2-Yw-dSU" secondAttribute="trailing" id="ZPr-p4-6Zy"/>
+                                    <constraint firstItem="Uh2-Yw-dSU" firstAttribute="leading" secondItem="k97-M6-kcc" secondAttribute="leading" id="aZb-Mm-408"/>
+                                    <constraint firstItem="Uh2-Yw-dSU" firstAttribute="top" secondItem="k97-M6-kcc" secondAttribute="top" id="fOS-Vm-5q5"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uh2-Yw-dSU" secondAttribute="bottom" id="kRq-Ji-00M"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kDE-n3-Jqd" firstAttribute="bottom" secondItem="S9A-mo-mWb" secondAttribute="bottom" id="Izr-FQ-0el"/>
-                            <constraint firstItem="S9A-mo-mWb" firstAttribute="top" secondItem="kDE-n3-Jqd" secondAttribute="top" id="Tdv-Q4-Nkj"/>
-                            <constraint firstItem="S9A-mo-mWb" firstAttribute="leading" secondItem="kDE-n3-Jqd" secondAttribute="leading" id="kim-fv-Eii"/>
-                            <constraint firstItem="kDE-n3-Jqd" firstAttribute="trailing" secondItem="S9A-mo-mWb" secondAttribute="trailing" id="zNA-La-XUK"/>
+                            <constraint firstItem="k97-M6-kcc" firstAttribute="trailing" secondItem="kDE-n3-Jqd" secondAttribute="trailing" id="35V-DQ-eZY"/>
+                            <constraint firstItem="k97-M6-kcc" firstAttribute="top" secondItem="uG2-3c-UeR" secondAttribute="top" id="CRq-mO-1mW"/>
+                            <constraint firstItem="k97-M6-kcc" firstAttribute="leading" secondItem="kDE-n3-Jqd" secondAttribute="leading" id="Jf2-gN-Sen"/>
+                            <constraint firstAttribute="bottom" secondItem="k97-M6-kcc" secondAttribute="bottom" id="gLO-aB-I9s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kDE-n3-Jqd"/>
                     </view>
                     <connections>
-                        <outlet property="contentView" destination="k97-M6-kcc" id="Wlv-cp-Dir"/>
+                        <outlet property="contentView" destination="k97-M6-kcc" id="KBe-Kn-DZu"/>
                         <outlet property="detailContainerView" destination="jlf-Xh-su2" id="UVU-Lo-Upm"/>
                         <outlet property="dismissButtonContainerView" destination="1i3-ao-7ki" id="dkS-8j-WuV"/>
-                        <outlet property="scrollView" destination="S9A-mo-mWb" id="tSR-q6-RuG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-c5-hT3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="1496"/>
+            <point key="canvasLocation" x="1000.8" y="1495.5022488755624"/>
         </scene>
     </scenes>
     <resources>
