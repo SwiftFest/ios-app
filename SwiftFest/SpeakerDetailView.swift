@@ -6,6 +6,7 @@
 //  Copyright © 2018 Sean Olszewski. All rights reserved.
 //
 
+import UIGradient
 import UIKit
 
 class SpeakerDetailView: UIView {
@@ -17,6 +18,10 @@ class SpeakerDetailView: UIView {
     @IBOutlet weak var speakerTitleLabel: UILabel!
     @IBOutlet weak var speakerBioLabel: UILabel!
     @IBOutlet weak var socialStackView: UIStackView!
+    @IBOutlet weak var socialStackViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var socialStackViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var speakerView: UIView!
+    @IBOutlet weak var gradientView: UIView!
     
     func uiSetup() {
         speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
@@ -30,15 +35,29 @@ class SpeakerDetailView: UIView {
             generateSocialButtonsForSpeaker(speaker)
         }
         
+        gradientView.addGradientWithDirection(.leftToRight, colors: UIUtilities.gradientColors)
+        
     }
     
     func generateSocialButtonsForSpeaker(_ speaker: Speaker) {
         guard let socialResults = speaker.social else { return }
+        let buttonHeight: CGFloat = 50.0
+        socialStackViewWidth.constant = CGFloat(socialResults.count) * (buttonHeight) + CGFloat(socialResults.count - 1) * (socialStackView.spacing)
+        socialStackViewHeight.constant = buttonHeight
         for social in socialResults {
-            let socialButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40.0, height: 40.0))
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: buttonHeight, height: buttonHeight))
+            view.backgroundColor = UIColor.white
+            view.layer.cornerRadius = view.frame.height / 2
+            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowOpacity = 0.5
+            view.layer.shadowOffset = CGSize(width: 0, height: 3)
+//            view.layer.borderColor = UIColor.black.cgColor
+//            view.layer.borderWidth = 1.0
+            let socialButton = UIButton(frame: CGRect(x: 0, y: 0, width: buttonHeight, height: buttonHeight))
+            view.addSubview(socialButton)
             let socialImage = UIImage(named: (social.socialType?.rawValue)!)
             socialButton.setImage(socialImage, for: .normal)
-            socialStackView.addArrangedSubview(socialButton)
+            socialStackView.addArrangedSubview(view)
         }
     }
     

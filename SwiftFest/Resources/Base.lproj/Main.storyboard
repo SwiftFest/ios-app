@@ -300,7 +300,7 @@
                     <navigationItem key="navigationItem" title="Speakers" id="yxj-AD-7wJ"/>
                     <connections>
                         <outlet property="speakerListTableView" destination="aIi-Ui-zav" id="jh3-XX-TSb"/>
-                        <segue destination="ZxR-eS-UwE" kind="presentation" identifier="SpeakerDetailSegue" modalPresentationStyle="overCurrentContext" id="Of8-D1-Juo"/>
+                        <segue destination="ZxR-eS-UwE" kind="show" identifier="SpeakerDetailSegue" id="Of8-D1-Juo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5P2-IA-MZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,27 +321,34 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-Yw-dSU">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i3-ao-7ki">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Xh-su2">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-iq-wgd">
-                                                        <rect key="frame" x="309" y="4" width="54" height="34"/>
-                                                        <state key="normal" title="Dismiss"/>
-                                                        <connections>
-                                                            <action selector="dismissButtonPressed:" destination="ZxR-eS-UwE" eventType="touchUpInside" id="SK6-cT-z81"/>
-                                                        </connections>
-                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i3-ao-7ki">
+                                                        <rect key="frame" x="24" y="36" width="78" height="38"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-iq-wgd">
+                                                                <rect key="frame" x="12" y="4" width="54" height="30"/>
+                                                                <state key="normal" title="Dismiss"/>
+                                                                <connections>
+                                                                    <action selector="dismissButtonPressed:" destination="ZxR-eS-UwE" eventType="touchUpInside" id="SK6-cT-z81"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="bs0-iq-wgd" firstAttribute="leading" secondItem="1i3-ao-7ki" secondAttribute="leading" constant="12" id="31h-hn-eWn"/>
+                                                            <constraint firstItem="bs0-iq-wgd" firstAttribute="top" secondItem="1i3-ao-7ki" secondAttribute="top" constant="4" id="35c-Y4-PuB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="bs0-iq-wgd" secondAttribute="trailing" constant="12" id="cV1-6X-lOk"/>
+                                                            <constraint firstAttribute="bottom" secondItem="bs0-iq-wgd" secondAttribute="bottom" constant="4" id="mtg-57-auf"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="bs0-iq-wgd" secondAttribute="trailing" constant="12" id="2c8-lq-ZX6"/>
-                                                    <constraint firstItem="bs0-iq-wgd" firstAttribute="top" secondItem="1i3-ao-7ki" secondAttribute="top" constant="4" id="35c-Y4-PuB"/>
-                                                    <constraint firstAttribute="bottom" secondItem="bs0-iq-wgd" secondAttribute="bottom" constant="4" id="mtg-57-auf"/>
+                                                    <constraint firstItem="1i3-ao-7ki" firstAttribute="top" secondItem="jlf-Xh-su2" secondAttribute="top" constant="36" id="TJw-YD-19p"/>
+                                                    <constraint firstItem="1i3-ao-7ki" firstAttribute="leading" secondItem="jlf-Xh-su2" secondAttribute="leading" constant="24" id="dZM-ki-ksI"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Xh-su2">
-                                                <rect key="frame" x="0.0" y="42" width="375" height="625"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
                                     </stackView>

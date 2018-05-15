@@ -1,14 +1,5 @@
-//
-//  UIUtilities.swift
-//  SwiftFest
-//
-//  Created by Bryan Ryczek on 5/14/18.
-//  Copyright © 2018 Sean Olszewski. All rights reserved.
-//
-
 import Foundation
 import UIKit
-import UIGradient
 
 class UIUtilities {
     
