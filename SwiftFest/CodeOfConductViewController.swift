@@ -2,7 +2,6 @@ import UIKit
 import WebKit
 
 class CodeOfConductViewController: UIViewController {
-
     
     @IBOutlet weak var codeOfConductWebView: WKWebView!
     

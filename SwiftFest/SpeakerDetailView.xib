@@ -42,25 +42,50 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTh-FC-Leq">
+                                            <rect key="frame" x="16" y="24" width="25" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="RN4-gV-PFy"/>
+                                                <constraint firstAttribute="height" constant="40" id="sWt-yR-jXI"/>
+                                            </constraints>
+                                            <state key="normal" image="backIcon">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="KCl-n3-Qle"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-Un-plO">
                                             <rect key="frame" x="146.5" y="191.5" width="105" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAC-Yf-xd4">
+                                            <rect key="frame" x="12" y="12" width="111" height="108"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="108" id="pxa-K2-tSJ"/>
+                                                <constraint firstAttribute="width" constant="111" id="tPV-BQ-ePD"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="g2y-gD-7UN" secondAttribute="bottom" id="14T-rK-5u4"/>
-                                        <constraint firstAttribute="bottom" secondItem="L7E-Un-plO" secondAttribute="bottom" constant="48" id="7hJ-qT-Dik"/>
                                         <constraint firstItem="L7E-Un-plO" firstAttribute="top" secondItem="oeQ-HS-40a" secondAttribute="bottom" constant="6" id="ANA-3w-fpU"/>
+                                        <constraint firstItem="XAC-Yf-xd4" firstAttribute="leading" secondItem="3fG-kp-xQ7" secondAttribute="leading" constant="12" id="GFj-Tn-yY5"/>
+                                        <constraint firstItem="sTh-FC-Leq" firstAttribute="leading" secondItem="3fG-kp-xQ7" secondAttribute="leading" constant="16" id="Jab-id-4Jz"/>
                                         <constraint firstItem="kFb-G9-7ZU" firstAttribute="centerX" secondItem="3fG-kp-xQ7" secondAttribute="centerX" id="Kcl-tB-ibb"/>
                                         <constraint firstItem="oeQ-HS-40a" firstAttribute="centerX" secondItem="kFb-G9-7ZU" secondAttribute="centerX" id="MZt-UQ-CqL"/>
                                         <constraint firstItem="g2y-gD-7UN" firstAttribute="leading" secondItem="3fG-kp-xQ7" secondAttribute="leading" id="PhW-MO-CFj"/>
+                                        <constraint firstItem="XAC-Yf-xd4" firstAttribute="top" secondItem="3fG-kp-xQ7" secondAttribute="top" constant="12" id="Pj9-4P-T3G"/>
                                         <constraint firstItem="oeQ-HS-40a" firstAttribute="top" secondItem="kFb-G9-7ZU" secondAttribute="bottom" constant="8" id="RJS-da-pa7"/>
                                         <constraint firstAttribute="trailing" secondItem="g2y-gD-7UN" secondAttribute="trailing" id="Rzw-a2-6Dj"/>
+                                        <constraint firstItem="sTh-FC-Leq" firstAttribute="top" secondItem="3fG-kp-xQ7" secondAttribute="top" constant="24" id="Y3G-Cl-Xfr"/>
                                         <constraint firstItem="kFb-G9-7ZU" firstAttribute="top" secondItem="3fG-kp-xQ7" secondAttribute="top" constant="24" id="YUT-M8-oJu"/>
                                         <constraint firstItem="g2y-gD-7UN" firstAttribute="top" secondItem="3fG-kp-xQ7" secondAttribute="top" id="bMH-2I-Fai"/>
+                                        <constraint firstAttribute="bottom" secondItem="oeQ-HS-40a" secondAttribute="bottom" constant="74.5" id="nqb-XB-SVK"/>
                                         <constraint firstItem="L7E-Un-plO" firstAttribute="centerX" secondItem="oeQ-HS-40a" secondAttribute="centerX" id="xSJ-G0-L8d"/>
                                     </constraints>
                                 </view>
@@ -154,8 +179,12 @@
                 <outlet property="speakerNameLabel" destination="oeQ-HS-40a" id="xJz-qK-Ndo"/>
                 <outlet property="speakerTitleLabel" destination="L7E-Un-plO" id="KN5-Wh-VIE"/>
                 <outlet property="speakerView" destination="3fG-kp-xQ7" id="f04-Y8-GPm"/>
+                <outlet property="swiftLogoView" destination="XAC-Yf-xd4" id="Zvg-kL-qJq"/>
             </connections>
             <point key="canvasLocation" x="36" y="222.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="backIcon" width="25" height="40"/>
+    </resources>
 </document>

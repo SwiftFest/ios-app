@@ -52,6 +52,7 @@ internal enum Asset {
   }
   internal enum Icons {
     internal static let agenda = ImageAsset(name: "agenda")
+    internal static let backIcon = ImageAsset(name: "backIcon")
     internal static let profileIcon = ImageAsset(name: "profileIcon")
   }
   internal enum SocialIcons {
@@ -110,6 +111,7 @@ internal enum Asset {
   ]
   internal static let allImages: [ImageAsset] = [
     Icons.agenda,
+    Icons.backIcon,
     Icons.profileIcon,
     SocialIcons.facebook,
     SocialIcons.github,
