@@ -36,7 +36,6 @@ class SessionDetailView: UIView {
 private extension SessionDetailView {
 
     func update(session: Session) {
-
         let complexity: String
         if let sessionComplexity = session.complexity {
             complexity = "\n<label>Complexity:</label> <value>\(sessionComplexity)</value>"
