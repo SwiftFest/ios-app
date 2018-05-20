@@ -48,16 +48,12 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
                 speakerDetailView.uiSetup()
             case .sessionInfo:
                 guard let session = speakerSession.session else { break }
-                let sessionDetailView: SessionDetailView = .fromNib()
+                let sessionDetailView = SessionDetailView()
                 sessionDetailView.session = session
                 detailContainerView.addSubview(sessionDetailView)
                 sessionDetailView.snp.makeConstraints { (make) -> Void in
-                    make.top.equalTo(detailContainerView).offset(8)
-                    make.left.equalTo(detailContainerView).offset(0)
-                    make.right.equalTo(detailContainerView).offset(0)
-                    make.bottom.equalTo(detailContainerView).offset(-12)
+                    make.edges.equalTo(detailContainerView.safeAreaLayoutGuide)
                 }
-                sessionDetailView.uiSetup()
         }
         }
         dismissButtonContainerView.layer.zPosition = 1
