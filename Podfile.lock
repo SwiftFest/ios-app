@@ -1,5 +1,6 @@
 PODS:
   - BonMot (5.2)
+  - Down (0.5.2)
   - Nimble (7.0.2)
   - Pastel (0.4.0)
   - Quick (1.2.0)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - BonMot
+  - Down
   - Nimble
   - Pastel
   - Quick
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - BonMot
+    - Down
     - Nimble
     - Pastel
     - Quick
@@ -31,6 +34,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BonMot: 68da0bd7c2f602aca85511bedabd211eb0fae666
+  Down: 587371ad58002b06023d9c602519216862c3acbc
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Pastel: 7fa5e26123b3dbe11f7ed255654bf37100b199a5
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   UIGradient: 8284447bfcf93260db8363d654e35a34fe56b670
 
-PODFILE CHECKSUM: 1d716af3e56109c3189cb10bd0773fffcc7904c9
+PODFILE CHECKSUM: 337b826ac973ac5e2d63015a5d3669b6793141bb
 
 COCOAPODS: 1.5.0
