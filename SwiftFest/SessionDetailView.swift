@@ -1,4 +1,5 @@
 import BonMot
+import Down
 import SnapKit
 import UIKit
 
@@ -45,19 +46,27 @@ private extension SessionDetailView {
 
         let outcome: String
         if let sessionOutcome = session.outcome {
-            outcome = "\n<h2>Attendees can expect to learn</h2>\n<body>\(sessionOutcome)</body>"
+            let down = Down(markdownString: sessionOutcome)
+            if let xml = try? down.toHTML(.smart) {
+                outcome = "\n<h2>Attendees can expect to learn</h2>\n<body>\(xml)</body>"
+            } else {
+                outcome = ""
+            }
         } else {
             outcome = ""
         }
 
         let xml = """
-<h1>\(session.title)</h1>\(complexity)
-<body>\(session.description)</body>\(outcome)
-"""
+        <h1>\(session.title)</h1>\(complexity)
+        <body>\(session.description.components(separatedBy: "\n\n").joined(separator: "\n"))</body>\(outcome)
+        """
 
         let baseStyle = StringStyle(
-            .paragraphSpacingAfter(4)
+            .paragraphSpacingAfter(8)
         )
+
+        let indent = UIFontMetrics.default.scaledValue(for: 10)
+        let bulletString = NSAttributedString.composed(of: ["•", Tab.headIndent(indent)])
 
         let style = StringStyle(
             .xmlRules([
@@ -70,6 +79,7 @@ private extension SessionDetailView {
                     ])),
                 .style("h2", baseStyle.byAdding([
                     .font(.systemFont(ofSize: 24, weight: .light)),
+                    .paragraphSpacingAfter(0),
                     .adapt(.body),
                     ])),
                 .style("label", baseStyle.byAdding([
@@ -79,6 +89,7 @@ private extension SessionDetailView {
                 .style("value", baseStyle.byAdding([
                     .font(.preferredFont(forTextStyle: .body)),
                     ])),
+                .enter(element: "li", insert: bulletString),
                 ])
         )
 
