@@ -68,6 +68,9 @@ private extension SessionDetailView {
         let indent = UIFontMetrics.default.scaledValue(for: 10)
         let bulletString = NSAttributedString.composed(of: ["•", Tab.headIndent(indent)])
 
+        let bold = StringStyle(.emphasis(.bold))
+        let italic = StringStyle(.emphasis(.italic))
+
         let style = StringStyle(
             .xmlRules([
                 .style("h1", baseStyle.byAdding([
@@ -89,6 +92,18 @@ private extension SessionDetailView {
                 .style("value", baseStyle.byAdding([
                     .font(.preferredFont(forTextStyle: .body)),
                     ])),
+                .style("code", StringStyle(
+                    .color(Asset.Colors.codeForeground.color),
+                    .backgroundColor(Asset.Colors.codeBackground.color),
+                    .font(UIFont(name: "Menlo-Regular", size: UIFontMetrics.default.scaledValue(for: 17))!)
+                    )),
+                .style("del", StringStyle(
+                    .strikethrough(.styleSingle, .black)
+                    )),
+                .style("em", italic),
+                .style("i", italic),
+                .style("bold", bold),
+                .style("strong", bold),
                 .enter(element: "li", insert: bulletString),
                 ])
         )

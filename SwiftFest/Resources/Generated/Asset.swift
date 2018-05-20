@@ -46,6 +46,8 @@ internal struct ColorAsset {
 internal enum Asset {
   internal enum Colors {
     internal static let black = ColorAsset(name: "Black")
+    internal static let codeBackground = ColorAsset(name: "CodeBackground")
+    internal static let codeForeground = ColorAsset(name: "CodeForeground")
     internal static let darkOrange = ColorAsset(name: "DarkOrange")
     internal static let lightGray = ColorAsset(name: "LightGray")
     internal static let lightOrange = ColorAsset(name: "LightOrange")
@@ -105,6 +107,8 @@ internal enum Asset {
   // swiftlint:disable trailing_comma
   internal static let allColors: [ColorAsset] = [
     Colors.black,
+    Colors.codeBackground,
+    Colors.codeForeground,
     Colors.darkOrange,
     Colors.lightGray,
     Colors.lightOrange,

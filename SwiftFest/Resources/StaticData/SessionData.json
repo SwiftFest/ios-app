@@ -215,7 +215,7 @@
     "id": "019",
     "title": "Functional Magic in Swift",
     "description": "Do you find yourself creating messy code in order to transform Swift optionals? Do you wish you harnessed the functional power of Swift more? This talk is for you! Come learn about creating elegant code with map, flatMap, filter, and reduce through some cupcake magic.  Let's make your code more Swifty!\n",
-    "outcome": "- Functional programming building blocks\n- Manipulating collections with four functions: `map`, ~~`flatMap`~~ `compactMap`, `filter`, and `reduce`\n- Have good examples of how to use them in their code\n",
+    "outcome": "- Functional programming building blocks\n- Manipulating collections with four functions: `map`, <del>`flatMap`</del> `compactMap`, `filter`, and `reduce`\n- Have good examples of how to use them in their code\n",
     "subtype": "presentation",
     "speakers": [
       "24"
