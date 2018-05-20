@@ -7,7 +7,7 @@ enum DetailType {
     case sessionInfo
 }
 
-protocol DismissModalProtocol {
+protocol DismissModalProtocol: class {
     func dismiss()
 }
 
@@ -26,7 +26,7 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
 
         guard let speakerSession = speakerSession else { return }
         
-        self.view.layer.backgroundColor = UIColor(red: 170/255 , green: 170/255 , blue: 170/255 , alpha: 0.5).cgColor
+        self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
 //        scrollView.layer.cornerRadius = 8.0
 //        scrollView.layer.borderWidth = 1.0
 //        scrollView.layer.borderColor = UIColor.darkGray.cgColor
