@@ -1,6 +1,6 @@
 import UIKit
 
-protocol SpeakerListTableViewCellDelegate {
+protocol SpeakerListTableViewCellDelegate: class {
     func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType)
 }
 

@@ -23,9 +23,7 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         guard let speakerSession = speakerSession else { return }
         
         self.view.layer.backgroundColor = UIColor(red: 170/255 , green: 170/255 , blue: 170/255 , alpha: 0.5).cgColor

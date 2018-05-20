@@ -8,17 +8,16 @@
 
 import UIKit
 
-
 //hack so I can pass multiple items through sender
 struct SpeakerSessionDetailType {
-    let detailType : DetailType
-    let speakerSession : SpeakerSession
+    let detailType: DetailType
+    let speakerSession: SpeakerSession
 }
 
 class SpeakerListTableViewCell: UITableViewCell {
 
     var speakerSession: SpeakerSession?
-    var delegate: SpeakerListTableViewCellDelegate!
+    weak var delegate: SpeakerListTableViewCellDelegate!
     
     //@IBOutlet weak var scrollView: UIScrollView!
     
