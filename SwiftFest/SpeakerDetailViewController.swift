@@ -7,8 +7,12 @@ enum DetailType {
     case sessionInfo
 }
 
-class SpeakerDetailViewController: UIViewController {
+protocol DismissModalProtocol {
+    func dismiss()
+}
 
+class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
+  
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var detailContainerView: UIView!
@@ -19,46 +23,60 @@ class SpeakerDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
         guard let speakerSession = speakerSession else { return }
         
-        self.view.layer.backgroundColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 0.5).cgColor
-        scrollView.layer.cornerRadius = 8.0
-        scrollView.layer.borderWidth = 1.0
-        scrollView.layer.borderColor = UIColor.darkGray.cgColor
+        self.view.layer.backgroundColor = UIColor(red: 170/255 , green: 170/255 , blue: 170/255 , alpha: 0.5).cgColor
+//        scrollView.layer.cornerRadius = 8.0
+//        scrollView.layer.borderWidth = 1.0
+//        scrollView.layer.borderColor = UIColor.darkGray.cgColor
         
         if let detailType = detailType {
             switch detailType {
-                case .speakerInfo:
-                    let speakerDetailView: SpeakerDetailView = .fromNib()
-                    speakerDetailView.speaker = speakerSession.speaker
-                    detailContainerView.addSubview(speakerDetailView)
-                    speakerDetailView.snp.makeConstraints { (make) -> Void in
-                        make.top.equalTo(detailContainerView).offset(8)
-                        make.left.equalTo(detailContainerView).offset(0)
-                        make.right.equalTo(detailContainerView).offset(0)
-                        make.bottom.equalTo(detailContainerView).offset(-12)
-                    }
-                    speakerDetailView.uiSetup()
-                case .sessionInfo:
-                    guard let session = speakerSession.session else { break }
-                    let sessionDetailView: SessionDetailView = .fromNib()
-                    sessionDetailView.session = session
-                    detailContainerView.addSubview(sessionDetailView)
-                    sessionDetailView.snp.makeConstraints { (make) -> Void in
-                        make.top.equalTo(detailContainerView).offset(8)
-                        make.left.equalTo(detailContainerView).offset(0)
-                        make.right.equalTo(detailContainerView).offset(0)
-                        make.bottom.equalTo(detailContainerView).offset(-12)
-                    }
-                    sessionDetailView.uiSetup()
+            case .speakerInfo:
+                let speakerDetailView: SpeakerDetailView = .fromNib()
+                speakerDetailView.speaker = speakerSession.speaker
+                detailContainerView.addSubview(speakerDetailView)
+                speakerDetailView.delegate = self
+                speakerDetailView.snp.makeConstraints { (make) -> Void in
+                    make.top.equalTo(detailContainerView).offset(8)
+                    make.left.equalTo(detailContainerView).offset(0)
+                    make.right.equalTo(detailContainerView).offset(0)
+                    make.bottom.equalTo(detailContainerView).offset(-12)
+                }
+                navigationController?.setNavigationBarHidden(true, animated: false)
+                speakerDetailView.uiSetup()
+            case .sessionInfo:
+                guard let session = speakerSession.session else { break }
+                let sessionDetailView: SessionDetailView = .fromNib()
+                sessionDetailView.session = session
+                detailContainerView.addSubview(sessionDetailView)
+                sessionDetailView.snp.makeConstraints { (make) -> Void in
+                    make.top.equalTo(detailContainerView).offset(8)
+                    make.left.equalTo(detailContainerView).offset(0)
+                    make.right.equalTo(detailContainerView).offset(0)
+                    make.bottom.equalTo(detailContainerView).offset(-12)
+                }
+                sessionDetailView.uiSetup()
+        }
+        }
+        dismissButtonContainerView.layer.zPosition = 1
+    }
+
+    func dismiss() {
+        if let detailType = detailType {
+            switch detailType {
+            case .speakerInfo:
+                self.navigationController?.popViewController(animated: true)
+                navigationController?.setNavigationBarHidden(false, animated: false)
+            case .sessionInfo:
+                dismiss(animated: true, completion: nil)
             }
         }
     }
-
-    @IBAction func dismissButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+    
 }
 
 // to load nib
