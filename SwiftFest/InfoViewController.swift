@@ -1,13 +1,6 @@
-//
-//  InfoViewController.swift
-//  SwiftFest
-//
-//  Created by Bryan Ryczek on 5/19/18.
-//  Copyright © 2018 Sean Olszewski. All rights reserved.
-//
 
-import UIKit
 import SafariServices
+import UIKit
 
 class InfoViewController: BaseViewController {
 
@@ -22,16 +15,6 @@ class InfoViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
