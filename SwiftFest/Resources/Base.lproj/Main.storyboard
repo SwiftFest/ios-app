@@ -31,16 +31,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7md-aS-HT1">
-                        <barButtonItem key="leftBarButtonItem" title="Code of Conduct" id="3EQ-Pa-J0u">
-                            <connections>
-                                <segue destination="i4C-2p-BUH" kind="show" id="7Em-lu-cb1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="7md-aS-HT1"/>
                     <connections>
                         <outlet property="agendaTableView" destination="j0g-kM-Oje" id="vsd-qT-hSx"/>
-                        <outlet property="codeOfConductButton" destination="3EQ-Pa-J0u" id="sRd-Ax-45x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,7 +49,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-kf-XD7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -185,12 +178,12 @@
         <scene sceneID="ztl-hl-1Xk">
             <objects>
                 <tabBarController id="Juu-Xm-yeN" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="7nh-Xf-Wgh">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7nh-Xf-Wgh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="TuX-Ag-pDi" kind="relationship" relationship="viewControllers" id="Pj1-eJ-ahg"/>
@@ -416,11 +409,11 @@
             </objects>
             <point key="canvasLocation" x="1000.8" y="1495.5022488755624"/>
         </scene>
-        <!--Item-->
+        <!--Sponsors-->
         <scene sceneID="1I7-31-yPn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LhE-6r-QaI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LQj-r3-FtV"/>
+                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsorIcon" id="LQj-r3-FtV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2dA-QU-e1E">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -435,11 +428,11 @@
             </objects>
             <point key="canvasLocation" x="-616" y="2188.6056971514245"/>
         </scene>
-        <!--Item-->
+        <!--Info-->
         <scene sceneID="VWV-9N-e6M">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L61-1N-FfQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="K1Q-gU-yYf"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="infoIcon" id="K1Q-gU-yYf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W9y-y8-L45">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -457,6 +450,8 @@
     </scenes>
     <resources>
         <image name="agenda" width="30" height="30"/>
+        <image name="infoIcon" width="30" height="30"/>
         <image name="profileIcon" width="30" height="30"/>
+        <image name="sponsorIcon" width="32" height="30"/>
     </resources>
 </document>
