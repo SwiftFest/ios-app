@@ -81,23 +81,39 @@
             </objects>
             <point key="canvasLocation" x="1001" y="750"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Info-->
         <scene sceneID="nSY-l0-6Ne">
             <objects>
                 <viewController id="nGB-4B-d5H" customClass="InfoViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDk-RD-wVO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rAK-v5-Ldh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rAK-v5-Ldh" firstAttribute="leading" secondItem="vOw-3H-Owe" secondAttribute="leading" id="740-e6-62i"/>
+                            <constraint firstItem="vOw-3H-Owe" firstAttribute="trailing" secondItem="rAK-v5-Ldh" secondAttribute="trailing" id="Ca5-Tx-pjY"/>
+                            <constraint firstItem="vOw-3H-Owe" firstAttribute="bottom" secondItem="rAK-v5-Ldh" secondAttribute="bottom" id="Vad-r8-46U"/>
+                            <constraint firstItem="rAK-v5-Ldh" firstAttribute="top" secondItem="vOw-3H-Owe" secondAttribute="top" id="rvk-2P-qgL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vOw-3H-Owe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Tlj-WK-SLq"/>
+                    <navigationItem key="navigationItem" title="Info" id="Tlj-WK-SLq"/>
+                    <connections>
+                        <outlet property="tableView" destination="rAK-v5-Ldh" id="I7w-Ll-uHC"/>
+                        <segue destination="ykm-7d-vuC" kind="show" identifier="AboutSwiftFestSegue" id="QOR-h9-U2R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nB6-Eu-joN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="3055"/>
+            <point key="canvasLocation" x="305" y="3054"/>
         </scene>
-        <!--Sponsors View Controller-->
+        <!--Sponsors-->
         <scene sceneID="vIB-Fc-Sm6">
             <objects>
                 <viewController id="MoT-RR-7Pc" customClass="SponsorsViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +123,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ozJ-2H-W1t"/>
                     </view>
-                    <navigationItem key="navigationItem" id="M8a-Ih-tp4"/>
+                    <navigationItem key="navigationItem" title="Sponsors" id="M8a-Ih-tp4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2K-ft-LeU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,37 +146,20 @@
             </objects>
             <point key="canvasLocation" x="-559" y="1497"/>
         </scene>
-        <!--View Controller-->
+        <!--About SwiftFest-->
         <scene sceneID="6XV-aP-Tyr">
             <objects>
-                <viewController id="ykm-7d-vuC" customClass="ViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="About SwiftFest" id="ykm-7d-vuC" customClass="AboutSwiftFestViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ih-TR-tXJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFd-NB-G5N">
-                                <rect key="frame" x="0.0" y="20" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="rvC-JH-Xtf"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="VFd-NB-G5N" firstAttribute="top" secondItem="qnS-zE-69q" secondAttribute="top" id="3QK-zp-530"/>
-                            <constraint firstItem="VFd-NB-G5N" firstAttribute="leading" secondItem="qnS-zE-69q" secondAttribute="leading" id="U7R-pf-s1I"/>
-                            <constraint firstItem="qnS-zE-69q" firstAttribute="trailing" secondItem="VFd-NB-G5N" secondAttribute="trailing" id="rcK-Ri-Z32"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qnS-zE-69q"/>
                     </view>
-                    <connections>
-                        <outlet property="pView" destination="VFd-NB-G5N" id="iYH-Nm-k2F"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vp-ts-YR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594.39999999999998" y="-75.112443778110944"/>
+            <point key="canvasLocation" x="1087" y="3054"/>
         </scene>
         <!--Agenda-->
         <scene sceneID="H1N-wn-J71">
