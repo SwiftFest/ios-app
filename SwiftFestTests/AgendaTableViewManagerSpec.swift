@@ -47,8 +47,8 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Agenda.Day(date: dayOne, timeslots: [
                     Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
                     Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
-                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004"]),
-                    ]),
+                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"])
+                    ])
                 ])
             
             let sessions: [Session] = [
@@ -57,9 +57,10 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Session.forTesting(withId: "002", title: "just a title"),
                 Session.forTesting(withId: "003", title: "yet another title"),
                 Session.forTesting(withId: "004", title: "and another title"),
+                Session.forTesting(withId: "005", title: "and one more title")
             ]
             
-            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions)
+            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakerThumbnailUrls: [:])
         }
         
         describe("the agenda table view's manager") {
@@ -87,24 +88,33 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 expect(rows).to(equal(2))
                 
                 rows = subject.tableView(UITableView(), numberOfRowsInSection: 2)
-                expect(rows).to(equal(2))
+                expect(rows).to(equal(3))
             }
             
             it("renders each session as a cell") {
                 var cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 0))
                 expect(cell.textLabel?.text).to(equal("a title"))
+                expect(cell.detailTextLabel?.text).to(equal("Track 1"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 1))
                 expect(cell.textLabel?.text).to(equal("another title"))
+                expect(cell.detailTextLabel?.text).to(equal("Track 1"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 1, section: 1))
                 expect(cell.textLabel?.text).to(equal("just a title"))
+                expect(cell.detailTextLabel?.text).to(equal("Track 2"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 2))
                 expect(cell.textLabel?.text).to(equal("yet another title"))
+                expect(cell.detailTextLabel?.text).to(equal("Track 1"))
                 
                 cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 1, section: 2))
                 expect(cell.textLabel?.text).to(equal("and another title"))
+                expect(cell.detailTextLabel?.text).to(equal("Track 2"))
+                
+                cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 2, section: 2))
+                expect(cell.textLabel?.text).to(equal("and one more title"))
+                expect(cell.detailTextLabel?.text).to(equal("Workshop"))
             }
         }
     }

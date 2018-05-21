@@ -1,11 +1,3 @@
-//
-//  SpeakerListTableViewCell.swift
-//  SwiftFest
-//
-//  Created by Bryan Ryczek on 4/25/18.
-//  Copyright © 2018 Sean Olszewski. All rights reserved.
-//
-
 import UIKit
 
 //hack so I can pass multiple items through sender

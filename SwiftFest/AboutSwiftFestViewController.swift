@@ -1,12 +1,3 @@
-//
-//  AboutSwiftFestViewController.swift
-//  SwiftFest
-//
-//  Created by Bryan Ryczek on 5/21/18.
-//  Copyright © 2018 Sean Olszewski. All rights reserved.
-//
-
-
 import SnapKit
 import UIKit
 
@@ -20,7 +11,6 @@ class AboutSwiftFestViewController: UIViewController {
     }
 
     func setupLogoView() {
-        //load logoview
         let logoView: SwiftLogoView = .fromNib()
         logoContainerView.addSubview(logoView)
         logoView.snp.makeConstraints { (make) -> Void in
