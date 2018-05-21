@@ -1,10 +1,15 @@
 import BonMot
 import SnapKit
 import UIKit
+import SafariServices
 
 enum DetailType {
     case speakerInfo
     case sessionInfo
+}
+
+protocol SocialLinkDelegate {
+    func linkClicked(url: URL)
 }
 
 class SpeakerDetailViewController: UIViewController {
@@ -33,6 +38,7 @@ class SpeakerDetailViewController: UIViewController {
                     let speakerDetailView: SpeakerDetailView = .fromNib()
                     speakerDetailView.speaker = speakerSession.speaker
                     detailContainerView.addSubview(speakerDetailView)
+                    speakerDetailView.delegate = self
                     speakerDetailView.snp.makeConstraints { (make) -> Void in
                         make.top.equalTo(detailContainerView).offset(8)
                         make.left.equalTo(detailContainerView).offset(0)
@@ -58,6 +64,16 @@ class SpeakerDetailViewController: UIViewController {
 
     @IBAction func dismissButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
+extension SpeakerDetailViewController: SocialLinkDelegate {
+    
+    func linkClicked(url: URL) {
+        let safariBrowser = SFSafariViewController(url: url)
+        present(safariBrowser, animated: true, completion: nil)
     }
 }
 

@@ -20,6 +20,8 @@ class SpeakerDetailView: UIView {
     
     var socialUrls: [URL] = []
     
+    var delegate: SocialLinkDelegate!
+    
     func uiSetup() {
         speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
         self.autoresizesSubviews = false
@@ -52,7 +54,7 @@ class SpeakerDetailView: UIView {
     @objc func openSocialUrl(sender: UIButton) {
         guard socialUrls.count >= sender.tag else { return }
         let url = socialUrls[sender.tag]
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        delegate.linkClicked(url: url)
     }
     
 }
