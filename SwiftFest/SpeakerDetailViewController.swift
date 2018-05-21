@@ -7,7 +7,7 @@ enum DetailType {
     case sessionInfo
 }
 
-protocol DismissModalProtocol {
+protocol DismissModalProtocol: class {
     func dismiss()
 }
 
@@ -23,12 +23,10 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         guard let speakerSession = speakerSession else { return }
         
-        self.view.layer.backgroundColor = UIColor(red: 170/255 , green: 170/255 , blue: 170/255 , alpha: 0.5).cgColor
+        self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
 //        scrollView.layer.cornerRadius = 8.0
 //        scrollView.layer.borderWidth = 1.0
 //        scrollView.layer.borderColor = UIColor.darkGray.cgColor
@@ -50,16 +48,12 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
                 speakerDetailView.uiSetup()
             case .sessionInfo:
                 guard let session = speakerSession.session else { break }
-                let sessionDetailView: SessionDetailView = .fromNib()
+                let sessionDetailView = SessionDetailView()
                 sessionDetailView.session = session
                 detailContainerView.addSubview(sessionDetailView)
                 sessionDetailView.snp.makeConstraints { (make) -> Void in
-                    make.top.equalTo(detailContainerView).offset(8)
-                    make.left.equalTo(detailContainerView).offset(0)
-                    make.right.equalTo(detailContainerView).offset(0)
-                    make.bottom.equalTo(detailContainerView).offset(-12)
+                    make.edges.equalTo(detailContainerView.safeAreaLayoutGuide)
                 }
-                sessionDetailView.uiSetup()
         }
         }
         dismissButtonContainerView.layer.zPosition = 1

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3DAFBC549BE61AF4515FD037 /* Pods_SwiftFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EC3B5382CAE039CBC11039 /* Pods_SwiftFest.framework */; };
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
-		9314D51A209B73F500BE0DAF /* SessionDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9314D519209B73F500BE0DAF /* SessionDetailView.xib */; };
 		9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314D51D209B742900BE0DAF /* SessionDetailView.swift */; };
 		9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* SpeakerData.json */; };
 		9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */; };
@@ -18,8 +17,6 @@
 		9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */; };
 		9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */; };
 		9358A83C209257F300442047 /* SpeakerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83B209257F300442047 /* SpeakerSession.swift */; };
-		9358A83E2092DEF600442047 /* OutcomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83D2092DEF600442047 /* OutcomeContainerView.swift */; };
-		9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9358A83F2092DF0800442047 /* OutcomeContainerView.xib */; };
 		937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FE61720AB3111005AC2E5 /* UIUtilities.swift */; };
 		93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */; };
 		93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */; };
@@ -69,7 +66,6 @@
 		052B74156E1C703FE28462F5 /* Pods-SwiftFestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.release.xcconfig"; sourceTree = "<group>"; };
-		9314D519209B73F500BE0DAF /* SessionDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SessionDetailView.xib; path = SwiftFest/SessionDetailView.xib; sourceTree = SOURCE_ROOT; };
 		9314D51D209B742900BE0DAF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		9321F71F208FA3E100FA4B8C /* SpeakerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpeakerData.json; sourceTree = "<group>"; };
 		9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,8 +74,6 @@
 		9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerDetailView.xib; sourceTree = "<group>"; };
 		9358A83B209257F300442047 /* SpeakerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerSession.swift; sourceTree = "<group>"; };
-		9358A83D2092DEF600442047 /* OutcomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeContainerView.swift; sourceTree = "<group>"; };
-		9358A83F2092DF0800442047 /* OutcomeContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcomeContainerView.xib; sourceTree = "<group>"; };
 		937FE61720AB3111005AC2E5 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -214,13 +208,10 @@
 				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
 				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
 				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
-				9358A83D2092DEF600442047 /* OutcomeContainerView.swift */,
-				9358A83F2092DF0800442047 /* OutcomeContainerView.xib */,
 				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */,
 				9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */,
 				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
-				9314D519209B73F500BE0DAF /* SessionDetailView.xib */,
 				93BD217520A205BD00E66173 /* BaseViewController.swift */,
 				93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */,
 				93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */,
@@ -402,12 +393,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D477689209E427F001801BE /* AgendaData.json in Resources */,
-				9314D51A209B73F500BE0DAF /* SessionDetailView.xib in Resources */,
 				9D9B0E14207950B500FA7340 /* LaunchScreen.storyboard in Resources */,
 				9321F725209123A600FA4B8C /* SessionData.json in Resources */,
 				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
 				9D9B0E11207950B500FA7340 /* Assets.xcassets in Resources */,
-				9358A8402092DF0800442047 /* OutcomeContainerView.xib in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
 				9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */,
 				9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */,
@@ -593,7 +582,6 @@
 				9DD2786C209D4CE600804A03 /* SessionResults.swift in Sources */,
 				93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */,
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
-				9358A83E2092DEF600442047 /* OutcomeContainerView.swift in Sources */,
 				9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
 				9358A83C209257F300442047 /* SpeakerSession.swift in Sources */,

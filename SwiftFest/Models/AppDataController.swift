@@ -49,8 +49,7 @@ class AppDataController {
         let sessions = fetchSessions()
         
         let filteredSessions = sessions.filter { session in
-            guard let speakers = session.speakers else { return false }
-            return speakers.contains(speaker.id)
+            return session.speakers.contains(speaker.id)
         }
         
         return SpeakerSession(speaker: speaker, session: filteredSessions.first)
