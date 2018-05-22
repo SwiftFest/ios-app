@@ -24,6 +24,7 @@ class SwiftLogoView: UIView {
     
     var views: [UIView] = []
     var shapes: [UIBezierPath] = []
+    var layers: [CAShapeLayer] = []
     
     func setup() {
         views = [viewOne, viewTwo, viewThree, viewFour, viewFive, viewSix, viewSeven, viewEight, viewNine, viewTen]
@@ -31,11 +32,33 @@ class SwiftLogoView: UIView {
         for (index, view) in views.enumerated() {
             let shapeLayer = CAShapeLayer()
             shapeLayer.backgroundColor = UIColor.black.cgColor
-            shapeLayer.path = shapes[index].cgPath
+            let startPath = scaleBezierPath(shapes[index].cgPath, scaleFactor: 5.0)
+            shapeLayer.path = startPath
+            layers.append(shapeLayer)
             view.layer.addSublayer(shapeLayer)
+            
+            var scaleTransform = CGAffineTransform.init(scaleX: 1.0, y: 1.05)
+            let endPath = startPath.copy(using: &scaleTransform)
+            let animation = CABasicAnimation(keyPath: "path")
+            animation.autoreverses = true
+            animation.repeatCount = HUGE
+            animation.toValue = endPath
+            let randomDuration = Double.random(min: 1.0, max: 2.0)
+            animation.duration = randomDuration
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.fillMode = kCAFillModeBoth
+            animation.isRemovedOnCompletion = false
+            shapeLayer.add(animation, forKey: animation.keyPath)
         }
+        self.transform = CGAffineTransform(rotationAngle: -315.0 )
     }
-
+    
+    func scaleBezierPath(_ path: CGPath, scaleFactor: CGFloat) -> CGPath {
+        var scaleTransform = CGAffineTransform.init(scaleX: scaleFactor, y: scaleFactor)
+        let retVal = path.copy(using: &scaleTransform)
+        return retVal!
+    }
+    
     var shapeOne: UIBezierPath {
         //// Color Declarations
         let strokeColor = UIColor(red: 0.134, green: 0.118, blue: 0.122, alpha: 1.000)
@@ -107,7 +130,6 @@ class SwiftLogoView: UIView {
         let clipPath = UIBezierPath(rect: CGRect(x: 0, y: 19.75, width: 3, height: 10.85))
         clipPath.addClip()
         
-        
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 1.36, y: 19.8))
@@ -138,7 +160,6 @@ class SwiftLogoView: UIView {
         clipPath.addLine(to: CGPoint(x: 0, y: 0.05))
         clipPath.close()
         clipPath.addClip()
-        
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
@@ -174,7 +195,6 @@ class SwiftLogoView: UIView {
         clipPath.close()
         clipPath.addClip()
         
-        
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 1.36, y: 3.12))
@@ -200,7 +220,6 @@ class SwiftLogoView: UIView {
         let clipPath = UIBezierPath(rect: CGRect(x: 0, y: 16.65, width: 3, height: 18.95))
         clipPath.addClip()
         
-        
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 0.05, y: 16.7, width: 2.6, height: 18.85), cornerRadius: 1.3)
         strokeColor.setStroke()
@@ -216,7 +235,6 @@ class SwiftLogoView: UIView {
         //// Clip Clip
         let clipPath = UIBezierPath(rect: CGRect(x: 0, y: 19.74, width: 3, height: 10.85))
         clipPath.addClip()
-        
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
@@ -257,5 +275,16 @@ class SwiftLogoView: UIView {
         rectanglePath.stroke()
 
         return rectanglePath
+    }
+}
+
+public extension Double {
+    
+    public static var random: Double {
+        return Double(arc4random()) / 0xFFFFFFFF
+    }
+    
+    public static func random(min: Double, max: Double) -> Double {
+        return Double.random * (max - min) + min
     }
 }
