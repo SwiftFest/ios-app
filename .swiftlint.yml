@@ -1,6 +1,8 @@
 disabled_rules:
+  - identifier_name
   - line_length
   - trailing_whitespace
+  - function_body_length
 
 opt_in_rules:
   - array_init
@@ -13,8 +15,12 @@ opt_in_rules:
   - sorted_first_last
   - sorted_imports
 
+trailing_comma:
+  mandatory_comma: true
+
 excluded:
   - Pods
+  - SwiftFest/Resources/UIUtilities.swift
 
 custom_rules:
   straight_quotes:

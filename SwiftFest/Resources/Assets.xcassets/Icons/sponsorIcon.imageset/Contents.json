@@ -2,14 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "profileIcon.pdf"
+      "filename" : "sponsorIcon.pdf"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }

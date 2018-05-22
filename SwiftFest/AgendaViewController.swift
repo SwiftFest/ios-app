@@ -2,7 +2,6 @@ import UIKit
 
 class AgendaViewController: BaseViewController {
     
-    @IBOutlet weak var codeOfConductButton: UIBarButtonItem!
     @IBOutlet weak var agendaTableView: UITableView!
     
     let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(agenda: AppDataController().fetchAgenda(),
@@ -13,7 +12,6 @@ class AgendaViewController: BaseViewController {
         title = L10n.Screen.Agenda.title
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
-        codeOfConductButton.accessibilityIdentifier = "codeOfConductButton"
     }
 }
 
@@ -34,7 +32,7 @@ extension AgendaViewController {
                                                 count: dayOne.timeslots.count)
 
             for (index, timeslot) in dayOne.timeslots.enumerated() {
-                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id!) }
+                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id) }
                 sessionsBySection[index] = sessionsForSection
             }
         

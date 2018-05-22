@@ -1,4 +1,3 @@
-
 import SafariServices
 import UIKit
 
@@ -15,7 +14,6 @@ class InfoViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
 }
 
 extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -40,5 +38,4 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
             print("do nothing!")
         }
     }
-    
 }

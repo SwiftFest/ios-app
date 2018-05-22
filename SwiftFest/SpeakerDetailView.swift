@@ -24,7 +24,7 @@ class SpeakerDetailView: UIView {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var swiftLogoView: UIView!
     
-    var delegate: DismissModalProtocol!
+    weak var delegate: DismissModalProtocol!
     
     func uiSetup() {
         speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2

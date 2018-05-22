@@ -47,8 +47,8 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Agenda.Day(date: dayOne, timeslots: [
                     Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
                     Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
-                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004"])
-                    ])
+                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004"]),
+                    ]),
                 ])
             
             let sessions: [Session] = [
@@ -56,7 +56,7 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Session.forTesting(withId: "001", title: "another title"),
                 Session.forTesting(withId: "002", title: "just a title"),
                 Session.forTesting(withId: "003", title: "yet another title"),
-                Session.forTesting(withId: "004", title: "and another title")
+                Session.forTesting(withId: "004", title: "and another title"),
             ]
             
             subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions)

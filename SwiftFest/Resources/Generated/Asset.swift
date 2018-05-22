@@ -46,6 +46,8 @@ internal struct ColorAsset {
 internal enum Asset {
   internal enum Colors {
     internal static let black = ColorAsset(name: "Black")
+    internal static let codeBackground = ColorAsset(name: "CodeBackground")
+    internal static let codeForeground = ColorAsset(name: "CodeForeground")
     internal static let darkOrange = ColorAsset(name: "DarkOrange")
     internal static let lightGray = ColorAsset(name: "LightGray")
     internal static let lightOrange = ColorAsset(name: "LightOrange")
@@ -53,7 +55,9 @@ internal enum Asset {
   internal enum Icons {
     internal static let agenda = ImageAsset(name: "agenda")
     internal static let backIcon = ImageAsset(name: "backIcon")
+    internal static let infoIcon = ImageAsset(name: "infoIcon")
     internal static let profileIcon = ImageAsset(name: "profileIcon")
+    internal static let sponsorIcon = ImageAsset(name: "sponsorIcon")
   }
   internal enum SocialIcons {
     internal static let facebook = ImageAsset(name: "facebook")
@@ -105,6 +109,8 @@ internal enum Asset {
   // swiftlint:disable trailing_comma
   internal static let allColors: [ColorAsset] = [
     Colors.black,
+    Colors.codeBackground,
+    Colors.codeForeground,
     Colors.darkOrange,
     Colors.lightGray,
     Colors.lightOrange,
@@ -112,7 +118,9 @@ internal enum Asset {
   internal static let allImages: [ImageAsset] = [
     Icons.agenda,
     Icons.backIcon,
+    Icons.infoIcon,
     Icons.profileIcon,
+    Icons.sponsorIcon,
     SocialIcons.facebook,
     SocialIcons.github,
     SocialIcons.linkedin,
