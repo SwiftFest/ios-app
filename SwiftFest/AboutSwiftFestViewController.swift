@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import SnapKit
 
 class AboutSwiftFestViewController: UIViewController {
 
+    @IBOutlet weak var logoContainerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //load logoview
+        let logoView: SwiftLogoView = .fromNib()
+        logoContainerView.addSubview(logoView)
+        logoView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(logoContainerView)
+            make.left.equalTo(logoContainerView)
+            make.right.equalTo(logoContainerView)
+            make.bottom.equalTo(logoContainerView)
+        }
+        logoView.setup()
         // Do any additional setup after loading the view.
     }
 
