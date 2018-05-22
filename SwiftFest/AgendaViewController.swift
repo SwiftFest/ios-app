@@ -3,6 +3,7 @@ import UIKit
 class AgendaViewController: BaseViewController {
     
     @IBOutlet weak var agendaTableView: UITableView!
+    @IBOutlet weak var segmentedViewControl: UISegmentedControl!
     
     let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(agenda: AppDataController().fetchAgenda(),
                                                                                                sessions: AppDataController().fetchSessions())
@@ -12,10 +13,28 @@ class AgendaViewController: BaseViewController {
         title = L10n.Screen.Agenda.title
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
+        
+       
+ 
     }
+    
+    @IBAction func changeDay(_ sender: Any) {
+        
+        if segmentedViewControl.selectedSegmentIndex == 0{
+            
+        }
+        
+        //If they Click "Day 2"
+        if segmentedViewControl.selectedSegmentIndex == 1{
+            
+        }
+
+    }
+    
+    
 }
 
-extension AgendaViewController {
+extension AgendaViewController { //Here: find where day 1 and 2 are being demarcated
     
     class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
         
@@ -74,5 +93,7 @@ extension AgendaViewController {
             
             return cell
         }
+        
+        
     }
 }
