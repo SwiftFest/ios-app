@@ -15,33 +15,19 @@ class AboutSwiftFestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLogoView()
+    }
+
+    func setupLogoView() {
         //load logoview
         let logoView: SwiftLogoView = .fromNib()
         logoContainerView.addSubview(logoView)
         logoView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(logoContainerView)
-            make.left.equalTo(logoContainerView)
-            make.right.equalTo(logoContainerView)
-            make.bottom.equalTo(logoContainerView)
+        make.top.equalTo(logoContainerView)
+        make.left.equalTo(logoContainerView)
+        make.right.equalTo(logoContainerView)
+        make.bottom.equalTo(logoContainerView)
         }
-        logoView.setup()
-        // Do any additional setup after loading the view.
+        logoView.setup(containerViewFrame: logoContainerView.frame)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

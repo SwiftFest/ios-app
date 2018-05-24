@@ -214,8 +214,6 @@
 				9DD27868209D4C4900804A03 /* Models */,
 				9D9B0E09207950B500FA7340 /* AppDelegate.swift */,
 				93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */,
-				939E620220B47EFB0086A73E /* SwiftLogoView.swift */,
-				939E620520B47F080086A73E /* SwiftLogoView.xib */,
 				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
 				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
 				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
@@ -227,6 +225,8 @@
 				93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */,
 				93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */,
 				93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */,
+				939E620220B47EFB0086A73E /* SwiftLogoView.swift */,
+				939E620520B47F080086A73E /* SwiftLogoView.xib */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 			);
 			path = SwiftFest;

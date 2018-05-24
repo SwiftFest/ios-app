@@ -26,18 +26,23 @@ class SwiftLogoView: UIView {
     var shapes: [UIBezierPath] = []
     var layers: [CAShapeLayer] = []
     
-    func setup() {
+    func setup(containerViewFrame: CGRect) {
         views = [viewOne, viewTwo, viewThree, viewFour, viewFive, viewSix, viewSeven, viewEight, viewNine, viewTen]
         shapes = [shapeOne, shapeTwo, shapeThree, shapeFour, shapeFive, shapeSix, shapeSeven, shapeEight, shapeNine, shapeTen]
+        print ("height: \(self.frame.height) width: \(self.frame.width)")
+        guard containerViewFrame.height == containerViewFrame.width else {
+            print("containerViewFrame not a square, please change to a square.")
+            return }
+        let scaleFactor = containerViewFrame.height / 40
         for (index, view) in views.enumerated() {
             let shapeLayer = CAShapeLayer()
             shapeLayer.backgroundColor = UIColor.black.cgColor
-            let startPath = scaleBezierPath(shapes[index].cgPath, scaleFactor: 5.0)
+            let startPath = scaleBezierPath(shapes[index].cgPath, scaleFactor: scaleFactor)
             shapeLayer.path = startPath
             layers.append(shapeLayer)
             view.layer.addSublayer(shapeLayer)
             
-            var scaleTransform = CGAffineTransform.init(scaleX: 1.0, y: 1.05)
+            var scaleTransform = CGAffineTransform.init(scaleX: 1.0, y: 1.035)
             let endPath = startPath.copy(using: &scaleTransform)
             let animation = CABasicAnimation(keyPath: "path")
             animation.autoreverses = true
