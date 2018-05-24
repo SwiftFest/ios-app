@@ -19,13 +19,13 @@ class AgendaViewController: BaseViewController {
     
     @IBAction func changeDay(_ sender: Any) {
         
-        if segmentedViewControl.selectedSegmentIndex == 0{
+        if segmentedViewControl.selectedSegmentIndex == 0 {
          dayIndex = 0 //change dayIndex int based on which day being used
            agendaTableView.reloadData()
         }
         
         //If they Click "Day 2"
-        if segmentedViewControl.selectedSegmentIndex == 1{
+        if segmentedViewControl.selectedSegmentIndex == 1 {
            dayIndex = 1
            agendaTableView.reloadData()
         }
@@ -42,9 +42,7 @@ extension AgendaViewController {
         let sessions: [Session]
 
         private var sessionsBySection: [[Session]] {
-            
-
-            
+  
             let currentDay = agenda.days[dayIndex]
             
             var sessionsBySection = [[Session]](repeating: [],
@@ -73,7 +71,6 @@ extension AgendaViewController {
                                                  dateStyle: .none,
                                                  timeStyle: .short)
         }
-        
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return sessionsBySection[section].count
