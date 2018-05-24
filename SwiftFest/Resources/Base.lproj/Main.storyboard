@@ -261,13 +261,13 @@
                                                 <rect key="frame" x="0.0" y="630" width="375" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/Intrepid" translatesAutoresizingMaskIntoConstraints="NO" id="cpB-ES-aMb">
-                                                        <rect key="frame" x="60" y="4" width="255" height="92"/>
+                                                        <rect key="frame" x="40" y="4" width="295" height="92"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="cpB-ES-aMb" firstAttribute="leading" secondItem="TOw-QB-RTc" secondAttribute="leading" constant="60" id="2oE-R1-s9x"/>
-                                                    <constraint firstAttribute="trailing" secondItem="cpB-ES-aMb" secondAttribute="trailing" constant="60" id="3av-9F-2sI"/>
+                                                    <constraint firstItem="cpB-ES-aMb" firstAttribute="leading" secondItem="TOw-QB-RTc" secondAttribute="leading" constant="40" id="2oE-R1-s9x"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cpB-ES-aMb" secondAttribute="trailing" constant="40" id="3av-9F-2sI"/>
                                                     <constraint firstItem="cpB-ES-aMb" firstAttribute="top" secondItem="TOw-QB-RTc" secondAttribute="top" constant="4" id="ARK-S9-BnN"/>
                                                     <constraint firstAttribute="bottom" secondItem="cpB-ES-aMb" secondAttribute="bottom" constant="4" id="Zyj-C6-Xeo"/>
                                                 </constraints>
