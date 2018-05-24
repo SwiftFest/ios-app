@@ -1,9 +1,8 @@
 import UIKit
 
-var dayIndex: Int = 0 //global variable for day index
+var dayIndex: Int = 0
 
 class AgendaViewController: BaseViewController {
-    
 
     @IBOutlet weak var agendaTableView: UITableView!
     @IBOutlet weak var segmentedViewControl: UISegmentedControl!
@@ -15,11 +14,7 @@ class AgendaViewController: BaseViewController {
         title = L10n.Screen.Agenda.title
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
-        
 
-        
-       
- 
     }
     
     @IBAction func changeDay(_ sender: Any) {
@@ -37,22 +32,14 @@ class AgendaViewController: BaseViewController {
 
     }
  
-    
 }
 
 extension AgendaViewController {
 
-    
     class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-        
-    
+  
         let agenda: Agenda
         let sessions: [Session]
-
-        
-        
-        
-        
 
         private var sessionsBySection: [[Session]] {
             
@@ -70,30 +57,16 @@ extension AgendaViewController {
         
             return sessionsBySection
         }
-        
-        
-        
-        
-        
-        
-        
-        
+
         init(agenda: Agenda, sessions: [Session]) {
             self.agenda = agenda
             self.sessions = sessions
         }
-        
-        
-        
-        
-        
-        
-        
+
         func numberOfSections(in tableView: UITableView) -> Int {
             return agenda.days[dayIndex].timeslots.count ?? 0
         }
 
-        
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             let startTime = agenda.days[dayIndex].timeslots[section].startTime
             return DateFormatter.localizedString(from: startTime.date!,
