@@ -6,8 +6,9 @@
 //  Copyright © 2018 Sean Olszewski. All rights reserved.
 //
 
-import UIKit
+
 import SnapKit
+import UIKit
 
 class AboutSwiftFestViewController: UIViewController {
 
