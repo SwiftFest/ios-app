@@ -94,16 +94,19 @@ internal enum Asset {
     internal static let robNapier = ImageAsset(name: "RobNapier")
     internal static let sarpErdag = ImageAsset(name: "SarpErdag")
     internal static let seanOlszewski = ImageAsset(name: "SeanOlszewski")
+    internal enum Sponsors {
+      internal static let chewy = ImageAsset(name: "Sponsors/Chewy")
+      internal static let intrepid = ImageAsset(name: "Sponsors/Intrepid")
+      internal static let linkedInLearning = ImageAsset(name: "Sponsors/LinkedInLearning")
+      internal static let rueLaLa = ImageAsset(name: "Sponsors/RueLaLa")
+      internal static let square = ImageAsset(name: "Sponsors/Square")
+      internal static let tripAdvisor = ImageAsset(name: "Sponsors/TripAdvisor")
+      internal static let wayfair = ImageAsset(name: "Sponsors/Wayfair")
+    }
     internal static let susanBennett = ImageAsset(name: "SusanBennett")
     internal static let toddBurner = ImageAsset(name: "ToddBurner")
     internal static let zevEisenberg = ImageAsset(name: "ZevEisenberg")
     internal static let jamesheadshot = ImageAsset(name: "jamesheadshot")
-  }
-  internal enum Sponsors {
-    internal static let linkedInLearning = ImageAsset(name: "Sponsors/LinkedInLearning")
-    internal static let rueLaLa = ImageAsset(name: "Sponsors/RueLaLa")
-    internal static let square = ImageAsset(name: "Sponsors/Square")
-    internal static let tripAdvisor = ImageAsset(name: "Sponsors/TripAdvisor")
   }
 
   // swiftlint:disable trailing_comma
@@ -153,14 +156,17 @@ internal enum Asset {
     Speakers.robNapier,
     Speakers.sarpErdag,
     Speakers.seanOlszewski,
+    Speakers.Sponsors.chewy,
+    Speakers.Sponsors.intrepid,
+    Speakers.Sponsors.linkedInLearning,
+    Speakers.Sponsors.rueLaLa,
+    Speakers.Sponsors.square,
+    Speakers.Sponsors.tripAdvisor,
+    Speakers.Sponsors.wayfair,
     Speakers.susanBennett,
     Speakers.toddBurner,
     Speakers.zevEisenberg,
     Speakers.jamesheadshot,
-    Sponsors.linkedInLearning,
-    Sponsors.rueLaLa,
-    Sponsors.square,
-    Sponsors.tripAdvisor,
   ]
   // swiftlint:enable trailing_comma
   @available(*, deprecated, renamed: "allImages")
