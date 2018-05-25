@@ -18,6 +18,10 @@
 		9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */; };
 		9358A83C209257F300442047 /* SpeakerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83B209257F300442047 /* SpeakerSession.swift */; };
 		937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FE61720AB3111005AC2E5 /* UIUtilities.swift */; };
+		939E620320B47EFB0086A73E /* SwiftLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E620220B47EFB0086A73E /* SwiftLogoView.swift */; };
+		939E620420B47EFB0086A73E /* SwiftLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E620220B47EFB0086A73E /* SwiftLogoView.swift */; };
+		939E620620B47F080086A73E /* SwiftLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939E620520B47F080086A73E /* SwiftLogoView.xib */; };
+		939E620720B47F080086A73E /* SwiftLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939E620520B47F080086A73E /* SwiftLogoView.xib */; };
 		93AED1F420B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */; };
 		93AED1F520B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */; };
 		93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */; };
@@ -77,6 +81,8 @@
 		9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerDetailView.xib; sourceTree = "<group>"; };
 		9358A83B209257F300442047 /* SpeakerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerSession.swift; sourceTree = "<group>"; };
 		937FE61720AB3111005AC2E5 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		939E620220B47EFB0086A73E /* SwiftLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLogoView.swift; sourceTree = "<group>"; };
+		939E620520B47F080086A73E /* SwiftLogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwiftLogoView.xib; sourceTree = "<group>"; };
 		93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSwiftFestViewController.swift; sourceTree = "<group>"; };
 		93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
 		93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 				93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */,
 				93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */,
 				93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */,
+				939E620220B47EFB0086A73E /* SwiftLogoView.swift */,
+				939E620520B47F080086A73E /* SwiftLogoView.xib */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 			);
 			path = SwiftFest;
@@ -401,6 +409,7 @@
 				9321F725209123A600FA4B8C /* SessionData.json in Resources */,
 				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
 				9D9B0E11207950B500FA7340 /* Assets.xcassets in Resources */,
+				939E620620B47F080086A73E /* SwiftLogoView.xib in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
 				9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */,
 				9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */,
@@ -411,6 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939E620720B47F080086A73E /* SwiftLogoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +608,7 @@
 				937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */,
 				9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
+				939E620320B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 				93BD217620A205BD00E66173 /* BaseViewController.swift in Sources */,
 				93F9F25B208D0C4E000C087B /* CodeOfConductViewController.swift in Sources */,
 				93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */,
@@ -611,6 +622,7 @@
 				9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
 				93AED1F520B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */,
+				939E620420B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
