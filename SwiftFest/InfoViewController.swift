@@ -31,6 +31,8 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
         switch infoItems[indexPath.row] {
         case "Code of Conduct":
             let safariBrowser = SFSafariViewController(url: codeOfConductURL)
+            safariBrowser.preferredBarTintColor = .black
+            safariBrowser.preferredControlTintColor = .white
             present(safariBrowser, animated: true, completion: nil)
         case "About SwiftFest":
             performSegue(withIdentifier: "AboutSwiftFestSegue", sender: self)

@@ -27,9 +27,6 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
         guard let speakerSession = speakerSession else { return }
         
         self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
-//        scrollView.layer.cornerRadius = 8.0
-//        scrollView.layer.borderWidth = 1.0
-//        scrollView.layer.borderColor = UIColor.darkGray.cgColor
         
         if let detailType = detailType {
             switch detailType {
@@ -58,6 +55,10 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
         }
         dismissButtonContainerView.layer.zPosition = 1
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
+    }
 
     func dismiss() {
         if let detailType = detailType {
@@ -78,5 +79,12 @@ extension UIView {
     class func fromNib<T: UIView>() -> T {
         // swiftlint:disable:next force_cast
         return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+    }
+}
+
+// to set background of status bar to black
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
     }
 }
