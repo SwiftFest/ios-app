@@ -211,16 +211,16 @@
 		9D9B0E08207950B500FA7340 /* SwiftFest */ = {
 			isa = PBXGroup;
 			children = (
+				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
+				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
+				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
+				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
+				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
 				9DD27868209D4C4900804A03 /* Models */,
 				9D9B0E09207950B500FA7340 /* AppDelegate.swift */,
 				93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */,
-				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
-				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
-				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
-				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */,
 				9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */,
-				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
 				93BD217520A205BD00E66173 /* BaseViewController.swift */,
 				93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */,
 				93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */,

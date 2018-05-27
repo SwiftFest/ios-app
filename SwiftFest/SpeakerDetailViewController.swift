@@ -18,21 +18,23 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     @IBOutlet weak var detailContainerView: UIView!
     @IBOutlet weak var dismissButtonContainerView: UIView!
     
-    var speakerSession: SpeakerSession?
+
+    var speaker: Speaker?
+    var session: Session?
     var detailType: DetailType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let speakerSession = speakerSession else { return }
         
         self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
         
         if let detailType = detailType {
             switch detailType {
             case .speakerInfo:
+                guard let speaker = speaker else { break }
                 let speakerDetailView: SpeakerDetailView = .fromNib()
-                speakerDetailView.speaker = speakerSession.speaker
+                speakerDetailView.speaker = speaker
                 detailContainerView.addSubview(speakerDetailView)
                 speakerDetailView.delegate = self
                 speakerDetailView.snp.makeConstraints { (make) -> Void in
@@ -44,10 +46,10 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
                 navigationController?.setNavigationBarHidden(true, animated: false)
                 speakerDetailView.uiSetup()
             case .sessionInfo:
-                guard let session = speakerSession.session else { break }
+                guard let session = session else { break }
                 let sessionDetailView = SessionDetailView()
-                sessionDetailView.session = session
                 detailContainerView.addSubview(sessionDetailView)
+                sessionDetailView.session = session
                 sessionDetailView.snp.makeConstraints { (make) -> Void in
                     make.edges.equalTo(detailContainerView.safeAreaLayoutGuide)
                 }

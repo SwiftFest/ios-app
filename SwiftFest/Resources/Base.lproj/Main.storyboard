@@ -48,6 +48,7 @@
                     <connections>
                         <outlet property="agendaTableView" destination="j0g-kM-Oje" id="vsd-qT-hSx"/>
                         <outlet property="segmentedViewControl" destination="RLJ-1k-rYr" id="DPV-WL-Xs7"/>
+                        <segue destination="ZxR-eS-UwE" kind="show" identifier="segueToDetailView" id="7iw-C7-bqd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSn-vX-Mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="750"/>
+            <point key="canvasLocation" x="1633" y="750"/>
         </scene>
         <!--Info-->
         <scene sceneID="nSY-l0-6Ne">
@@ -536,25 +537,12 @@
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0U-Gc-80c">
                                                                     <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                                                    <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzn-SV-fPA">
-                                                                            <rect key="frame" x="8" y="2" width="171.5" height="46"/>
-                                                                            <state key="normal" title="Session Info"/>
-                                                                            <connections>
-                                                                                <action selector="sessionInfoButtonTapped:" destination="FkM-A3-o6S" eventType="touchUpInside" id="UeH-2b-Ax0"/>
-                                                                            </connections>
-                                                                        </button>
-                                                                    </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="Fzn-SV-fPA" firstAttribute="top" secondItem="R0U-Gc-80c" secondAttribute="top" constant="2" id="I9w-ky-OCC"/>
-                                                                        <constraint firstItem="Fzn-SV-fPA" firstAttribute="centerX" secondItem="R0U-Gc-80c" secondAttribute="centerX" id="LbX-RD-sb9"/>
-                                                                        <constraint firstItem="Fzn-SV-fPA" firstAttribute="leading" secondItem="R0U-Gc-80c" secondAttribute="leading" constant="8" id="Oab-ef-1Mj"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="Fzn-SV-fPA" secondAttribute="bottom" constant="2" id="xyg-X2-HdQ"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="Fzn-SV-fPA" secondAttribute="trailing" constant="8" id="ycf-xc-34h"/>
-                                                                    </constraints>
                                                                 </view>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="s6f-jj-MG5"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
@@ -568,7 +556,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="aboutButton" destination="Oro-zQ-Rso" id="MBk-OQ-d59"/>
-                                            <outlet property="sessionInfoButton" destination="Fzn-SV-fPA" id="G4D-oC-UMO"/>
                                             <outlet property="sessionInfoButtonContainerView" destination="R0U-Gc-80c" id="Rgq-FD-Xwl"/>
                                             <outlet property="speakerFirstNameLabel" destination="Hlj-Wt-hhc" id="bPh-ZM-yQW"/>
                                             <outlet property="speakerImageView" destination="kIS-th-kcF" id="S64-gC-c1k"/>
@@ -723,4 +710,7 @@
         <image name="profileIcon" width="30" height="30"/>
         <image name="sponsorIcon" width="32" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Of8-D1-Juo"/>
+    </inferredMetricsTieBreakers>
 </document>
