@@ -15,6 +15,14 @@ class AppDataControllerSpec: QuickSpec {
                 expect(sessionTwo.title).to(equal("Patterns & Methodologies for Test Suite Design"))
             }
             
+            it("can get a list of thumbnail urls indexed by session id") {
+                let speakerThumbnailUrls = subject.fetchSpeakerThumbnailUrls()
+                let sessionId = "001"
+                
+                expect(speakerThumbnailUrls).to(haveCount(29))
+                expect(speakerThumbnailUrls.keys).to(contain(sessionId))
+            }
+            
             describe("JSON deserialization of the models") {
                 it("deserializes the sessions") {
                     let sessions = subject.fetchSessions()

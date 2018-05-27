@@ -6,8 +6,10 @@ class AgendaViewController: BaseViewController {
 
     @IBOutlet weak var agendaTableView: UITableView!
     @IBOutlet weak var segmentedViewControl: UISegmentedControl!
-    let agendaTableViewManager: UITableViewDelegate & UITableViewDataSource = TableViewManager(agenda: AppDataController().fetchAgenda(),
-                                                                                               sessions: AppDataController().fetchSessions())
+    
+    let agendaTableViewManager = TableViewManager(agenda: AppDataController().fetchAgenda(),
+                                                  sessions: AppDataController().fetchSessions(),
+                                                  speakerThumbnailUrls: AppDataController().fetchSpeakerThumbnailUrls())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,16 @@ extension AgendaViewController {
   
         let agenda: Agenda
         let sessions: [Session]
-
+        let speakerThumbnailUrls: [String: String]
+        
+        init(agenda: Agenda,
+             sessions: [Session],
+             speakerThumbnailUrls: [String: String]) {
+            self.agenda = agenda
+            self.sessions = sessions
+            self.speakerThumbnailUrls = speakerThumbnailUrls
+        }
+        
         private var sessionsBySection: [[Session]] {
   
             let currentDay = agenda.days[dayIndex]
@@ -56,15 +67,14 @@ extension AgendaViewController {
             return sessionsBySection
         }
 
-        init(agenda: Agenda, sessions: [Session]) {
-            self.agenda = agenda
-            self.sessions = sessions
-        }
-
         func numberOfSections(in tableView: UITableView) -> Int {
             return agenda.days[dayIndex].timeslots.count ?? 0
         }
-
+  
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 120
+        }
+        
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             let startTime = agenda.days[dayIndex].timeslots[section].startTime
             return DateFormatter.localizedString(from: startTime.date!,
@@ -88,9 +98,24 @@ extension AgendaViewController {
             
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SessionCell")
             cell.textLabel?.text = session.title
-
+            cell.textLabel?.numberOfLines = 0
+            cell.detailTextLabel?.text = detailText(for: indexPath)
+            
+            if let imageName = speakerThumbnailUrls[session.id] {
+                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 90, height: 90))
+                speakerImageView.image = UIImage(named: imageName)
+                speakerImageView.contentMode = .scaleAspectFill
+                speakerImageView.clipsToBounds = true
+                speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
+                cell.accessoryView = speakerImageView
+            }
+            
             return cell
         }
         
+        private func detailText(for indexPath: IndexPath) -> String {
+            return indexPath.row == 2 ? "Workshop" : "Track \(indexPath.row + 1)"
+        }
+
     }
 }

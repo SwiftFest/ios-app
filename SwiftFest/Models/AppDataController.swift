@@ -37,6 +37,18 @@ class AppDataController {
         }
     }
     
+    func fetchSpeakerThumbnailUrls() -> [String: String] {
+        var speakerThumbnailUrls = [String: String]()
+        for speaker in fetchSpeakers() {
+            let speakerSession = speakerSessionForSpeaker(speaker)
+            if let session = speakerSession.session {
+                speakerThumbnailUrls[session.id] = speaker.thumbnailUrl
+            }
+        }
+
+        return speakerThumbnailUrls
+    }
+    
     func session(for id: String) -> Session {
         let sessions = fetchSessions()
         return sessions.first {
