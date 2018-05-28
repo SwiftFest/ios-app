@@ -97,7 +97,7 @@ extension AgendaViewController {
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 120
+            return 130
         }
         func numberOfSections(in tableView: UITableView) -> Int {
             return agenda.days[dayIndex].timeslots.count
@@ -131,7 +131,19 @@ extension AgendaViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as! RibbonTableViewCell
             
             cell.mainTextLabel.text = session.title
-            cell.secondaryTextLabel.text = detailText(for: indexPath, using: session)
+            cell.mainTextLabel.textColor = Color.black.color
+            cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 16))
+
+            let timeslot = agenda.days[dayIndex].timeslots[indexPath.section]
+            cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: timeslot)
+            cell.secondaryTextLabel.textColor = Color.lightOrange.color
+            cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14))
+            
+            cell.tertiaryTextLabel.text = tertiaryText(for: indexPath, using: session)
+            cell.tertiaryTextLabel.numberOfLines = 0
+            cell.tertiaryTextLabel.lineBreakMode = .byWordWrapping
+            cell.tertiaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
+            cell.tertiaryTextLabel.textColor = Color.mediumGray.color
             
             if let imageName = speakerThumbnailUrls[session.id] {
                 let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
@@ -148,12 +160,29 @@ extension AgendaViewController {
             return cell
         }
         
-        private func detailText(for indexPath: IndexPath, using session: Session) -> String {
+        private func secondaryText(for indexPath: IndexPath, using timeslot: Agenda.Timeslot) -> String {
+            
+            let startTime = DateFormatter.localizedString(from: timeslot.startTime.date!,
+                                                          dateStyle: .none,
+                                                          timeStyle: .short)
+            
+            let endTime = DateFormatter.localizedString(from: timeslot.endTime.date!,
+                                                        dateStyle: .none,
+                                                        timeStyle: .short)
+            let duration = "\(startTime) - \(endTime)"
+            return duration
+        }
+        
+        private func tertiaryText(for indexPath: IndexPath, using session: Session) -> String {
             if session.title.lowercased() == "lunch" {
                 return ""
             }
             
-            return indexPath.row == 2 ? "Workshop" : "Track \(indexPath.row + 1)"
+            let locations = ["Virginia Wimberly Theater",
+                             "Nancy and Edward Roberts Studio Theater",
+                             "Carol Dean Theatre",]
+            
+            return locations[indexPath.row]
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

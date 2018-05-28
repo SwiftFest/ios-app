@@ -12,7 +12,6 @@
 		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
 		9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314D51D209B742900BE0DAF /* SessionDetailView.swift */; };
 		9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* SpeakerData.json */; };
-		9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */; };
 		9321F725209123A600FA4B8C /* SessionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* SessionData.json */; };
 		9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* AppDataController.swift */; };
 		9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */; };
@@ -77,7 +76,6 @@
 		88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.release.xcconfig"; sourceTree = "<group>"; };
 		9314D51D209B742900BE0DAF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		9321F71F208FA3E100FA4B8C /* SpeakerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpeakerData.json; sourceTree = "<group>"; };
-		9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListTableViewCell.swift; sourceTree = "<group>"; };
 		9321F724209123A600FA4B8C /* SessionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SessionData.json; sourceTree = "<group>"; };
 		9321F726209123EB00FA4B8C /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
 		9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				9DDFBAF520BB98F600756323 /* RibbonTableViewCell.swift */,
 				9DDFBAF620BB98F600756323 /* RibbonTableViewCell.xib */,
 				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
-				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
 				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
 				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
@@ -623,7 +620,6 @@
 				9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */,
-				9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */,
 				93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */,
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
 				937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */,

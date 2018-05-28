@@ -52,6 +52,7 @@ internal enum Asset {
     internal static let darkOrange = ColorAsset(name: "DarkOrange")
     internal static let lightGray = ColorAsset(name: "LightGray")
     internal static let lightOrange = ColorAsset(name: "LightOrange")
+    internal static let mediumGray = ColorAsset(name: "MediumGray")
     internal static let white = ColorAsset(name: "White")
   }
   internal enum Icons {
@@ -130,6 +131,7 @@ internal enum Asset {
     Colors.darkOrange,
     Colors.lightGray,
     Colors.lightOrange,
+    Colors.mediumGray,
     Colors.white,
   ]
   internal static let allImages: [ImageAsset] = [

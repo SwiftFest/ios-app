@@ -1,6 +1,7 @@
 import BonMot
 import SnapKit
 import UIKit
+import SafariServices
 
 enum DetailType {
     case speakerInfo
@@ -42,6 +43,9 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
             }
             navigationController?.setNavigationBarHidden(true, animated: false)
             speakerDetailView.uiSetup()
+            speakerDetailView.socialMediaLinkHandler = { [unowned self] in
+                self.present(SFSafariViewController(url: URL(string: $0.link)!), animated: true, completion: nil)
+            }
         case .sessionInfo:
             guard let session = session else { break }
             let sessionDetailView = SessionDetailView()

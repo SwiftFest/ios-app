@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = Color.black.color
         UINavigationBar.appearance().titleTextAttributes = StringStyle(.color(Color.white.color)).attributes
         UINavigationBar.appearance().isTranslucent = false
-
+        UIBarButtonItem.appearance().tintColor = Color.white.color
         UITabBar.appearance().isTranslucent = false
 
         return true
