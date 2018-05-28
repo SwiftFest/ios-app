@@ -10,8 +10,7 @@ class SpeakerListTableViewCell: UITableViewCell {
 
     var speakerSession: SpeakerSession?
     weak var delegate: SpeakerListTableViewCellDelegate!
-    
-    
+
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerFirstNameLabel: UILabel!
     @IBOutlet weak var speakerLastNameLabel: UILabel!
@@ -24,7 +23,6 @@ class SpeakerListTableViewCell: UITableViewCell {
         aboutButton.setTitle(aboutButtonTitle, for: .normal)
         speakerFirstNameLabel.text = speakerSession.speaker.firstName
         speakerLastNameLabel.text = speakerSession.speaker.lastName
-
 
         if let imageName = speakerSession.speaker.thumbnailUrl {
             speakerImageView.image = UIImage(named: imageName)
@@ -47,11 +45,10 @@ class SpeakerListTableViewCell: UITableViewCell {
         guard let speakerSession = speakerSession else { return }
         delegate.buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType(detailType: .speakerInfo, speakerSession: speakerSession))
     }
-    
 
     @IBAction func sessionInfoButtonTapped(_ sender: Any) { 
         guard let speakerSession = speakerSession else { return }
-        delegate.buttonTapped(speakerSessionDetailType:  SpeakerSessionDetailType(detailType: .sessionInfo, speakerSession: speakerSession))//
+        delegate.buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType(detailType: .sessionInfo, speakerSession: speakerSession))//
 
     }
 }

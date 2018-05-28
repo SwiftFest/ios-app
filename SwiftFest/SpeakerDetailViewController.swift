@@ -17,7 +17,6 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var detailContainerView: UIView!
     @IBOutlet weak var dismissButtonContainerView: UIView!
-    
 
     var speaker: Speaker?
     var session: Session?
@@ -26,7 +25,6 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
         
         if let detailType = detailType {
@@ -59,7 +57,7 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 37 / 255, green: 37 / 255, blue: 37 / 255, alpha: 1.0)
     }
 
     func dismiss() {

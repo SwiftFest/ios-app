@@ -1,6 +1,5 @@
 import UIKit
 
-
 protocol SpeakerListTableViewCellDelegate: class {
     func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType)
 }
@@ -23,12 +22,10 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
     }
-    
 
     func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType) {
         self.performSegue(withIdentifier: "SpeakerDetailSegue", sender: speakerSessionDetailType)
     }
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sender = sender as? SpeakerSessionDetailType, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
@@ -48,7 +45,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
-        cell.speakerSession =  AppDataController().speakerSessionForSpeaker(speakers[indexPath.row])
+        cell.speakerSession = AppDataController().speakerSessionForSpeaker(speakers[indexPath.row])
         cell.delegate = self
         cell.updateUI()
         return cell

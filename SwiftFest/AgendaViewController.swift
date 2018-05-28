@@ -1,6 +1,5 @@
 import UIKit
 
-
 var dayIndex: Int = 0
 
 class AgendaViewController: BaseViewController {
@@ -77,7 +76,7 @@ extension AgendaViewController {
                                                 count: currentDay.timeslots.count)
             
             for (index, timeslot) in currentDay.timeslots.enumerated() {
-                let sessionsForSection = sessions.filter  { timeslot.sessionIds.contains($0.id) }
+                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id) }
                 sessionsBySection[index] = sessionsForSection
             }
             
