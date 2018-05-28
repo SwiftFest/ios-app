@@ -64,7 +64,7 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Session.forTesting(withId: "004", title: "and another title"),
                 Session.forTesting(withId: "005", title: "and one more title"),
                 Session.forTesting(withId: "006", title: "lunch"),
-                Session.forTesting(withId: "007", title: "")
+                Session.forTesting(withId: "007", title: ""),
             ]
 
             let nib = UINib(nibName: "\(RibbonTableViewCell.self)", bundle: Bundle(for: RibbonTableViewCell.self))

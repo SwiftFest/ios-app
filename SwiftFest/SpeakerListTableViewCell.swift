@@ -3,7 +3,6 @@ import UIKit
 class SpeakerListTableViewCell: UITableViewCell {
 
     var speakerSession: SpeakerSession?
-    
 
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerFirstNameLabel: UILabel!

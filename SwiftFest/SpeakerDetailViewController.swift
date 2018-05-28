@@ -27,7 +27,6 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
 
         self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
         
-        
         switch detailType {
         case .speakerInfo:
             guard let speaker = speaker else { break }
