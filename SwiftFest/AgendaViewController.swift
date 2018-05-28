@@ -1,6 +1,5 @@
 import UIKit
 
-
 var dayIndex: Int = 0
 
 class AgendaViewController: BaseViewController {
