@@ -94,7 +94,7 @@
 		9D2E513920797D5A002F9E42 /* DSLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLExtensions.swift; path = "Testing Extensions/DSLExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
 		9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataControllerSpec.swift; sourceTree = "<group>"; };
-		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Agenda.swift; path = SwiftFest/Models/Agenda.swift; sourceTree = "<group>"; };
+		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		9D9B0E06207950B500FA7340 /* SwiftFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9B0E09207950B500FA7340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +187,6 @@
 		9D9B0DFD207950B500FA7340 = {
 			isa = PBXGroup;
 			children = (
-				9D47768C209E73F2001801BE /* Agenda.swift */,
 				9D9B0E372079525F00FA7340 /* .gitignore */,
 				9D9B0E08207950B500FA7340 /* SwiftFest */,
 				9D9B0E1D207950B500FA7340 /* SwiftFestTests */,
@@ -255,6 +254,7 @@
 		9DD27868209D4C4900804A03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D47768C209E73F2001801BE /* Agenda.swift */,
 				9DD27869209D4C9A00804A03 /* Session.swift */,
 				9321F726209123EB00FA4B8C /* AppDataController.swift */,
 				9DD2786B209D4CE600804A03 /* SessionResults.swift */,

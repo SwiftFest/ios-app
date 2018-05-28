@@ -1,13 +1,9 @@
 import UIKit
 
-
-protocol SpeakerListTableViewCellDelegate: class {
-    func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType)
-}
-
-class SpeakerListViewController: BaseViewController, UIViewControllerTransitioningDelegate, SpeakerListTableViewCellDelegate {
+class SpeakerListViewController: BaseViewController, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var speakerListTableView: UITableView!
+    private var selectedSpeaker: Speaker?
 
     var speakers: [Speaker] = [] {
         didSet {
@@ -15,8 +11,6 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
         }
     }
   
-    var sessions: [Session] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
         speakers = AppDataController().fetchSpeakers()
@@ -25,16 +19,11 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
     }
     
 
-    func buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType) {
-        self.performSegue(withIdentifier: "SpeakerDetailSegue", sender: speakerSessionDetailType)
-    }
-    
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sender = sender as? SpeakerSessionDetailType, let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
-            speakerDetailViewController.speaker = sender.speakerSession.speaker
+        if let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
+            speakerDetailViewController.speaker = selectedSpeaker!
             speakerDetailViewController.transitioningDelegate = self
-            speakerDetailViewController.detailType = sender.detailType
+            speakerDetailViewController.detailType = .speakerInfo
         }
     }
 
@@ -49,8 +38,12 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
         cell.speakerSession =  AppDataController().speakerSessionForSpeaker(speakers[indexPath.row])
-        cell.delegate = self
         cell.updateUI()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSpeaker = speakers[indexPath.row]
+        self.performSegue(withIdentifier: "SpeakerDetailSegue", sender: nil)
     }
 }
