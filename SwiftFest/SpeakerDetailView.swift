@@ -53,7 +53,7 @@ class SpeakerDetailView: UIView {
         socialStackViewHeight.constant = buttonHeight
         for social in socialResults {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: buttonHeight, height: buttonHeight))
-            view.backgroundColor = UIColor.white
+            view.backgroundColor = Color.white.color
             view.layer.cornerRadius = view.frame.height / 2
             view.layer.shadowColor = UIColor.black.cgColor
             view.layer.shadowOpacity = 0.5

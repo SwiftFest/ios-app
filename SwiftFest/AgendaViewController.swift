@@ -16,7 +16,7 @@ class AgendaViewController: BaseViewController {
         super.viewDidLoad()
         title = L10n.Screen.Agenda.title
         segmentedViewControl.backgroundColor = Color.black.color
-        segmentedViewControl.tintColor = .white
+        segmentedViewControl.tintColor = Color.white.color
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
