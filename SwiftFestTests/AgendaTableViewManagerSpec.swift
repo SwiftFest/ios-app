@@ -3,14 +3,13 @@ import Quick
 @testable import SwiftFest
 
 extension Session {
-    static func forTesting(withId id: String, title: String) -> Session {
-        return Session(complexity: nil,
+    static func forTesting(withId id: String, title: String) -> Session {        
+        return Session(complexity: "nil",
                        description: "description",
                        id: id,
-                       language: nil,
-                       outcome: nil,
+                       outcome: "",
                        speakers: ["0"],
-                       subtype: nil,
+                       subtype: "nil",
                        title: title)
     }
 }
@@ -18,6 +17,7 @@ extension Session {
 class AgendaTableViewManagerSpec: QuickSpec {
     override func spec() {
         
+        var tableView: UITableView!
         var subject: AgendaViewController.TableViewManager!
         
         beforeEach {
@@ -42,13 +42,18 @@ class AgendaTableViewManagerSpec: QuickSpec {
                                        timeZone: .current,
                                        hour: 14)
             
+            let threePM = DateComponents(calendar: .current,
+                                         timeZone: .current,
+                                         hour: 15)
+            
             let dayOne = DateComponents(year: 2018, month: 06, day: 18)
             let agenda = Agenda(days: [
                 Agenda.Day(date: dayOne, timeslots: [
                     Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
                     Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
-                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"])
-                    ])
+                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"]),
+                    Agenda.Timeslot(startTime: twoPM, endTime: threePM, sessionIds: ["006", "007"]),
+                    ]),
                 ])
             
             let sessions: [Session] = [
@@ -57,16 +62,23 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 Session.forTesting(withId: "002", title: "just a title"),
                 Session.forTesting(withId: "003", title: "yet another title"),
                 Session.forTesting(withId: "004", title: "and another title"),
-                Session.forTesting(withId: "005", title: "and one more title")
+                Session.forTesting(withId: "005", title: "and one more title"),
+                Session.forTesting(withId: "006", title: "lunch"),
+                Session.forTesting(withId: "007", title: "")
             ]
+
+            let nib = UINib(nibName: "\(RibbonTableViewCell.self)", bundle: Bundle(for: RibbonTableViewCell.self))
+
+            tableView = UITableView()
+            tableView.register(nib, forCellReuseIdentifier: "SessionCell")
             
-            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakerThumbnailUrls: [:])
+            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakerThumbnailUrls: [:], viewController: nil)
         }
         
         describe("the agenda table view's manager") {
             it("has a section for each time block") {
                 let sections = subject.numberOfSections(in: UITableView())
-                expect(sections).to(equal(3))
+                expect(sections).to(equal(4))
             }
             
             it("has a section header for each time block which is in ascending order") {
@@ -90,31 +102,44 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 rows = subject.tableView(UITableView(), numberOfRowsInSection: 2)
                 expect(rows).to(equal(3))
             }
-            
-            it("renders each session as a cell") {
-                var cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 0))
-                expect(cell.textLabel?.text).to(equal("a title"))
-                expect(cell.detailTextLabel?.text).to(equal("Track 1"))
+            describe("cell rendering behavior") {
+             
+                it("renders each session as a cell") {
+                    var cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("a title"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("Track 1"))
+                    
+                    cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("another title"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("Track 1"))
+                    
+                    cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("just a title"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("Track 2"))
+                    
+                    cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("yet another title"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("Track 1"))
+                    
+                    cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("and another title"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("Track 2"))
+                    
+                    cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 2)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("and one more title"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("Workshop"))
+                }
                 
-                cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 1))
-                expect(cell.textLabel?.text).to(equal("another title"))
-                expect(cell.detailTextLabel?.text).to(equal("Track 1"))
+                it("special cases lunch based on the case-insensitive name of the session") {
+                    let cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 3)) as? RibbonTableViewCell
+                    expect(cell?.mainTextLabel.text).to(equal("lunch"))
+                    expect(cell?.secondaryTextLabel.text).to(equal(""))
+                }
                 
-                cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 1, section: 1))
-                expect(cell.textLabel?.text).to(equal("just a title"))
-                expect(cell.detailTextLabel?.text).to(equal("Track 2"))
-                
-                cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 2))
-                expect(cell.textLabel?.text).to(equal("yet another title"))
-                expect(cell.detailTextLabel?.text).to(equal("Track 1"))
-                
-                cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 1, section: 2))
-                expect(cell.textLabel?.text).to(equal("and another title"))
-                expect(cell.detailTextLabel?.text).to(equal("Track 2"))
-                
-                cell = subject.tableView(UITableView(), cellForRowAt: IndexPath(row: 2, section: 2))
-                expect(cell.textLabel?.text).to(equal("and one more title"))
-                expect(cell.detailTextLabel?.text).to(equal("Workshop"))
+                it("special cases sessions without names") {
+                    let cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 3)) as? RibbonTableViewCell
+                    expect(cell).to(beNil())
+                }
             }
         }
     }

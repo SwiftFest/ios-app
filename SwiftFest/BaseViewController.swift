@@ -8,9 +8,6 @@ class BaseViewController: UIViewController {
     }
 
     func navBarSetup() {
-      navigationController?.navigationBar.tintColor = .white
-      navigationController?.navigationBar.barStyle = UIBarStyle.black
-      navigationController?.navigationBar.barTintColor = .black
-        //let barstyle = UIBarStyle(rawValue: 3)
+      UINavigationBar.appearance().backgroundColor = Color.black.color
     }
 }

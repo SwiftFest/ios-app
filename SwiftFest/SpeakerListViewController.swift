@@ -17,8 +17,7 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
     }
-    
-
+//
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
             speakerDetailViewController.speaker = selectedSpeaker!

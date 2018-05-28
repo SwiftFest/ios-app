@@ -1,6 +1,5 @@
 import UIKit
 
-
 var dayIndex: Int = 0
 
 class AgendaViewController: BaseViewController {
@@ -16,6 +15,9 @@ class AgendaViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = L10n.Screen.Agenda.title
+        segmentedViewControl.backgroundColor = Color.black.color
+        segmentedViewControl.tintColor = .white
+        agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
         agendaTableViewManager.viewController = self
@@ -77,7 +79,7 @@ extension AgendaViewController {
                                                 count: currentDay.timeslots.count)
             
             for (index, timeslot) in currentDay.timeslots.enumerated() {
-                let sessionsForSection = sessions.filter  { timeslot.sessionIds.contains($0.id) }
+                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id) && !$0.title.isEmpty }
                 sessionsBySection[index] = sessionsForSection
             }
             
@@ -111,26 +113,36 @@ extension AgendaViewController {
             }
             
             let session = sessionsBySection[indexPath.section][indexPath.row]
+            return buildCell(for: tableView, at: indexPath, using: session)
             
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SessionCell")
-            cell.textLabel?.text = session.title
+        }
+        
+        private func buildCell(for tableView: UITableView, at indexPath: IndexPath, using session: Session) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as! RibbonTableViewCell
             
-            cell.textLabel?.numberOfLines = 0
-            cell.detailTextLabel?.text = detailText(for: indexPath)
+            cell.mainTextLabel.text = session.title
+            cell.secondaryTextLabel.text = detailText(for: indexPath, using: session)
             
             if let imageName = speakerThumbnailUrls[session.id] {
-                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 90, height: 90))
+                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
                 speakerImageView.image = UIImage(named: imageName)
                 speakerImageView.contentMode = .scaleAspectFill
                 speakerImageView.clipsToBounds = true
                 speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
                 cell.accessoryView = speakerImageView
+            } else {
+                cell.accessoryView = nil // nil out the accessory view as cell reuse will cause this to render images where it shouldn't
             }
             
+            cell.selectionStyle = .none
             return cell
         }
         
-        private func detailText(for indexPath: IndexPath) -> String {
+        private func detailText(for indexPath: IndexPath, using session: Session) -> String {
+            if session.title.lowercased() == "lunch" {
+                return ""
+            }
+            
             return indexPath.row == 2 ? "Workshop" : "Track \(indexPath.row + 1)"
         }
         
@@ -138,7 +150,6 @@ extension AgendaViewController {
             let sessionDetails = sessionsBySection[indexPath.section][indexPath.row]
             selectedSession = sessionDetails
             viewController?.performSegue(withIdentifier: "segueToDetailView", sender: self)
-            
         }
     }
 }
