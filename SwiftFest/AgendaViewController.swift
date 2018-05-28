@@ -17,6 +17,16 @@ class AgendaViewController: BaseViewController {
         title = L10n.Screen.Agenda.title
         segmentedViewControl.backgroundColor = Color.black.color
         segmentedViewControl.tintColor = Color.white.color
+
+        let size = CGSize(width: 1, height: UIFontMetrics.default.scaledValue(for: 29))
+        let normalImage = UIImage.from(color: Color.black.color, size: size)
+        let selectedImage = UIImage.from(color: Color.white.color, size: size)
+        let highlightedImage = UIImage.from(color: Color.blackHighlighted.color, size: size)
+
+        segmentedViewControl.setBackgroundImage(normalImage, for: .normal, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(selectedImage, for: .selected, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(highlightedImage, for: .highlighted, barMetrics: .default)
+
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
