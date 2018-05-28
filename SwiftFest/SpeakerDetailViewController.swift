@@ -57,7 +57,7 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 37 / 255, green: 37 / 255, blue: 37 / 255, alpha: 1.0)
     }
 
     func dismiss() {

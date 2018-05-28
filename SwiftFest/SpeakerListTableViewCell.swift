@@ -48,7 +48,7 @@ class SpeakerListTableViewCell: UITableViewCell {
 
     @IBAction func sessionInfoButtonTapped(_ sender: Any) { 
         guard let speakerSession = speakerSession else { return }
-        delegate.buttonTapped(speakerSessionDetailType:  SpeakerSessionDetailType(detailType: .sessionInfo, speakerSession: speakerSession))//
+        delegate.buttonTapped(speakerSessionDetailType: SpeakerSessionDetailType(detailType: .sessionInfo, speakerSession: speakerSession))//
 
     }
 }
