@@ -36,7 +36,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable:next force_cast
         let cell = self.speakerListTableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell") as! SpeakerListTableViewCell
-        cell.speakerSession =  AppDataController().speakerSessionForSpeaker(speakers[indexPath.row])
+        cell.speakerSession = AppDataController().speakerSessionForSpeaker(speakers[indexPath.row])
         cell.updateUI()
         return cell
     }
