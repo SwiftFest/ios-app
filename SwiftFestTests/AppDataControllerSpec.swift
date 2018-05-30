@@ -26,7 +26,7 @@ class AppDataControllerSpec: QuickSpec {
             describe("JSON deserialization of the models") {
                 it("deserializes the sessions") {
                     let sessions = subject.fetchSessions()
-                    expect(sessions).to(haveCount(36))
+                    expect(sessions).to(haveCount(37))
                 }
                 
                 it("deserializes the speakers") {

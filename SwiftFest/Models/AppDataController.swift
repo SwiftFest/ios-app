@@ -26,7 +26,6 @@ class AppDataController {
     }
         
     func fetchSessions() -> [Session] {
-        
         let sessionData = loadJSONDataFromFile(named: "SessionData")
         
         do {
@@ -40,9 +39,8 @@ class AppDataController {
     func fetchSpeakerThumbnailUrls() -> [String: String] {
         var speakerThumbnailUrls = [String: String]()
         for speaker in fetchSpeakers() {
-            let speakerSession = speakerSessionForSpeaker(speaker)
-            if let session = speakerSession.session {
-                speakerThumbnailUrls[session.id] = speaker.thumbnailUrl
+            if let speakerSession = speakerSessionForSpeaker(speaker) {
+                speakerThumbnailUrls[speakerSession.session.id] = speaker.thumbnailUrl
             }
         }
 
@@ -56,15 +54,21 @@ class AppDataController {
         }!
     }
     
-    func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession {
-        
+    func session(for speaker: Speaker) -> Session? {
         let sessions = fetchSessions()
-        
         let filteredSessions = sessions.filter { session in
-            return session.speakers.contains(speaker.id)
+            session.speakers.contains(speaker.id)
         }
         
-        return SpeakerSession(speaker: speaker, session: filteredSessions.first)
+        return filteredSessions.first
+    }
+    
+    func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession? {
+        guard let session = session(for: speaker) else {
+            return nil
+        }
+        
+        return SpeakerSession(speaker: speaker, session: session)
     }
     
     private func loadJSONDataFromFile(named: String) -> Data {

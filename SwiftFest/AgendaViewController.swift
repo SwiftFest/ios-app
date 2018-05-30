@@ -15,6 +15,19 @@ class AgendaViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = L10n.Screen.Agenda.title
+        segmentedViewControl.backgroundColor = Color.black.color
+        segmentedViewControl.tintColor = Color.white.color
+
+        let size = CGSize(width: 1, height: UIFontMetrics.default.scaledValue(for: 29))
+        let normalImage = UIImage.from(color: Color.black.color, size: size)
+        let selectedImage = UIImage.from(color: Color.white.color, size: size)
+        let highlightedImage = UIImage.from(color: Color.blackHighlighted.color, size: size)
+
+        segmentedViewControl.setBackgroundImage(normalImage, for: .normal, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(selectedImage, for: .selected, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(highlightedImage, for: .highlighted, barMetrics: .default)
+
+        agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
         agendaTableViewManager.viewController = self
@@ -76,7 +89,7 @@ extension AgendaViewController {
                                                 count: currentDay.timeslots.count)
             
             for (index, timeslot) in currentDay.timeslots.enumerated() {
-                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id) }
+                let sessionsForSection = sessions.filter { timeslot.sessionIds.contains($0.id) && !$0.title.isEmpty }
                 sessionsBySection[index] = sessionsForSection
             }
             
@@ -84,7 +97,7 @@ extension AgendaViewController {
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 120
+            return 130
         }
         func numberOfSections(in tableView: UITableView) -> Int {
             return agenda.days[dayIndex].timeslots.count
@@ -110,34 +123,72 @@ extension AgendaViewController {
             }
             
             let session = sessionsBySection[indexPath.section][indexPath.row]
+            return buildCell(for: tableView, at: indexPath, using: session)
             
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SessionCell")
-            cell.textLabel?.text = session.title
+        }
+        
+        private func buildCell(for tableView: UITableView, at indexPath: IndexPath, using session: Session) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as! RibbonTableViewCell
             
-            cell.textLabel?.numberOfLines = 0
-            cell.detailTextLabel?.text = detailText(for: indexPath)
+            cell.mainTextLabel.text = session.title
+            cell.mainTextLabel.textColor = Color.black.color
+            cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 16))
+
+            let timeslot = agenda.days[dayIndex].timeslots[indexPath.section]
+            cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: timeslot)
+            cell.secondaryTextLabel.textColor = Color.lightOrange.color
+            cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14))
+            
+            cell.tertiaryTextLabel.text = tertiaryText(for: indexPath, using: session)
+            cell.tertiaryTextLabel.numberOfLines = 0
+            cell.tertiaryTextLabel.lineBreakMode = .byWordWrapping
+            cell.tertiaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
+            cell.tertiaryTextLabel.textColor = Color.mediumGray.color
             
             if let imageName = speakerThumbnailUrls[session.id] {
-                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 90, height: 90))
+                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
                 speakerImageView.image = UIImage(named: imageName)
                 speakerImageView.contentMode = .scaleAspectFill
                 speakerImageView.clipsToBounds = true
                 speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
                 cell.accessoryView = speakerImageView
+            } else {
+                cell.accessoryView = nil // nil out the accessory view as cell reuse will cause this to render images where it shouldn't
             }
             
+            cell.selectionStyle = .none
             return cell
         }
         
-        private func detailText(for indexPath: IndexPath) -> String {
-            return indexPath.row == 2 ? "Workshop" : "Track \(indexPath.row + 1)"
+        private func secondaryText(for indexPath: IndexPath, using timeslot: Agenda.Timeslot) -> String {
+            
+            let startTime = DateFormatter.localizedString(from: timeslot.startTime.date!,
+                                                          dateStyle: .none,
+                                                          timeStyle: .short)
+            
+            let endTime = DateFormatter.localizedString(from: timeslot.endTime.date!,
+                                                        dateStyle: .none,
+                                                        timeStyle: .short)
+            let duration = "\(startTime) - \(endTime)"
+            return duration
+        }
+        
+        private func tertiaryText(for indexPath: IndexPath, using session: Session) -> String {
+            if session.title.lowercased() == "lunch" {
+                return ""
+            }
+            
+            let locations = ["Virginia Wimberly Theater",
+                             "Nancy and Edward Roberts Studio Theater",
+                             "Carol Dean Theatre",]
+            
+            return locations[indexPath.row]
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let sessionDetails = sessionsBySection[indexPath.section][indexPath.row]
             selectedSession = sessionDetails
             viewController?.performSegue(withIdentifier: "segueToDetailView", sender: self)
-            
         }
     }
 }
