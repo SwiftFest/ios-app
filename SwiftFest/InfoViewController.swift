@@ -32,7 +32,7 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
         case "Code of Conduct":
             let safariBrowser = SFSafariViewController(url: codeOfConductURL)
             safariBrowser.preferredBarTintColor = .black
-            safariBrowser.preferredControlTintColor = .white
+            safariBrowser.preferredControlTintColor = Color.white.color
             present(safariBrowser, animated: true, completion: nil)
         case "About SwiftFest":
             performSegue(withIdentifier: "AboutSwiftFestSegue", sender: self)

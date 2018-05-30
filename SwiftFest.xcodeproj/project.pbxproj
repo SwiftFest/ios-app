@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		3DAFBC549BE61AF4515FD037 /* Pods_SwiftFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EC3B5382CAE039CBC11039 /* Pods_SwiftFest.framework */; };
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
+		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
 		9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314D51D209B742900BE0DAF /* SessionDetailView.swift */; };
 		9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* SpeakerData.json */; };
-		9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */; };
 		9321F725209123A600FA4B8C /* SessionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* SessionData.json */; };
 		9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* AppDataController.swift */; };
 		9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */; };
@@ -23,7 +23,6 @@
 		939E620620B47F080086A73E /* SwiftLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939E620520B47F080086A73E /* SwiftLogoView.xib */; };
 		939E620720B47F080086A73E /* SwiftLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939E620520B47F080086A73E /* SwiftLogoView.xib */; };
 		93AED1F420B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */; };
-		93AED1F520B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED1F320B36B1A001D5666 /* AboutSwiftFestViewController.swift */; };
 		93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4D1B020B0A6A500A6C1B5 /* SponsorsViewController.swift */; };
 		93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */; };
 		93BD217620A205BD00E66173 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BD217520A205BD00E66173 /* BaseViewController.swift */; };
@@ -44,6 +43,8 @@
 		9D9B0E2A207950B600FA7340 /* JourneySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B0E29207950B600FA7340 /* JourneySpec.swift */; };
 		9DD2786A209D4C9A00804A03 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD27869209D4C9A00804A03 /* Session.swift */; };
 		9DD2786C209D4CE600804A03 /* SessionResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2786B209D4CE600804A03 /* SessionResults.swift */; };
+		9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFBAF520BB98F600756323 /* RibbonTableViewCell.swift */; };
+		9DDFBAF820BB98F600756323 /* RibbonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDFBAF620BB98F600756323 /* RibbonTableViewCell.xib */; };
 		CDA35888207D094900F8B68C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDA35887207D094900F8B68C /* Localizable.strings */; };
 		CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3588B207D0B2400F8B68C /* Localized.swift */; };
 		CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3588C207D0B2400F8B68C /* Asset.swift */; };
@@ -71,10 +72,10 @@
 /* Begin PBXFileReference section */
 		052B74156E1C703FE28462F5 /* Pods-SwiftFestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.release.xcconfig"; sourceTree = "<group>"; };
 		9314D51D209B742900BE0DAF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		9321F71F208FA3E100FA4B8C /* SpeakerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpeakerData.json; sourceTree = "<group>"; };
-		9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListTableViewCell.swift; sourceTree = "<group>"; };
 		9321F724209123A600FA4B8C /* SessionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SessionData.json; sourceTree = "<group>"; };
 		9321F726209123EB00FA4B8C /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
 		9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
@@ -94,7 +95,7 @@
 		9D2E513920797D5A002F9E42 /* DSLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLExtensions.swift; path = "Testing Extensions/DSLExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
 		9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataControllerSpec.swift; sourceTree = "<group>"; };
-		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Agenda.swift; path = SwiftFest/Models/Agenda.swift; sourceTree = "<group>"; };
+		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		9D9B0E06207950B500FA7340 /* SwiftFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9B0E09207950B500FA7340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +112,9 @@
 		9D9B0E372079525F00FA7340 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9DD27869209D4C9A00804A03 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		9DD2786B209D4CE600804A03 /* SessionResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResults.swift; sourceTree = "<group>"; };
+		9DDFBAF520BB98F600756323 /* RibbonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RibbonTableViewCell.swift; sourceTree = "<group>"; };
+		9DDFBAF620BB98F600756323 /* RibbonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RibbonTableViewCell.xib; sourceTree = "<group>"; };
+		9DDFBAF920BB9C7B00756323 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB038556180AAAD5FB577D1E /* Pods-SwiftFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.debug.xcconfig"; sourceTree = "<group>"; };
 		AD1728BDBF3878D9BDE1CF0A /* Pods-SwiftFestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +178,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7AAFEB9320BC81E700520521 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		9321F721208FA3FF00FA4B8C /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,7 +199,7 @@
 		9D9B0DFD207950B500FA7340 = {
 			isa = PBXGroup;
 			children = (
-				9D47768C209E73F2001801BE /* Agenda.swift */,
+				9DDFBAF920BB9C7B00756323 /* .swiftlint.yml */,
 				9D9B0E372079525F00FA7340 /* .gitignore */,
 				9D9B0E08207950B500FA7340 /* SwiftFest */,
 				9D9B0E1D207950B500FA7340 /* SwiftFestTests */,
@@ -211,8 +223,10 @@
 		9D9B0E08207950B500FA7340 /* SwiftFest */ = {
 			isa = PBXGroup;
 			children = (
+				7AAFEB9320BC81E700520521 /* Utilities */,
+				9DDFBAF520BB98F600756323 /* RibbonTableViewCell.swift */,
+				9DDFBAF620BB98F600756323 /* RibbonTableViewCell.xib */,
 				93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */,
-				9321F7222090FB7600FA4B8C /* SpeakerListTableViewCell.swift */,
 				93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */,
 				9D9B0E0B207950B500FA7340 /* AgendaViewController.swift */,
 				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
@@ -255,6 +269,7 @@
 		9DD27868209D4C4900804A03 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D47768C209E73F2001801BE /* Agenda.swift */,
 				9DD27869209D4C9A00804A03 /* Session.swift */,
 				9321F726209123EB00FA4B8C /* AppDataController.swift */,
 				9DD2786B209D4CE600804A03 /* SessionResults.swift */,
@@ -405,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D477689209E427F001801BE /* AgendaData.json in Resources */,
+				9DDFBAF820BB98F600756323 /* RibbonTableViewCell.xib in Resources */,
 				9D9B0E14207950B500FA7340 /* LaunchScreen.storyboard in Resources */,
 				9321F725209123A600FA4B8C /* SessionData.json in Resources */,
 				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
@@ -597,12 +613,13 @@
 				93AED1F420B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */,
 				93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */,
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
+				7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */,
 				9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
 				9358A83C209257F300442047 /* SpeakerSession.swift in Sources */,
+				9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */,
-				9321F7232090FB7600FA4B8C /* SpeakerListTableViewCell.swift in Sources */,
 				93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */,
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
 				937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */,
@@ -621,7 +638,6 @@
 			files = (
 				9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
-				93AED1F520B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */,
 				939E620420B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
