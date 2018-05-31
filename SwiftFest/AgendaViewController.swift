@@ -1,8 +1,6 @@
 import BonMot
 import UIKit
 
-var dayIndex: Int = 0
-
 class AgendaViewController: BaseViewController {
 
     @IBOutlet weak var agendaTableView: UITableView!
@@ -36,7 +34,7 @@ class AgendaViewController: BaseViewController {
     }
     
     @IBAction func changeDay(_ sender: Any) {
-        dayIndex = segmentedViewControl.selectedSegmentIndex
+        agendaTableViewManager.dayIndex = segmentedViewControl.selectedSegmentIndex
         agendaTableView.reloadData()
         agendaTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
@@ -56,7 +54,9 @@ class AgendaViewController: BaseViewController {
 extension AgendaViewController {
     
     class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-        
+
+        var dayIndex: Int = 0
+
         var selectedSession: Session?
         
         let agenda: Agenda
