@@ -1,4 +1,5 @@
 import BonMot
+import SnapKit
 import UIKit
 
 class AgendaViewController: BaseViewController {
@@ -13,7 +14,16 @@ class AgendaViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = L10n.Screen.Agenda.title
+
+        let logoView = UIImageView(image: UIImage(asset: Asset.logo))
+        logoView.accessibilityLabel = L10n.Screen.Agenda.title
+        logoView.contentMode = .scaleAspectFit
+        logoView.snp.makeConstraints { make in
+            make.size.equalTo(30)
+        }
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        navigationItem.titleView = logoView
+
         segmentedViewControl.backgroundColor = Color.black.color
         segmentedViewControl.tintColor = Color.white.color
 
