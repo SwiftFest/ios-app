@@ -36,17 +36,9 @@ class AgendaViewController: BaseViewController {
     }
     
     @IBAction func changeDay(_ sender: Any) {
-        
-        if segmentedViewControl.selectedSegmentIndex == 0 {
-            dayIndex = 0
-            agendaTableView.reloadData()
-        }
-
-        if segmentedViewControl.selectedSegmentIndex == 1 {
-            dayIndex = 1
-            agendaTableView.reloadData()
-        }
-        
+        dayIndex = segmentedViewControl.selectedSegmentIndex
+        agendaTableView.reloadData()
+        agendaTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
