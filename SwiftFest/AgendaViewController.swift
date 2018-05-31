@@ -96,10 +96,7 @@ extension AgendaViewController {
             
             return sessionsBySection
         }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 130
-        }
+
         func numberOfSections(in tableView: UITableView) -> Int {
             return agenda.days[dayIndex].timeslots.count
         }
