@@ -24,10 +24,8 @@ struct Agenda {
             // swiftlint:disable:next force_try
             let dateString = try! container.decode(String.self, forKey: .date)
             
-            let formatter = DateFormatter()
-            formatter.dateFormat = "YYYY-MM-dd"
+            let formatter = ISO8601DateFormatter()
             formatter.timeZone = TimeZone(abbreviation: "EST")!
-            formatter.calendar = .current
             let date = formatter.date(from: dateString)!
             
             let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour, .minute, .day, .month, .year)
@@ -60,8 +58,7 @@ struct Agenda {
             // swiftlint:disable:next force_try
             let container = try! decoder.container(keyedBy: CodingKeys.self)
             
-            let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm"
+            let formatter = ISO8601DateFormatter()
             formatter.timeZone = TimeZone(identifier: "EST")
             
             // swiftlint:disable:next force_try

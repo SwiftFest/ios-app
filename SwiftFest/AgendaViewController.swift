@@ -1,4 +1,5 @@
 import UIKit
+import BonMot
 
 var dayIndex: Int = 0
 
@@ -129,11 +130,15 @@ extension AgendaViewController {
         
         private func buildCell(for tableView: UITableView, at indexPath: IndexPath, using session: Session) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath) as! RibbonTableViewCell
-            
-            cell.mainTextLabel.text = session.title
-            cell.mainTextLabel.textColor = Color.black.color
-            cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 16))
 
+            let titleStyle = StringStyle(
+                .font(UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 16))),
+                .color(Color.black.color),
+                .xmlRules([]) //Will force xml parsing and escaping
+            )
+            
+            cell.mainTextLabel.attributedText = session.title.styled(with: titleStyle)
+            
             let timeslot = agenda.days[dayIndex].timeslots[indexPath.section]
             cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: timeslot)
             cell.secondaryTextLabel.textColor = Color.lightOrange.color
@@ -180,7 +185,8 @@ extension AgendaViewController {
             
             let locations = ["Virginia Wimberly Theater",
                              "Nancy and Edward Roberts Studio Theater",
-                             "Carol Dean Theatre",]
+                             "Carol Dean Theatre",
+                             ]
             
             return locations[indexPath.row]
         }
