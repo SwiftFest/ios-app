@@ -21,10 +21,12 @@ class AgendaViewController: BaseViewController {
         let normalImage = UIImage.from(color: Color.black.color, size: size)
         let selectedImage = UIImage.from(color: Color.white.color, size: size)
         let highlightedImage = UIImage.from(color: Color.blackHighlighted.color, size: size)
+        let selectedHighlightedImage = selectedImage
 
         segmentedViewControl.setBackgroundImage(normalImage, for: .normal, barMetrics: .default)
         segmentedViewControl.setBackgroundImage(selectedImage, for: .selected, barMetrics: .default)
         segmentedViewControl.setBackgroundImage(highlightedImage, for: .highlighted, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(selectedHighlightedImage, for: [.selected, .highlighted], barMetrics: .default)
 
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
