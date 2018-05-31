@@ -1,5 +1,5 @@
-import UIKit
 import BonMot
+import UIKit
 
 var dayIndex: Int = 0
 

@@ -1,7 +1,7 @@
 import BonMot
+import SafariServices
 import SnapKit
 import UIKit
-import SafariServices
 
 enum DetailType {
     case speakerInfo
