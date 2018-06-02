@@ -572,7 +572,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nby-cW-jDB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Speakers" id="3z6-Gu-UuK"/>
+                    <navigationItem key="navigationItem" title="Team" id="3z6-Gu-UuK"/>
                     <connections>
                         <outlet property="tableView" destination="o13-3G-D8Z" id="c8V-9D-qVI"/>
                         <segue destination="ZxR-eS-UwE" kind="show" identifier="TeamMemberDetail" id="H9E-xj-1YJ"/>
