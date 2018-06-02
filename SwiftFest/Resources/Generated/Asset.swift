@@ -61,6 +61,7 @@ internal enum Asset {
     internal static let infoIcon = ImageAsset(name: "infoIcon")
     internal static let profileIcon = ImageAsset(name: "profileIcon")
     internal static let sponsorIcon = ImageAsset(name: "sponsorIcon")
+    internal static let team = ImageAsset(name: "team")
   }
   internal enum SocialIcons {
     internal static let facebook = ImageAsset(name: "facebook")
@@ -141,6 +142,7 @@ internal enum Asset {
     Icons.infoIcon,
     Icons.profileIcon,
     Icons.sponsorIcon,
+    Icons.team,
     SocialIcons.facebook,
     SocialIcons.github,
     SocialIcons.linkedin,
