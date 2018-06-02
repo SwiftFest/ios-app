@@ -54,9 +54,9 @@ class AgendaViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "segueToDetailView",
-            let destinationController = segue.destination as? SpeakerDetailViewController {
-            destinationController.detailType = .sessionInfo
-            destinationController.session = agendaTableViewManager.selectedSession
+            let destinationController = segue.destination as? SpeakerDetailViewController,
+            let session = agendaTableViewManager.selectedSession {
+            destinationController.detailType = SpeakerDetailViewController.DetailType(session)
         }
         
     }

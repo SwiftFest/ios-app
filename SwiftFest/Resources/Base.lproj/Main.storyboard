@@ -57,40 +57,6 @@
             </objects>
             <point key="canvasLocation" x="189.59999999999999" y="749.7751124437782"/>
         </scene>
-        <!--Code Of Conduct View Controller-->
-        <scene sceneID="rXD-Vx-bWg">
-            <objects>
-                <viewController id="i4C-2p-BUH" customClass="CodeOfConductViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qYs-Z6-NWZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-kf-XD7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="thb-YP-CqC" firstAttribute="trailing" secondItem="rQf-kf-XD7" secondAttribute="trailing" id="026-c7-dmY"/>
-                            <constraint firstItem="rQf-kf-XD7" firstAttribute="leading" secondItem="thb-YP-CqC" secondAttribute="leading" id="5Zi-ql-nkR"/>
-                            <constraint firstItem="thb-YP-CqC" firstAttribute="bottom" secondItem="rQf-kf-XD7" secondAttribute="bottom" id="GJd-Ef-gjJ"/>
-                            <constraint firstItem="rQf-kf-XD7" firstAttribute="top" secondItem="thb-YP-CqC" secondAttribute="top" id="mQc-By-Mbp"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="thb-YP-CqC"/>
-                    </view>
-                    <connections>
-                        <outlet property="codeOfConductWebView" destination="rQf-kf-XD7" id="aOG-EX-qYB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gSn-vX-Mzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1633" y="750"/>
-        </scene>
         <!--Info-->
         <scene sceneID="nSY-l0-6Ne">
             <objects>
@@ -121,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nB6-Eu-joN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="3054"/>
+            <point key="canvasLocation" x="255" y="3960"/>
         </scene>
         <!--Sponsors-->
         <scene sceneID="vIB-Fc-Sm6">
@@ -135,29 +101,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-QW-8v2">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="1004"/>
+                                        <rect key="frame" x="0.0" y="8" width="375" height="975.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39o-2n-qiY">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold Sponsor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZM-ME-j6o">
-                                                        <rect key="frame" x="6" y="4" width="363" height="53"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="44"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="QZM-ME-j6o" firstAttribute="centerX" secondItem="39o-2n-qiY" secondAttribute="centerX" id="YVT-Eo-vIA"/>
-                                                    <constraint firstAttribute="bottom" secondItem="QZM-ME-j6o" secondAttribute="bottom" id="js8-GW-OZ3"/>
-                                                    <constraint firstAttribute="trailing" secondItem="QZM-ME-j6o" secondAttribute="trailing" constant="6" id="kyG-P4-EqX"/>
-                                                    <constraint firstItem="QZM-ME-j6o" firstAttribute="top" secondItem="39o-2n-qiY" secondAttribute="top" constant="4" id="mdL-Fo-jvC"/>
-                                                    <constraint firstItem="QZM-ME-j6o" firstAttribute="leading" secondItem="39o-2n-qiY" secondAttribute="leading" constant="6" id="zn6-YD-rhy"/>
-                                                </constraints>
-                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold Sponsor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZM-ME-j6o">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="44"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-TK-v10">
-                                                <rect key="frame" x="0.0" y="61" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="57" width="375" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/Wayfair" translatesAutoresizingMaskIntoConstraints="NO" id="Ue8-Xf-JKR">
                                                         <rect key="frame" x="28" y="0.0" width="319" height="100"/>
@@ -172,27 +125,14 @@
                                                     <constraint firstItem="Ue8-Xf-JKR" firstAttribute="leading" secondItem="4BO-TK-v10" secondAttribute="leading" constant="28" id="cWS-FJ-c9A"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPS-NR-CyQ">
-                                                <rect key="frame" x="0.0" y="165" width="375" height="51"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silver Sponsor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQh-F0-0pX">
-                                                        <rect key="frame" x="6" y="4" width="363" height="43"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="BQh-F0-0pX" secondAttribute="bottom" constant="4" id="QPm-TZ-cx6"/>
-                                                    <constraint firstItem="BQh-F0-0pX" firstAttribute="leading" secondItem="uPS-NR-CyQ" secondAttribute="leading" constant="6" id="aSV-GS-0BS"/>
-                                                    <constraint firstItem="BQh-F0-0pX" firstAttribute="top" secondItem="uPS-NR-CyQ" secondAttribute="top" constant="4" id="jjO-eK-WdF"/>
-                                                    <constraint firstItem="BQh-F0-0pX" firstAttribute="centerX" secondItem="uPS-NR-CyQ" secondAttribute="centerX" id="ki6-qG-v9N"/>
-                                                    <constraint firstAttribute="trailing" secondItem="BQh-F0-0pX" secondAttribute="trailing" constant="6" id="pQf-QF-o9O"/>
-                                                </constraints>
-                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silver Sponsor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQh-F0-0pX">
+                                                <rect key="frame" x="0.0" y="161" width="375" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqS-o0-Rz2">
-                                                <rect key="frame" x="0.0" y="220" width="375" height="80"/>
+                                                <rect key="frame" x="0.0" y="208" width="375" height="80"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/Square" translatesAutoresizingMaskIntoConstraints="NO" id="8e5-am-F3r">
                                                         <rect key="frame" x="6" y="4" width="363" height="72"/>
@@ -207,27 +147,14 @@
                                                     <constraint firstItem="8e5-am-F3r" firstAttribute="leading" secondItem="pqS-o0-Rz2" secondAttribute="leading" constant="6" id="udI-d8-gyZ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSU-s4-tYm">
-                                                <rect key="frame" x="0.0" y="304" width="375" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bronze Sponsors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rA-6T-I06">
-                                                        <rect key="frame" x="6" y="4" width="363" height="42"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="7rA-6T-I06" secondAttribute="trailing" constant="6" id="BZP-O9-GJ1"/>
-                                                    <constraint firstAttribute="bottom" secondItem="7rA-6T-I06" secondAttribute="bottom" constant="4" id="JQB-Ug-Xtm"/>
-                                                    <constraint firstItem="7rA-6T-I06" firstAttribute="leading" secondItem="qSU-s4-tYm" secondAttribute="leading" constant="6" id="PYT-gA-9Q6"/>
-                                                    <constraint firstItem="7rA-6T-I06" firstAttribute="centerX" secondItem="qSU-s4-tYm" secondAttribute="centerX" id="S35-le-Edr"/>
-                                                    <constraint firstItem="7rA-6T-I06" firstAttribute="top" secondItem="qSU-s4-tYm" secondAttribute="top" constant="4" id="boO-BF-AYc"/>
-                                                </constraints>
-                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bronze Sponsors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rA-6T-I06">
+                                                <rect key="frame" x="0.0" y="292" width="375" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-Os-cSl">
-                                                <rect key="frame" x="0.0" y="358" width="375" height="80"/>
+                                                <rect key="frame" x="0.0" y="329.5" width="375" height="80"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/RueLaLa" translatesAutoresizingMaskIntoConstraints="NO" id="ylc-3v-Add">
                                                         <rect key="frame" x="60" y="4" width="255" height="72"/>
@@ -243,7 +170,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqn-nt-jYF">
-                                                <rect key="frame" x="0.0" y="442" width="375" height="80"/>
+                                                <rect key="frame" x="0.0" y="413.5" width="375" height="80"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/LinkedInLearning" translatesAutoresizingMaskIntoConstraints="NO" id="axK-RO-c2P">
                                                         <rect key="frame" x="60" y="4" width="255" height="72"/>
@@ -259,7 +186,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8d-ks-ug3">
-                                                <rect key="frame" x="0.0" y="526" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="497.5" width="375" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/TripAdvisor" translatesAutoresizingMaskIntoConstraints="NO" id="3KM-kD-Nr8">
                                                         <rect key="frame" x="60" y="4" width="255" height="92"/>
@@ -275,7 +202,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-QB-RTc">
-                                                <rect key="frame" x="0.0" y="630" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="601.5" width="375" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/Intrepid" translatesAutoresizingMaskIntoConstraints="NO" id="cpB-ES-aMb">
                                                         <rect key="frame" x="40" y="4" width="295" height="92"/>
@@ -290,7 +217,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mtp-S8-lw0">
-                                                <rect key="frame" x="0.0" y="734" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="705.5" width="375" height="100"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sponsors/Chewy" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-0m-h20">
                                                         <rect key="frame" x="60" y="4" width="255" height="92"/>
@@ -305,7 +232,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuC-7e-qEx">
-                                                <rect key="frame" x="0.0" y="838" width="375" height="166"/>
+                                                <rect key="frame" x="0.0" y="809.5" width="375" height="166"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you to our sponsors!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N9-ff-ts6">
                                                         <rect key="frame" x="6" y="4" width="363" height="158"/>
@@ -418,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vp-ts-YR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="3054"/>
+            <point key="canvasLocation" x="1122" y="3959"/>
         </scene>
         <!--Agenda-->
         <scene sceneID="H1N-wn-J71">
@@ -454,6 +381,7 @@
                         <segue destination="TuX-Ag-pDi" kind="relationship" relationship="viewControllers" id="Pj1-eJ-ahg"/>
                         <segue destination="8Lf-X9-ISu" kind="relationship" relationship="viewControllers" id="mGp-tE-yvu"/>
                         <segue destination="LhE-6r-QaI" kind="relationship" relationship="viewControllers" id="JUU-NE-chh"/>
+                        <segue destination="9my-yf-c3c" kind="relationship" relationship="viewControllers" id="sYt-Nr-nbH"/>
                         <segue destination="L61-1N-FfQ" kind="relationship" relationship="viewControllers" id="KNi-KA-Gut"/>
                     </connections>
                 </tabBarController>
@@ -586,6 +514,23 @@
             </objects>
             <point key="canvasLocation" x="-616" y="2188.6056971514245"/>
         </scene>
+        <!--Team-->
+        <scene sceneID="vsn-px-pM4">
+            <objects>
+                <navigationController id="9my-yf-c3c" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Team" image="team" id="hjB-XG-a5x"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h3H-kL-mMK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JWv-uS-Dvq" kind="relationship" relationship="rootViewController" id="i1W-ut-VJq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUa-J7-21r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="2985"/>
+        </scene>
         <!--Info-->
         <scene sceneID="VWV-9N-e6M">
             <objects>
@@ -603,7 +548,39 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAj-ia-7NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="3055.7721139430287"/>
+            <point key="canvasLocation" x="-617" y="3960"/>
+        </scene>
+        <!--Team-->
+        <scene sceneID="YhA-mX-pJu">
+            <objects>
+                <viewController id="JWv-uS-Dvq" userLabel="Team" customClass="TeamViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PBr-HK-Chj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o13-3G-D8Z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o13-3G-D8Z" firstAttribute="top" secondItem="nby-cW-jDB" secondAttribute="top" id="45X-80-JiW"/>
+                            <constraint firstItem="nby-cW-jDB" firstAttribute="trailing" secondItem="o13-3G-D8Z" secondAttribute="trailing" id="IqA-fG-wN0"/>
+                            <constraint firstItem="o13-3G-D8Z" firstAttribute="leading" secondItem="nby-cW-jDB" secondAttribute="leading" id="obN-3t-YXl"/>
+                            <constraint firstItem="nby-cW-jDB" firstAttribute="bottom" secondItem="o13-3G-D8Z" secondAttribute="bottom" id="pPN-Ji-1Pi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nby-cW-jDB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Team" id="3z6-Gu-UuK"/>
+                    <connections>
+                        <outlet property="tableView" destination="o13-3G-D8Z" id="c8V-9D-qVI"/>
+                        <segue destination="ZxR-eS-UwE" kind="show" identifier="TeamMemberDetail" id="H9E-xj-1YJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wc4-X0-oHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="3000"/>
         </scene>
     </scenes>
     <resources>
@@ -618,8 +595,9 @@
         <image name="infoIcon" width="30" height="30"/>
         <image name="profileIcon" width="30" height="30"/>
         <image name="sponsorIcon" width="32" height="30"/>
+        <image name="team" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7iw-C7-bqd"/>
+        <segue reference="H9E-xj-1YJ"/>
     </inferredMetricsTieBreakers>
 </document>

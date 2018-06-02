@@ -17,10 +17,9 @@ struct Speaker: Codable {
     let company: String?
     let bio: String?
     let featuredSpeaker: Bool?
-    let thumbnailUrl: String?
-    let social: [Social]?
-    let isEmcee: Bool?
-    
+    let thumbnailUrl: String
+    let social: [Social]
+
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "name"
@@ -31,8 +30,15 @@ struct Speaker: Codable {
         case featuredSpeaker = "rockstar"
         case thumbnailUrl
         case social
-        case isEmcee = "mc"
     }
+}
+
+extension Speaker: SpeakerDetailViewModel {
+
+    var role: String? {
+        return title
+    }
+
 }
 
 struct Social: Codable {
