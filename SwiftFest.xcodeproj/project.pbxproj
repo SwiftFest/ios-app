@@ -32,7 +32,6 @@
 		93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */; };
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
-		93F9F25B208D0C4E000C087B /* CodeOfConductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */; };
 		9D2E513A20797D5A002F9E42 /* DSLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E513920797D5A002F9E42 /* DSLExtensions.swift */; };
 		9D477689209E427F001801BE /* AgendaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D477688209E427F001801BE /* AgendaData.json */; };
 		9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */; };
@@ -97,7 +96,6 @@
 		93E2F5AF208E8A18004FE8E0 /* SpeakerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerListViewController.swift; sourceTree = "<group>"; };
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
-		93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeOfConductViewController.swift; sourceTree = "<group>"; };
 		9D2E513920797D5A002F9E42 /* DSLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLExtensions.swift; path = "Testing Extensions/DSLExtensions.swift"; sourceTree = SOURCE_ROOT; };
 		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
 		9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataControllerSpec.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				9314D51D209B742900BE0DAF /* SessionDetailView.swift */,
 				9DD27868209D4C4900804A03 /* Models */,
 				9D9B0E09207950B500FA7340 /* AppDelegate.swift */,
-				93F9F25A208D0C4E000C087B /* CodeOfConductViewController.swift */,
 				9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */,
 				9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */,
 				93BD217520A205BD00E66173 /* BaseViewController.swift */,
@@ -639,7 +636,6 @@
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
 				939E620320B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 				93BD217620A205BD00E66173 /* BaseViewController.swift in Sources */,
-				93F9F25B208D0C4E000C087B /* CodeOfConductViewController.swift in Sources */,
 				93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
