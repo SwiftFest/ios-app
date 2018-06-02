@@ -44,3 +44,15 @@ extension TeamMember: SpeakerDetailViewModel {
         return title
     }
 }
+
+extension TeamMember.Kind {
+
+    var displaySectionString: String {
+        switch self {
+        case .organizer: return "Organizers"
+        case .mc: return "MCs"
+        case .volunteer: return "Volunteers"
+        }
+    }
+
+}
