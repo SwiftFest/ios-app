@@ -66,7 +66,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTeamMember = teamMembers[indexPath.row]
-        self.performSegue(withIdentifier: "TeamMemberDetailSegue", sender: nil)
+        self.performSegue(withIdentifier: "TeamMemberDetail", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
