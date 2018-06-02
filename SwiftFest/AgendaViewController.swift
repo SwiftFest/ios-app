@@ -1,7 +1,6 @@
 import BonMot
+import SnapKit
 import UIKit
-
-var dayIndex: Int = 0
 
 class AgendaViewController: BaseViewController {
 
@@ -15,7 +14,16 @@ class AgendaViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = L10n.Screen.Agenda.title
+
+        let logoView = UIImageView(image: UIImage(asset: Asset.logo))
+        logoView.accessibilityLabel = L10n.Screen.Agenda.title
+        logoView.contentMode = .scaleAspectFit
+        logoView.snp.makeConstraints { make in
+            make.size.equalTo(30)
+        }
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        navigationItem.titleView = logoView
+
         segmentedViewControl.backgroundColor = Color.black.color
         segmentedViewControl.tintColor = Color.white.color
 
@@ -23,10 +31,12 @@ class AgendaViewController: BaseViewController {
         let normalImage = UIImage.from(color: Color.black.color, size: size)
         let selectedImage = UIImage.from(color: Color.white.color, size: size)
         let highlightedImage = UIImage.from(color: Color.blackHighlighted.color, size: size)
+        let selectedHighlightedImage = selectedImage
 
         segmentedViewControl.setBackgroundImage(normalImage, for: .normal, barMetrics: .default)
         segmentedViewControl.setBackgroundImage(selectedImage, for: .selected, barMetrics: .default)
         segmentedViewControl.setBackgroundImage(highlightedImage, for: .highlighted, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(selectedHighlightedImage, for: [.selected, .highlighted], barMetrics: .default)
 
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
@@ -36,17 +46,9 @@ class AgendaViewController: BaseViewController {
     }
     
     @IBAction func changeDay(_ sender: Any) {
-        
-        if segmentedViewControl.selectedSegmentIndex == 0 {
-            dayIndex = 0
-            agendaTableView.reloadData()
-        }
-
-        if segmentedViewControl.selectedSegmentIndex == 1 {
-            dayIndex = 1
-            agendaTableView.reloadData()
-        }
-        
+        agendaTableViewManager.dayIndex = segmentedViewControl.selectedSegmentIndex
+        agendaTableView.reloadData()
+        agendaTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,7 +66,9 @@ class AgendaViewController: BaseViewController {
 extension AgendaViewController {
     
     class TableViewManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-        
+
+        var dayIndex: Int = 0
+
         var selectedSession: Session?
         
         let agenda: Agenda
@@ -96,10 +100,7 @@ extension AgendaViewController {
             
             return sessionsBySection
         }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 130
-        }
+
         func numberOfSections(in tableView: UITableView) -> Int {
             return agenda.days[dayIndex].timeslots.count
         }
