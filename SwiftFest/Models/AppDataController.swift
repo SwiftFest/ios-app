@@ -15,25 +15,15 @@ class AppDataController {
     }
     
     func fetchSpeakers() -> [Speaker] {
-        let speakersData = loadJSONDataFromFile(named: "SpeakerData")
-        
-        do {
-            return try JSONDecoder().decode([Speaker].self, from: speakersData)
-        } catch {
-            print(error)
-            return []
-        }
+        return fetchData(fromFileNamed: "SpeakerData")
+    }
+
+    func fetchTeamMembers() -> [TeamMember] {
+        return fetchData(fromFileNamed: "TeamData")
     }
         
     func fetchSessions() -> [Session] {
-        let sessionData = loadJSONDataFromFile(named: "SessionData")
-        
-        do {
-            return try JSONDecoder().decode([Session].self, from: sessionData)
-        } catch {
-            print(error)
-            return []
-        }
+        return fetchData(fromFileNamed: "SessionData")
     }
     
     func fetchSpeakerThumbnailUrls() -> [String: String] {
@@ -70,11 +60,27 @@ class AppDataController {
         
         return SpeakerSession(speaker: speaker, session: session)
     }
-    
-    private func loadJSONDataFromFile(named: String) -> Data {
+
+}
+
+private extension AppDataController {
+
+    func fetchData<T>(fromFileNamed name: String) -> [T] where T: Decodable {
+        let data = loadJSONDataFromFile(named: name)
+
+        do {
+            return try JSONDecoder().decode([T].self, from: data)
+        } catch {
+            print(error)
+            return []
+        }
+    }
+
+    func loadJSONDataFromFile(named: String) -> Data {
         let path = Bundle.main.path(forResource: named, ofType: "json")!
         // swiftlint:disable:next force_try
         let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
         return data
     }
+
 }

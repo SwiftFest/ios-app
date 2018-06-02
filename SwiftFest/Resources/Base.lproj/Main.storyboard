@@ -587,35 +587,6 @@
             </objects>
             <point key="canvasLocation" x="-616" y="2188.6056971514245"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="7iP-9m-Q81">
-            <objects>
-                <tableViewController id="bpM-Cf-kn8" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="u43-fe-6S1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ajt-zr-diV">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ajt-zr-diV" id="AoG-cj-IvP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="bpM-Cf-kn8" id="saI-E8-fr6"/>
-                            <outlet property="delegate" destination="bpM-Cf-kn8" id="M96-pM-9qv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="cjh-i4-v4b"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ih-Q3-mIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="338" y="2986"/>
-        </scene>
         <!--Team-->
         <scene sceneID="vsn-px-pM4">
             <objects>
@@ -626,7 +597,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="bpM-Cf-kn8" kind="relationship" relationship="rootViewController" id="fAT-s1-onw"/>
+                        <segue destination="JWv-uS-Dvq" kind="relationship" relationship="rootViewController" id="i1W-ut-VJq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUa-J7-21r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,6 +623,38 @@
             </objects>
             <point key="canvasLocation" x="-617" y="3960"/>
         </scene>
+        <!--Team-->
+        <scene sceneID="YhA-mX-pJu">
+            <objects>
+                <viewController id="JWv-uS-Dvq" userLabel="Team" customClass="TeamViewController" customModule="SwiftFest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PBr-HK-Chj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o13-3G-D8Z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o13-3G-D8Z" firstAttribute="top" secondItem="nby-cW-jDB" secondAttribute="top" id="45X-80-JiW"/>
+                            <constraint firstItem="nby-cW-jDB" firstAttribute="trailing" secondItem="o13-3G-D8Z" secondAttribute="trailing" id="IqA-fG-wN0"/>
+                            <constraint firstItem="o13-3G-D8Z" firstAttribute="leading" secondItem="nby-cW-jDB" secondAttribute="leading" id="obN-3t-YXl"/>
+                            <constraint firstItem="nby-cW-jDB" firstAttribute="bottom" secondItem="o13-3G-D8Z" secondAttribute="bottom" id="pPN-Ji-1Pi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nby-cW-jDB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Speakers" id="3z6-Gu-UuK"/>
+                    <connections>
+                        <outlet property="tableView" destination="o13-3G-D8Z" id="c8V-9D-qVI"/>
+                        <segue destination="ZxR-eS-UwE" kind="show" identifier="TeamMemberDetail" id="H9E-xj-1YJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wc4-X0-oHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="3000"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Sponsors/Chewy" width="214" height="59"/>
@@ -668,6 +671,6 @@
         <image name="team" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Of8-D1-Juo"/>
+        <segue reference="H9E-xj-1YJ"/>
     </inferredMetricsTieBreakers>
 </document>

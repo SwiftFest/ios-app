@@ -3,25 +3,36 @@ import SafariServices
 import SnapKit
 import UIKit
 
-enum DetailType {
-    case speakerInfo
-    case sessionInfo
-}
-
 protocol DismissModalProtocol: class {
     func dismiss()
 }
 
 class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
+
+    enum DetailType {
+        case speaker(Speaker)
+        case teamMember(TeamMember)
+        case session(Session)
+
+        init(_ speaker: Speaker) {
+            self = .speaker(speaker)
+        }
+
+        init(_ teamMember: TeamMember) {
+            self = .teamMember(teamMember)
+        }
+
+        init(_ session: Session) {
+            self = .session(session)
+        }
+    }
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var detailContainerView: UIView!
     @IBOutlet weak var dismissButtonContainerView: UIView!
 
-    var speaker: Speaker?
-    var session: Session?
-    var detailType: DetailType = .speakerInfo
+    var detailType: DetailType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +40,9 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
         self.view.layer.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 0.5).cgColor
         
         switch detailType {
-        case .speakerInfo:
-            guard let speaker = speaker else { break }
+        case .speaker(let speaker)?:
             let speakerDetailView: SpeakerDetailView = .fromNib()
-            speakerDetailView.speaker = speaker
+            speakerDetailView.viewModel = speaker
             detailContainerView.addSubview(speakerDetailView)
             speakerDetailView.delegate = self
             speakerDetailView.snp.makeConstraints { (make) -> Void in
@@ -46,15 +56,31 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
             speakerDetailView.socialMediaLinkHandler = { [unowned self] in
                 self.present(SFSafariViewController(url: URL(string: $0.link)!), animated: true, completion: nil)
             }
-        case .sessionInfo:
-            guard let session = session else { break }
+        case .teamMember(let teamMember)?:
+            let speakerDetailView: SpeakerDetailView = .fromNib()
+            speakerDetailView.viewModel = teamMember
+            detailContainerView.addSubview(speakerDetailView)
+            speakerDetailView.delegate = self
+            speakerDetailView.snp.makeConstraints { (make) -> Void in
+                make.top.equalTo(detailContainerView).offset(8)
+                make.left.equalTo(detailContainerView).offset(0)
+                make.right.equalTo(detailContainerView).offset(0)
+                make.bottom.equalTo(detailContainerView).offset(-12)
+            }
+            navigationController?.setNavigationBarHidden(true, animated: false)
+            speakerDetailView.uiSetup()
+            speakerDetailView.socialMediaLinkHandler = { [unowned self] in
+                self.present(SFSafariViewController(url: URL(string: $0.link)!), animated: true, completion: nil)
+            }
+        case .session(let session)?:
             let sessionDetailView = SessionDetailView()
             detailContainerView.addSubview(sessionDetailView)
             sessionDetailView.session = session
             sessionDetailView.snp.makeConstraints { (make) -> Void in
                 make.edges.equalTo(detailContainerView.safeAreaLayoutGuide)
             }
-            
+        default:
+            fatalError("we should never try to view a nil detail type")
         }
         dismissButtonContainerView.layer.zPosition = 1
     }
@@ -65,11 +91,13 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     
     func dismiss() {
         switch detailType {
-        case .speakerInfo:
+        case .speaker?, .teamMember?:
             self.navigationController?.popViewController(animated: true)
             navigationController?.setNavigationBarHidden(false, animated: false)
-        case .sessionInfo:
+        case .session?:
             dismiss(animated: true, completion: nil)
+        case .none:
+            fatalError("What were you expecting?")
         }
     }
     
@@ -78,7 +106,6 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
 // to load nib
 extension UIView {
     class func fromNib<T: UIView>() -> T {
-        // swiftlint:disable:next force_cast
         return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
     }
 }

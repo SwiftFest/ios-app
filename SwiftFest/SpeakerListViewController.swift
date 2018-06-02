@@ -30,9 +30,8 @@ class SpeakerListViewController: BaseViewController, UIViewControllerTransitioni
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let speakerDetailViewController = segue.destination as? SpeakerDetailViewController {
-            speakerDetailViewController.speaker = selectedSpeaker!
+            speakerDetailViewController.detailType = SpeakerDetailViewController.DetailType(selectedSpeaker!)
             speakerDetailViewController.transitioningDelegate = self
-            speakerDetailViewController.detailType = .speakerInfo
         }
     }
 
@@ -44,10 +43,9 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell", for: indexPath) as! RibbonTableViewCell
         
-        cell.mainTextLabel.text = "\(speakers[indexPath.row].firstName) \(speakers[indexPath.row].lastName)"
+        cell.mainTextLabel.text = speakers[indexPath.row].name
         cell.mainTextLabel.textColor = Color.black.color
         cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 18))
         
@@ -60,17 +58,14 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
 
         cell.tertiaryTextLabel.text = ""
         
-        if let imageName = speakers[indexPath.row].thumbnailUrl {
-            let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-            speakerImageView.image = UIImage(named: imageName)
-            speakerImageView.contentMode = .scaleAspectFill
-            speakerImageView.clipsToBounds = true
-            speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
-            cell.accessoryView = speakerImageView
-        } else {
-            cell.accessoryView = nil // nil out the accessory view as cell reuse will cause this to render images where it shouldn't
-        }
-        
+        let imageName = speakers[indexPath.row].thumbnailUrl
+        let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        speakerImageView.image = UIImage(named: imageName)
+        speakerImageView.contentMode = .scaleAspectFill
+        speakerImageView.clipsToBounds = true
+        speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
+        cell.accessoryView = speakerImageView
+
         cell.selectionStyle = .none
         
         return cell

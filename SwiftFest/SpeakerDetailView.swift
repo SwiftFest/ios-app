@@ -1,9 +1,25 @@
 import UIGradient
 import UIKit
 
+protocol SpeakerDetailViewModel {
+    var bio: String? { get }
+    var firstName: String { get }
+    var lastName: String { get }
+    var name: String { get }
+    var role: String? { get }
+    var thumbnailUrl: String { get }
+    var social: [Social] { get }
+}
+
+extension SpeakerDetailViewModel {
+    var name: String {
+        return firstName + " " + lastName
+    }
+}
+
 class SpeakerDetailView: UIView {
     
-    var speaker: Speaker?
+    var viewModel: SpeakerDetailViewModel?
     
     @IBOutlet weak var speakerImageView: UIImageView!
     @IBOutlet weak var speakerNameLabel: UILabel!
@@ -24,24 +40,23 @@ class SpeakerDetailView: UIView {
         speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
         self.autoresizesSubviews = false
         self.clipsToBounds = true
-        if let speaker = speaker {
+        if let speaker = viewModel {
             speakerBioLabel.text = speaker.bio
-            speakerImageView.image = UIImage(named: speaker.thumbnailUrl!)
-            speakerNameLabel.text = speaker.firstName + " " + speaker.lastName
-            speakerTitleLabel.text = speaker.title
-            generateSocialButtonsForSpeaker(speaker)
+            speakerImageView.image = UIImage(named: speaker.thumbnailUrl)
+            speakerNameLabel.text = speaker.name
+            speakerTitleLabel.text = speaker.role
+            generateSocialButtons(for: speaker)
         }
         
         gradientView.addGradientWithDirection(.leftToRight, colors: UIUtilities.gradientColors)
         swiftLogoView.isHidden = true
     }
     
-    func generateSocialButtonsForSpeaker(_ speaker: Speaker) {
-        guard let socialResults = speaker.social else { return }
+    func generateSocialButtons(for viewModel: SpeakerDetailViewModel) {
         let buttonHeight: CGFloat = 50.0
-        socialStackViewWidth.constant = CGFloat(socialResults.count) * (buttonHeight) + CGFloat(socialResults.count - 1) * (socialStackView.spacing)
+        socialStackViewWidth.constant = CGFloat(viewModel.social.count) * (buttonHeight) + CGFloat(viewModel.social.count - 1) * (socialStackView.spacing)
         socialStackViewHeight.constant = buttonHeight
-        for (index, social) in socialResults.enumerated() {
+        for (index, social) in viewModel.social.enumerated() {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: buttonHeight, height: buttonHeight))
             view.backgroundColor = Color.white.color
             view.layer.cornerRadius = view.frame.height / 2
@@ -61,7 +76,8 @@ class SpeakerDetailView: UIView {
     
     @objc
     func socialMediaButtonPressed(sender: UIButton) {
-        socialMediaLinkHandler?(speaker!.social![sender.tag])
+        guard let social = viewModel?.social[sender.tag] else { return }
+        socialMediaLinkHandler?(social)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
