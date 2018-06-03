@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3DAFBC549BE61AF4515FD037 /* Pods_SwiftFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EC3B5382CAE039CBC11039 /* Pods_SwiftFest.framework */; };
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
+		7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */; };
+		7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */; };
 		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
 		7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868C20C45A6400223A4C /* MultiImageView.swift */; };
 		7ADF868F20C45C1100223A4C /* UIStackView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */; };
@@ -77,6 +79,8 @@
 /* Begin PBXFileReference section */
 		052B74156E1C703FE28462F5 /* Pods-SwiftFestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
+		7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtilitiesSpec.swift; sourceTree = "<group>"; };
 		7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		7ADF868C20C45A6400223A4C /* MultiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageView.swift; sourceTree = "<group>"; };
 		7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */,
 				7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */,
 				7ADF869020C4635F00223A4C /* CircleView.swift */,
+				7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				9D9B0E1E207950B500FA7340 /* AgendaTableViewManagerSpec.swift */,
+				7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */,
 				9D9B0E20207950B500FA7340 /* Info.plist */,
 				9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */,
 			);
@@ -637,6 +643,7 @@
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
 				7ADF869320C4699F00223A4C /* Identifier.swift in Sources */,
 				9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */,
+				7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */,
 				93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */,
@@ -657,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */,
+				7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
 				939E620420B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 			);

@@ -70,6 +70,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
 
         cell.selectionStyle = .none
+
+        cell.ribbon.backgroundColor = Color.lightOrange.color
         
         return cell
     }

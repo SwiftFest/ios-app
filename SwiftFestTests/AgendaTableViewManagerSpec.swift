@@ -48,12 +48,15 @@ class AgendaTableViewManagerSpec: QuickSpec {
             
             let dayOne = DateComponents(year: 2018, month: 06, day: 18)
             let agenda = Agenda(days: [
-                Agenda.Day(date: dayOne, timeslots: [
-                    Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
-                    Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
-                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"]),
-                    Agenda.Timeslot(startTime: twoPM, endTime: threePM, sessionIds: ["006", "007"]),
-                    ]),
+                Agenda.Day(
+                    date: dayOne,
+                    tracks: [],
+                    timeslots: [
+                        Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
+                        Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
+                        Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"]),
+                        Agenda.Timeslot(startTime: twoPM, endTime: threePM, sessionIds: ["006", "007"]),
+                        ]),
                 ])
             
             let sessions: [Session] = [

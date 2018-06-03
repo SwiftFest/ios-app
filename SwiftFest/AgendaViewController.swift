@@ -164,6 +164,8 @@ extension AgendaViewController {
             cell.multiImageView.images = imagesNames.compactMap(UIImage.init(named:))
 
             cell.selectionStyle = .none
+
+            cell.ribbon.backgroundColor = agenda.days[dayIndex].tracks[indexPath.row].uiColor
             return cell
         }
         

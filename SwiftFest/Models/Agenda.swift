@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct Agenda {
     
@@ -8,13 +9,16 @@ struct Agenda {
         enum CodingKeys: CodingKey {
             case date
             case timeslots
+            case tracks
         }
         
         let date: DateComponents
         let timeslots: [Timeslot]
+        let tracks: [Track]
         
-        init(date: DateComponents, timeslots: [Timeslot]) {
+        init(date: DateComponents, tracks: [Track], timeslots: [Timeslot]) {
             self.date = date
+            self.tracks = tracks
             self.timeslots = timeslots
         }
         
@@ -30,10 +34,18 @@ struct Agenda {
             
             let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour, .minute, .day, .month, .year)
             let dateComponents = Calendar.current.dateComponents(desiredComponents, from: date)
+
+            let tracks = try container.decode([Track].self, forKey: .tracks)
             self.init(date: dateComponents,
+                      tracks: tracks,
                       // swiftlint:disable:next force_try
                       timeslots: try! container.decode([Timeslot].self, forKey: .timeslots))
         }
+    }
+
+    struct Track: Decodable {
+        let title: String
+        let color: String
     }
     
     struct Timeslot: Decodable {
@@ -81,4 +93,12 @@ struct Agenda {
     }
     
     let days: [Day]
+}
+
+extension Agenda.Track {
+
+    var uiColor: UIColor {
+        return UIColor(hexString: color)
+    }
+
 }

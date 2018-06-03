@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6o-8z-V69">
                         <rect key="frame" x="0.0" y="0.0" width="10" height="132.5"/>
-                        <color key="backgroundColor" name="LightOrange"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="Nle-Ur-NWT"/>
                         </constraints>
@@ -30,22 +29,22 @@
                         <rect key="frame" x="15" y="5" width="295" height="122.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fTt-H1-6z7">
-                                <rect key="frame" x="0.0" y="0.0" width="235" height="61.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="190" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Main Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wM0-3t-767">
-                                        <rect key="frame" x="0.0" y="0.0" width="235" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Secondary Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whH-vR-Cj3">
-                                        <rect key="frame" x="0.0" y="20.5" width="235" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="190" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tertiary Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXS-US-puf">
-                                        <rect key="frame" x="0.0" y="41" width="235" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="41" width="190" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -53,7 +52,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYz-vR-EbE" customClass="MultiImageView" customModule="SwiftFest" customModuleProvider="target">
-                                <rect key="frame" x="235" y="0.0" width="60" height="105"/>
+                                <rect key="frame" x="190" y="0.0" width="105" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -73,15 +72,11 @@
             <connections>
                 <outlet property="mainTextLabel" destination="wM0-3t-767" id="MNn-Ol-nX1"/>
                 <outlet property="multiImageView" destination="mYz-vR-EbE" id="iZB-JF-vOV"/>
+                <outlet property="ribbon" destination="X6o-8z-V69" id="KQx-qO-ysZ"/>
                 <outlet property="secondaryTextLabel" destination="whH-vR-Cj3" id="2kz-S9-mYn"/>
                 <outlet property="tertiaryTextLabel" destination="fXS-US-puf" id="4Ws-OI-Xjx"/>
             </connections>
             <point key="canvasLocation" x="38" y="118.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="LightOrange">
-            <color red="0.98431372549019602" green="0.63137254901960782" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>
