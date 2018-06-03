@@ -3,7 +3,7 @@ import Quick
 @testable import SwiftFest
 
 extension Session {
-    static func forTesting(withId id: String, title: String) -> Session {        
+    static func forTesting(withId id: Identifier<Session>, title: String) -> Session {        
         return Session(complexity: "nil",
                        description: "description",
                        id: id,

@@ -16,7 +16,7 @@ struct TeamMember: Codable {
         case volunteer
     }
 
-    let id: String
+    let id: Identifier<TeamMember>
     let firstName: String
     let lastName: String
     let title: String?

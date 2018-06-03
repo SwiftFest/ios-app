@@ -82,11 +82,11 @@ extension AgendaViewController {
         let agenda: Agenda
         let sessions: [Session]
         weak var viewController: AgendaViewController?
-        let speakerThumbnailUrls: [String: String]
+        let speakerThumbnailUrls: [Identifier<Session>: String]
         
         init(agenda: Agenda,
              sessions: [Session],
-             speakerThumbnailUrls: [String: String],
+             speakerThumbnailUrls: [Identifier<Session>: String],
              viewController: AgendaViewController?) {
             self.agenda = agenda
             self.sessions = sessions

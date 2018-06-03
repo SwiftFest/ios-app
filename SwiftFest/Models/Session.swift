@@ -4,9 +4,9 @@ struct Session: Codable {
     
     let complexity: String?
     let description: String
-    let id: String
+    let id: Identifier<Session>
     let outcome: String?
-    let speakers: [String]
+    let speakers: [Identifier<Speaker>]
     let subtype: String
     let title: String
     

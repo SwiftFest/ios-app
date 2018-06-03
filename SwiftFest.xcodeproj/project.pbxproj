@@ -13,6 +13,7 @@
 		7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868C20C45A6400223A4C /* MultiImageView.swift */; };
 		7ADF868F20C45C1100223A4C /* UIStackView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */; };
 		7ADF869120C4635F00223A4C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF869020C4635F00223A4C /* CircleView.swift */; };
+		7ADF869320C4699F00223A4C /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF869220C4699F00223A4C /* Identifier.swift */; };
 		7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789820C3336E00ECACBA /* TeamViewController.swift */; };
 		7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789A20C333DF00ECACBA /* TeamMember.swift */; };
 		7AE5789D20C333EA00ECACBA /* TeamData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE5789C20C333E900ECACBA /* TeamData.json */; };
@@ -81,6 +82,7 @@
 		7ADF868C20C45A6400223A4C /* MultiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageView.swift; sourceTree = "<group>"; };
 		7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
 		7ADF869020C4635F00223A4C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		7ADF869220C4699F00223A4C /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		7AE5789820C3336E00ECACBA /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7AE5789A20C333DF00ECACBA /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		7AE5789C20C333E900ECACBA /* TeamData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamData.json; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */,
 				7AE5789A20C333DF00ECACBA /* TeamMember.swift */,
 				9358A83B209257F300442047 /* SpeakerSession.swift */,
+				7ADF869220C4699F00223A4C /* Identifier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */,
 				7ADF869120C4635F00223A4C /* CircleView.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
+				7ADF869320C4699F00223A4C /* Identifier.swift in Sources */,
 				9358A83C209257F300442047 /* SpeakerSession.swift in Sources */,
 				9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,

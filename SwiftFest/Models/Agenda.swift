@@ -39,7 +39,7 @@ struct Agenda {
     struct Timeslot: Decodable {
         let startTime: DateComponents
         let endTime: DateComponents
-        let sessionIds: [String]
+        let sessionIds: [Identifier<Session>]
         
         // swiftlint:disable:next nesting
         enum CodingKeys: CodingKey {
@@ -48,7 +48,7 @@ struct Agenda {
             case sessionIds
         }
         
-        init(startTime: DateComponents, endTime: DateComponents, sessionIds: [String]) {
+        init(startTime: DateComponents, endTime: DateComponents, sessionIds: [Identifier<Session>]) {
             self.startTime = startTime
             self.endTime = endTime
             self.sessionIds = sessionIds
@@ -74,7 +74,7 @@ struct Agenda {
             let endTime = Calendar.current.dateComponents(desiredComponents, from: endTimeDate)
             
             // swiftlint:disable:next force_try
-            let sessionIds = try! container.decode([String].self, forKey: .sessionIds)
+            let sessionIds = try! container.decode([Identifier<Session>].self, forKey: .sessionIds)
             
             self.init(startTime: startTime, endTime: endTime, sessionIds: sessionIds)
         }

@@ -26,8 +26,8 @@ class AppDataController {
         return fetchData(fromFileNamed: "SessionData")
     }
     
-    func fetchSpeakerThumbnailUrls() -> [String: String] {
-        var speakerThumbnailUrls = [String: String]()
+    func fetchSpeakerThumbnailUrls() -> [Identifier<Session>: String] {
+        var speakerThumbnailUrls = [Identifier<Session>: String]()
         for speaker in fetchSpeakers() {
             if let speakerSession = speakerSessionForSpeaker(speaker) {
                 speakerThumbnailUrls[speakerSession.session.id] = speaker.thumbnailUrl
@@ -37,7 +37,7 @@ class AppDataController {
         return speakerThumbnailUrls
     }
     
-    func session(for id: String) -> Session {
+    func session(for id: Identifier<Session>) -> Session {
         let sessions = fetchSessions()
         return sessions.first {
             $0.id == id

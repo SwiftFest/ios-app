@@ -17,7 +17,7 @@ class AppDataControllerSpec: QuickSpec {
             
             it("can get a list of thumbnail urls indexed by session id") {
                 let speakerThumbnailUrls = subject.fetchSpeakerThumbnailUrls()
-                let sessionId = "001"
+                let sessionId: Identifier<Session> = "001"
                 
                 expect(speakerThumbnailUrls).to(haveCount(29))
                 expect(speakerThumbnailUrls.keys).to(contain(sessionId))
