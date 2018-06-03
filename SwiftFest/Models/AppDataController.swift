@@ -32,11 +32,9 @@ class AppDataController {
     }()
 
     func session(forSpeaker speakerId: Identifier<Speaker>) -> Session? {
-        let filteredSessions = sessions.filter { session in
+        return sessions.first { session in
             session.speakers.contains(speakerId)
         }
-        
-        return filteredSessions.first
     }
 
 }
