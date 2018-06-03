@@ -11,6 +11,7 @@
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
 		7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */; };
 		7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */; };
+		7AAB8CE420C4924700C44ADC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAB8CE320C4924700C44ADC /* GradientView.swift */; };
 		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
 		7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868C20C45A6400223A4C /* MultiImageView.swift */; };
 		7ADF868F20C45C1100223A4C /* UIStackView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */; };
@@ -19,6 +20,8 @@
 		7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789820C3336E00ECACBA /* TeamViewController.swift */; };
 		7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789A20C333DF00ECACBA /* TeamMember.swift */; };
 		7AE5789D20C333EA00ECACBA /* TeamData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE5789C20C333E900ECACBA /* TeamData.json */; };
+		7AFB322E20C48DD80001139B /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB322D20C48DD80001139B /* Screenshots.swift */; };
+		7AFB323820C48E070001139B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB323720C48E070001139B /* SnapshotHelper.swift */; };
 		9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314D51D209B742900BE0DAF /* SessionDetailView.swift */; };
 		9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* SpeakerData.json */; };
 		9321F725209123A600FA4B8C /* SessionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* SessionData.json */; };
@@ -60,6 +63,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7AFB323020C48DD80001139B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D9B0DFE207950B500FA7340 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D9B0E05207950B500FA7340;
+			remoteInfo = SwiftFest;
+		};
 		9D9B0E1B207950B500FA7340 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D9B0DFE207950B500FA7340 /* Project object */;
@@ -81,6 +91,7 @@
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
 		7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtilitiesSpec.swift; sourceTree = "<group>"; };
+		7AAB8CE320C4924700C44ADC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		7ADF868C20C45A6400223A4C /* MultiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageView.swift; sourceTree = "<group>"; };
 		7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
@@ -89,6 +100,10 @@
 		7AE5789820C3336E00ECACBA /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7AE5789A20C333DF00ECACBA /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		7AE5789C20C333E900ECACBA /* TeamData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamData.json; sourceTree = "<group>"; };
+		7AFB322B20C48DD70001139B /* Screenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AFB322D20C48DD80001139B /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
+		7AFB322F20C48DD80001139B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AFB323720C48E070001139B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.release.xcconfig"; sourceTree = "<group>"; };
 		9314D51D209B742900BE0DAF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		9321F71F208FA3E100FA4B8C /* SpeakerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpeakerData.json; sourceTree = "<group>"; };
@@ -142,6 +157,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7AFB322820C48DD70001139B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D9B0E03207950B500FA7340 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -199,8 +221,19 @@
 				7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */,
 				7ADF869020C4635F00223A4C /* CircleView.swift */,
 				7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */,
+				7AAB8CE320C4924700C44ADC /* GradientView.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7AFB322C20C48DD70001139B /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				7AFB323720C48E070001139B /* SnapshotHelper.swift */,
+				7AFB322D20C48DD80001139B /* Screenshots.swift */,
+				7AFB322F20C48DD80001139B /* Info.plist */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		9321F721208FA3FF00FA4B8C /* StaticData */ = {
@@ -222,6 +255,7 @@
 				9D9B0E08207950B500FA7340 /* SwiftFest */,
 				9D9B0E1D207950B500FA7340 /* SwiftFestTests */,
 				9D9B0E28207950B600FA7340 /* SwiftFestUITests */,
+				7AFB322C20C48DD70001139B /* Screenshots */,
 				9D9B0E07207950B500FA7340 /* Products */,
 				694CB757A9C1C58F0DCD84C5 /* Pods */,
 				454F9B350ABDCC8FF7897629 /* Frameworks */,
@@ -234,6 +268,7 @@
 				9D9B0E06207950B500FA7340 /* SwiftFest.app */,
 				9D9B0E1A207950B500FA7340 /* SwiftFestTests.xctest */,
 				9D9B0E25207950B600FA7340 /* SwiftFestUITests.xctest */,
+				7AFB322B20C48DD70001139B /* Screenshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,6 +363,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7AFB322A20C48DD70001139B /* Screenshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AFB323420C48DD80001139B /* Build configuration list for PBXNativeTarget "Screenshots" */;
+			buildPhases = (
+				7AFB322720C48DD70001139B /* Sources */,
+				7AFB322820C48DD70001139B /* Frameworks */,
+				7AFB322920C48DD70001139B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AFB323120C48DD80001139B /* PBXTargetDependency */,
+			);
+			name = Screenshots;
+			productName = Screenshots;
+			productReference = 7AFB322B20C48DD70001139B /* Screenshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9D9B0E05207950B500FA7340 /* SwiftFest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D9B0E2E207950B600FA7340 /* Build configuration list for PBXNativeTarget "SwiftFest" */;
@@ -395,10 +448,15 @@
 		9D9B0DFE207950B500FA7340 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Sean Olszewski";
 				TargetAttributes = {
+					7AFB322A20C48DD70001139B = {
+						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9D9B0E05207950B500FA7340;
+					};
 					9D9B0E05207950B500FA7340 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -431,11 +489,19 @@
 				9D9B0E05207950B500FA7340 /* SwiftFest */,
 				9D9B0E19207950B500FA7340 /* SwiftFestTests */,
 				9D9B0E24207950B600FA7340 /* SwiftFestUITests */,
+				7AFB322A20C48DD70001139B /* Screenshots */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7AFB322920C48DD70001139B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D9B0E04207950B500FA7340 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,12 +689,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7AFB322720C48DD70001139B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AFB322E20C48DD80001139B /* Screenshots.swift in Sources */,
+				7AFB323820C48E070001139B /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D9B0E02207950B500FA7340 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				93E2F5B0208E8A18004FE8E0 /* SpeakerListViewController.swift in Sources */,
 				9D47768D209E73F2001801BE /* Agenda.swift in Sources */,
+				7AAB8CE420C4924700C44ADC /* GradientView.swift in Sources */,
 				9DD2786A209D4C9A00804A03 /* Session.swift in Sources */,
 				9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */,
 				7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */,
@@ -682,6 +758,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7AFB323120C48DD80001139B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D9B0E05207950B500FA7340 /* SwiftFest */;
+			targetProxy = 7AFB323020C48DD80001139B /* PBXContainerItemProxy */;
+		};
 		9D9B0E1C207950B500FA7340 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9D9B0E05207950B500FA7340 /* SwiftFest */;
@@ -714,6 +795,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7AFB323220C48DD80001139B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Screenshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.swiftfest.Screenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftFest;
+			};
+			name = Debug;
+		};
+		7AFB323320C48DD80001139B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Screenshots/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.swiftfest.Screenshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftFest;
+			};
+			name = Release;
+		};
 		9D9B0E2C207950B600FA7340 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -933,6 +1046,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7AFB323420C48DD80001139B /* Build configuration list for PBXNativeTarget "Screenshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AFB323220C48DD80001139B /* Debug */,
+				7AFB323320C48DD80001139B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9D9B0E01207950B500FA7340 /* Build configuration list for PBXProject "SwiftFest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
