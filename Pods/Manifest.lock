@@ -4,6 +4,7 @@ PODS:
   - Nimble (7.0.2)
   - Pastel (0.4.0)
   - Quick (1.2.0)
+  - SimulatorStatusMagic (2.1)
   - SnapKit (4.0.0)
   - SwiftGen (5.3.0)
   - SwiftLint (0.25.0)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - Nimble
   - Pastel
   - Quick
+  - SimulatorStatusMagic
   - SnapKit
   - SwiftGen
   - SwiftLint
@@ -25,6 +27,7 @@ SPEC REPOS:
     - Nimble
     - Pastel
     - Quick
+    - SimulatorStatusMagic
     - SnapKit
     - SwiftGen
     - SwiftLint
@@ -35,10 +38,11 @@ SPEC CHECKSUMS:
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Pastel: 7fa5e26123b3dbe11f7ed255654bf37100b199a5
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SimulatorStatusMagic: 481558caf2b9ccb2ceba2cc193728d4db3dcac07
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: 20d73f45d8de61dc66aae39fd97e57dae8d887ac
+PODFILE CHECKSUM: 8506ea2ab08fcd4ecd3f3c888ce2b478ea30fe4b
 
 COCOAPODS: 1.5.0

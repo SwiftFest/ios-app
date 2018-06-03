@@ -10,6 +10,8 @@ target 'SwiftFest' do
   pod 'Pastel'
   pod 'Down'
 
+  pod 'SimulatorStatusMagic', :configurations => ['Debug']
+
   target 'SwiftFestTests' do
     inherit! :search_paths
     pod 'Quick'

@@ -146,6 +146,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Down/Down.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
