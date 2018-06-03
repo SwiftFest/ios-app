@@ -18,14 +18,6 @@ extension SpeakerDetailViewModel {
     }
 }
 
-class GradientView: UIView {
-    override func layoutSublayers(of layer: CALayer) {
-        for sublayer in layer.sublayers! {
-            sublayer.frame = layer.frame
-        }
-    }
-}
-
 class SpeakerDetailView: UIView {
     
     var viewModel: SpeakerDetailViewModel?
@@ -74,14 +66,8 @@ class SpeakerDetailView: UIView {
             speakerTitleLabel.sizeToFit()
             generateSocialButtons(for: speaker)
         }
-        
-        let gradient = CAGradientLayer()
-        
-        gradient.frame = gradientView.bounds
-        gradient.colors = UIUtilities.gradientColors.map { $0.cgColor }
 
-        gradientView.layer.insertSublayer(gradient, at: 0)
-        
+        gradientView.colors = UIUtilities.gradientColors
     }
     
     func generateSocialButtons(for viewModel: SpeakerDetailViewModel) {
