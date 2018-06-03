@@ -14,7 +14,7 @@ final class MultiImageView: UIView {
 
     private let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.spacing = -15
         return stackView
     }()
