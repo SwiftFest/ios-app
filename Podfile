@@ -7,7 +7,6 @@ target 'SwiftFest' do
   pod 'SwiftLint'
   pod 'BonMot'
   pod 'SnapKit'
-  pod 'UIGradient', '~> 1.1.2'
   pod 'Pastel'
   pod 'Down'
 

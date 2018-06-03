@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RLJ-1k-rYr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="41"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2ym-L6-mbo"/>
+                                    <constraint firstAttribute="height" constant="45" id="2ym-L6-mbo"/>
                                 </constraints>
                                 <segments>
                                     <segment title="" image="Day 1 (Selected)"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j0g-kM-Oje">
-                                <rect key="frame" x="0.0" y="104" width="375" height="514"/>
+                                <rect key="frame" x="0.0" y="109" width="375" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -440,32 +440,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Xh-su2">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i3-ao-7ki">
-                                                        <rect key="frame" x="24" y="36" width="78" height="38"/>
-                                                        <subviews>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-iq-wgd">
-                                                                <rect key="frame" x="12" y="4" width="54" height="30"/>
-                                                                <state key="normal" title="Dismiss"/>
-                                                                <connections>
-                                                                    <action selector="dismissButtonPressed:" destination="ZxR-eS-UwE" eventType="touchUpInside" id="SK6-cT-z81"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstItem="bs0-iq-wgd" firstAttribute="leading" secondItem="1i3-ao-7ki" secondAttribute="leading" constant="12" id="31h-hn-eWn"/>
-                                                            <constraint firstItem="bs0-iq-wgd" firstAttribute="top" secondItem="1i3-ao-7ki" secondAttribute="top" constant="4" id="35c-Y4-PuB"/>
-                                                            <constraint firstAttribute="trailing" secondItem="bs0-iq-wgd" secondAttribute="trailing" constant="12" id="cV1-6X-lOk"/>
-                                                            <constraint firstAttribute="bottom" secondItem="bs0-iq-wgd" secondAttribute="bottom" constant="4" id="mtg-57-auf"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="1i3-ao-7ki" firstAttribute="top" secondItem="jlf-Xh-su2" secondAttribute="top" constant="36" id="TJw-YD-19p"/>
-                                                    <constraint firstItem="1i3-ao-7ki" firstAttribute="leading" secondItem="jlf-Xh-su2" secondAttribute="leading" constant="24" id="dZM-ki-ksI"/>
-                                                </constraints>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -491,7 +466,6 @@
                     <connections>
                         <outlet property="contentView" destination="k97-M6-kcc" id="KBe-Kn-DZu"/>
                         <outlet property="detailContainerView" destination="jlf-Xh-su2" id="UVU-Lo-Upm"/>
-                        <outlet property="dismissButtonContainerView" destination="1i3-ao-7ki" id="dkS-8j-WuV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-c5-hT3" userLabel="First Responder" sceneMemberID="firstResponder"/>

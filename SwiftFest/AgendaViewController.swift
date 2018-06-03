@@ -26,7 +26,7 @@ class AgendaViewController: BaseViewController {
 
         segmentedViewControl.backgroundColor = Color.black.color
         segmentedViewControl.tintColor = UIColor.clear
-        segmentedViewControl.contentMode = .scaleAspectFill
+        segmentedViewControl.contentMode = .scaleAspectFit
         
 
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")

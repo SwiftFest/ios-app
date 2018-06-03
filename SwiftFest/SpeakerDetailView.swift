@@ -1,4 +1,3 @@
-import UIGradient
 import UIKit
 import Down
 import BonMot
@@ -19,6 +18,14 @@ extension SpeakerDetailViewModel {
     }
 }
 
+class GradientView: UIView {
+    override func layoutSublayers(of layer: CALayer) {
+        for sublayer in layer.sublayers! {
+            sublayer.frame = layer.frame
+        }
+    }
+}
+
 class SpeakerDetailView: UIView {
     
     var viewModel: SpeakerDetailViewModel?
@@ -31,8 +38,7 @@ class SpeakerDetailView: UIView {
     @IBOutlet weak var socialStackViewWidth: NSLayoutConstraint!
     @IBOutlet weak var socialStackViewHeight: NSLayoutConstraint!
     @IBOutlet weak var speakerView: UIView!
-    @IBOutlet weak var gradientView: UIView!
-    @IBOutlet weak var swiftLogoView: UIView!
+    @IBOutlet weak var gradientView: GradientView!
     
     weak var delegate: DismissModalProtocol!
     
@@ -69,8 +75,13 @@ class SpeakerDetailView: UIView {
             generateSocialButtons(for: speaker)
         }
         
-        gradientView.addGradientWithDirection(.leftToRight, colors: UIUtilities.gradientColors)
-        swiftLogoView.isHidden = true
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = gradientView.bounds
+        gradient.colors = UIUtilities.gradientColors.map { $0.cgColor }
+
+        gradientView.layer.insertSublayer(gradient, at: 0)
+        
     }
     
     func generateSocialButtons(for viewModel: SpeakerDetailViewModel) {
@@ -100,9 +111,4 @@ class SpeakerDetailView: UIView {
         guard let social = viewModel?.social[sender.tag] else { return }
         socialMediaLinkHandler?(social)
     }
-    
-    @IBAction func backButtonPressed(_ sender: Any) {
-        delegate.dismiss()
-    }
-    
 }

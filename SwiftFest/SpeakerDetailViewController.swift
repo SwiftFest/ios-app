@@ -30,7 +30,6 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var detailContainerView: UIView!
-    @IBOutlet weak var dismissButtonContainerView: UIView!
 
     var detailType: DetailType?
     
@@ -46,12 +45,11 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
             detailContainerView.addSubview(speakerDetailView)
             speakerDetailView.delegate = self
             speakerDetailView.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(detailContainerView).offset(8)
+                make.top.equalTo(detailContainerView).offset(0)
                 make.left.equalTo(detailContainerView).offset(0)
                 make.right.equalTo(detailContainerView).offset(0)
-                make.bottom.equalTo(detailContainerView).offset(-12)
+                make.bottom.equalTo(detailContainerView).offset(0)
             }
-            navigationController?.setNavigationBarHidden(true, animated: false)
             speakerDetailView.uiSetup()
             speakerDetailView.socialMediaLinkHandler = { [unowned self] in
                 self.present(SFSafariViewController(url: URL(string: $0.link)!), animated: true, completion: nil)
@@ -62,12 +60,11 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
             detailContainerView.addSubview(speakerDetailView)
             speakerDetailView.delegate = self
             speakerDetailView.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(detailContainerView).offset(8)
+                make.top.equalTo(detailContainerView).offset(0)
                 make.left.equalTo(detailContainerView).offset(0)
                 make.right.equalTo(detailContainerView).offset(0)
                 make.bottom.equalTo(detailContainerView).offset(-12)
             }
-            navigationController?.setNavigationBarHidden(true, animated: false)
             speakerDetailView.uiSetup()
             speakerDetailView.socialMediaLinkHandler = { [unowned self] in
                 self.present(SFSafariViewController(url: URL(string: $0.link)!), animated: true, completion: nil)
@@ -82,18 +79,12 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
         default:
             fatalError("we should never try to view a nil detail type")
         }
-        dismissButtonContainerView.layer.zPosition = 1
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 37 / 255, green: 37 / 255, blue: 37 / 255, alpha: 1.0)
-    }
-    
+
     func dismiss() {
         switch detailType {
         case .speaker?, .teamMember?:
             self.navigationController?.popViewController(animated: true)
-            navigationController?.setNavigationBarHidden(false, animated: false)
         case .session?:
             dismiss(animated: true, completion: nil)
         case .none:
