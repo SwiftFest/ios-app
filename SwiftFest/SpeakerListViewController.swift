@@ -5,23 +5,23 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
     @IBOutlet weak var speakerListTableView: UITableView!
     private var selectedSpeaker: Speaker?
 
-    var speakers: [Speaker] = [] {
+    private var speakers: [Speaker] = [] {
         didSet {
+            sessionTitlesBySpeaker = AppDataController.shared.sessions.reduce(into: [:], { (dictionary, session) in
+                for speakerId in session.speakers {
+                    dictionary[speakerId] = session.title
+                }
+            })
             speakerListTableView.reloadData()
         }
     }
-    
-    var sessionTitles = [String]() {
-        didSet {
-            speakerListTableView.reloadData()
-        }
-    }
+
+    private var sessionTitlesBySpeaker: [Identifier<Speaker>: String] = [:]
   
     override func viewDidLoad() {
         super.viewDidLoad()
         speakers = AppDataController.shared.speakers
-        sessionTitles = speakers.map { AppDataController.shared.session(forSpeaker: $0.id)?.title ?? "Master of Ceremony" }
-        
+
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
         
@@ -44,12 +44,13 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell", for: indexPath) as! RibbonTableViewCell
-        
-        cell.mainTextLabel.text = speakers[indexPath.row].name
+
+        let speaker = speakers[indexPath.row]
+        cell.mainTextLabel.text = speaker.name
         cell.mainTextLabel.textColor = Color.black.color
         cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 18))
         
-        cell.secondaryTextLabel.text = sessionTitles[indexPath.row]
+        cell.secondaryTextLabel.text = sessionTitlesBySpeaker[speaker.id]
         
         cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
         cell.secondaryTextLabel.textColor = Color.mediumGray.color
