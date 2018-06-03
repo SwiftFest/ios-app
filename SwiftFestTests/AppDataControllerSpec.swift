@@ -8,18 +8,18 @@ class AppDataControllerSpec: QuickSpec {
         describe("AppDataController") {
             
             it("can get a session given a session id") {
-                let sessionOne = subject.session(for: "001")
-                let sessionTwo = subject.session(for: "004")
+                let sessionOne = subject.session(forSpeaker: "1")
+                let sessionTwo = subject.session(forSpeaker: "3")
                 
                 expect(sessionOne?.title).to(equal("Keynote: Accidentally Famous"))
-                expect(sessionTwo?.title).to(equal("Patterns & Methodologies for Test Suite Design"))
+                expect(sessionTwo?.title).to(equal("Patterns &amp; Methodologies for Test Suite Design"))
             }
             
             it("can get a list of thumbnail urls indexed by session id") {
                 let speakersById = subject.speakersById
-                let speakerId: Identifier<Speaker> = "001"
+                let speakerId: Identifier<Speaker> = "1"
                 
-                expect(speakersById).to(haveCount(29))
+                expect(speakersById).to(haveCount(30))
                 expect(speakersById.keys).to(contain(speakerId))
             }
             
@@ -31,7 +31,7 @@ class AppDataControllerSpec: QuickSpec {
                 
                 it("deserializes the speakers") {
                     let speakers = subject.speakers
-                    expect(speakers).to(haveCount(34))
+                    expect(speakers).to(haveCount(30))
                 }
                 
                 it("deserializes the agenda") {

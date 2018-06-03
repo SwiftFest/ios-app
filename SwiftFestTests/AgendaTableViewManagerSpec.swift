@@ -107,32 +107,32 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 it("renders each session as a cell") {
                     var cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("a title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("09:00 AM - 09:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("9:00 AM - 10:00 AM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Virginia Wimberly Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("another title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("10:00 AM - 10:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("12:00 PM - 1:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Virginia Wimberly Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("just a title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("10:00 AM - 10:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("12:00 PM - 1:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Nancy and Edward Roberts Studio Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("yet another title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("11:00 AM - 11:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("1:00 PM - 2:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Virginia Wimberly Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("and another title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("11:00 AM - 11:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("1:00 PM - 2:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Nancy and Edward Roberts Studio Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 2)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("and one more title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("12:00 PM - 1:30 PM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("1:00 PM - 2:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Carol Dean Theatre"))
                 }
                 
