@@ -3,7 +3,7 @@ import Quick
 @testable import SwiftFest
 
 extension Session {
-    static func forTesting(withId id: String, title: String) -> Session {        
+    static func forTesting(withId id: Identifier<Session>, title: String) -> Session {        
         return Session(complexity: "nil",
                        description: "description",
                        id: id,
@@ -48,12 +48,15 @@ class AgendaTableViewManagerSpec: QuickSpec {
             
             let dayOne = DateComponents(year: 2018, month: 06, day: 18)
             let agenda = Agenda(days: [
-                Agenda.Day(date: dayOne, timeslots: [
-                    Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
-                    Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
-                    Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"]),
-                    Agenda.Timeslot(startTime: twoPM, endTime: threePM, sessionIds: ["006", "007"]),
-                    ]),
+                Agenda.Day(
+                    date: dayOne,
+                    tracks: [],
+                    timeslots: [
+                        Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
+                        Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),
+                        Agenda.Timeslot(startTime: onePM, endTime: twoPM, sessionIds: ["003", "004", "005"]),
+                        Agenda.Timeslot(startTime: twoPM, endTime: threePM, sessionIds: ["006", "007"]),
+                        ]),
                 ])
             
             let sessions: [Session] = [
@@ -72,7 +75,7 @@ class AgendaTableViewManagerSpec: QuickSpec {
             tableView = UITableView()
             tableView.register(nib, forCellReuseIdentifier: "SessionCell")
             
-            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakerThumbnailUrls: [:], viewController: nil)
+            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakersById: [:], viewController: nil)
         }
         
         describe("the agenda table view's manager") {
@@ -107,32 +110,32 @@ class AgendaTableViewManagerSpec: QuickSpec {
                 it("renders each session as a cell") {
                     var cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("a title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("09:00 AM - 09:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("9:00 AM - 10:00 AM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Virginia Wimberly Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("another title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("10:00 AM - 10:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("12:00 PM - 1:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Virginia Wimberly Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("just a title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("10:00 AM - 10:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("12:00 PM - 1:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Nancy and Edward Roberts Studio Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("yet another title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("11:00 AM - 11:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("1:00 PM - 2:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Virginia Wimberly Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("and another title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("11:00 AM - 11:45 AM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("1:00 PM - 2:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Nancy and Edward Roberts Studio Theater"))
                     
                     cell = subject.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 2)) as? RibbonTableViewCell
                     expect(cell?.mainTextLabel.text).to(equal("and one more title"))
-                    expect(cell?.secondaryTextLabel.text).to(equal("12:00 PM - 1:30 PM"))
+                    expect(cell?.secondaryTextLabel.text).to(equal("1:00 PM - 2:00 PM"))
                     expect(cell?.tertiaryTextLabel.text).to(equal("Carol Dean Theatre"))
                 }
                 

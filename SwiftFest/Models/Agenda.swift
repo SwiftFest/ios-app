@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct Agenda {
     
@@ -8,13 +9,16 @@ struct Agenda {
         enum CodingKeys: CodingKey {
             case date
             case timeslots
+            case tracks
         }
         
         let date: DateComponents
         let timeslots: [Timeslot]
+        let tracks: [Track]
         
-        init(date: DateComponents, timeslots: [Timeslot]) {
+        init(date: DateComponents, tracks: [Track], timeslots: [Timeslot]) {
             self.date = date
+            self.tracks = tracks
             self.timeslots = timeslots
         }
         
@@ -30,16 +34,24 @@ struct Agenda {
             
             let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour, .minute, .day, .month, .year)
             let dateComponents = Calendar.current.dateComponents(desiredComponents, from: date)
+
+            let tracks = try container.decode([Track].self, forKey: .tracks)
             self.init(date: dateComponents,
+                      tracks: tracks,
                       // swiftlint:disable:next force_try
                       timeslots: try! container.decode([Timeslot].self, forKey: .timeslots))
         }
+    }
+
+    struct Track: Decodable {
+        let title: String
+        let color: String
     }
     
     struct Timeslot: Decodable {
         let startTime: DateComponents
         let endTime: DateComponents
-        let sessionIds: [String]
+        let sessionIds: [Identifier<Session>]
         
         // swiftlint:disable:next nesting
         enum CodingKeys: CodingKey {
@@ -48,7 +60,7 @@ struct Agenda {
             case sessionIds
         }
         
-        init(startTime: DateComponents, endTime: DateComponents, sessionIds: [String]) {
+        init(startTime: DateComponents, endTime: DateComponents, sessionIds: [Identifier<Session>]) {
             self.startTime = startTime
             self.endTime = endTime
             self.sessionIds = sessionIds
@@ -74,11 +86,19 @@ struct Agenda {
             let endTime = Calendar.current.dateComponents(desiredComponents, from: endTimeDate)
             
             // swiftlint:disable:next force_try
-            let sessionIds = try! container.decode([String].self, forKey: .sessionIds)
+            let sessionIds = try! container.decode([Identifier<Session>].self, forKey: .sessionIds)
             
             self.init(startTime: startTime, endTime: endTime, sessionIds: sessionIds)
         }
     }
     
     let days: [Day]
+}
+
+extension Agenda.Track {
+
+    var uiColor: UIColor {
+        return UIColor(hexString: color)
+    }
+
 }

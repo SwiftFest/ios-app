@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		3DAFBC549BE61AF4515FD037 /* Pods_SwiftFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EC3B5382CAE039CBC11039 /* Pods_SwiftFest.framework */; };
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
+		7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */; };
+		7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */; };
 		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
+		7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868C20C45A6400223A4C /* MultiImageView.swift */; };
+		7ADF868F20C45C1100223A4C /* UIStackView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */; };
+		7ADF869120C4635F00223A4C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF869020C4635F00223A4C /* CircleView.swift */; };
+		7ADF869320C4699F00223A4C /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF869220C4699F00223A4C /* Identifier.swift */; };
 		7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789820C3336E00ECACBA /* TeamViewController.swift */; };
 		7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789A20C333DF00ECACBA /* TeamMember.swift */; };
 		7AE5789D20C333EA00ECACBA /* TeamData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE5789C20C333E900ECACBA /* TeamData.json */; };
@@ -19,7 +25,6 @@
 		9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* AppDataController.swift */; };
 		9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */; };
 		9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */; };
-		9358A83C209257F300442047 /* SpeakerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A83B209257F300442047 /* SpeakerSession.swift */; };
 		937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937FE61720AB3111005AC2E5 /* UIUtilities.swift */; };
 		939E620320B47EFB0086A73E /* SwiftLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E620220B47EFB0086A73E /* SwiftLogoView.swift */; };
 		939E620420B47EFB0086A73E /* SwiftLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E620220B47EFB0086A73E /* SwiftLogoView.swift */; };
@@ -74,7 +79,13 @@
 /* Begin PBXFileReference section */
 		052B74156E1C703FE28462F5 /* Pods-SwiftFestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
+		7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtilitiesSpec.swift; sourceTree = "<group>"; };
 		7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
+		7ADF868C20C45A6400223A4C /* MultiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageView.swift; sourceTree = "<group>"; };
+		7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
+		7ADF869020C4635F00223A4C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		7ADF869220C4699F00223A4C /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		7AE5789820C3336E00ECACBA /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7AE5789A20C333DF00ECACBA /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		7AE5789C20C333E900ECACBA /* TeamData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamData.json; sourceTree = "<group>"; };
@@ -85,7 +96,6 @@
 		9321F726209123EB00FA4B8C /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
 		9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerDetailView.xib; sourceTree = "<group>"; };
-		9358A83B209257F300442047 /* SpeakerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerSession.swift; sourceTree = "<group>"; };
 		937FE61720AB3111005AC2E5 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		939E620220B47EFB0086A73E /* SwiftLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLogoView.swift; sourceTree = "<group>"; };
 		939E620520B47F080086A73E /* SwiftLogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwiftLogoView.xib; sourceTree = "<group>"; };
@@ -186,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */,
+				7ADF868E20C45C1100223A4C /* UIStackView+Utilities.swift */,
+				7ADF869020C4635F00223A4C /* CircleView.swift */,
+				7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -247,6 +260,7 @@
 				939E620220B47EFB0086A73E /* SwiftLogoView.swift */,
 				939E620520B47F080086A73E /* SwiftLogoView.xib */,
 				CDA35886207D08BC00F8B68C /* Resources */,
+				7ADF868C20C45A6400223A4C /* MultiImageView.swift */,
 			);
 			path = SwiftFest;
 			sourceTree = "<group>";
@@ -255,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				9D9B0E1E207950B500FA7340 /* AgendaTableViewManagerSpec.swift */,
+				7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */,
 				9D9B0E20207950B500FA7340 /* Info.plist */,
 				9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */,
 			);
@@ -280,7 +295,7 @@
 				9DD2786B209D4CE600804A03 /* SessionResults.swift */,
 				93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */,
 				7AE5789A20C333DF00ECACBA /* TeamMember.swift */,
-				9358A83B209257F300442047 /* SpeakerSession.swift */,
+				7ADF869220C4699F00223A4C /* Identifier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -617,15 +632,18 @@
 				9DD2786A209D4C9A00804A03 /* Session.swift in Sources */,
 				9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */,
 				7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */,
+				7ADF868F20C45C1100223A4C /* UIStackView+Utilities.swift in Sources */,
 				9DD2786C209D4CE600804A03 /* SessionResults.swift in Sources */,
 				93AED1F420B36B1A001D5666 /* AboutSwiftFestViewController.swift in Sources */,
 				93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */,
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
 				7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */,
 				9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */,
+				7ADF869120C4635F00223A4C /* CircleView.swift in Sources */,
 				CDA3588D207D0B2400F8B68C /* Localized.swift in Sources */,
-				9358A83C209257F300442047 /* SpeakerSession.swift in Sources */,
+				7ADF869320C4699F00223A4C /* Identifier.swift in Sources */,
 				9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */,
+				7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */,
 				93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */,
@@ -634,6 +652,7 @@
 				937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */,
 				9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
+				7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */,
 				939E620320B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 				93BD217620A205BD00E66173 /* BaseViewController.swift in Sources */,
 				93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */,
@@ -645,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */,
+				7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
 				939E620420B47EFB0086A73E /* SwiftLogoView.swift in Sources */,
 			);

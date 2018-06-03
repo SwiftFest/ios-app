@@ -1,3 +1,4 @@
+import BonMot
 import UIKit
 
 class SpeakerListViewController: UIViewController, UIViewControllerTransitioningDelegate {
@@ -5,23 +6,23 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
     @IBOutlet weak var speakerListTableView: UITableView!
     private var selectedSpeaker: Speaker?
 
-    var speakers: [Speaker] = [] {
+    private var speakers: [Speaker] = [] {
         didSet {
+            sessionTitlesBySpeaker = AppDataController.shared.sessions.reduce(into: [:], { (dictionary, session) in
+                for speakerId in session.speakers {
+                    dictionary[speakerId] = session.title
+                }
+            })
             speakerListTableView.reloadData()
         }
     }
-    
-    var sessionTitles = [String]() {
-        didSet {
-            speakerListTableView.reloadData()
-        }
-    }
+
+    private var sessionTitlesBySpeaker: [Identifier<Speaker>: String] = [:]
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        speakers = AppDataController().fetchSpeakers()
-        sessionTitles = speakers.map { AppDataController().session(for: $0)?.title ?? "Master of Ceremony" }
-        
+        speakers = AppDataController.shared.speakers
+
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
         
@@ -44,29 +45,30 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakerListTableViewCell", for: indexPath) as! RibbonTableViewCell
-        
-        cell.mainTextLabel.text = speakers[indexPath.row].name
+
+        let speaker = speakers[indexPath.row]
+        cell.mainTextLabel.text = speaker.name
         cell.mainTextLabel.textColor = Color.black.color
         cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 18))
-        
-        cell.secondaryTextLabel.text = sessionTitles[indexPath.row]
-        
-        cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
-        cell.secondaryTextLabel.textColor = Color.mediumGray.color
+
+        let titleStyle = StringStyle(
+            .font(UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))),
+            .color(Color.mediumGray.color),
+            .lineBreakMode(.byWordWrapping),
+            .xmlRules([]) //Will force xml parsing and escaping
+        )
+
         cell.secondaryTextLabel.numberOfLines = 0
-        cell.secondaryTextLabel.lineBreakMode = .byWordWrapping
+        cell.secondaryTextLabel.attributedText = sessionTitlesBySpeaker[speaker.id]?.styled(with: titleStyle)
 
         cell.tertiaryTextLabel.text = ""
         
         let imageName = speakers[indexPath.row].thumbnailUrl
-        let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        speakerImageView.image = UIImage(named: imageName)
-        speakerImageView.contentMode = .scaleAspectFill
-        speakerImageView.clipsToBounds = true
-        speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
-        cell.accessoryView = speakerImageView
+        cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
 
         cell.selectionStyle = .none
+
+        cell.ribbon.backgroundColor = Color.lightOrange.color
         
         return cell
     }

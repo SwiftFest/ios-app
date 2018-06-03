@@ -7,9 +7,9 @@ class AgendaViewController: BaseViewController {
     @IBOutlet weak var agendaTableView: UITableView!
     @IBOutlet weak var segmentedViewControl: UISegmentedControl!
     
-    let agendaTableViewManager = TableViewManager(agenda: AppDataController().fetchAgenda(),
-                                                  sessions: AppDataController().fetchSessions(),
-                                                  speakerThumbnailUrls: AppDataController().fetchSpeakerThumbnailUrls(),
+    let agendaTableViewManager = TableViewManager(agenda: AppDataController.shared.agenda,
+                                                  sessions: AppDataController.shared.sessions,
+                                                  speakersById: AppDataController.shared.speakersById,
                                                   viewController: nil)
 
     override func viewDidLoad() {
@@ -26,8 +26,25 @@ class AgendaViewController: BaseViewController {
 
         segmentedViewControl.backgroundColor = Color.black.color
         segmentedViewControl.tintColor = UIColor.clear
-        segmentedViewControl.contentMode = .scaleAspectFit
-        
+
+        let baseStyle = StringStyle(
+            .font(.boldSystemFont(ofSize: 17))
+        )
+        let normalAttributes = baseStyle.byAdding(
+            .color(Color.white.color.withAlphaComponent(0.6))
+            ).attributes
+        let selectedAttributes = baseStyle.byAdding(
+            .color(Color.white.color)
+            ).attributes
+        segmentedViewControl.setTitleTextAttributes(normalAttributes, for: .normal)
+        segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: .selected)
+        segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: .highlighted)
+        segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: [.selected, .highlighted])
+
+        segmentedViewControl.setBackgroundImage(Asset.tabUnselected.image, for: .normal, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(Asset.tabSelected.image, for: .selected, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(Asset.tabUnselected.image, for: .highlighted, barMetrics: .default)
+        segmentedViewControl.setBackgroundImage(Asset.tabSelected.image, for: [.highlighted, .selected], barMetrics: .default)
 
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
@@ -40,19 +57,6 @@ class AgendaViewController: BaseViewController {
         agendaTableViewManager.dayIndex = segmentedViewControl.selectedSegmentIndex
         agendaTableView.reloadData()
         agendaTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
-        
-        let day1Selected = UIImage(named: Asset.day1Selected.name)
-        let day2Selected = UIImage(named: Asset.day2Selected.name)
-        let day1Unselected = UIImage(named: Asset.day1Unselected.name)
-        let day2Unselected = UIImage(named: Asset.day2Unselected.name)
-
-        if sender.selectedSegmentIndex == 0 {
-            sender.setImage(day1Selected, forSegmentAt: 0)
-            sender.setImage(day2Unselected, forSegmentAt: 1)
-        } else {
-            sender.setImage(day1Unselected, forSegmentAt: 0)
-            sender.setImage(day2Selected, forSegmentAt: 1)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,15 +82,15 @@ extension AgendaViewController {
         let agenda: Agenda
         let sessions: [Session]
         weak var viewController: AgendaViewController?
-        let speakerThumbnailUrls: [String: String]
-        
+        let speakersById: [Identifier<Speaker>: Speaker]
+
         init(agenda: Agenda,
              sessions: [Session],
-             speakerThumbnailUrls: [String: String],
+             speakersById: [Identifier<Speaker>: Speaker],
              viewController: AgendaViewController?) {
             self.agenda = agenda
             self.sessions = sessions
-            self.speakerThumbnailUrls = speakerThumbnailUrls
+            self.speakersById = speakersById
             self.viewController = viewController
         }
         
@@ -154,19 +158,14 @@ extension AgendaViewController {
             cell.tertiaryTextLabel.lineBreakMode = .byWordWrapping
             cell.tertiaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
             cell.tertiaryTextLabel.textColor = Color.mediumGray.color
-            
-            if let imageName = speakerThumbnailUrls[session.id] {
-                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-                speakerImageView.image = UIImage(named: imageName)
-                speakerImageView.contentMode = .scaleAspectFill
-                speakerImageView.clipsToBounds = true
-                speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
-                cell.accessoryView = speakerImageView
-            } else {
-                cell.accessoryView = nil // nil out the accessory view as cell reuse will cause this to render images where it shouldn't
-            }
-            
+
+            let speakerIds = session.speakers
+            let imagesNames = speakerIds.compactMap { speakersById[$0]?.thumbnailUrl }
+            cell.multiImageView.images = imagesNames.compactMap(UIImage.init(named:))
+
             cell.selectionStyle = .none
+
+            cell.ribbon.backgroundColor = agenda.days[dayIndex].tracks[indexPath.row].uiColor
             return cell
         }
         
