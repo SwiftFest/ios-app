@@ -36,7 +36,7 @@ class Screenshots: XCTestCase {
         snapshot("3 - speaker")
 
         XCUIApplication().tabBars.buttons["Agenda"].tap()
-        XCUIApplication().tables.cells.containing(.staticText, identifier:"The Simple Layout of a Complex Interface").staticTexts["1:00 PM - 2:00 PM"].tap()
+        XCUIApplication().tables.cells.containing(.staticText, identifier: "The Simple Layout of a Complex Interface").staticTexts["1:00 PM - 2:00 PM"].tap()
         snapshot("4 - session")
     }
     
