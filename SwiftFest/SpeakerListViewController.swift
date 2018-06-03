@@ -19,8 +19,8 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        speakers = AppDataController().fetchSpeakers()
-        sessionTitles = speakers.map { AppDataController().session(for: $0)?.title ?? "Master of Ceremony" }
+        speakers = AppDataController.shared.speakers
+        sessionTitles = speakers.map { AppDataController.shared.session(for: $0.id)?.title ?? "Master of Ceremony" }
         
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self

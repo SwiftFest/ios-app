@@ -7,9 +7,9 @@ class AgendaViewController: BaseViewController {
     @IBOutlet weak var agendaTableView: UITableView!
     @IBOutlet weak var segmentedViewControl: UISegmentedControl!
     
-    let agendaTableViewManager = TableViewManager(agenda: AppDataController().fetchAgenda(),
-                                                  sessions: AppDataController().fetchSessions(),
-                                                  speakersById: AppDataController().fetchSpeakersById(),
+    let agendaTableViewManager = TableViewManager(agenda: AppDataController.shared.agenda,
+                                                  sessions: AppDataController.shared.sessions,
+                                                  speakersById: AppDataController.shared.speakersById,
                                                   viewController: nil)
 
     override func viewDidLoad() {

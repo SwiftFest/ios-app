@@ -1,10 +1,14 @@
 import Foundation
 
 class AppDataController {
-    
-    func fetchAgenda() -> Agenda {
+
+    static var shared = AppDataController()
+
+    private init() {}
+
+    lazy var agenda: Agenda = {
         let agendaData = loadJSONDataFromFile(named: "AgendaData")
-        
+
         do {
             let days = try JSONDecoder().decode([Agenda.Day].self, from: agendaData)
             return Agenda(days: days)
@@ -12,40 +16,24 @@ class AppDataController {
             print(error)
             return Agenda(days: [])
         }
-    }
+    }()
     
-    func fetchSpeakers() -> [Speaker] {
-        return fetchData(fromFileNamed: "SpeakerData")
-    }
+    lazy var speakers: [Speaker] = fetchData(fromFileNamed: "SpeakerData")
+    lazy var teamMembers: [TeamMember] = fetchData(fromFileNamed: "TeamData")
+    lazy var sessions: [Session] = fetchData(fromFileNamed: "SessionData")
 
-    func fetchTeamMembers() -> [TeamMember] {
-        return fetchData(fromFileNamed: "TeamData")
-    }
-        
-    func fetchSessions() -> [Session] {
-        return fetchData(fromFileNamed: "SessionData")
-    }
-    
-    func fetchSpeakersById() -> [Identifier<Speaker>: Speaker] {
+    lazy var speakersById: [Identifier<Speaker>: Speaker] = {
         var speakersById = [Identifier<Speaker>: Speaker]()
-        for speaker in fetchSpeakers() {
+        for speaker in speakers {
             speakersById[speaker.id] = speaker
         }
 
         return speakersById
-    }
-    
-    func session(for id: Identifier<Session>) -> Session {
-        let sessions = fetchSessions()
-        return sessions.first {
-            $0.id == id
-        }!
-    }
-    
-    func session(for speaker: Speaker) -> Session? {
-        let sessions = fetchSessions()
+    }()
+
+    func session(for speakerId: Identifier<Speaker>) -> Session? {
         let filteredSessions = sessions.filter { session in
-            session.speakers.contains(speaker.id)
+            session.speakers.contains(speakerId)
         }
         
         return filteredSessions.first

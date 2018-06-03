@@ -22,7 +22,7 @@ class TeamViewController: BaseViewController, UIViewControllerTransitioningDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        teamMembers = AppDataController().fetchTeamMembers()
+        teamMembers = AppDataController.shared.teamMembers
 
         tableView.delegate = self
         tableView.dataSource = self

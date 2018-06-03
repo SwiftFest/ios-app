@@ -4,38 +4,38 @@ import Quick
 
 class AppDataControllerSpec: QuickSpec {
     override func spec() {
-        let subject = AppDataController()
+        let subject = AppDataController.shared
         describe("AppDataController") {
             
             it("can get a session given a session id") {
                 let sessionOne = subject.session(for: "001")
                 let sessionTwo = subject.session(for: "004")
                 
-                expect(sessionOne.title).to(equal("Keynote: Accidentally Famous"))
-                expect(sessionTwo.title).to(equal("Patterns & Methodologies for Test Suite Design"))
+                expect(sessionOne?.title).to(equal("Keynote: Accidentally Famous"))
+                expect(sessionTwo?.title).to(equal("Patterns & Methodologies for Test Suite Design"))
             }
             
             it("can get a list of thumbnail urls indexed by session id") {
-                let speakerThumbnailUrls = subject.fetchSpeakerThumbnailUrls()
-                let sessionId: Identifier<Session> = "001"
+                let speakersById = subject.speakersById
+                let speakerId: Identifier<Speaker> = "001"
                 
-                expect(speakerThumbnailUrls).to(haveCount(29))
-                expect(speakerThumbnailUrls.keys).to(contain(sessionId))
+                expect(speakersById).to(haveCount(29))
+                expect(speakersById.keys).to(contain(speakerId))
             }
             
             describe("JSON deserialization of the models") {
                 it("deserializes the sessions") {
-                    let sessions = subject.fetchSessions()
+                    let sessions = subject.sessions
                     expect(sessions).to(haveCount(37))
                 }
                 
                 it("deserializes the speakers") {
-                    let speakers = subject.fetchSpeakers()
+                    let speakers = subject.speakers
                     expect(speakers).to(haveCount(34))
                 }
                 
                 it("deserializes the agenda") {
-                    let agenda = subject.fetchAgenda()
+                    let agenda = subject.agenda
                     expect(agenda.days).to(haveCount(2))
                     expect(agenda.days.first?.date).to(equal(DateComponents(calendar: .current,
                                                                             year: 2018,

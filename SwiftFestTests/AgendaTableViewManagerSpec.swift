@@ -72,7 +72,7 @@ class AgendaTableViewManagerSpec: QuickSpec {
             tableView = UITableView()
             tableView.register(nib, forCellReuseIdentifier: "SessionCell")
             
-            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakerThumbnailUrls: [:], viewController: nil)
+            subject = AgendaViewController.TableViewManager(agenda: agenda, sessions: sessions, speakersById: [:], viewController: nil)
         }
         
         describe("the agenda table view's manager") {
