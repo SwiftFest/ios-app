@@ -6,7 +6,7 @@ devices([
   "iPhone X",
   "iPad Pro (9.7-inch)",
   "iPad Pro (12.9-inch)",
-  # "iPad Pro (10.5-inch)", # not supported in iTunes Connect
+  "iPad Pro (10.5-inch)",
 ])
 
 languages([
