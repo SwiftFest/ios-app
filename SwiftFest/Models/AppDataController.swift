@@ -26,15 +26,13 @@ class AppDataController {
         return fetchData(fromFileNamed: "SessionData")
     }
     
-    func fetchSpeakerThumbnailUrls() -> [Identifier<Session>: String] {
-        var speakerThumbnailUrls = [Identifier<Session>: String]()
+    func fetchSpeakersById() -> [Identifier<Speaker>: Speaker] {
+        var speakersById = [Identifier<Speaker>: Speaker]()
         for speaker in fetchSpeakers() {
-            if let speakerSession = speakerSessionForSpeaker(speaker) {
-                speakerThumbnailUrls[speakerSession.session.id] = speaker.thumbnailUrl
-            }
+            speakersById[speaker.id] = speaker
         }
 
-        return speakerThumbnailUrls
+        return speakersById
     }
     
     func session(for id: Identifier<Session>) -> Session {
@@ -51,14 +49,6 @@ class AppDataController {
         }
         
         return filteredSessions.first
-    }
-    
-    func speakerSessionForSpeaker(_ speaker: Speaker) -> SpeakerSession? {
-        guard let session = session(for: speaker) else {
-            return nil
-        }
-        
-        return SpeakerSession(speaker: speaker, session: session)
     }
 
 }

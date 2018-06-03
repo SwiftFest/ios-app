@@ -9,7 +9,7 @@ class AgendaViewController: BaseViewController {
     
     let agendaTableViewManager = TableViewManager(agenda: AppDataController().fetchAgenda(),
                                                   sessions: AppDataController().fetchSessions(),
-                                                  speakerThumbnailUrls: AppDataController().fetchSpeakerThumbnailUrls(),
+                                                  speakersById: AppDataController().fetchSpeakersById(),
                                                   viewController: nil)
 
     override func viewDidLoad() {
@@ -82,15 +82,15 @@ extension AgendaViewController {
         let agenda: Agenda
         let sessions: [Session]
         weak var viewController: AgendaViewController?
-        let speakerThumbnailUrls: [Identifier<Session>: String]
-        
+        let speakersById: [Identifier<Speaker>: Speaker]
+
         init(agenda: Agenda,
              sessions: [Session],
-             speakerThumbnailUrls: [Identifier<Session>: String],
+             speakersById: [Identifier<Speaker>: Speaker],
              viewController: AgendaViewController?) {
             self.agenda = agenda
             self.sessions = sessions
-            self.speakerThumbnailUrls = speakerThumbnailUrls
+            self.speakersById = speakersById
             self.viewController = viewController
         }
         
@@ -158,14 +158,11 @@ extension AgendaViewController {
             cell.tertiaryTextLabel.lineBreakMode = .byWordWrapping
             cell.tertiaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
             cell.tertiaryTextLabel.textColor = Color.mediumGray.color
-            
-            if let imageName = speakerThumbnailUrls[session.id] {
-                let images = [UIImage(named: imageName)].compactMap { $0 }
-                cell.multiImageView.images = images
-            } else {
-                cell.multiImageView.images = []
-            }
-            
+
+            let speakerIds = session.speakers
+            let imagesNames = speakerIds.compactMap { speakersById[$0]?.thumbnailUrl }
+            cell.multiImageView.images = imagesNames.compactMap(UIImage.init(named:))
+
             cell.selectionStyle = .none
             return cell
         }
