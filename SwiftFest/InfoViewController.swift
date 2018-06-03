@@ -3,9 +3,7 @@ import UIKit
 
 class InfoViewController: BaseViewController {
 
-    let infoItems = ["Code of Conduct", "About SwiftFest"]
-    
-    private let codeOfConductURL = URL(string: "http://swiftfest.io/code-of-conduct/")!
+    let infoItems = ["Code of Conduct", "About SwiftFest", "Twitter", "Website"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -13,6 +11,7 @@ class InfoViewController: BaseViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
 }
 
@@ -28,16 +27,36 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         switch infoItems[indexPath.row] {
         case "Code of Conduct":
-            let safariBrowser = SFSafariViewController(url: codeOfConductURL)
-            safariBrowser.preferredBarTintColor = .black
-            safariBrowser.preferredControlTintColor = Color.white.color
-            present(safariBrowser, animated: true, completion: nil)
+            present(browser(for: .codeOfConduct), animated: true, completion: nil)
         case "About SwiftFest":
             performSegue(withIdentifier: "AboutSwiftFestSegue", sender: self)
+        case "Twitter":
+            present(browser(for: .twitter), animated: true, completion: nil)
+        case "Website":
+            present(browser(for: .website), animated: true, completion: nil)
         default:
-            print("do nothing!")
+            fatalError("this was not the case you were looking for")
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+private extension InfoViewController {
+    
+    enum URLs: String {
+        case codeOfConduct = "http://swiftfest.io/code-of-conduct/"
+        case twitter = "https://twitter.com/theswiftfest"
+        case website = "http://swiftfest.io"
+    }
+    
+    func browser(for url: URLs) -> SFSafariViewController {
+        let safariBrowser = SFSafariViewController(url: URL(string: url.rawValue)!)
+        safariBrowser.preferredBarTintColor = .black
+        safariBrowser.preferredControlTintColor = Color.white.color
+        return safariBrowser
     }
 }
