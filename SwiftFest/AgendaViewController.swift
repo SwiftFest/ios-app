@@ -160,14 +160,10 @@ extension AgendaViewController {
             cell.tertiaryTextLabel.textColor = Color.mediumGray.color
             
             if let imageName = speakerThumbnailUrls[session.id] {
-                let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-                speakerImageView.image = UIImage(named: imageName)
-                speakerImageView.contentMode = .scaleAspectFill
-                speakerImageView.clipsToBounds = true
-                speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
-                cell.accessoryView = speakerImageView
+                let images = [UIImage(named: imageName)].compactMap { $0 }
+                cell.multiImageView.images = images
             } else {
-                cell.accessoryView = nil // nil out the accessory view as cell reuse will cause this to render images where it shouldn't
+                cell.multiImageView.images = []
             }
             
             cell.selectionStyle = .none

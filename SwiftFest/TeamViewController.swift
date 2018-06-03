@@ -67,12 +67,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tertiaryTextLabel.text = ""
         
         let imageName = teamMember.thumbnailUrl
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        imageView.image = UIImage(named: imageName)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = imageView.frame.height / 2
-        cell.accessoryView = imageView
+        cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
 
         cell.selectionStyle = .none
         

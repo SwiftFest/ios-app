@@ -1,7 +1,8 @@
 import UIKit
 
 class RibbonTableViewCell: UITableViewCell {
-    @IBOutlet var mainTextLabel: UILabel!
-    @IBOutlet var secondaryTextLabel: UILabel!
-    @IBOutlet var tertiaryTextLabel: UILabel!
+    @IBOutlet weak var mainTextLabel: UILabel!
+    @IBOutlet weak var secondaryTextLabel: UILabel!
+    @IBOutlet weak var tertiaryTextLabel: UILabel!
+    @IBOutlet weak var multiImageView: MultiImageView!
 }

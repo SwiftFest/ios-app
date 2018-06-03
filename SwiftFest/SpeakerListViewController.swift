@@ -59,12 +59,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tertiaryTextLabel.text = ""
         
         let imageName = speakers[indexPath.row].thumbnailUrl
-        let speakerImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        speakerImageView.image = UIImage(named: imageName)
-        speakerImageView.contentMode = .scaleAspectFill
-        speakerImageView.clipsToBounds = true
-        speakerImageView.layer.cornerRadius = speakerImageView.frame.height / 2
-        cell.accessoryView = speakerImageView
+        cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
 
         cell.selectionStyle = .none
         
