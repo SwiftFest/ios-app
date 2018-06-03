@@ -1,5 +1,7 @@
 import UIGradient
 import UIKit
+import Down
+import BonMot
 
 protocol SpeakerDetailViewModel {
     var bio: String? { get }
@@ -41,10 +43,29 @@ class SpeakerDetailView: UIView {
         self.autoresizesSubviews = false
         self.clipsToBounds = true
         if let speaker = viewModel {
-            speakerBioLabel.text = speaker.bio
             speakerImageView.image = UIImage(named: speaker.thumbnailUrl)
             speakerNameLabel.text = speaker.name
+            
+            let textStyle = StringStyle(
+                .font(.preferredFont(forTextStyle: .body)),
+                .color(Asset.Colors.black.color)
+            )
+            
+            let style = StringStyle(
+                .xmlRules([
+                    .style("a", textStyle),
+                    .style("body", textStyle),
+                ])
+            )
+            let down = Down(markdownString: speaker.bio ?? "No information provided.")
+            let parsedMarkdown = try? down.toHTML(.smart)
+            let bio = parsedMarkdown?.styled(with: style)
+            
+            speakerBioLabel.attributedText = bio
+
             speakerTitleLabel.text = speaker.role
+            speakerTitleLabel.numberOfLines = 0
+            speakerTitleLabel.sizeToFit()
             generateSocialButtons(for: speaker)
         }
         
