@@ -55,10 +55,6 @@ internal enum Asset {
     internal static let mediumGray = ColorAsset(name: "MediumGray")
     internal static let white = ColorAsset(name: "White")
   }
-  internal static let day1Selected = ImageAsset(name: "Day 1 (Selected)")
-  internal static let day1Unselected = ImageAsset(name: "Day 1 (Unselected)")
-  internal static let day2Selected = ImageAsset(name: "Day 2 (Selected)")
-  internal static let day2Unselected = ImageAsset(name: "Day 2 (Unselected)")
   internal enum Icons {
     internal static let agenda = ImageAsset(name: "agenda")
     internal static let backIcon = ImageAsset(name: "backIcon")
@@ -134,6 +130,8 @@ internal enum Asset {
     internal static let tripAdvisor = ImageAsset(name: "Sponsors/TripAdvisor")
     internal static let wayfair = ImageAsset(name: "Sponsors/Wayfair")
   }
+  internal static let tabSelected = ImageAsset(name: "Tab Selected")
+  internal static let tabUnselected = ImageAsset(name: "Tab Unselected")
   internal static let logo = ImageAsset(name: "logo")
 
   // swiftlint:disable trailing_comma
@@ -149,10 +147,6 @@ internal enum Asset {
     Colors.white,
   ]
   internal static let allImages: [ImageAsset] = [
-    day1Selected,
-    day1Unselected,
-    day2Selected,
-    day2Unselected,
     Icons.agenda,
     Icons.backIcon,
     Icons.infoIcon,
@@ -220,6 +214,8 @@ internal enum Asset {
     Sponsors.square,
     Sponsors.tripAdvisor,
     Sponsors.wayfair,
+    tabSelected,
+    tabUnselected,
     logo,
   ]
   // swiftlint:enable trailing_comma

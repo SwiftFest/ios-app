@@ -1,6 +1,6 @@
-import UIKit
-import Down
 import BonMot
+import Down
+import UIKit
 
 protocol SpeakerDetailViewModel {
     var bio: String? { get }
