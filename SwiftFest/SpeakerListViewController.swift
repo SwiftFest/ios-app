@@ -1,3 +1,4 @@
+import BonMot
 import UIKit
 
 class SpeakerListViewController: UIViewController, UIViewControllerTransitioningDelegate {
@@ -49,13 +50,16 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.mainTextLabel.text = speaker.name
         cell.mainTextLabel.textColor = Color.black.color
         cell.mainTextLabel.font = UIFont.boldSystemFont(ofSize: UIFontMetrics.default.scaledValue(for: 18))
-        
-        cell.secondaryTextLabel.text = sessionTitlesBySpeaker[speaker.id]
-        
-        cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
-        cell.secondaryTextLabel.textColor = Color.mediumGray.color
+
+        let titleStyle = StringStyle(
+            .font(UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))),
+            .color(Color.mediumGray.color),
+            .lineBreakMode(.byWordWrapping),
+            .xmlRules([]) //Will force xml parsing and escaping
+        )
+
         cell.secondaryTextLabel.numberOfLines = 0
-        cell.secondaryTextLabel.lineBreakMode = .byWordWrapping
+        cell.secondaryTextLabel.attributedText = sessionTitlesBySpeaker[speaker.id]?.styled(with: titleStyle)
 
         cell.tertiaryTextLabel.text = ""
         
