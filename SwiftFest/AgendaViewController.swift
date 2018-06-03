@@ -25,18 +25,9 @@ class AgendaViewController: BaseViewController {
         navigationItem.titleView = logoView
 
         segmentedViewControl.backgroundColor = Color.black.color
-        segmentedViewControl.tintColor = Color.white.color
-
-        let size = CGSize(width: 1, height: UIFontMetrics.default.scaledValue(for: 29))
-        let normalImage = UIImage.from(color: Color.black.color, size: size)
-        let selectedImage = UIImage.from(color: Color.white.color, size: size)
-        let highlightedImage = UIImage.from(color: Color.blackHighlighted.color, size: size)
-        let selectedHighlightedImage = selectedImage
-
-        segmentedViewControl.setBackgroundImage(normalImage, for: .normal, barMetrics: .default)
-        segmentedViewControl.setBackgroundImage(selectedImage, for: .selected, barMetrics: .default)
-        segmentedViewControl.setBackgroundImage(highlightedImage, for: .highlighted, barMetrics: .default)
-        segmentedViewControl.setBackgroundImage(selectedHighlightedImage, for: [.selected, .highlighted], barMetrics: .default)
+        segmentedViewControl.tintColor = UIColor.clear
+        segmentedViewControl.contentMode = .scaleAspectFill
+        
 
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
@@ -45,10 +36,23 @@ class AgendaViewController: BaseViewController {
         
     }
     
-    @IBAction func changeDay(_ sender: Any) {
+    @IBAction func changeDay(_ sender: UISegmentedControl) {
         agendaTableViewManager.dayIndex = segmentedViewControl.selectedSegmentIndex
         agendaTableView.reloadData()
         agendaTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        
+        let day1Selected = UIImage(named: Asset.day1Selected.name)
+        let day2Selected = UIImage(named: Asset.day2Selected.name)
+        let day1Unselected = UIImage(named: Asset.day1Unselected.name)
+        let day2Unselected = UIImage(named: Asset.day2Unselected.name)
+
+        if sender.selectedSegmentIndex == 0 {
+            sender.setImage(day1Selected, forSegmentAt: 0)
+            sender.setImage(day2Unselected, forSegmentAt: 1)
+        } else {
+            sender.setImage(day1Unselected, forSegmentAt: 0)
+            sender.setImage(day2Selected, forSegmentAt: 1)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
