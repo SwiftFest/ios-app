@@ -56,6 +56,7 @@ internal enum Asset {
     internal static let white = ColorAsset(name: "White")
   }
   internal enum Icons {
+    internal static let agendaSelected = ImageAsset(name: "agenda selected")
     internal static let agenda = ImageAsset(name: "agenda")
     internal static let backIcon = ImageAsset(name: "backIcon")
     internal static let infoIcon = ImageAsset(name: "infoIcon")
@@ -147,6 +148,7 @@ internal enum Asset {
     Colors.white,
   ]
   internal static let allImages: [ImageAsset] = [
+    Icons.agendaSelected,
     Icons.agenda,
     Icons.backIcon,
     Icons.infoIcon,
