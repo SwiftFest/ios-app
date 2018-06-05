@@ -79,6 +79,7 @@ internal enum Asset {
     internal static let alexandreaMellen = ImageAsset(name: "AlexandreaMellen")
     internal static let andresPineda = ImageAsset(name: "AndresPineda")
     internal static let andyyHope = ImageAsset(name: "AndyyHope")
+    internal static let ariRoshko = ImageAsset(name: "AriRoshko")
     internal static let arthurSabintsev = ImageAsset(name: "ArthurSabintsev")
     internal static let ayalSpitz = ImageAsset(name: "AyalSpitz")
     internal static let barbaraMenicucci = ImageAsset(name: "BarbaraMenicucci")
@@ -88,11 +89,13 @@ internal enum Asset {
     internal static let bryanRyczek = ImageAsset(name: "BryanRyczek")
     internal static let chrisBuonocore = ImageAsset(name: "ChrisBuonocore")
     internal static let craigClayton = ImageAsset(name: "CraigClayton")
+    internal static let dakotaKim = ImageAsset(name: "DakotaKim")
     internal static let davidOhayon = ImageAsset(name: "DavidOhayon")
     internal static let davidOkun = ImageAsset(name: "DavidOkun")
     internal static let ericaSadun = ImageAsset(name: "EricaSadun")
     internal static let garricNahapetian = ImageAsset(name: "GarricNahapetian")
     internal static let giorgioNatili = ImageAsset(name: "GiorgioNatili")
+    internal static let glenYi = ImageAsset(name: "GlenYi")
     internal static let harlanHaskins = ImageAsset(name: "HarlanHaskins")
     internal static let hungTruong = ImageAsset(name: "HungTruong")
     internal static let ishShabazz = ImageAsset(name: "IshShabazz")
@@ -108,6 +111,7 @@ internal enum Asset {
     internal static let marcyRegalado = ImageAsset(name: "MarcyRegalado")
     internal static let martinMitrevski = ImageAsset(name: "MartinMitrevski")
     internal static let mattDias = ImageAsset(name: "MattDias")
+    internal static let mehrnooshSameki = ImageAsset(name: "MehrnooshSameki")
     internal static let michaelHelmbrecht = ImageAsset(name: "MichaelHelmbrecht")
     internal static let mythriShenoy = ImageAsset(name: "MythriShenoy")
     internal static let neemSerra = ImageAsset(name: "NeemSerra")
@@ -167,6 +171,7 @@ internal enum Asset {
     Speakers.alexandreaMellen,
     Speakers.andresPineda,
     Speakers.andyyHope,
+    Speakers.ariRoshko,
     Speakers.arthurSabintsev,
     Speakers.ayalSpitz,
     Speakers.barbaraMenicucci,
@@ -176,11 +181,13 @@ internal enum Asset {
     Speakers.bryanRyczek,
     Speakers.chrisBuonocore,
     Speakers.craigClayton,
+    Speakers.dakotaKim,
     Speakers.davidOhayon,
     Speakers.davidOkun,
     Speakers.ericaSadun,
     Speakers.garricNahapetian,
     Speakers.giorgioNatili,
+    Speakers.glenYi,
     Speakers.harlanHaskins,
     Speakers.hungTruong,
     Speakers.ishShabazz,
@@ -196,6 +203,7 @@ internal enum Asset {
     Speakers.marcyRegalado,
     Speakers.martinMitrevski,
     Speakers.mattDias,
+    Speakers.mehrnooshSameki,
     Speakers.michaelHelmbrecht,
     Speakers.mythriShenoy,
     Speakers.neemSerra,
