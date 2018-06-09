@@ -50,7 +50,11 @@ class AgendaTableViewManagerSpec: QuickSpec {
             let agenda = Agenda(days: [
                 Agenda.Day(
                     date: dayOne,
-                    tracks: [],
+                    tracks: [
+                        Agenda.Track(title: "Track 1", color: "#FF0000"),
+                        Agenda.Track(title: "Track 2", color: "#00FF00"),
+                        Agenda.Track(title: "Workshops", color: "#0000FF"),
+                    ],
                     timeslots: [
                         Agenda.Timeslot(startTime: nineAM, endTime: tenAM, sessionIds: ["000"]),
                         Agenda.Timeslot(startTime: twelvePM, endTime: onePM, sessionIds: ["001", "002"]),

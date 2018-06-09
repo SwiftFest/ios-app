@@ -19,19 +19,19 @@ class AppDataControllerSpec: QuickSpec {
                 let speakersById = subject.speakersById
                 let speakerId: Identifier<Speaker> = "1"
                 
-                expect(speakersById).to(haveCount(30))
+                expect(speakersById.count).to(beGreaterThanOrEqualTo(15))
                 expect(speakersById.keys).to(contain(speakerId))
             }
             
             describe("JSON deserialization of the models") {
                 it("deserializes the sessions") {
                     let sessions = subject.sessions
-                    expect(sessions).to(haveCount(37))
+                    expect(sessions.count).to(beGreaterThanOrEqualTo(15))
                 }
                 
                 it("deserializes the speakers") {
                     let speakers = subject.speakers
-                    expect(speakers).to(haveCount(30))
+                    expect(speakers.count).to(beGreaterThanOrEqualTo(15))
                 }
                 
                 it("deserializes the agenda") {
