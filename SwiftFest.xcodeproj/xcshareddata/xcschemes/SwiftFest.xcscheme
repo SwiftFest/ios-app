@@ -38,26 +38,6 @@
                ReferencedContainer = "container:SwiftFest.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D9B0E24207950B600FA7340"
-               BuildableName = "SwiftFestUITests.xctest"
-               BlueprintName = "SwiftFestUITests"
-               ReferencedContainer = "container:SwiftFest.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7AFB322A20C48DD70001139B"
-               BuildableName = "Screenshots.xctest"
-               BlueprintName = "Screenshots"
-               ReferencedContainer = "container:SwiftFest.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

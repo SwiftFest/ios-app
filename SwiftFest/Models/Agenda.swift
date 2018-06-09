@@ -3,6 +3,18 @@ import UIKit
 
 struct Agenda: Decodable {
     
+    let days: [Day]
+    
+    init(days: [Day]) {
+        self.days = days
+    }
+    
+    init(from decoder: Decoder) throws {
+        var container = try! decoder.unkeyedContainer()
+        let days = try? container.decode([Day].self)
+        self.init(days: days ?? [])
+    }
+    
     struct Day: Decodable {
         
         // swiftlint:disable:next nesting
@@ -90,17 +102,6 @@ struct Agenda: Decodable {
             
             self.init(startTime: startTime, endTime: endTime, sessionIds: sessionIds)
         }
-    }
-    
-    let days: [Day]
-    
-    init(days: [Day]) {
-        self.days = days
-    }
-    
-    init(from decoder: Decoder) throws {
-        var container = try! decoder.unkeyedContainer()
-        self.init(days: try! container.decode([Day].self))
     }
 }
 
