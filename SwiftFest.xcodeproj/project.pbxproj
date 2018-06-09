@@ -11,6 +11,7 @@
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
 		7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */; };
 		7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */; };
+		7AA423B620CC95CE003B17F3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA423B520CC95CE003B17F3 /* APIClient.swift */; };
 		7AAB8CE420C4924700C44ADC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAB8CE320C4924700C44ADC /* GradientView.swift */; };
 		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
 		7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868C20C45A6400223A4C /* MultiImageView.swift */; };
@@ -89,6 +90,7 @@
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
 		7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtilitiesSpec.swift; sourceTree = "<group>"; };
+		7AA423B520CC95CE003B17F3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7AAB8CE320C4924700C44ADC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		7ADF868C20C45A6400223A4C /* MultiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageView.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 				7ADF868C20C45A6400223A4C /* MultiImageView.swift */,
+				7AA423B520CC95CE003B17F3 /* APIClient.swift */,
 			);
 			path = SwiftFest;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */,
 				93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */,
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
+				7AA423B620CC95CE003B17F3 /* APIClient.swift in Sources */,
 				937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */,
 				9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
