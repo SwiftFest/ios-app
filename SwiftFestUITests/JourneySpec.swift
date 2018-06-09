@@ -46,9 +46,9 @@ class JourneySpec: QuickSpec {
 
                 speakersListButton.tap()
                 
-                app.buttons["Session Info"].firstMatch.tap()
+                app.staticTexts["Susan Bennett"].firstMatch.tap()
                 
-                expect(app.staticTexts["Keynote: Accidentally Famous"].exists).to(beTrue())
+                expect(app.staticTexts["Voice of Siri"].exists).to(beTrue())
             }
         }
     }
