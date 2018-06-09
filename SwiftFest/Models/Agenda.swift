@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct Agenda {
+struct Agenda: Decodable {
     
     struct Day: Decodable {
         
@@ -93,6 +93,15 @@ struct Agenda {
     }
     
     let days: [Day]
+    
+    init(days: [Day]) {
+        self.days = days
+    }
+    
+    init(from decoder: Decoder) throws {
+        var container = try! decoder.unkeyedContainer()
+        self.init(days: try! container.decode([Day].self))
+    }
 }
 
 extension Agenda.Track {
