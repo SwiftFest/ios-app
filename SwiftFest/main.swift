@@ -6,5 +6,3 @@ let args = UnsafeMutableRawPointer(CommandLine.unsafeArgv).bindMemory(to: Unsafe
                                                                       capacity: Int(CommandLine.argc))
 
 UIApplicationMain(CommandLine.argc, args, nil, NSStringFromClass(appDelegateClass))
-
-

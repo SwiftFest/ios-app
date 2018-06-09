@@ -6,18 +6,7 @@ class AppDataController {
 
     private init() {}
 
-    lazy var agenda: Agenda = {
-        let agendaData = loadJSONDataFromFile(named: "AgendaData")
-
-        do {
-            let days = try JSONDecoder().decode([Agenda.Day].self, from: agendaData)
-            return Agenda(days: days)
-        } catch {
-            print(error)
-            return Agenda(days: [])
-        }
-    }()
-    
+    lazy var agenda: Agenda = fetchData(fromFileNamed: "AgendaData")
     lazy var speakers: [Speaker] = fetchData(fromFileNamed: "SpeakerData")
     lazy var teamMembers: [TeamMember] = fetchData(fromFileNamed: "TeamData")
     lazy var sessions: [Session] = fetchData(fromFileNamed: "SessionData")
@@ -41,14 +30,13 @@ class AppDataController {
 
 private extension AppDataController {
 
-    func fetchData<T>(fromFileNamed name: String) -> [T] where T: Decodable {
+    func fetchData<T: Decodable>(fromFileNamed name: String) -> T {
         let data = loadJSONDataFromFile(named: name)
 
         do {
-            return try JSONDecoder().decode([T].self, from: data)
+            return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            print(error)
-            return []
+            fatalError("Failed to decode local file that should have been well-formed: \(error)")
         }
     }
 

@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 @testable import SwiftFest
 
 enum Result<Value, Error> {
@@ -7,50 +7,63 @@ enum Result<Value, Error> {
     case failure(Error)
 }
 
-
 class SwiftFestAPIClient {
     
-    struct APIError: Error {}
+    struct APIError: Error {
+        let underlying: Error?
+    }
     
-    private let session = URLSession(configuration: .default)
+    private let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        config.urlCache = nil
+        return URLSession(configuration: config)
+    }()
+
     let baseUrl: String
     
     init(baseUrl: String = "http://swiftfest.io") {
         self.baseUrl = baseUrl
     }
 
-    func fetchAgenda(using completionHandler: @escaping (Result<Agenda, APIError>) -> Void ) {
-        let dataTask = session.dataTask(with: URL(string: "\(baseUrl)/schedule.json")!) { data, _, _ in
-
-            let agenda = try? JSONDecoder().decode(Agenda.self, from: data!)
-            completionHandler(.success(value: agenda ?? Agenda(days: [])))
-            
-        }
-        dataTask.resume()
+    func fetchAgenda(using completionHandler: @escaping (Result<Agenda, APIError>) -> Void) {
+        let url = URL(string: "\(baseUrl)/schedule.json")!
+        let fetchDataTask = dataTask(for: url, using: completionHandler)
+        fetchDataTask.resume()
     }
     
-    func fetchSessions(using completionHandler: @escaping (Result<[Session], APIError>) -> Void ) {
+    func fetchSessions(using completionHandler: @escaping (Result<[Session], APIError>) -> Void) {
         let url = URL(string: "\(baseUrl)/sessions.json")!
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
     
-    func fetchSpeakers(using completionHandler: @escaping (Result<[Speaker], APIError>) -> Void ) {
+    func fetchSpeakers(using completionHandler: @escaping (Result<[Speaker], APIError>) -> Void) {
+        let url = URL(string: "\(baseUrl)/speakers.json")!
+        let fetchDataTask = dataTask(for: url, using: completionHandler)
+        fetchDataTask.resume()
     }
     
-    func fetchTeam(using completionHandler: @escaping (Result<[TeamMember], APIError>) -> Void ) {
+    func fetchTeam(using completionHandler: @escaping (Result<[TeamMember], APIError>) -> Void) {
+        let url = URL(string: "\(baseUrl)/team.json")!
+        let fetchDataTask = dataTask(for: url, using: completionHandler)
+        fetchDataTask.resume()
     }
     
 }
 
 private extension SwiftFestAPIClient {
     func dataTask<DataType: Decodable>(for url: URL,
-                                       using completionHandler: @escaping (Result<[DataType], APIError>) -> Void ) -> URLSessionDataTask {
-        let dataTask = session.dataTask(with: url) { data, urlResponse, _ in
-            let sessions = try? JSONDecoder().decode([DataType].self, from: data!)
-            completionHandler(.success(value: sessions ?? []))
+                                       using completionHandler: @escaping (Result<DataType, APIError>) -> Void) -> URLSessionDataTask {
+        let dataTask = session.dataTask(with: url) { data, _, _ in
+            do {
+                let value = try JSONDecoder().decode(DataType.self, from: data!)
+                completionHandler(.success(value: value))
+            } catch {
+                completionHandler(.failure(APIError(underlying: error)))
+            }
         }
-        
+
         return dataTask
     }
 }
@@ -58,7 +71,7 @@ private extension SwiftFestAPIClient {
 class SwiftFestAPIClientTests: QuickSpec {
     override func spec() {
         
-        fdescribe("SwiftFestAPIClient") {
+        describe("SwiftFestAPIClient") {
             it("fetches the agenda from a server") {
                 
                 waitUntil { done in
@@ -135,7 +148,6 @@ class SwiftFestAPIClientTests: QuickSpec {
                 }
             }
 
-            
         }
     }
 }

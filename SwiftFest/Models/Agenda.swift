@@ -11,8 +11,11 @@ struct Agenda: Decodable {
     
     init(from decoder: Decoder) throws {
         var container = try! decoder.unkeyedContainer()
-        let days = try? container.decode([Day].self)
-        self.init(days: days ?? [])
+        var days: [Day] = []
+        while !container.isAtEnd {
+            days.append(try container.decode(Day.self))
+        }
+        self.init(days: days)
     }
     
     struct Day: Decodable {
