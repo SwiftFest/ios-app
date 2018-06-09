@@ -29,26 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D9B0E19207950B500FA7340"
-               BuildableName = "SwiftFestTests.xctest"
-               BlueprintName = "SwiftFestTests"
-               ReferencedContainer = "container:SwiftFest.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D9B0E24207950B600FA7340"
-               BuildableName = "SwiftFestUITests.xctest"
-               BlueprintName = "SwiftFestUITests"
-               ReferencedContainer = "container:SwiftFest.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
