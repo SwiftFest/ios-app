@@ -44,6 +44,8 @@ extension Result {
 
 class APIClient {
 
+    static let shared = APIClient()
+
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
