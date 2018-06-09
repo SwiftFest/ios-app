@@ -81,8 +81,9 @@ extension AgendaViewController {
         
         let agenda: Agenda
         let sessions: [Session]
-        weak var viewController: AgendaViewController?
         let speakersById: [Identifier<Speaker>: Speaker]
+
+        weak var viewController: AgendaViewController?
 
         init(agenda: Agenda,
              sessions: [Session],
