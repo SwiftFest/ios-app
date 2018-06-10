@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.7.2)
+  - AlamofireImage (3.3.1):
+    - Alamofire (~> 4.5)
   - BonMot (5.2)
   - Down (0.5.2)
   - Nimble (7.0.2)
@@ -10,6 +13,7 @@ PODS:
   - SwiftLint (0.25.0)
 
 DEPENDENCIES:
+  - AlamofireImage
   - BonMot
   - Down
   - Nimble
@@ -22,6 +26,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
     - BonMot
     - Down
     - Nimble
@@ -33,6 +39,8 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   BonMot: 68da0bd7c2f602aca85511bedabd211eb0fae666
   Down: 587371ad58002b06023d9c602519216862c3acbc
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
@@ -43,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: 8506ea2ab08fcd4ecd3f3c888ce2b478ea30fe4b
+PODFILE CHECKSUM: 3eac9de1323ac5621566a3dbfa7b6492943996fc
 
 COCOAPODS: 1.5.0
