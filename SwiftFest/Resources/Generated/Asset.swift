@@ -77,6 +77,7 @@ internal enum Asset {
     internal static let alexBush = ImageAsset(name: "AlexBush")
     internal static let alexanderLash = ImageAsset(name: "AlexanderLash")
     internal static let alexandreaMellen = ImageAsset(name: "AlexandreaMellen")
+    internal static let aliciaCarr = ImageAsset(name: "AliciaCarr")
     internal static let andresPineda = ImageAsset(name: "AndresPineda")
     internal static let andyyHope = ImageAsset(name: "AndyyHope")
     internal static let ariRoshko = ImageAsset(name: "AriRoshko")
@@ -84,7 +85,6 @@ internal enum Asset {
     internal static let ayalSpitz = ImageAsset(name: "AyalSpitz")
     internal static let barbaraMenicucci = ImageAsset(name: "BarbaraMenicucci")
     internal static let barbaraVanaki = ImageAsset(name: "BarbaraVanaki")
-    internal static let basBroek = ImageAsset(name: "BasBroek")
     internal static let bradSmith = ImageAsset(name: "BradSmith")
     internal static let bryanRyczek = ImageAsset(name: "BryanRyczek")
     internal static let chrisBuonocore = ImageAsset(name: "ChrisBuonocore")
@@ -96,6 +96,7 @@ internal enum Asset {
     internal static let garricNahapetian = ImageAsset(name: "GarricNahapetian")
     internal static let giorgioNatili = ImageAsset(name: "GiorgioNatili")
     internal static let glenYi = ImageAsset(name: "GlenYi")
+    internal static let hariGanesan = ImageAsset(name: "HariGanesan")
     internal static let harlanHaskins = ImageAsset(name: "HarlanHaskins")
     internal static let hungTruong = ImageAsset(name: "HungTruong")
     internal static let ishShabazz = ImageAsset(name: "IshShabazz")
@@ -169,6 +170,7 @@ internal enum Asset {
     Speakers.alexBush,
     Speakers.alexanderLash,
     Speakers.alexandreaMellen,
+    Speakers.aliciaCarr,
     Speakers.andresPineda,
     Speakers.andyyHope,
     Speakers.ariRoshko,
@@ -176,7 +178,6 @@ internal enum Asset {
     Speakers.ayalSpitz,
     Speakers.barbaraMenicucci,
     Speakers.barbaraVanaki,
-    Speakers.basBroek,
     Speakers.bradSmith,
     Speakers.bryanRyczek,
     Speakers.chrisBuonocore,
@@ -188,6 +189,7 @@ internal enum Asset {
     Speakers.garricNahapetian,
     Speakers.giorgioNatili,
     Speakers.glenYi,
+    Speakers.hariGanesan,
     Speakers.harlanHaskins,
     Speakers.hungTruong,
     Speakers.ishShabazz,
