@@ -3,7 +3,15 @@ import Quick
 @testable import SwiftFest
 
 class SwiftFestAPIClientTests: QuickSpec {
+
     override func spec() {
+
+        let apiClient: APIClient = {
+            let config = URLSessionConfiguration.default
+            config.requestCachePolicy = .reloadIgnoringLocalCacheData
+            config.urlCache = nil
+            return APIClient(configuration: config)
+        }()
         
         describe("SwiftFestAPIClient") {
             it("fetches the agenda from a server") {

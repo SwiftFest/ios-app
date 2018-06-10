@@ -46,18 +46,13 @@ class APIClient {
 
     static let shared = APIClient()
 
-    private let session: URLSession = {
-        // TODO: only disable caching in testing
-        let config = URLSessionConfiguration.default
-        config.requestCachePolicy = .reloadIgnoringLocalCacheData
-        config.urlCache = nil
-        return URLSession(configuration: config)
-    }()
+    private let session: URLSession
 
-    let baseUrl: String
+    private let baseUrl: String
 
-    init(baseUrl: String = "http://swiftfest.io") {
+    init(baseUrl: String = "http://swiftfest.io", configuration: URLSessionConfiguration = .default) {
         self.baseUrl = baseUrl
+        self.session = URLSession(configuration: configuration)
     }
 
     func fetchAgenda(using completionHandler: @escaping (Result<Agenda>) -> Void) {
