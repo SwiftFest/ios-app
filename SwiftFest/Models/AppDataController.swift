@@ -80,8 +80,18 @@ class AppDataController {
             self.speakers = speakers
             self.teamMembers = teamMembers
 
+            NotificationCenter.default.post(name: Notifications.dataDidUpdate, object: nil)
+
             completionHandler(success)
         }
+    }
+
+}
+
+extension AppDataController {
+
+    enum Notifications {
+        static let dataDidUpdate = NSNotification.Name("io.swiftfest.dataDidUpdate")
     }
 
 }
