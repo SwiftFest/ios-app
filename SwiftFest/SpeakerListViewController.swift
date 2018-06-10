@@ -89,7 +89,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tertiaryTextLabel.text = ""
         
         let imageName = speakers[indexPath.row].thumbnailUrl
-        cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
+        cell.multiImageView.setImageNames([imageName], completionHandler: nil)
 
         cell.selectionStyle = .none
 

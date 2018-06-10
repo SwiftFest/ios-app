@@ -38,7 +38,7 @@
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
 		9D2E513A20797D5A002F9E42 /* DSLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E513920797D5A002F9E42 /* DSLExtensions.swift */; };
-		9D3EA5C520CC6F3500808F2F /* SwiftFestAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C420CC6F3500808F2F /* SwiftFestAPIClientTests.swift */; };
+		9D3EA5C520CC6F3500808F2F /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */; };
 		9D3EA5C720CC7DD900808F2F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C620CC7DD900808F2F /* main.swift */; };
 		9D3EA5C920CC7EED00808F2F /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */; };
 		9D477689209E427F001801BE /* AgendaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D477688209E427F001801BE /* AgendaData.json */; };
@@ -121,7 +121,7 @@
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
 		9D2E513920797D5A002F9E42 /* DSLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLExtensions.swift; path = "Testing Extensions/DSLExtensions.swift"; sourceTree = SOURCE_ROOT; };
-		9D3EA5C420CC6F3500808F2F /* SwiftFestAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFestAPIClientTests.swift; sourceTree = "<group>"; };
+		9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		9D3EA5C620CC7DD900808F2F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		9D9B0E1D207950B500FA7340 /* SwiftFestTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D3EA5C420CC6F3500808F2F /* SwiftFestAPIClientTests.swift */,
+				9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */,
 				9D9B0E1E207950B500FA7340 /* AgendaTableViewManagerSpec.swift */,
 				7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */,
 				9D9B0E20207950B500FA7340 /* Info.plist */,
@@ -750,7 +750,7 @@
 				9D3EA5C920CC7EED00808F2F /* TestAppDelegate.swift in Sources */,
 				7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
-				9D3EA5C520CC6F3500808F2F /* SwiftFestAPIClientTests.swift in Sources */,
+				9D3EA5C520CC6F3500808F2F /* APIClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

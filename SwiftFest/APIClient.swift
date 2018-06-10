@@ -6,10 +6,11 @@
 //  Copyright © 2018 Sean Olszewski. All rights reserved.
 //
 
+import AlamofireImage
 import Foundation
 
 enum Result<Value> {
-    case success(value: Value)
+    case success(Value)
     case failure(Error)
 }
 
@@ -48,9 +49,9 @@ class APIClient {
 
     private let session: URLSession
 
-    private let baseUrl: String
+    private let baseUrl: URL
 
-    init(baseUrl: String = "http://swiftfest.io", configuration: URLSessionConfiguration = .default) {
+    init(baseUrl: URL = URL(string: "http://swiftfest.io")!, configuration: URLSessionConfiguration = .default) {
         self.baseUrl = baseUrl
         self.session = URLSession(configuration: configuration)
     }
@@ -79,6 +80,16 @@ class APIClient {
         fetchDataTask.resume()
     }
 
+    func loadPersonImage(named name: String, into imageView: UIImageView, completionHandler: ((Result<Void>) -> Void)?) {
+        let imageUrl = baseUrl.appendingPathComponent("img/people/\(name)")
+        imageView.af_setImage(withURL: imageUrl) { response in
+            switch response.result {
+            case .success: completionHandler?(.success(()))
+            case .failure(let error): completionHandler?(.failure(error))
+            }
+        }
+    }
+
 }
 
 private extension APIClient {
@@ -87,7 +98,7 @@ private extension APIClient {
         let dataTask = session.dataTask(with: url) { data, _, _ in
             do {
                 let value = try JSONDecoder.default.decode(DataType.self, from: data!)
-                completionHandler(.success(value: value))
+                completionHandler(.success(value))
             } catch {
                 completionHandler(.failure(error))
             }

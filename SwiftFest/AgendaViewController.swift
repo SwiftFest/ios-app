@@ -189,7 +189,7 @@ private extension AgendaViewController.TableViewManager {
 
         let speakerIds = session.speakers
         let imagesNames = speakerIds.compactMap { speakersById[$0]?.thumbnailUrl }
-        cell.multiImageView.images = imagesNames.compactMap(UIImage.init(named:))
+        cell.multiImageView.setImageNames(imagesNames, completionHandler: nil)
 
         cell.selectionStyle = .none
 

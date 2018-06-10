@@ -2,7 +2,7 @@ import Nimble
 import Quick
 @testable import SwiftFest
 
-class SwiftFestAPIClientTests: QuickSpec {
+class APIClientTests: QuickSpec {
 
     override func spec() {
 
@@ -18,7 +18,6 @@ class SwiftFestAPIClientTests: QuickSpec {
                 
                 waitUntil { done in
                     
-                    let apiClient = APIClient()
                     apiClient.fetchAgenda { result in
                         
                         defer { done() }
@@ -36,7 +35,6 @@ class SwiftFestAPIClientTests: QuickSpec {
                 
                 waitUntil { done in
                     
-                    let apiClient = APIClient()
                     apiClient.fetchSpeakers { result in
                         
                         defer { done() }
@@ -55,7 +53,6 @@ class SwiftFestAPIClientTests: QuickSpec {
                 
                 waitUntil { done in
                     
-                    let apiClient = APIClient()
                     apiClient.fetchSessions { result in
                         
                         defer { done() }
@@ -74,7 +71,6 @@ class SwiftFestAPIClientTests: QuickSpec {
                 
                 waitUntil { done in
                     
-                    let apiClient = APIClient()
                     apiClient.fetchTeam { result in
                         
                         defer { done() }
@@ -87,6 +83,32 @@ class SwiftFestAPIClientTests: QuickSpec {
                         expect(teamMembers.count).to(beGreaterThanOrEqualTo(20))
                         expect(teamMembers.first?.firstName).to(equal("Giorgio"))
                     }
+                }
+            }
+
+            it("fetches an image for a person and loads it into an image view") {
+                waitUntil(timeout: 3) { done in
+                    let imageView = UIImageView()
+                    apiClient.loadPersonImage(named: "SusanBennett.jpg", into: imageView) { result in
+                        defer { done() }
+                        expect(result.isSuccess).to(beTrue())
+                        expect(imageView.image).toNot(beNil())
+                    }
+                }
+            }
+
+            it("fetches multiple images for a person and loads them into a multi-image view") {
+                waitUntil(timeout: 3) { done in
+                    let imageView = MultiImageView()
+                    imageView.setImageNames([Asset.Speakers.ishShabazz.name, Asset.Speakers.susanBennett.name], completionHandler: { success in
+                        defer { done() }
+
+                        expect(success).to(beTrue())
+                        
+                        expect(imageView.imageViews).to(haveCount(2))
+                        expect(imageView.imageViews.first?.image).toNot(beNil())
+                        expect(imageView.imageViews.last?.image).toNot(beNil())
+                    })
                 }
             }
 
