@@ -9,6 +9,7 @@ target 'SwiftFest' do
   pod 'SnapKit'
   pod 'Pastel'
   pod 'Down'
+  pod 'AlamofireImage'
 
   pod 'SimulatorStatusMagic', :configurations => ['Debug']
 

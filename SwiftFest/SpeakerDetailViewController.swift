@@ -60,10 +60,7 @@ class SpeakerDetailViewController: UIViewController, DismissModalProtocol {
             detailContainerView.addSubview(speakerDetailView)
             speakerDetailView.delegate = self
             speakerDetailView.snp.makeConstraints { (make) -> Void in
-                make.top.equalTo(detailContainerView).offset(0)
-                make.left.equalTo(detailContainerView).offset(0)
-                make.right.equalTo(detailContainerView).offset(0)
-                make.bottom.equalTo(detailContainerView).offset(-12)
+                make.edges.equalTo(detailContainerView)
             }
             speakerDetailView.uiSetup()
             speakerDetailView.socialMediaLinkHandler = { [unowned self] in

@@ -41,7 +41,11 @@ class SpeakerDetailView: UIView {
         self.autoresizesSubviews = false
         self.clipsToBounds = true
         if let speaker = viewModel {
-            speakerImageView.image = UIImage(named: speaker.thumbnailUrl)
+            let image = UIImage(named: speaker.thumbnailUrl)
+            speakerImageView.image = image
+            if image == nil {
+                APIClient.shared.loadPersonImage(named: speaker.thumbnailUrl, into: speakerImageView, completionHandler: nil)
+            }
             speakerNameLabel.text = speaker.name
             
             let textStyle = StringStyle(

@@ -45,12 +45,12 @@ class AppDataControllerSpec: QuickSpec {
                                                                             minute: 0)))
                     
                     let firstTimeslot = agenda.days.first?.timeslots.first
-                    let tenAM = DateComponents(calendar: .current, hour: 10)
-                    let elevenAM = DateComponents(calendar: .current, hour: 11)
+                    let startTime = DateComponents(calendar: .current, hour: 9, minute: 45)
+                    let endTime = DateComponents(calendar: .current, hour: 10, minute: 0)
                     
-                    expect(firstTimeslot?.startTime).to(equal(tenAM))
-                    expect(firstTimeslot?.endTime).to(equal(elevenAM))
-                    expect(firstTimeslot?.sessionIds).to(equal(["001"]))
+                    expect(firstTimeslot?.startTime).to(equal(startTime))
+                    expect(firstTimeslot?.endTime).to(equal(endTime))
+                    expect(firstTimeslot?.sessionIds).to(equal(["888"]))
                 }
             }
         }

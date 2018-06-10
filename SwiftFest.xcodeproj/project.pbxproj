@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		3DAFBC549BE61AF4515FD037 /* Pods_SwiftFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EC3B5382CAE039CBC11039 /* Pods_SwiftFest.framework */; };
 		57A959FB86958C328DB7703C /* Pods_SwiftFestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A83AB8837D577B067E17AE /* Pods_SwiftFestUITests.framework */; };
+		7A35F22320CCA64E008165F0 /* Codable+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A35F22220CCA64E008165F0 /* Codable+Utilities.swift */; };
 		7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */; };
 		7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */; };
+		7AA423B620CC95CE003B17F3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA423B520CC95CE003B17F3 /* APIClient.swift */; };
 		7AAB8CE420C4924700C44ADC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAB8CE320C4924700C44ADC /* GradientView.swift */; };
 		7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */; };
 		7ADF868D20C45A6400223A4C /* MultiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF868C20C45A6400223A4C /* MultiImageView.swift */; };
@@ -36,6 +38,9 @@
 		93E2F5B3208E8A39004FE8E0 /* SpeakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */; };
 		93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */; };
 		9D2E513A20797D5A002F9E42 /* DSLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2E513920797D5A002F9E42 /* DSLExtensions.swift */; };
+		9D3EA5C520CC6F3500808F2F /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */; };
+		9D3EA5C720CC7DD900808F2F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C620CC7DD900808F2F /* main.swift */; };
+		9D3EA5C920CC7EED00808F2F /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */; };
 		9D477689209E427F001801BE /* AgendaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D477688209E427F001801BE /* AgendaData.json */; };
 		9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */; };
 		9D47768D209E73F2001801BE /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768C209E73F2001801BE /* Agenda.swift */; };
@@ -84,8 +89,10 @@
 /* Begin PBXFileReference section */
 		052B74156E1C703FE28462F5 /* Pods-SwiftFestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7A35F22220CCA64E008165F0 /* Codable+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Utilities.swift"; sourceTree = "<group>"; };
 		7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
 		7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtilitiesSpec.swift; sourceTree = "<group>"; };
+		7AA423B520CC95CE003B17F3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7AAB8CE320C4924700C44ADC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		7AAFEB9420BC81F900520521 /* UIImage+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utilities.swift"; sourceTree = "<group>"; };
 		7ADF868C20C45A6400223A4C /* MultiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageView.swift; sourceTree = "<group>"; };
@@ -114,6 +121,9 @@
 		93E2F5B2208E8A39004FE8E0 /* SpeakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailViewController.swift; sourceTree = "<group>"; };
 		93E2F5B5208E8AED004FE8E0 /* SpeakerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerData.swift; sourceTree = "<group>"; };
 		9D2E513920797D5A002F9E42 /* DSLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLExtensions.swift; path = "Testing Extensions/DSLExtensions.swift"; sourceTree = SOURCE_ROOT; };
+		9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		9D3EA5C620CC7DD900808F2F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
 		9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataControllerSpec.swift; sourceTree = "<group>"; };
 		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
@@ -214,6 +224,7 @@
 				7ADF869020C4635F00223A4C /* CircleView.swift */,
 				7A5F780320C47C3A00480B1A /* UIColor+Utilities.swift */,
 				7AAB8CE320C4924700C44ADC /* GradientView.swift */,
+				7A35F22220CCA64E008165F0 /* Codable+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 		9D9B0E08207950B500FA7340 /* SwiftFest */ = {
 			isa = PBXGroup;
 			children = (
+				9D3EA5C620CC7DD900808F2F /* main.swift */,
 				7AAFEB9320BC81E700520521 /* Utilities */,
 				9DDFBAF520BB98F600756323 /* RibbonTableViewCell.swift */,
 				9DDFBAF620BB98F600756323 /* RibbonTableViewCell.xib */,
@@ -285,6 +297,7 @@
 				93B4D1B220B0A6DB00A6C1B5 /* InfoViewController.swift */,
 				CDA35886207D08BC00F8B68C /* Resources */,
 				7ADF868C20C45A6400223A4C /* MultiImageView.swift */,
+				7AA423B520CC95CE003B17F3 /* APIClient.swift */,
 			);
 			path = SwiftFest;
 			sourceTree = "<group>";
@@ -292,10 +305,12 @@
 		9D9B0E1D207950B500FA7340 /* SwiftFestTests */ = {
 			isa = PBXGroup;
 			children = (
+				9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */,
 				9D9B0E1E207950B500FA7340 /* AgendaTableViewManagerSpec.swift */,
 				7A5F780520C47E8C00480B1A /* ColorUtilitiesSpec.swift */,
 				9D9B0E20207950B500FA7340 /* Info.plist */,
 				9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */,
+				9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */,
 			);
 			path = SwiftFestTests;
 			sourceTree = "<group>";
@@ -452,7 +467,7 @@
 					};
 					9D9B0E19207950B500FA7340 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 9D9B0E05207950B500FA7340;
 					};
 					9D9B0E24207950B600FA7340 = {
@@ -532,6 +547,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
 				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
@@ -540,6 +557,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
@@ -697,6 +716,7 @@
 				7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */,
 				7ADF868F20C45C1100223A4C /* UIStackView+Utilities.swift in Sources */,
 				9DD2786C209D4CE600804A03 /* SessionResults.swift in Sources */,
+				9D3EA5C720CC7DD900808F2F /* main.swift in Sources */,
 				93E2F5B6208E8AED004FE8E0 /* SpeakerData.swift in Sources */,
 				9D9B0E0C207950B500FA7340 /* AgendaViewController.swift in Sources */,
 				7AAFEB9520BC81F900520521 /* UIImage+Utilities.swift in Sources */,
@@ -706,11 +726,13 @@
 				7ADF869320C4699F00223A4C /* Identifier.swift in Sources */,
 				9DDFBAF720BB98F600756323 /* RibbonTableViewCell.swift in Sources */,
 				7A5F780420C47C3A00480B1A /* UIColor+Utilities.swift in Sources */,
+				7A35F22320CCA64E008165F0 /* Codable+Utilities.swift in Sources */,
 				CDA3588E207D0B2400F8B68C /* Asset.swift in Sources */,
 				7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */,
 				93B4D1B320B0A6DB00A6C1B5 /* InfoViewController.swift in Sources */,
 				93B4D1B120B0A6A500A6C1B5 /* SponsorsViewController.swift in Sources */,
 				CDA35890207D0CEF00F8B68C /* Color.swift in Sources */,
+				7AA423B620CC95CE003B17F3 /* APIClient.swift in Sources */,
 				937FE61820AB3111005AC2E5 /* UIUtilities.swift in Sources */,
 				9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */,
 				9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */,
@@ -725,8 +747,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */,
+				9D3EA5C920CC7EED00808F2F /* TestAppDelegate.swift in Sources */,
 				7A5F780620C47E8C00480B1A /* ColorUtilitiesSpec.swift in Sources */,
 				9D9B0E1F207950B500FA7340 /* AgendaTableViewManagerSpec.swift in Sources */,
+				9D3EA5C520CC6F3500808F2F /* APIClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,12 +990,13 @@
 			baseConfigurationReference = 550A50C6129DBA1D92566DF4 /* Pods-SwiftFestTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 264373799U;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftFestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chefsky.SwiftFestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFest.app/SwiftFest";
@@ -983,12 +1008,13 @@
 			baseConfigurationReference = E8C6F2441DCD3A2E536AACA6 /* Pods-SwiftFestTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 264373799U;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftFestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chefsky.SwiftFestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFest.app/SwiftFest";

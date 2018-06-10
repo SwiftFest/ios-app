@@ -21,12 +21,15 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        speakers = AppDataController.shared.speakers
 
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
         
         speakerListTableView.register(UINib(nibName: "RibbonTableViewCell", bundle: nil), forCellReuseIdentifier: "SpeakerListTableViewCell")
+
+        NotificationCenter.default.addObserver(self, selector: #selector(newDataAvailable), name: AppDataController.Notifications.dataDidUpdate, object: nil)
+
+        updateData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,6 +40,28 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
     }
 
 }
+
+// MARK: - Notifications
+
+private extension SpeakerListViewController {
+
+    @objc func newDataAvailable(_ notification: Notification) {
+        updateData()
+    }
+
+}
+
+// MARK: - Private
+
+private extension SpeakerListViewController {
+
+    func updateData() {
+        speakers = AppDataController.shared.speakers
+    }
+
+}
+
+// MARK: - Table View Stuff
 
 extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,7 +89,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tertiaryTextLabel.text = ""
         
         let imageName = speakers[indexPath.row].thumbnailUrl
-        cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
+        cell.multiImageView.setImageNames([imageName], completionHandler: nil)
 
         cell.selectionStyle = .none
 

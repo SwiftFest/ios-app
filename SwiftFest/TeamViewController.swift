@@ -22,12 +22,14 @@ class TeamViewController: BaseViewController, UIViewControllerTransitioningDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        teamMembers = AppDataController.shared.teamMembers
-
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "RibbonTableViewCell", bundle: nil), forCellReuseIdentifier: "TeamMemberListTableViewCell")
+
+        NotificationCenter.default.addObserver(self, selector: #selector(newDataAvailable), name: AppDataController.Notifications.dataDidUpdate, object: nil)
+
+        updateData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,6 +40,28 @@ class TeamViewController: BaseViewController, UIViewControllerTransitioningDeleg
     }
 
 }
+
+// MARK: - Notifications
+
+private extension TeamViewController {
+
+    @objc func newDataAvailable(_ notification: Notification) {
+        updateData()
+    }
+
+}
+
+// MARK: - Private
+
+private extension TeamViewController {
+
+    func updateData() {
+        teamMembers = AppDataController.shared.teamMembers
+    }
+
+}
+
+// MARK: - Table View Stuff
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +91,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         cell.tertiaryTextLabel.text = ""
         
         let imageName = teamMember.thumbnailUrl
-        cell.multiImageView.images = [UIImage(named: imageName)].compactMap { $0 }
+        cell.multiImageView.setImageNames([imageName], completionHandler: nil)
 
         cell.selectionStyle = .none
 
