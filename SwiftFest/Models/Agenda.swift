@@ -10,7 +10,7 @@ struct Agenda: Decodable {
     }
     
     init(from decoder: Decoder) throws {
-        var container = try! decoder.unkeyedContainer()
+        var container = try decoder.unkeyedContainer()
         var days: [Day] = []
         while !container.isAtEnd {
             days.append(try container.decode(Day.self))
@@ -38,14 +38,9 @@ struct Agenda: Decodable {
         }
         
         init(from decoder: Decoder) throws {
-            // swiftlint:disable:next force_try
-            let container = try! decoder.container(keyedBy: CodingKeys.self)
-            // swiftlint:disable:next force_try
-            let dateString = try! container.decode(String.self, forKey: .date)
-            
-            let formatter = ISO8601DateFormatter()
-            formatter.timeZone = TimeZone(abbreviation: "EST")!
-            let date = formatter.date(from: dateString)!
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+
+            let date = try container.decode(Date.self, forKey: .date)
             
             let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour, .minute, .day, .month, .year)
             let dateComponents = Calendar.current.dateComponents(desiredComponents, from: date)
@@ -53,8 +48,7 @@ struct Agenda: Decodable {
             let tracks = try container.decode([Track].self, forKey: .tracks)
             self.init(date: dateComponents,
                       tracks: tracks,
-                      // swiftlint:disable:next force_try
-                      timeslots: try! container.decode([Timeslot].self, forKey: .timeslots))
+                      timeslots: try container.decode([Timeslot].self, forKey: .timeslots))
         }
     }
 
@@ -82,28 +76,18 @@ struct Agenda: Decodable {
         }
         
         init(from decoder: Decoder) throws {
-            // swiftlint:disable:next force_try
-            let container = try! decoder.container(keyedBy: CodingKeys.self)
+            let container = try decoder.container(keyedBy: CodingKeys.self)
             
-            let formatter = ISO8601DateFormatter()
-            formatter.timeZone = TimeZone(identifier: "EST")
+            let startTime = try container.decode(Date.self, forKey: .startTime)
+            let endTime = try container.decode(Date.self, forKey: .endTime)
             
-            // swiftlint:disable:next force_try
-            let startTimeString = try! container.decode(String.self, forKey: .startTime)
-            // swiftlint:disable:next force_try
-            let endTimeString = try! container.decode(String.self, forKey: .endTime)
+            let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour, .minute)
+            let startComponents = Calendar.current.dateComponents(desiredComponents, from: startTime)
+            let endComponents = Calendar.current.dateComponents(desiredComponents, from: endTime)
             
-            let startTimeDate = formatter.date(from: startTimeString)!
-            let endTimeDate = formatter.date(from: endTimeString)!
+            let sessionIds = try container.decode([Identifier<Session>].self, forKey: .sessionIds)
             
-            let desiredComponents = Set<Calendar.Component>(arrayLiteral: .calendar, .hour)
-            let startTime = Calendar.current.dateComponents(desiredComponents, from: startTimeDate)
-            let endTime = Calendar.current.dateComponents(desiredComponents, from: endTimeDate)
-            
-            // swiftlint:disable:next force_try
-            let sessionIds = try! container.decode([Identifier<Session>].self, forKey: .sessionIds)
-            
-            self.init(startTime: startTime, endTime: endTime, sessionIds: sessionIds)
+            self.init(startTime: startComponents, endTime: endComponents, sessionIds: sessionIds)
         }
     }
 }

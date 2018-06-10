@@ -47,6 +47,7 @@ class APIClient {
     static let shared = APIClient()
 
     private let session: URLSession = {
+        // TODO: only disable caching in testing
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData
         config.urlCache = nil
@@ -90,7 +91,7 @@ private extension APIClient {
                                        using completionHandler: @escaping (Result<DataType>) -> Void) -> URLSessionDataTask {
         let dataTask = session.dataTask(with: url) { data, _, _ in
             do {
-                let value = try JSONDecoder().decode(DataType.self, from: data!)
+                let value = try JSONDecoder.default.decode(DataType.self, from: data!)
                 completionHandler(.success(value: value))
             } catch {
                 completionHandler(.failure(error))

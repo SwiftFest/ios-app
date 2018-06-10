@@ -92,7 +92,7 @@ private extension AppDataController {
         let data = loadJSONDataFromFile(named: name)
 
         do {
-            return try JSONDecoder().decode(T.self, from: data)
+            return try JSONDecoder.default.decode(T.self, from: data)
         } catch {
             fatalError("Failed to decode local file that should have been well-formed: \(error)")
         }
