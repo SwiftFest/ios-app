@@ -131,14 +131,9 @@ private extension AgendaViewController.TableViewManager {
                                             count: currentDay.timeslots.count)
 
         for (index, timeslot) in currentDay.timeslots.enumerated() {
-            var sessionsForSection: [Session] = []
-            for sessionID in timeslot.sessionIds {
-                let session = sessions.filter { $0.id == sessionID && !$0.title.isEmpty }
-                if session.isEmpty == false {
-                    sessionsForSection.append(session[0])
-                }
+            sessionsBySection[index] = timeslot.sessionIds.compactMap { sessionID in
+                sessions.first { $0.id == sessionID && !$0.title.isEmpty }
             }
-            sessionsBySection[index] = sessionsForSection
         }
 
         return sessionsBySection
