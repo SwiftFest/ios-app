@@ -13,7 +13,7 @@ class APIClientTests: QuickSpec {
             return APIClient(configuration: config)
         }()
         
-        describe("SwiftFestAPIClient") {
+        describe("APIClient") {
             it("fetches the agenda from a server") {
                 
                 waitUntil { done in
@@ -31,6 +31,7 @@ class APIClientTests: QuickSpec {
                     }
                 }
             }
+            
             it("fetches the speakers from a server") {
                 
                 waitUntil { done in

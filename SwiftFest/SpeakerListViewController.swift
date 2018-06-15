@@ -78,7 +78,7 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
 
         let titleStyle = StringStyle(
             .font(UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))),
-            .color(Color.mediumGray.color),
+            .color(Color.black.color),
             .lineBreakMode(.byWordWrapping),
             .xmlRules([]) //Will force xml parsing and escaping
         )

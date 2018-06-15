@@ -84,7 +84,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         cell.secondaryTextLabel.text = teamMember.role
         
         cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
-        cell.secondaryTextLabel.textColor = Color.mediumGray.color
+        cell.secondaryTextLabel.textColor = Color.black.color
         cell.secondaryTextLabel.numberOfLines = 0
         cell.secondaryTextLabel.lineBreakMode = .byWordWrapping
 

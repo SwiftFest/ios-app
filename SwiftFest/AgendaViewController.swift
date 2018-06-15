@@ -153,17 +153,12 @@ private extension AgendaViewController.TableViewManager {
         return locations[indexPath.row]
     }
 
-    func secondaryText(for indexPath: IndexPath, using timeslot: Agenda.Timeslot) -> String {
+    func secondaryText(for indexPath: IndexPath, using speakerIds: [Identifier<Speaker>]) -> String {
 
-        let startTime = DateFormatter.localizedString(from: timeslot.startTime.date!,
-                                                      dateStyle: .none,
-                                                      timeStyle: .short)
-
-        let endTime = DateFormatter.localizedString(from: timeslot.endTime.date!,
-                                                    dateStyle: .none,
-                                                    timeStyle: .short)
-        let duration = "\(startTime) - \(endTime)"
-        return duration
+        return speakerIds.compactMap {
+            guard let speaker = speakersById[$0] else { return nil }
+                return "\(speaker.firstName) \((speakersById[$0]!.lastName))"
+            }.joined(separator: ", ")
     }
 
     func buildCell(for tableView: UITableView, at indexPath: IndexPath, using session: Session) -> UITableViewCell {
@@ -177,9 +172,9 @@ private extension AgendaViewController.TableViewManager {
 
         cell.mainTextLabel.attributedText = session.title.styled(with: titleStyle)
 
-        let timeslot = agenda.days[dayIndex].timeslots[indexPath.section]
-        cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: timeslot)
-        cell.secondaryTextLabel.textColor = Color.lightOrange.color
+        let speakerIds = session.speakers
+        cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: speakerIds)
+        cell.secondaryTextLabel.textColor = Color.black.color
         cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14))
 
         cell.tertiaryTextLabel.text = tertiaryText(for: indexPath, using: session)
@@ -188,7 +183,6 @@ private extension AgendaViewController.TableViewManager {
         cell.tertiaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
         cell.tertiaryTextLabel.textColor = Color.mediumGray.color
 
-        let speakerIds = session.speakers
         let imagesNames = speakerIds.compactMap { speakersById[$0]?.thumbnailUrl }
         cell.multiImageView.setImageNames(imagesNames, completionHandler: nil)
 
