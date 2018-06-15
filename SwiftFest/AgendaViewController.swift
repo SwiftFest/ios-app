@@ -52,20 +52,15 @@ class AgendaViewController: BaseViewController {
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
         agendaTableViewManager.viewController = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterForeground(_:)), name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !hasDoneInitialRefresh {
             hasDoneInitialRefresh = true
-            AppDataController.shared.refreshFromNetwork { success in
-                guard success else { return }
-                self.agendaTableViewManager.update(
-                    agenda: AppDataController.shared.agenda,
-                    sessions: AppDataController.shared.sessions,
-                    speakersById: AppDataController.shared.speakersById
-                )
-            }
+            refreshData()
         }
     }
     
@@ -85,6 +80,25 @@ class AgendaViewController: BaseViewController {
         
     }
     
+}
+
+private extension AgendaViewController {
+
+    @objc func appDidEnterForeground(_ notification: Notification) {
+        refreshData()
+    }
+
+    func refreshData() {
+        AppDataController.shared.refreshFromNetwork { success in
+            guard success else { return }
+            self.agendaTableViewManager.update(
+                agenda: AppDataController.shared.agenda,
+                sessions: AppDataController.shared.sessions,
+                speakersById: AppDataController.shared.speakersById
+            )
+        }
+    }
+
 }
 
 extension AgendaViewController {
