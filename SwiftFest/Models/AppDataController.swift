@@ -6,14 +6,14 @@ class AppDataController {
 
     private init() {}
 
-    lazy var agenda: Agenda = AppDataController.fetchData(fromFileNamed: "AgendaData")
-    lazy var sessions: [Session] = AppDataController.fetchData(fromFileNamed: "SessionData")
-    var speakers: [Speaker] = AppDataController.fetchData(fromFileNamed: "SpeakerData") {
+    lazy var agenda: Agenda = AppDataController.fetchData(fromFileNamed: "schedule")
+    lazy var sessions: [Session] = AppDataController.fetchData(fromFileNamed: "sessions")
+    var speakers: [Speaker] = AppDataController.fetchData(fromFileNamed: "speakers") {
         didSet {
             updateSpeakersById(with: speakers)
         }
     }
-    lazy var teamMembers: [TeamMember] = AppDataController.fetchData(fromFileNamed: "TeamData")
+    lazy var teamMembers: [TeamMember] = AppDataController.fetchData(fromFileNamed: "team")
 
     var speakersById: [Identifier<Speaker>: Speaker] = [:]
 

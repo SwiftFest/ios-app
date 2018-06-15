@@ -92,7 +92,6 @@ internal enum Asset {
     internal static let dakotaKim = ImageAsset(name: "DakotaKim")
     internal static let davidOhayon = ImageAsset(name: "DavidOhayon")
     internal static let davidOkun = ImageAsset(name: "DavidOkun")
-    internal static let ericaSadun = ImageAsset(name: "EricaSadun")
     internal static let garricNahapetian = ImageAsset(name: "GarricNahapetian")
     internal static let giorgioNatili = ImageAsset(name: "GiorgioNatili")
     internal static let glenYi = ImageAsset(name: "GlenYi")
@@ -185,7 +184,6 @@ internal enum Asset {
     Speakers.dakotaKim,
     Speakers.davidOhayon,
     Speakers.davidOkun,
-    Speakers.ericaSadun,
     Speakers.garricNahapetian,
     Speakers.giorgioNatili,
     Speakers.glenYi,
