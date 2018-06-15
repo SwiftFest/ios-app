@@ -154,11 +154,7 @@ private extension AgendaViewController.TableViewManager {
     }
 
     func secondaryText(for indexPath: IndexPath, using speakerIds: [Identifier<Speaker>]) -> String {
-
-        return speakerIds.compactMap {
-            guard let speaker = speakersById[$0] else { return nil }
-                return "\(speaker.firstName) \((speakersById[$0]!.lastName))"
-            }.joined(separator: ", ")
+        return speakerIds.compactMap { speakersById[$0]?.name }.joined(separator: ", ")
     }
 
     func buildCell(for tableView: UITableView, at indexPath: IndexPath, using session: Session) -> UITableViewCell {
