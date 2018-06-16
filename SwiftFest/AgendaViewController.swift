@@ -52,20 +52,15 @@ class AgendaViewController: BaseViewController {
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
         agendaTableViewManager.viewController = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterForeground(_:)), name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !hasDoneInitialRefresh {
             hasDoneInitialRefresh = true
-            AppDataController.shared.refreshFromNetwork { success in
-                guard success else { return }
-                self.agendaTableViewManager.update(
-                    agenda: AppDataController.shared.agenda,
-                    sessions: AppDataController.shared.sessions,
-                    speakersById: AppDataController.shared.speakersById
-                )
-            }
+            refreshData()
         }
     }
     
@@ -85,6 +80,25 @@ class AgendaViewController: BaseViewController {
         
     }
     
+}
+
+private extension AgendaViewController {
+
+    @objc func appDidEnterForeground(_ notification: Notification) {
+        refreshData()
+    }
+
+    func refreshData() {
+        AppDataController.shared.refreshFromNetwork { success in
+            guard success else { return }
+            self.agendaTableViewManager.update(
+                agenda: AppDataController.shared.agenda,
+                sessions: AppDataController.shared.sessions,
+                speakersById: AppDataController.shared.speakersById
+            )
+        }
+    }
+
 }
 
 extension AgendaViewController {
@@ -153,17 +167,8 @@ private extension AgendaViewController.TableViewManager {
         return locations[indexPath.row]
     }
 
-    func secondaryText(for indexPath: IndexPath, using timeslot: Agenda.Timeslot) -> String {
-
-        let startTime = DateFormatter.localizedString(from: timeslot.startTime.date!,
-                                                      dateStyle: .none,
-                                                      timeStyle: .short)
-
-        let endTime = DateFormatter.localizedString(from: timeslot.endTime.date!,
-                                                    dateStyle: .none,
-                                                    timeStyle: .short)
-        let duration = "\(startTime) - \(endTime)"
-        return duration
+    func secondaryText(for indexPath: IndexPath, using speakerIds: [Identifier<Speaker>]) -> String {
+        return speakerIds.compactMap { speakersById[$0]?.name }.joined(separator: ", ")
     }
 
     func buildCell(for tableView: UITableView, at indexPath: IndexPath, using session: Session) -> UITableViewCell {
@@ -177,9 +182,9 @@ private extension AgendaViewController.TableViewManager {
 
         cell.mainTextLabel.attributedText = session.title.styled(with: titleStyle)
 
-        let timeslot = agenda.days[dayIndex].timeslots[indexPath.section]
-        cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: timeslot)
-        cell.secondaryTextLabel.textColor = Color.lightOrange.color
+        let speakerIds = session.speakers
+        cell.secondaryTextLabel.text = secondaryText(for: indexPath, using: speakerIds)
+        cell.secondaryTextLabel.textColor = Color.black.color
         cell.secondaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 14))
 
         cell.tertiaryTextLabel.text = tertiaryText(for: indexPath, using: session)
@@ -188,7 +193,6 @@ private extension AgendaViewController.TableViewManager {
         cell.tertiaryTextLabel.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 12))
         cell.tertiaryTextLabel.textColor = Color.mediumGray.color
 
-        let speakerIds = session.speakers
         let imagesNames = speakerIds.compactMap { speakersById[$0]?.thumbnailUrl }
         cell.multiImageView.setImageNames(imagesNames, completionHandler: nil)
 

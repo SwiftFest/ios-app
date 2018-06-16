@@ -21,12 +21,12 @@
 		7ADF869320C4699F00223A4C /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ADF869220C4699F00223A4C /* Identifier.swift */; };
 		7AE5789920C3336E00ECACBA /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789820C3336E00ECACBA /* TeamViewController.swift */; };
 		7AE5789B20C333DF00ECACBA /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE5789A20C333DF00ECACBA /* TeamMember.swift */; };
-		7AE5789D20C333EA00ECACBA /* TeamData.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE5789C20C333E900ECACBA /* TeamData.json */; };
+		7AE5789D20C333EA00ECACBA /* team.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE5789C20C333E900ECACBA /* team.json */; };
 		7AFB322E20C48DD80001139B /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB322D20C48DD80001139B /* Screenshots.swift */; };
 		7AFB323820C48E070001139B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFB323720C48E070001139B /* SnapshotHelper.swift */; };
 		9314D51E209B742900BE0DAF /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9314D51D209B742900BE0DAF /* SessionDetailView.swift */; };
-		9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* SpeakerData.json */; };
-		9321F725209123A600FA4B8C /* SessionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* SessionData.json */; };
+		9321F720208FA3E100FA4B8C /* speakers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F71F208FA3E100FA4B8C /* speakers.json */; };
+		9321F725209123A600FA4B8C /* sessions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9321F724209123A600FA4B8C /* sessions.json */; };
 		9321F727209123EB00FA4B8C /* AppDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9321F726209123EB00FA4B8C /* AppDataController.swift */; };
 		9327C49D2093909D00C15AB7 /* SpeakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */; };
 		9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */; };
@@ -41,7 +41,7 @@
 		9D3EA5C520CC6F3500808F2F /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */; };
 		9D3EA5C720CC7DD900808F2F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C620CC7DD900808F2F /* main.swift */; };
 		9D3EA5C920CC7EED00808F2F /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */; };
-		9D477689209E427F001801BE /* AgendaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D477688209E427F001801BE /* AgendaData.json */; };
+		9D477689209E427F001801BE /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D477688209E427F001801BE /* schedule.json */; };
 		9D47768B209E43A2001801BE /* AppDataControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */; };
 		9D47768D209E73F2001801BE /* Agenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D47768C209E73F2001801BE /* Agenda.swift */; };
 		9D9B0E0A207950B500FA7340 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B0E09207950B500FA7340 /* AppDelegate.swift */; };
@@ -101,15 +101,15 @@
 		7ADF869220C4699F00223A4C /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		7AE5789820C3336E00ECACBA /* TeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		7AE5789A20C333DF00ECACBA /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
-		7AE5789C20C333E900ECACBA /* TeamData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TeamData.json; sourceTree = "<group>"; };
+		7AE5789C20C333E900ECACBA /* team.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = team.json; sourceTree = "<group>"; };
 		7AFB322B20C48DD70001139B /* Screenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFB322D20C48DD80001139B /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
 		7AFB322F20C48DD80001139B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AFB323720C48E070001139B /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest.release.xcconfig"; sourceTree = "<group>"; };
 		9314D51D209B742900BE0DAF /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
-		9321F71F208FA3E100FA4B8C /* SpeakerData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpeakerData.json; sourceTree = "<group>"; };
-		9321F724209123A600FA4B8C /* SessionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SessionData.json; sourceTree = "<group>"; };
+		9321F71F208FA3E100FA4B8C /* speakers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = speakers.json; sourceTree = "<group>"; };
+		9321F724209123A600FA4B8C /* sessions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sessions.json; sourceTree = "<group>"; };
 		9321F726209123EB00FA4B8C /* AppDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataController.swift; sourceTree = "<group>"; };
 		9327C49C2093909D00C15AB7 /* SpeakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerDetailView.swift; sourceTree = "<group>"; };
 		9327C49E209390B000C15AB7 /* SpeakerDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerDetailView.xib; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		9D3EA5C420CC6F3500808F2F /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		9D3EA5C620CC7DD900808F2F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9D3EA5C820CC7EED00808F2F /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
-		9D477688209E427F001801BE /* AgendaData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AgendaData.json; sourceTree = "<group>"; };
+		9D477688209E427F001801BE /* schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 		9D47768A209E43A2001801BE /* AppDataControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataControllerSpec.swift; sourceTree = "<group>"; };
 		9D47768C209E73F2001801BE /* Agenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda.swift; sourceTree = "<group>"; };
 		9D9B0E06207950B500FA7340 /* SwiftFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +154,7 @@
 		CDA3588B207D0B2400F8B68C /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		CDA3588C207D0B2400F8B68C /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		CDA3588F207D0CEF00F8B68C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CDE4A0B820D40CE800E0DD36 /* updateData.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = updateData.sh; sourceTree = "<group>"; };
 		DD58B43E3EB5ED4A13052AC2 /* Pods_SwiftFestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C6F2441DCD3A2E536AACA6 /* Pods-SwiftFestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,10 +243,11 @@
 		9321F721208FA3FF00FA4B8C /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
-				7AE5789C20C333E900ECACBA /* TeamData.json */,
-				9321F71F208FA3E100FA4B8C /* SpeakerData.json */,
-				9D477688209E427F001801BE /* AgendaData.json */,
-				9321F724209123A600FA4B8C /* SessionData.json */,
+				7AE5789C20C333E900ECACBA /* team.json */,
+				9321F71F208FA3E100FA4B8C /* speakers.json */,
+				9D477688209E427F001801BE /* schedule.json */,
+				9321F724209123A600FA4B8C /* sessions.json */,
+				CDE4A0B820D40CE800E0DD36 /* updateData.sh */,
 			);
 			path = StaticData;
 			sourceTree = "<group>";
@@ -510,15 +512,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AE5789D20C333EA00ECACBA /* TeamData.json in Resources */,
-				9D477689209E427F001801BE /* AgendaData.json in Resources */,
+				7AE5789D20C333EA00ECACBA /* team.json in Resources */,
+				9D477689209E427F001801BE /* schedule.json in Resources */,
 				9DDFBAF820BB98F600756323 /* RibbonTableViewCell.xib in Resources */,
 				9D9B0E14207950B500FA7340 /* LaunchScreen.storyboard in Resources */,
-				9321F725209123A600FA4B8C /* SessionData.json in Resources */,
+				9321F725209123A600FA4B8C /* sessions.json in Resources */,
 				CDA35888207D094900F8B68C /* Localizable.strings in Resources */,
 				9D9B0E11207950B500FA7340 /* Assets.xcassets in Resources */,
 				9D9B0E0F207950B500FA7340 /* Main.storyboard in Resources */,
-				9321F720208FA3E100FA4B8C /* SpeakerData.json in Resources */,
+				9321F720208FA3E100FA4B8C /* speakers.json in Resources */,
 				9327C49F209390B000C15AB7 /* SpeakerDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -951,13 +953,14 @@
 			baseConfigurationReference = AB038556180AAAD5FB577D1E /* Pods-SwiftFest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H2983HKDVJ;
+				DEVELOPMENT_TEAM = D34NY92TC4;
 				INFOPLIST_FILE = SwiftFest/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = chefsky.SwiftFest;
+				PRODUCT_BUNDLE_IDENTIFIER = io.swiftfest.swiftfest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -971,13 +974,14 @@
 			baseConfigurationReference = 88DF351FE5605E104871BC64 /* Pods-SwiftFest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H2983HKDVJ;
+				DEVELOPMENT_TEAM = D34NY92TC4;
 				INFOPLIST_FILE = SwiftFest/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = chefsky.SwiftFest;
+				PRODUCT_BUNDLE_IDENTIFIER = io.swiftfest.swiftfest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

@@ -43,6 +43,8 @@ extension Result {
 
 }
 
+struct UnknownError: Error {}
+
 class APIClient {
 
     static let shared = APIClient()
@@ -95,9 +97,13 @@ class APIClient {
 private extension APIClient {
     func dataTask<DataType: Decodable>(for url: URL,
                                        using completionHandler: @escaping (Result<DataType>) -> Void) -> URLSessionDataTask {
-        let dataTask = session.dataTask(with: url) { data, _, _ in
+        let dataTask = session.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                completionHandler(.failure(error ?? UnknownError()))
+                return
+            }
             do {
-                let value = try JSONDecoder.default.decode(DataType.self, from: data!)
+                let value = try JSONDecoder.default.decode(DataType.self, from: data)
                 completionHandler(.success(value))
             } catch {
                 completionHandler(.failure(error))

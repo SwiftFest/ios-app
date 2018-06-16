@@ -16,7 +16,7 @@ class JourneySpec: QuickSpec {
             they("can see the agenda for the conference") {
 
                 expect(app.staticTexts["Keynote: Accidentally Famous"].exists).to(beTrue())
-                expect(app.staticTexts["Back to Front to Left Wrist (2h)"].exists).to(beTrue())
+                expect(app.staticTexts["Patterns & Methodologies for Test Suite Design"].exists).to(beTrue())
                 expect(app.staticTexts["Lunch"].exists).to(beTrue())
             }
             
@@ -32,7 +32,7 @@ class JourneySpec: QuickSpec {
                 let agendaButton = tabBar.buttons.element(boundBy: 0)
                 let speakersListButton = tabBar.buttons.element(boundBy: 1)
 
-                expect(app.staticTexts["Back to Front to Left Wrist (2h)"].exists).to(beTrue())
+                expect(app.staticTexts["Patterns & Methodologies for Test Suite Design"].exists).to(beTrue())
 
                 speakersListButton.tap()
                 
