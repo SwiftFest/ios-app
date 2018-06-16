@@ -53,6 +53,7 @@ internal enum Asset {
     internal static let lightGray = ColorAsset(name: "LightGray")
     internal static let lightOrange = ColorAsset(name: "LightOrange")
     internal static let mediumGray = ColorAsset(name: "MediumGray")
+    internal static let tableViewSeparator = ColorAsset(name: "TableViewSeparator")
     internal static let white = ColorAsset(name: "White")
   }
   internal enum Icons {
@@ -149,6 +150,7 @@ internal enum Asset {
     Colors.lightGray,
     Colors.lightOrange,
     Colors.mediumGray,
+    Colors.tableViewSeparator,
     Colors.white,
   ]
   internal static let allImages: [ImageAsset] = [

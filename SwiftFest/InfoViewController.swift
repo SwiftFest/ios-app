@@ -30,20 +30,34 @@ class InfoViewController: BaseViewController {
         tableView.tableHeaderView = headerView
 
         // footer view
-        let footer = UILabel()
-        footer.numberOfLines = 0
+        let footerLabel = UILabel()
+        footerLabel.numberOfLines = 0
         let style = StringStyle(
             .alignment(.center),
             .font(.preferredFont(forTextStyle: .callout))
             )
 
-        let footerText = [
+        let lines = [
+            "\n".styled(with: style),
             "SwiftFest 2018".styled(with: style.byAdding(.color(Color.darkOrange.color), .emphasis(.bold))),
             "Proudly made in Boston".styled(with: style),
-        ].joined(separator: "\n")
-        footer.attributedText = footerText
-        footer.sizeToFit()
-        tableView.tableFooterView = footer
+        ]
+        let footerText = NSAttributedString.composed(of: lines, separator: "\n")
+        footerLabel.attributedText = footerText
+        footerLabel.sizeToFit()
+
+        let footerSeparator = UIView()
+        footerLabel.addSubview(footerSeparator)
+
+        footerSeparator.snp.makeConstraints { make in
+            make.height.equalTo(1 / UIScreen.main.scale)
+            make.top.equalTo(footerLabel.snp.top)
+            make.leading.equalTo(footerLabel.snp.leading).offset(tableView.separatorInset.left)
+            make.trailing.equalTo(footerLabel.snp.trailing)
+        }
+        footerSeparator.backgroundColor = Color.tableViewSeparator.color
+
+        tableView.tableFooterView = footerLabel
     }
 }
 
