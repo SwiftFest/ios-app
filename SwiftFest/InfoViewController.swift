@@ -5,9 +5,10 @@ import UIKit
 class InfoViewController: BaseViewController {
 
     private let items = [
-        Item(title: "Code of Conduct", url: URL(string: "http://swiftfest.io/code-of-conduct/")!),
-        Item(title: "Twitter", url: URL(string: "https://twitter.com/theswiftfest")!),
-        Item(title: "Website", url: URL(string: "http://swiftfest.io")!),
+        Item(title: "Code of Conduct", link: .web(URL(string: "http://swiftfest.io/code-of-conduct/")!)),
+        Item(title: "Twitter", link: .web(URL(string: "https://twitter.com/theswiftfest")!)),
+        Item(title: "Website", link: .web(URL(string: "http://swiftfest.io")!)),
+        Item(title: "Venue: Calderwood Pavilion", link: .map(URL(string: "https://maps.apple.com/?address=527%20Tremont%20St,%20Boston,%20MA%20%2002116,%20United%20States&auid=589327373447087292&ll=42.344498,-71.070983&lsp=9902&q=Calderwood%20Pavilion")!)),
     ]
     
     @IBOutlet weak var tableView: UITableView!
@@ -59,7 +60,14 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        present(browser(for: items[indexPath.row].url), animated: true, completion: nil)
+        let link = items[indexPath.row].link
+
+        switch link {
+        case .web(let url):
+            present(browser(for: url), animated: true, completion: nil)
+        case .map(let url):
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
 
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -67,9 +75,14 @@ extension InfoViewController: UITableViewDelegate, UITableViewDataSource {
 
 private extension InfoViewController {
 
+    enum Link {
+        case web(URL)
+        case map(URL)
+    }
+
     struct Item {
         let title: String
-        let url: URL
+        let link: Link
     }
 
     func browser(for url: URL) -> SFSafariViewController {
