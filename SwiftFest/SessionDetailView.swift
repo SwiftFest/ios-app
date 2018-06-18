@@ -24,7 +24,7 @@ class SessionDetailView: UIView {
 
         addSubview(textView)
         textView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalTo(readableContentGuide)
         }
     }
 
