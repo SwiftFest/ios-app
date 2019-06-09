@@ -1,1 +1,1 @@
-typealias Color = Asset.Colors
+typealias Color = Asset
