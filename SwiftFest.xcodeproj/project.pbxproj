@@ -548,7 +548,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
@@ -569,7 +569,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftFest/Pods-SwiftFest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		875E0A1E9C452772FDB93890 /* [CP] Check Pods Manifest.lock */ = {
@@ -596,7 +596,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -607,7 +607,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftFestUITests/Pods-SwiftFestUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AA8710C241105D24C67CCC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -680,7 +680,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -691,7 +691,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftFestTests/Pods-SwiftFestTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
