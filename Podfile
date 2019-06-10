@@ -13,16 +13,16 @@ target 'SwiftFest' do
 
   pod 'SimulatorStatusMagic', :configurations => ['Debug']
 
-  target 'SwiftFestTests' do
-    inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
-  end
+end
 
-  target 'SwiftFestUITests' do
-    inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
-   end
+target 'SwiftFestTests' do
+  inherit! :search_paths
+  pod 'Quick'
+  pod 'Nimble'
+end
 
+target 'SwiftFestUITests' do
+  inherit! :search_paths
+  pod 'Quick'
+  pod 'Nimble'
 end

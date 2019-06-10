@@ -1,11 +1,13 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/AlamofireImage" "${PODS_CONFIGURATION_BUILD_DIR}/BonMot" "${PODS_CONFIGURATION_BUILD_DIR}/Down" "${PODS_CONFIGURATION_BUILD_DIR}/Nimble" "${PODS_CONFIGURATION_BUILD_DIR}/Pastel" "${PODS_CONFIGURATION_BUILD_DIR}/Quick" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/AlamofireImage/AlamofireImage.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/BonMot/BonMot.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Down/Down.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Pastel/Pastel.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Quick/Quick.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "AlamofireImage" -framework "BonMot" -framework "Down" -framework "Nimble" -framework "Pastel" -framework "Quick" -framework "SnapKit" -framework "XCTest" -weak_framework "XCTest"
-OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Nimble" "${PODS_ROOT}/Headers/Public/Quick"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Nimble" "${PODS_CONFIGURATION_BUILD_DIR}/Quick"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.modulemap" -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Quick/Quick.modulemap"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Nimble" -l"Quick" -framework "XCTest" -weak_framework "XCTest"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Nimble/Nimble.modulemap" -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Quick/Quick.modulemap"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+SWIFT_INCLUDE_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Nimble" "${PODS_CONFIGURATION_BUILD_DIR}/Quick"
