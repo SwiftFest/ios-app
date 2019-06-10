@@ -1,0 +1,4 @@
+os: osx
+osx_image: xcode10.2
+language: swift
+script: xcodebuild clean build test -workspace SwiftFest.xcworkspace -scheme "SwiftFest" -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.2,name=iPhone XR"
