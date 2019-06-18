@@ -636,7 +636,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "if [ -z \"$CI\" ]; then\n   ${PODS_ROOT}/SwiftLint/swiftlint\nfi\n";
 		};
 		CDA35889207D09E500F8B68C /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
