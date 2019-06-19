@@ -45,7 +45,8 @@ class APIClientTests: QuickSpec {
                             return
                         }
                         
-                        expect(speakers.count).to(beGreaterThanOrEqualTo(20))
+                        // Number of speakers is 18 as of 6/9/19
+                        expect(speakers.count).to(beGreaterThanOrEqualTo(18))
                     }
                 }
             }
@@ -101,7 +102,7 @@ class APIClientTests: QuickSpec {
             it("fetches multiple images for a person and loads them into a multi-image view") {
                 waitUntil(timeout: 3) { done in
                     let imageView = MultiImageView()
-                    imageView.setImageNames([Asset.Speakers.ishShabazz.name, Asset.Speakers.susanBennett.name], completionHandler: { success in
+                    imageView.setImageNames([Asset.ishShabazz.name, Asset.susanBennett.name], completionHandler: { success in
                         defer { done() }
 
                         expect(success).to(beTrue())

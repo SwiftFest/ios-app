@@ -50,7 +50,7 @@ class SpeakerDetailView: UIView {
             
             let textStyle = StringStyle(
                 .font(.preferredFont(forTextStyle: .body)),
-                .color(Asset.Colors.black.color)
+                .color(Color.black.color)
             )
             
             let style = StringStyle(

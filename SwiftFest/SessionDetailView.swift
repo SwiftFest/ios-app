@@ -70,31 +70,37 @@ private extension SessionDetailView {
 
         let bold = StringStyle(.emphasis(.bold))
         let italic = StringStyle(.emphasis(.italic))
+        
+        let h1Style = StringStyle([
+            .font(.systemFont(ofSize: 36, weight: .bold)),
+            .adapt(.body),
+            ])
+        let bodyStyle = StringStyle([
+            .font(.preferredFont(forTextStyle: .body)),
+            ])
+        let h2Style = StringStyle([
+            .font(.systemFont(ofSize: 24, weight: .light)),
+            .paragraphSpacingAfter(0),
+            .adapt(.body),
+            ])
+        let labelStyle = StringStyle([
+            .font(.preferredFont(forTextStyle: .body)),
+            .emphasis(.bold),
+            ])
+        let valueStyle = StringStyle([
+            .font(.preferredFont(forTextStyle: .body)),
+            ])
 
         let style = StringStyle(
             .xmlRules([
-                .style("h1", baseStyle.byAdding([
-                    .font(.systemFont(ofSize: 36, weight: .bold)),
-                    .adapt(.body),
-                    ])),
-                .style("body", baseStyle.byAdding([
-                    .font(.preferredFont(forTextStyle: .body)),
-                    ])),
-                .style("h2", baseStyle.byAdding([
-                    .font(.systemFont(ofSize: 24, weight: .light)),
-                    .paragraphSpacingAfter(0),
-                    .adapt(.body),
-                    ])),
-                .style("label", baseStyle.byAdding([
-                    .font(.preferredFont(forTextStyle: .body)),
-                    .emphasis(.bold),
-                    ])),
-                .style("value", baseStyle.byAdding([
-                    .font(.preferredFont(forTextStyle: .body)),
-                    ])),
+                .style("h1", baseStyle.byAdding(stringStyle: h1Style)),
+                .style("body", baseStyle.byAdding(stringStyle: bodyStyle)),
+                .style("h2", baseStyle.byAdding(stringStyle: h2Style)),
+                .style("label", baseStyle.byAdding(stringStyle: labelStyle)),
+                .style("value", baseStyle.byAdding(stringStyle: valueStyle)),
                 .style("code", StringStyle(
-                    .color(Asset.Colors.codeForeground.color),
-                    .backgroundColor(Asset.Colors.codeBackground.color),
+                    .color(Color.codeForeground.color),
+                    .backgroundColor(Color.codeBackground.color),
                     .font(UIFont(name: "Menlo-Regular", size: UIFontMetrics.default.scaledValue(for: 17))!)
                     )),
                 .style("del", StringStyle(

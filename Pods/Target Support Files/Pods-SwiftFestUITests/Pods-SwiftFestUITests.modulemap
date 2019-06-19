@@ -1,4 +1,4 @@
-framework module Pods_SwiftFestUITests {
+module Pods_SwiftFestUITests {
   umbrella header "Pods-SwiftFestUITests-umbrella.h"
 
   export *

@@ -21,6 +21,7 @@ trailing_comma:
   mandatory_comma: true
 
 excluded:
+  - fastlane
   - Pods
   - SwiftFest/Resources/UIUtilities.swift
 
