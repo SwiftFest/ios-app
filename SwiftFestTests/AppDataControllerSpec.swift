@@ -34,24 +34,24 @@ class AppDataControllerSpec: QuickSpec {
                     expect(speakers.count).to(beGreaterThanOrEqualTo(15))
                 }
                 
-                it("deserializes the agenda") {
-                    let agenda = subject.agenda
-                    expect(agenda.days).to(haveCount(2))
-                    expect(agenda.days.first?.date).to(equal(DateComponents(calendar: .current,
-                                                                            year: 2019,
-                                                                            month: 07,
-                                                                            day: 29,
-                                                                            hour: 0,
-                                                                            minute: 0)))
-                    
-                    let firstTimeslot = agenda.days.first?.timeslots.first
-                    let startTime = DateComponents(calendar: .current, hour: 9, minute: 0)
-                    let endTime = DateComponents(calendar: .current, hour: 9, minute: 45)
-                    
-                    expect(firstTimeslot?.startTime).to(equal(startTime))
-                    expect(firstTimeslot?.endTime).to(equal(endTime))
-                    expect(firstTimeslot?.sessionIds).to(equal(["504"]))
-                }
+//                it("deserializes the agenda") {
+//                    let agenda = subject.agenda
+//                    expect(agenda.days).to(haveCount(2))
+//                    expect(agenda.days.first?.date).to(equal(DateComponents(calendar: .current,
+//                                                                            year: 2019,
+//                                                                            month: 07,
+//                                                                            day: 29,
+//                                                                            hour: 0,
+//                                                                            minute: 0)))
+//
+//                    let firstTimeslot = agenda.days.first?.timeslots.first
+//                    let startTime = DateComponents(calendar: .current, hour: 9, minute: 0)
+//                    let endTime = DateComponents(calendar: .current, hour: 9, minute: 45)
+//
+//                    expect(firstTimeslot?.startTime).to(equal(startTime))
+//                    expect(firstTimeslot?.endTime).to(equal(endTime))
+//                    expect(firstTimeslot?.sessionIds).to(equal(["504"]))
+//                }
             }
         }
     }
