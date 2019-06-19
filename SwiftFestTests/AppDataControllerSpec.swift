@@ -11,8 +11,8 @@ class AppDataControllerSpec: QuickSpec {
                 let sessionOne = subject.session(forSpeaker: "1")
                 let sessionTwo = subject.session(forSpeaker: "3")
                 
-                expect(sessionOne?.title).to(equal("Keynote: Accidentally Famous"))
-                expect(sessionTwo?.title).to(equal("Patterns &amp; Methodologies for Test Suite Design"))
+                expect(sessionOne?.title).to(equal("Keynote: TBA"))
+                expect(sessionTwo?.title).to(equal("Keynote: Programming with Purpose"))
             }
             
             it("can get a list of thumbnail urls indexed by session id") {
@@ -38,19 +38,19 @@ class AppDataControllerSpec: QuickSpec {
                     let agenda = subject.agenda
                     expect(agenda.days).to(haveCount(2))
                     expect(agenda.days.first?.date).to(equal(DateComponents(calendar: .current,
-                                                                            year: 2018,
-                                                                            month: 06,
-                                                                            day: 18,
+                                                                            year: 2019,
+                                                                            month: 07,
+                                                                            day: 29,
                                                                             hour: 0,
                                                                             minute: 0)))
                     
                     let firstTimeslot = agenda.days.first?.timeslots.first
-                    let startTime = DateComponents(calendar: .current, hour: 9, minute: 45)
-                    let endTime = DateComponents(calendar: .current, hour: 10, minute: 0)
+                    let startTime = DateComponents(calendar: .current, hour: 9, minute: 0)
+                    let endTime = DateComponents(calendar: .current, hour: 9, minute: 45)
                     
                     expect(firstTimeslot?.startTime).to(equal(startTime))
                     expect(firstTimeslot?.endTime).to(equal(endTime))
-                    expect(firstTimeslot?.sessionIds).to(equal(["888"]))
+                    expect(firstTimeslot?.sessionIds).to(equal(["504"]))
                 }
             }
         }
