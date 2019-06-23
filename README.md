@@ -1,5 +1,7 @@
-# SwiftFest 
-This is the repository for the official iOS app for SwiftFest. Given that SwiftFest is a community driven conference, we feel strongly that any application we build should be open sourced. To that end, anyone and everyone is encouraged to contribute to the app. 
+# SwiftFest
+[![Build Status](https://travis-ci.org/SwiftFest/ios-app.svg?branch=master)](https://travis-ci.org/SwiftFest/ios-app)
+
+This is the repository for the official iOS app for SwiftFest. Given that SwiftFest is a community driven conference, we feel strongly that any application we build should be open sourced. To that end, anyone and everyone is encouraged to contribute to the app.
 
 Should you have questions, you can reach us on the issue tracker here, or in the **#app** channel in our Slack.
 
@@ -14,4 +16,3 @@ When you have believe you finished your issue, make a pull request to our master
 
 ## Localization
 All dates/times should be localized according to the user's preferences. All times presented in the application should be presented in EST since the conference will be in Boston.
-
