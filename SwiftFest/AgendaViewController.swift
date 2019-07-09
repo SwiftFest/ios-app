@@ -34,10 +34,10 @@ class AgendaViewController: BaseViewController {
         )
         let normalAttributes = baseStyle.byAdding(
             .color(Color.white.color.withAlphaComponent(0.6))
-            ).attributes
+        ).attributes
         let selectedAttributes = baseStyle.byAdding(
             .color(Color.white.color)
-            ).attributes
+        ).attributes
         segmentedViewControl.setTitleTextAttributes(normalAttributes, for: .normal)
         segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: .selected)
         segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: .highlighted)
@@ -234,6 +234,14 @@ extension AgendaViewController.TableViewManager: UITableViewDataSource {
 
     }
 
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 16 }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "TableViewBackground")!
+        
+        return view
+    }
 }
 
 extension AgendaViewController.TableViewManager: UITableViewDelegate {
