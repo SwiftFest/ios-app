@@ -7,23 +7,21 @@ class AppDataControllerSpec: QuickSpec {
         let subject = AppDataController.shared
         describe("AppDataController") {
 
-            // FIXME: rewrite with a fixture?
-//            it("can get a session given a session id") {
-//                let sessionOne = subject.session(forSpeaker: "1")
-//                let sessionTwo = subject.session(forSpeaker: "3")
-//
-//                expect(sessionOne?.title).to(equal("Keynote: TBA"))
-//                expect(sessionTwo?.title).to(equal("Keynote: Programming with Purpose"))
-//            }
+            it("can get a session given a session id") {
+                let sessionOne = subject.session(forSpeaker: "1")
+                let sessionTwo = subject.session(forSpeaker: "3")
+
+                expect(sessionOne?.title).to(equal("Keynote: Clean Agile"))
+                expect(sessionTwo?.title).to(equal("Keynote: Programming with Purpose"))
+            }
             
-            // FIXME: rewrite with a fixture?
-//            it("can get a list of thumbnail urls indexed by session id") {
-//                let speakersById = subject.speakersById
-//                let speakerId: Identifier<Speaker> = "1"
-//
-//                expect(speakersById.count).to(beGreaterThanOrEqualTo(15))
-//                expect(speakersById.keys).to(contain(speakerId))
-//            }
+            it("can get a list of thumbnail urls indexed by session id") {
+                let speakersById = subject.speakersById
+                let speakerId: Identifier<Speaker> = "1"
+
+                expect(speakersById.count).to(beGreaterThanOrEqualTo(15))
+                expect(speakersById.keys).to(contain(speakerId))
+            }
             
             describe("JSON deserialization of the models") {
                 it("deserializes the sessions") {
@@ -36,6 +34,7 @@ class AppDataControllerSpec: QuickSpec {
                     expect(speakers.count).to(beGreaterThanOrEqualTo(15))
                 }
                 
+                // FIXME: CI's server is in a different timezone
 //                it("deserializes the agenda") {
 //                    let agenda = subject.agenda
 //                    expect(agenda.days).to(haveCount(2))

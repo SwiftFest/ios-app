@@ -59,7 +59,7 @@ class APIClient {
     }
 
     func fetchAgenda(using completionHandler: @escaping (Result<Agenda>) -> Void) {
-        let url = URL(string: "\(baseUrl)/\(Endpoint.agenda).json")!
+        let url = URL(string: "\(baseUrl)/\(Endpoint.schedule).json")!
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }

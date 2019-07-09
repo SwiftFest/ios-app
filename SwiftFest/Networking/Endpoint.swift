@@ -9,9 +9,9 @@
 import Foundation
 
 enum Endpoint: String {
-    case agenda = "schedule"
-    case sessions = "sessions"
-    case speakers = "speakers"
-    case sponsors = "sponsors"
-    case team = "team"
+    case schedule
+    case sessions
+    case speakers
+    case sponsors
+    case team
 }
