@@ -15,18 +15,18 @@ class APIClientTests: QuickSpec {
         
         describe("APIClient") {
             it("fetches the agenda from a server") {
-                
+
                 waitUntil { done in
-                    
+
                     apiClient.fetchAgenda { result in
-                        
+
                         defer { done() }
-                        
+
                         guard case let Result.success(agenda) = result else {
                             fail("expected an agenda to be fetched")
                             return
                         }
-                        
+
                         expect(agenda.days).to(haveCount(2))
                     }
                 }

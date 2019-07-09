@@ -59,25 +59,25 @@ class APIClient {
     }
 
     func fetchAgenda(using completionHandler: @escaping (Result<Agenda>) -> Void) {
-        let url = URL(string: "\(baseUrl)/schedule.json")!
+        let url = URL(string: "\(baseUrl)/\(Endpoint.schedule).json")!
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
 
     func fetchSessions(using completionHandler: @escaping (Result<[Session]>) -> Void) {
-        let url = URL(string: "\(baseUrl)/sessions.json")!
+        let url = URL(string: "\(baseUrl)/\(Endpoint.sessions).json")!
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
 
     func fetchSpeakers(using completionHandler: @escaping (Result<[Speaker]>) -> Void) {
-        let url = URL(string: "\(baseUrl)/speakers.json")!
+        let url = URL(string: "\(baseUrl)/\(Endpoint.speakers).json")!
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
 
     func fetchTeam(using completionHandler: @escaping (Result<[TeamMember]>) -> Void) {
-        let url = URL(string: "\(baseUrl)/team.json")!
+        let url = URL(string: "\(baseUrl)/\(Endpoint.team).json")!
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
@@ -98,12 +98,22 @@ private extension APIClient {
     func dataTask<DataType: Decodable>(for url: URL,
                                        using completionHandler: @escaping (Result<DataType>) -> Void) -> URLSessionDataTask {
         let dataTask = session.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                completionHandler(.failure(error ?? UnknownError()))
-                return
+            var responseData: Data
+            
+            if data == nil {
+                guard let cachedData = Cache().getFile(named: url.lastPathComponent) else {
+                    completionHandler(.failure(error ?? UnknownError()))
+                    return
+                }
+                
+                responseData = cachedData
+            } else {
+                responseData = data!
             }
+
             do {
-                let value = try JSONDecoder.default.decode(DataType.self, from: data)
+                let value = try JSONDecoder.default.decode(DataType.self, from: responseData)
+                Cache().save(response: responseData, to: url.lastPathComponent)
                 completionHandler(.success(value))
             } catch {
                 completionHandler(.failure(error))
