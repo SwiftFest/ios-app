@@ -24,6 +24,8 @@ class SpeakerListViewController: UIViewController, UIViewControllerTransitioning
 
         speakerListTableView.delegate = self
         speakerListTableView.dataSource = self
+        speakerListTableView.estimatedRowHeight = 90
+        speakerListTableView.rowHeight = UITableViewAutomaticDimension
         
         speakerListTableView.register(UINib(nibName: "RibbonTableViewCell", bundle: nil), forCellReuseIdentifier: "SpeakerListTableViewCell")
 
@@ -102,9 +104,5 @@ extension SpeakerListViewController: UITableViewDelegate, UITableViewDataSource 
         selectedSpeaker = speakers[indexPath.row]
         self.performSegue(withIdentifier: "SpeakerDetailSegue", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
     }
 }
