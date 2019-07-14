@@ -97,6 +97,16 @@ class APIClient {
             }
         }
     }
+    
+    func loadSponsorImage(named name: String, into imageView: UIImageView, completionHandler: ((Result<Void>) -> Void)?) {
+        let imageUrl = baseUrl.appendingPathComponent("img/partners/\(name)")
+        imageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(named: name)) { response in
+            switch response.result {
+            case .success: completionHandler?(.success(()))
+            case .failure(let error): completionHandler?(.failure(error))
+            }
+        }
+    }
 
 }
 
