@@ -75,6 +75,12 @@ class APIClient {
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
+    
+    func fetchSponsors(using completionHandler: @escaping (Result<[SponsorResults]>) -> Void) {
+        let url = URL(string: "\(baseUrl)/\(Endpoint.sponsors).json")!
+        let fetchDataTask = dataTask(for: url, using: completionHandler)
+        fetchDataTask.resume()
+    }
 
     func fetchTeam(using completionHandler: @escaping (Result<[TeamMember]>) -> Void) {
         let url = URL(string: "\(baseUrl)/\(Endpoint.team).json")!

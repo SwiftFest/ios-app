@@ -13,6 +13,7 @@ class AppDataController {
             updateSpeakersById(with: speakers)
         }
     }
+    lazy var sponsors: [SponsorResults]? = []
     lazy var teamMembers: [TeamMember] = AppDataController.fetchData(fromFileNamed: "team")
 
     var speakersById: [Identifier<Speaker>: Speaker] = [:]
@@ -35,6 +36,7 @@ class AppDataController {
         var sessions: [Session]?
         var speakers: [Speaker]?
         var teamMembers: [TeamMember]?
+        var sponsors: [SponsorResults]?
 
         let group = DispatchGroup()
         var success = true
@@ -58,6 +60,14 @@ class AppDataController {
             success = success && speakersResult.isSuccess
             group.leave()
         }
+        
+        group.enter()
+        APIClient.shared.fetchSponsors { sponsorResult in
+
+            sponsors = sponsorResult.value
+            success = success && sponsorResult.isSuccess
+            group.leave()
+        }
 
         group.enter()
         APIClient.shared.fetchTeam { teamResult in
@@ -71,6 +81,7 @@ class AppDataController {
                 let agenda = agenda,
                 let sessions = sessions,
                 let speakers = speakers,
+                let sponsors = sponsors,
                 let teamMembers = teamMembers else {
                     completionHandler(false)
                     return
@@ -78,6 +89,7 @@ class AppDataController {
             self.agenda = agenda
             self.sessions = sessions
             self.speakers = speakers
+            self.sponsors = sponsors
             self.teamMembers = teamMembers
 
             NotificationCenter.default.post(name: Notifications.dataDidUpdate, object: nil)
