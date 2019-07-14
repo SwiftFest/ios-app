@@ -13,6 +13,7 @@ class SponsorsViewController: BaseViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SponsorLogoTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "logoCell")
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = .none
 
         NotificationCenter.default.addObserver(self, selector: #selector(newDataAvailable), name: AppDataController.Notifications.dataDidUpdate, object: nil)
         
