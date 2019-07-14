@@ -48,22 +48,7 @@ class SpeakerDetailView: UIView {
             }
             speakerNameLabel.text = speaker.name
             
-            let textStyle = StringStyle(
-                .font(.preferredFont(forTextStyle: .body)),
-                .color(Color.black.color)
-            )
-            
-            let style = StringStyle(
-                .xmlRules([
-                    .style("a", textStyle),
-                    .style("body", textStyle),
-                ])
-            )
-            let down = Down(markdownString: speaker.bio ?? "No information provided.")
-            let parsedMarkdown = try? down.toHTML(.smart)
-            let bio = parsedMarkdown?.styled(with: style)
-            
-            speakerBioLabel.attributedText = bio
+            generateBio(for: speaker)
 
             speakerTitleLabel.text = speaker.role
             speakerTitleLabel.numberOfLines = 0
@@ -72,6 +57,28 @@ class SpeakerDetailView: UIView {
         }
 
         gradientView.colors = UIUtilities.gradientColors
+    }
+    
+    func generateBio(for speaker: SpeakerDetailViewModel) {
+        let textStyle = StringStyle(
+            .font(.preferredFont(forTextStyle: .body)),
+            .color(Color.black.color),
+            .paragraphSpacingAfter(8)
+        )
+        
+        let style = textStyle.byAdding(
+            .xmlRules([
+                .style("a", textStyle),
+                .style("body", textStyle),
+            ])
+        )
+
+        let down = Down(markdownString: speaker.bio ?? "No information provided.")
+        let parsedMarkdown = try? down.toHTML(.smart)
+        let bio = parsedMarkdown?.styled(with: style)
+        
+        speakerBioLabel.attributedText = bio
+        speakerBioLabel.adjustsFontForContentSizeCategory = true
     }
     
     func generateSocialButtons(for viewModel: SpeakerDetailViewModel) {
@@ -100,5 +107,11 @@ class SpeakerDetailView: UIView {
     func socialMediaButtonPressed(sender: UIButton) {
         guard let social = viewModel?.social[sender.tag] else { return }
         socialMediaLinkHandler?(social)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        viewModel.map(generateBio(for:))
     }
 }
