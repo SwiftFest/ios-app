@@ -39,7 +39,7 @@ class InfoViewController: BaseViewController {
 
         let lines = [
             "\n".styled(with: style),
-            "SwiftFest 2018".styled(with: style.byAdding(.color(Color.darkOrange.color), .emphasis(.bold))),
+            "SwiftFest 2019".styled(with: style.byAdding(.color(Color.darkOrange.color), .emphasis(.bold))),
             "Proudly made in Boston".styled(with: style),
         ]
         let footerText = NSAttributedString.composed(of: lines, separator: "\n")
