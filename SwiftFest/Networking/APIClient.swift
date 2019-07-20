@@ -75,6 +75,12 @@ class APIClient {
         let fetchDataTask = dataTask(for: url, using: completionHandler)
         fetchDataTask.resume()
     }
+    
+    func fetchSponsors(using completionHandler: @escaping (Result<[SponsorResults]>) -> Void) {
+        let url = URL(string: "\(baseUrl)/\(Endpoint.sponsors).json")!
+        let fetchDataTask = dataTask(for: url, using: completionHandler)
+        fetchDataTask.resume()
+    }
 
     func fetchTeam(using completionHandler: @escaping (Result<[TeamMember]>) -> Void) {
         let url = URL(string: "\(baseUrl)/\(Endpoint.team).json")!
@@ -84,6 +90,16 @@ class APIClient {
 
     func loadPersonImage(named name: String, into imageView: UIImageView, completionHandler: ((Result<Void>) -> Void)?) {
         let imageUrl = baseUrl.appendingPathComponent("img/people/\(name)")
+        imageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(named: name)) { response in
+            switch response.result {
+            case .success: completionHandler?(.success(()))
+            case .failure(let error): completionHandler?(.failure(error))
+            }
+        }
+    }
+    
+    func loadSponsorImage(named name: String, into imageView: UIImageView, completionHandler: ((Result<Void>) -> Void)?) {
+        let imageUrl = baseUrl.appendingPathComponent("img/partners/\(name)")
         imageView.af_setImage(withURL: imageUrl, placeholderImage: UIImage(named: name)) { response in
             switch response.result {
             case .success: completionHandler?(.success(()))
