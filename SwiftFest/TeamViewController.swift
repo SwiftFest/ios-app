@@ -24,6 +24,9 @@ class TeamViewController: BaseViewController, UIViewControllerTransitioningDeleg
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         
         tableView.register(UINib(nibName: "RibbonTableViewCell", bundle: nil), forCellReuseIdentifier: "TeamMemberListTableViewCell")
 
@@ -105,14 +108,12 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: "TeamMemberDetail", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 16 }
 }
 
 private extension TeamViewController {

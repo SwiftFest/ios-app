@@ -30,14 +30,14 @@ class AgendaViewController: BaseViewController {
         segmentedViewControl.tintColor = UIColor.clear
 
         let baseStyle = StringStyle(
-            .font(.boldSystemFont(ofSize: 17))
+            .font(.preferredFont(forTextStyle: .headline))
         )
         let normalAttributes = baseStyle.byAdding(
             .color(Color.white.color.withAlphaComponent(0.6))
-            ).attributes
+        ).attributes
         let selectedAttributes = baseStyle.byAdding(
             .color(Color.white.color)
-            ).attributes
+        ).attributes
         segmentedViewControl.setTitleTextAttributes(normalAttributes, for: .normal)
         segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: .selected)
         segmentedViewControl.setTitleTextAttributes(selectedAttributes, for: .highlighted)
@@ -51,6 +51,7 @@ class AgendaViewController: BaseViewController {
         agendaTableView.register(UINib(nibName: "\(RibbonTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "SessionCell")
         agendaTableView.dataSource = agendaTableViewManager
         agendaTableView.delegate = agendaTableViewManager
+        agendaTableView.sectionHeaderHeight = UITableViewAutomaticDimension
         agendaTableViewManager.viewController = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterForeground(_:)), name: .UIApplicationDidBecomeActive, object: nil)
@@ -162,7 +163,7 @@ private extension AgendaViewController.TableViewManager {
             "Virginia Wimberly Theater",
             "Nancy and Edward Roberts Studio Theater",
             "Carol Dean Theatre",
-            ]
+        ]
 
         return locations[indexPath.row]
     }
@@ -234,6 +235,14 @@ extension AgendaViewController.TableViewManager: UITableViewDataSource {
 
     }
 
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 16 }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "TableViewBackground")!
+        
+        return view
+    }
 }
 
 extension AgendaViewController.TableViewManager: UITableViewDelegate {

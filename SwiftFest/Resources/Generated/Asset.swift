@@ -26,6 +26,7 @@ internal enum Asset {
   internal static let lightGray = ColorAsset(name: "LightGray")
   internal static let lightOrange = ColorAsset(name: "LightOrange")
   internal static let mediumGray = ColorAsset(name: "MediumGray")
+  internal static let tableViewBackground = ColorAsset(name: "TableViewBackground")
   internal static let tableViewSeparator = ColorAsset(name: "TableViewSeparator")
   internal static let white = ColorAsset(name: "White")
   internal static let agendaSelected = ImageAsset(name: "agenda selected")
