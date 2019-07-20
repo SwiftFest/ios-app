@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UIBarButtonItem.appearance().tintColor = Color.white.color
         UITabBar.appearance().isTranslucent = false
+        
+        application.enableAdaptiveContentSizeMonitor()
 
         #if DEBUG
         if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") {
