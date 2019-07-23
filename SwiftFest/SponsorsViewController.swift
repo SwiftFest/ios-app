@@ -37,7 +37,7 @@ private extension SponsorsViewController {
     func updateData() {
         guard let results = AppDataController.shared.sponsors else { return }
         
-        sponsors = results.flatMap { $0.elements }.sorted { $0.name < $1.name }
+        sponsors = results.flatMap { $0.elements }.shuffled()
         tableView.reloadData()
     }
     
